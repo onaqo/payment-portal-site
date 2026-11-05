@@ -6,8 +6,6 @@
 <script src="./support.js"></script>
 </head>
 <body>
-<form name="book-a-demo" data-netlify="true" netlify-honeypot="bot-field" hidden><input name="name"><input name="email"><input name="company"><input name="website"><input name="type"><input name="interest"><input name="volume"><input name="markets"><input name="message"><input name="consent"><input name="bot-field"></form>
-<form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden><input name="name"><input name="email"><input name="company"><input name="website"><input name="type"><input name="interest"><input name="volume"><input name="markets"><input name="message"><input name="consent"><input name="bot-field"></form>
 <x-dc>
 <helmet>
 <title>Book a Demo — White-Label Gateway & Payment Orchestration | The Payment Portal</title>
@@ -49,14 +47,13 @@ a{color:#57DCE5;text-decoration:none}a:hover{color:#BAEF74}input,button,select,t
       <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
         <div style="animation:tppFade .4s">
           <div style="width:52px;height:52px;border-radius:50%;background:rgba(186,239,116,.12);border:1px solid rgba(186,239,116,.5);display:flex;align-items:center;justify-content:center;color:#BAEF74;font-size:22px;font-weight:800">✓</div>
-          <h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:24px;margin:18px 0 8px">Request captured locally</h2>
-          <p style="color:#AEB9CC;line-height:1.55;margin:0 0 18px;font-size:15px">Your input validated, but this form is not yet connected to a CRM. Integration point: <code style="font-family:'JetBrains Mono',monospace;color:#57DCE5">POST /api/leads</code> with the payload below — map it to HubSpot, Salesforce or your CRM of choice.</p>
-          <pre style="margin:0;background:#0B1324;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:16px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#D6DEEA;overflow-x:auto;line-height:1.6">{{ payload }}</pre>
+          <h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:24px;margin:18px 0 8px">Thanks — we've got it.</h2>
+          <p style="color:#AEB9CC;line-height:1.55;margin:0;font-size:15px">We'll reply to <strong style="color:#F7F9FC">{{ form.email }}</strong> within two working days. A copy of your request is on its way to your inbox.</p>
           <button onClick="{{ reset }}" style="margin-top:18px;background:none;border:1px solid rgba(255,255,255,.2);color:#F7F9FC;padding:11px 18px;border-radius:999px;font-weight:600;min-height:44px">Submit another</button>
         </div>
       </sc-if>
       <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
-        <form onSubmit="{{ submit }}" noValidate style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+        <form onSubmit="{{ submit }}" noValidate style="position:relative;display:grid;grid-template-columns:1fr 1fr;gap:14px"><input name="hp" value="{{ form.hp }}" onChange="{{ onField }}" tabIndex="-1" autoComplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
           <div style="grid-column:1 / -1;display:flex;gap:6px;background:rgba(255,255,255,.04);padding:4px;border-radius:12px;margin-bottom:4px">
             <sc-for list="{{ kinds }}" as="k" hint-placeholder-count="2"><button type="button" onClick="{{ k.pick }}" aria-pressed="{{ k.active }}" style="flex:1;background:{{ k.bg }};color:{{ k.color }};border:0;padding:10px;border-radius:9px;font-weight:700;font-size:14px;min-height:44px">{{ k.label }}</button></sc-for>
           </div>
@@ -71,8 +68,8 @@ a{color:#57DCE5;text-decoration:none}a:hover{color:#BAEF74}input,button,select,t
           <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;grid-column:1 / -1">{{ messageLabel }}<textarea name="message" value="{{ form.message }}" onChange="{{ onField }}" rows="4" style="background:rgba(9,14,27,.6);border:1px solid {{ b.message }};color:#F7F9FC;padding:13px 14px;border-radius:12px;resize:vertical;outline:none" style-focus="border-color:#57DCE5"></textarea><span style="color:#F58B7A;font-size:12px;font-weight:500">{{ errors.message }}</span></label>
           <label style="grid-column:1 / -1;display:flex;gap:10px;align-items:flex-start;font-size:13px;color:#AEB9CC;line-height:1.5"><input type="checkbox" name="consent" checked="{{ form.consent }}" onChange="{{ onCheck }}" style="margin-top:3px;width:18px;height:18px;accent-color:#57DCE5"><span>I agree to the <a href="/#legal">Privacy Policy</a> and to being contacted about this request.<span style="display:block;color:#F58B7A;font-size:12px;font-weight:500">{{ errors.consent }}</span></span></label>
           <div style="grid-column:1 / -1;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;margin-top:4px">
-            <span style="font-size:12.5px;color:#6F7D93">Not connected to a CRM yet — submissions are validated and shown as a payload for integration.</span>
-            <button type="submit" style="background:#57DCE5;color:#090E1B;border:0;font-weight:700;padding:15px 26px;border-radius:999px;font-size:16px;min-height:44px;transition:background .2s" style-hover="background:#BAEF74">{{ submitLabel }}</button>
+            <span role="status" style="font-size:12.5px;line-height:1.5;max-width:340px;color:{{ noteColor }}">{{ note }}</span>
+            <button type="submit" disabled="{{ sending }}" style="background:#57DCE5;color:#090E1B;border:0;font-weight:700;padding:15px 26px;border-radius:999px;font-size:16px;min-height:44px;transition:background .2s;opacity:{{ btnOpacity }}" style-hover="background:#BAEF74">{{ btnLabel }}</button>
           </div>
         </form>
       </sc-if>
@@ -94,7 +91,7 @@ a{color:#57DCE5;text-decoration:none}a:hover{color:#BAEF74}input,button,select,t
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  state = { isMobile: false, kind: 'demo', form: { name: '', email: '', company: '', website: '', type: '', interest: '', volume: '', markets: '', message: '', consent: false }, errors: {}, sent: false };
+  state = { isMobile: false, kind: 'demo', form: { name: '', email: '', company: '', website: '', type: '', interest: '', volume: '', markets: '', message: '', consent: false, hp: '' }, errors: {}, sent: false, sending: false, sendError: '' };
   componentDidMount() { this.onResize = () => this.setState({ isMobile: window.innerWidth < 960 }); this.onResize(); window.addEventListener('resize', this.onResize); if (location.hash === '#contact') this.setState({ kind: 'contact' }); }
   componentWillUnmount() { window.removeEventListener('resize', this.onResize); }
   renderVals() {
@@ -110,10 +107,11 @@ class Component extends DCLogic {
       submitLabel: demo ? 'Request a demo' : 'Send enquiry',
       onField: ev => set({ form: { ...f, [ev.target.name]: ev.target.value }, errors: { ...e, [ev.target.name]: undefined } }),
       onCheck: ev => set({ form: { ...f, consent: ev.target.checked }, errors: { ...e, consent: undefined } }),
-      submit: ev => { ev.preventDefault(); const er = validate(); if (Object.keys(er).length) { set({ errors: er }); return; } fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams({ 'form-name': demo ? 'book-a-demo' : 'contact', ...Object.fromEntries(Object.entries(f).map(([k, v]) => [k, String(v)])) }).toString() }).catch(() => {}); set({ sent: true, errors: {} }); },
+      submit: ev => { ev.preventDefault(); const er = validate(); if (Object.keys(er).length) { set({ errors: er }); return; } if (s.sending) return; set({ sending: true, sendError: '', errors: {} }); fetch('/api/contact', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ form: demo ? 'book-a-demo' : 'contact', ...f }) }).then(r => r.ok ? r.json() : r.json().catch(() => ({})).then(j => Promise.reject(j))).then(() => set({ sent: true, sending: false })).catch(j => set({ sending: false, sendError: (j && j.error) || 'We couldn\u2019t send that. Please try again in a moment.' })); },
+      sending: s.sending, btnOpacity: s.sending ? .6 : 1, btnLabel: s.sending ? 'Sending\u2026' : (demo ? 'Request a demo' : 'Send enquiry'), note: s.sendError || 'We reply within two working days.', noteColor: s.sendError ? '#F58B7A' : '#6F7D93',
       sent: s.sent, notSent: !s.sent,
       payload: JSON.stringify({ source: demo ? 'website/book-a-demo' : 'website/contact', submitted_at: new Date().toISOString().slice(0, 10), lead: f }, null, 2),
-      reset: () => set({ sent: false, form: { name: '', email: '', company: '', website: '', type: '', interest: '', volume: '', markets: '', message: '', consent: false } }),
+      reset: () => set({ sent: false, sendError: '', form: { name: '', email: '', company: '', website: '', type: '', interest: '', volume: '', markets: '', message: '', consent: false, hp: '' } }),
       contacts: [{ t: 'Sales', d: 'Licensing, merchant services and consulting enquiries.', v: 'sales@thepaymentportal.example', href: 'mailto:sales@thepaymentportal.example' }, { t: 'Partnerships', d: 'Referral, reseller and white-label partner program.', v: 'partners@thepaymentportal.example', href: 'mailto:partners@thepaymentportal.example' }, { t: 'Support', d: 'Existing tenants and merchants — use your portal\u2019s support channel first.', v: 'support@thepaymentportal.example', href: 'mailto:support@thepaymentportal.example' }, { t: 'Press & security', d: 'Media requests and responsible disclosure.', v: 'press@thepaymentportal.example', href: 'mailto:press@thepaymentportal.example' }],
     };
   }

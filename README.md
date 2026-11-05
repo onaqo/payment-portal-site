@@ -10,9 +10,16 @@ Then open http://localhost:3000. (Opening the files directly with file:// won't 
 
 ## Deploy
 - **Netlify:** Add new site → Import from Git → this repo. Build command: empty. Publish directory: `.`
-  Form submissions (Book a demo, Contact, homepage demo) appear under Site → Forms.
 - **Vercel:** Add New Project → import this repo → Framework preset "Other", no build command.
-  (Forms only submit on Netlify; on Vercel wire them to a form service.)
+
+## Forms (Resend)
+All three forms (homepage demo, Book a demo, Contact) POST to `/api/contact`, which emails
+your team via Resend and sends the visitor a confirmation. The same code runs on both hosts:
+`netlify/functions/contact.mjs` (Netlify) and `api/contact.js` (Vercel), sharing `lib/contact.mjs`.
+
+1. In Resend, add and verify your sending domain (Domains → Add domain → add the DNS records).
+2. Create an API key (API Keys → Create, "Sending access").
+3. In Netlify or Vercel, add the environment variables from `.env.example`, then redeploy.
 
 ## Still to fill in
 - Real domain: replace `thepaymentportal.example` (canonical tags and contact emails).
