@@ -1,0 +1,222 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>White-Label Payment Gateway vs Building Your Own | AQ Pay</title>
+<meta name="description" content="Should you license a white-label payment gateway or build your own PSP stack? The real work, costs, timelines and risks of each path — and how to decide.">
+<link rel="canonical" href="https://aqpay.services/blog/white-label-payment-gateway-vs-building-your-own">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#060A14">
+<meta property="og:site_name" content="AQ Pay">
+<meta property="og:type" content="article">
+<meta property="og:title" content="White-Label Payment Gateway vs Building Your Own | AQ Pay">
+<meta property="og:description" content="Should you license a white-label payment gateway or build your own PSP stack? The real work, costs, timelines and risks of each path — and how to decide.">
+<meta property="og:url" content="https://aqpay.services/blog/white-label-payment-gateway-vs-building-your-own">
+<meta property="og:image" content="https://aqpay.services/blog/covers/white-label-payment-gateway-vs-building-your-own.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="White-Label Payment Gateway vs Building Your Own | AQ Pay">
+<meta name="twitter:description" content="Should you license a white-label payment gateway or build your own PSP stack? The real work, costs, timelines and risks of each path — and how to decide.">
+<meta name="twitter:image" content="https://aqpay.services/blog/covers/white-label-payment-gateway-vs-building-your-own.jpg">
+<meta property="article:published_time" content="2026-11-05T00:00:00Z">
+<meta property="article:modified_time" content="2026-11-05T00:00:00Z">
+<meta property="article:section" content="Guides">
+<meta property="article:tag" content="build vs buy payment gateway">
+<meta property="article:tag" content="payment gateway software">
+<meta property="article:tag" content="white label PSP">
+<meta property="article:tag" content="start a payment service provider">
+<meta property="article:tag" content="payment facilitator platform">
+<link rel="icon" href="/aq-mark.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="AQ Pay Blog" href="https://aqpay.services/blog/rss.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/blog/blog.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"White-label payment gateway vs. building your own PSP stack","description":"Should you license a white-label payment gateway or build your own PSP stack? The real work, costs, timelines and risks of each path — and how to decide.","image":["https://aqpay.services/blog/covers/white-label-payment-gateway-vs-building-your-own.jpg"],"datePublished":"2026-11-05","dateModified":"2026-11-05","author":{"@type":"Organization","name":"AQ Pay Payments Team","url":"https://aqpay.services/about"},"publisher":{"@type":"Organization","@id":"https://aqpay.services/#organization","name":"AQ Pay","url":"https://aqpay.services","logo":{"@type":"ImageObject","url":"https://aqpay.services/og-image.jpg"},"email":"hello@aqpay.services"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://aqpay.services/blog/white-label-payment-gateway-vs-building-your-own"},"articleSection":"Guides","keywords":"white-label payment gateway, build vs buy payment gateway, payment gateway software, white label PSP, start a payment service provider, payment facilitator platform","wordCount":970,"inLanguage":"en"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://aqpay.services/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://aqpay.services/blog"},{"@type":"ListItem","position":3,"name":"Guides","item":"https://aqpay.services/blog/category/guides"},{"@type":"ListItem","position":4,"name":"White-label payment gateway vs. building your own PSP stack","item":"https://aqpay.services/blog/white-label-payment-gateway-vs-building-your-own"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a white-label payment gateway?","acceptedAnswer":{"@type":"Answer","text":"It is payment gateway software that you license and run under your own brand. The provider maintains the infrastructure — connectivity, routing, risk tools, reconciliation and dashboards — while you own the merchants, the pricing and the customer relationship."}},{"@type":"Question","name":"Can I start a PSP with a white-label gateway?","acceptedAnswer":{"@type":"Answer","text":"A white-label gateway gives you the technology. Becoming a PSP or payment facilitator also involves acquiring relationships, sponsor banks or licences depending on your country and model, and compliance obligations. The technology removes the biggest engineering barrier, not the regulatory ones."}},{"@type":"Question","name":"Will my merchants know I use a white-label provider?","acceptedAnswer":{"@type":"Answer","text":"Not unless you tell them. Checkout, dashboards, emails and domains carry your brand. With AQ Pay, the platform is invisible to your merchants by default."}},{"@type":"Question","name":"Can I move from white-label to my own stack later?","acceptedAnswer":{"@type":"Answer","text":"Yes, if you plan for it. Make sure your contract covers data and token export, and keep your acquiring relationships in your own name so they move with you."}}]}</script>
+</head>
+<body>
+<header class="hdr"><div class="wrap">
+  <a class="brand" href="/" aria-label="AQ Pay home"><img src="/aq-mark.svg" alt="" width="36" height="36">AQ Pay</a>
+  <nav class="nav" aria-label="Main">
+    <a href="/white-label-gateway">White-Label Gateway</a><a href="/payment-orchestration">Orchestration</a><a href="/merchant-services">Merchant Services</a><a href="/industries">Industries</a><a href="/developers">Developers</a><a href="/blog" aria-current="page">Blog</a>
+  </nav>
+  <div class="hdr-cta"><a class="login" href="https://demo.aqpay.services/">Login</a><a class="btn" href="/book-a-demo">Book a Demo</a>
+    <details class="menu"><summary aria-label="Open menu"><svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="#F4F7FC" stroke-width="2"><path d="M0 1h18M0 11h18"/></svg></summary>
+      <div class="panel"><a href="/white-label-gateway">White-Label Gateway</a><a href="/payment-orchestration">Payment Orchestration</a><a href="/merchant-services">Merchant Services</a><a href="/high-risk-processing">High-Risk Processing</a><a href="/industries">Industries</a><a href="/developers">Developers</a><a href="/blog">Blog</a><a href="https://demo.aqpay.services/">Login</a><a href="/book-a-demo" class="btn" style="justify-content:center">Book a Demo</a></div>
+    </details>
+  </div>
+</div></header>
+<main>
+<article>
+<div class="article-hero"><div class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/blog">Blog</a><span>/</span><a href="/blog/category/guides">Guides</a></nav>
+  <h1>White-label payment gateway vs. building your own PSP stack</h1>
+  <p class="lede">Should you license a white-label payment gateway or build your own PSP stack? The real work, costs, timelines and risks of each path — and how to decide.</p>
+  <div class="byline"><img src="/aq-mark.svg" alt="" width="28" height="28"><span>AQ Pay Payments Team</span><span>·</span><time datetime="2026-11-05">5 November 2026</time><span>·</span><span>4 min read</span></div>
+  <div class="cover"><img src="/blog/covers/white-label-payment-gateway-vs-building-your-own.jpg" alt="Stacked platform layers representing a white-label payment gateway" width="1200" height="630" fetchpriority="high"></div>
+</div></div>
+<div class="article"><div class="wrap"><div class="layout">
+  <div class="prose">
+    <aside class="takeaways"><h2>Key takeaways</h2><ul><li>A payment gateway is far more than an API: connectors, risk, reconciliation, merchant onboarding and dashboards are where most of the work lives.</li><li>Building gives maximum control but means owning PCI DSS scope, every provider integration and a permanent engineering team.</li><li>A white-label payment gateway lets a PSP, ISO or platform launch under its own brand in a fraction of the time, while keeping merchant relationships and pricing.</li><li>Decide on time-to-market, compliance appetite, differentiation and how much engineering you want to own for the next five years.</li></ul></aside>
+    <p>Every growing PSP, ISO and payments-led platform hits the same question: do we keep reselling someone else&#39;s gateway, build our own, or license a <strong>white-label payment gateway</strong> and run it under our brand?</p>
+<p>It looks like a classic build-vs-buy decision. It isn&#39;t quite, because what you&#39;re &quot;buying&quot; or &quot;building&quot; is much larger than most teams expect.</p>
+<h2 id="what-a-payment-gateway-actually-includes">What a payment gateway actually includes</h2>
+<p>The authorization API is the visible 10%. The rest is what keeps a payments business running:</p>
+<figure><svg viewBox="0 0 760 330" role="img" aria-label="Layers of a payment gateway: checkout and API on top, then routing and risk, connectors, merchant onboarding, and reconciliation and reporting at the base"><g font-family="Inter, sans-serif">
+<rect x="40" y="20" width="680" height="48" rx="12" fill="rgba(110,155,255,.18)" stroke="#6E9BFF" stroke-width="2"/><text x="60" y="50" fill="#F4F7FC" font-size="15" font-weight="700">Checkout, API &amp; SDKs</text><text x="700" y="50" fill="#AEB9CC" font-size="12.5" text-anchor="end">what merchants see</text>
+<rect x="40" y="80" width="680" height="48" rx="12" fill="#0F1729" stroke="rgba(255,255,255,.18)" stroke-width="2"/><text x="60" y="110" fill="#F4F7FC" font-size="15" font-weight="700">Routing, 3-D Secure &amp; risk screening</text>
+<rect x="40" y="140" width="680" height="48" rx="12" fill="#0F1729" stroke="rgba(255,255,255,.18)" stroke-width="2"/><text x="60" y="170" fill="#F4F7FC" font-size="15" font-weight="700">Provider &amp; acquirer connectors</text><text x="700" y="170" fill="#E6C27A" font-size="12.5" text-anchor="end">change every year</text>
+<rect x="40" y="200" width="680" height="48" rx="12" fill="#0F1729" stroke="rgba(255,255,255,.18)" stroke-width="2"/><text x="60" y="230" fill="#F4F7FC" font-size="15" font-weight="700">Merchant onboarding, KYB &amp; billing</text>
+<rect x="40" y="260" width="680" height="48" rx="12" fill="rgba(61,220,151,.12)" stroke="#3DDC97" stroke-width="2"/><text x="60" y="290" fill="#F4F7FC" font-size="15" font-weight="700">Reconciliation, settlement reporting &amp; disputes</text><text x="700" y="290" fill="#AEB9CC" font-size="12.5" text-anchor="end">what finance lives in</text>
+</g></svg><figcaption>The authorization API is the thin top layer; most of the build sits underneath it.</figcaption></figure>
+
+<ul>
+<li><strong>Connectors</strong> to acquirers, PSPs and alternative payment methods — each with its own API, certification process and quirks, and each changing over time.</li>
+<li><strong>Tokenization and a card vault</strong>, which brings PCI DSS scope with it.</li>
+<li><strong>Risk and fraud tooling:</strong> velocity rules, device signals, 3-D Secure flows and manual review queues.</li>
+<li><strong>Merchant management:</strong> onboarding, KYB document collection, configuration, pricing and fee schedules.</li>
+<li><strong>Operations:</strong> reconciliation against provider statements, payouts reporting, chargeback and dispute workflows.</li>
+<li><strong>Dashboards and roles</strong> for your team and for every merchant.</li>
+<li><strong>Uptime, monitoring and incident response</strong>, around the clock.</li>
+</ul>
+<h2 id="option-1-build-your-own">Option 1: Build your own</h2>
+<p><strong>Why teams build:</strong> full control of the roadmap, no licence fee, and the ability to differentiate deeply on technology.</p>
+<p><strong>What it really takes:</strong></p>
+<ul>
+<li>A dedicated engineering team for the life of the business — payments is never &quot;done&quot;.</li>
+<li>Owning <a href="https://www.pcisecuritystandards.org/" rel="noopener" target="_blank">PCI DSS</a> compliance for your card environment, including annual assessments.</li>
+<li>Building and maintaining every connector yourself, and recertifying when providers change.</li>
+<li>A long runway before the first merchant transacts, and a longer one before reporting and reconciliation are good enough for finance.</li>
+</ul>
+<p>Building makes sense when payments technology <em>is</em> your product&#39;s core differentiation, you have the capital and talent to sustain a platform team, and your timeline is measured in years, not quarters.</p>
+<h2 id="option-2-resell-someone-else39s-gateway">Option 2: Resell someone else&#39;s gateway</h2>
+<p>Reselling is the fastest start, but the brand, the merchant experience and often the relationship belong to the provider. Margins are thin and switching is painful. Many ISOs use it as a starting point and outgrow it.</p>
+<h2 id="option-3-license-a-white-label-payment-gateway">Option 3: License a white-label payment gateway</h2>
+<p>A white-label platform gives you the full stack above — already built and maintained — under <strong>your</strong> brand: your domain, your checkout, your merchant dashboards, your pricing.</p>
+<p><strong>You keep:</strong> the merchant relationship and contracts, pricing and margin, your acquiring relationships, and your brand.</p>
+<p><strong>The provider keeps:</strong> infrastructure, connectors, uptime, security controls and platform upgrades.</p>
+<p>That division is exactly how our <a href="/white-label-gateway">white-label payment gateway</a> works: AQ Pay is the engine underneath and stays invisible to your merchants.</p>
+<h2 id="side-by-side">Side by side</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Build</th>
+<th>Resell</th>
+<th>White-label</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Time to first merchant</td>
+<td>Longest</td>
+<td>Fastest</td>
+<td>Fast</td>
+</tr>
+<tr>
+<td>Your brand everywhere</td>
+<td>Yes</td>
+<td>No</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Own merchant relationship</td>
+<td>Yes</td>
+<td>Often not</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Engineering you must sustain</td>
+<td>Full platform team</td>
+<td>Minimal</td>
+<td>Integration and product only</td>
+</tr>
+<tr>
+<td>PCI DSS scope</td>
+<td>Full</td>
+<td>Low</td>
+<td>Reduced (depends on setup)</td>
+</tr>
+<tr>
+<td>Connector maintenance</td>
+<td>You</td>
+<td>Provider</td>
+<td>Provider</td>
+</tr>
+<tr>
+<td>Differentiation</td>
+<td>Deepest</td>
+<td>Lowest</td>
+<td>High — pricing, service, verticals</td>
+</tr>
+</tbody></table>
+<h2 id="what-a-white-label-launch-looks-like-in-practice">What a white-label launch looks like in practice</h2>
+<p>A white-label launch is a project, not a sign-up form. A typical sequence looks like this:</p>
+<ol>
+<li><strong>Scoping.</strong> Which merchant segments you&#39;ll serve, which countries, which payment methods and which acquirers or PSPs you already work with.</li>
+<li><strong>Commercials.</strong> Licence terms, who is responsible for what, and how data and tokens can be exported if you ever leave.</li>
+<li><strong>Branding and configuration.</strong> Your domain, checkout, dashboards, email templates and fee schedules.</li>
+<li><strong>Provider connections.</strong> Connecting your existing acquiring relationships and adding new ones where you need coverage.</li>
+<li><strong>Onboarding flow.</strong> The KYB data you collect, the documents you require and the approval steps for each merchant segment.</li>
+<li><strong>Pilot merchants.</strong> A small group of merchants live first, with close monitoring of approvals, support load and reconciliation.</li>
+<li><strong>Scale.</strong> Wider rollout once the operational data looks right.</li>
+</ol>
+<p>The timeline depends far more on your acquiring relationships and onboarding policies than on the technology itself.</p>
+<h2 id="hidden-costs-to-model-either-way">Hidden costs to model either way</h2>
+<p>Whichever path you choose, make sure your business case includes:</p>
+<ul>
+<li><strong>Connector upkeep.</strong> Provider APIs, certification requirements and security standards change; someone has to keep up.</li>
+<li><strong>Compliance.</strong> Assessments, policies, penetration tests and evidence for your partners&#39; audits.</li>
+<li><strong>Support.</strong> First-line merchant support, second-line technical support and incident communications.</li>
+<li><strong>Risk operations.</strong> Reviewing flagged transactions, handling disputes and monitoring merchants after onboarding.</li>
+<li><strong>Finance operations.</strong> Reconciliation, invoicing merchants and reporting to your acquirers.</li>
+</ul>
+<p>A white-label platform absorbs much of the engineering side of this list. The commercial, risk and support responsibilities stay with you — which is exactly where your differentiation lives.</p>
+<h2 id="how-to-decide">How to decide</h2>
+<p>Ask these five questions honestly:</p>
+<ol>
+<li><strong>Is payments technology our differentiation, or is it our distribution, service or vertical expertise?</strong> If it&#39;s the latter, building is mostly cost.</li>
+<li><strong>How soon do we need revenue?</strong> A long build delays every merchant you could have signed.</li>
+<li><strong>What compliance scope are we willing to own?</strong></li>
+<li><strong>Do we need many providers?</strong> If yes, the connector burden alone often decides it — see <a href="/blog/what-is-payment-orchestration">payment orchestration explained</a>.</li>
+<li><strong>What&#39;s our exit path?</strong> Whatever you choose, keep acquiring relationships in your name and secure data and token portability in contracts.</li>
+</ol>
+<blockquote>
+<p>A useful rule of thumb: build what makes you different, license what makes you compliant and connected.</p>
+</blockquote>
+<h2 id="next-step">Next step</h2>
+<p>If you&#39;re weighing a white-label launch, our <a href="/partner-program">partner program</a> explains the operator tier and how launches are scoped. Or <a href="/book-a-demo">book a demo</a> and we&#39;ll walk through the tenant view with your merchant mix in mind.</p>
+
+    <section class="faq" aria-labelledby="faq"><h2 id="faq">Frequently asked questions</h2><details><summary>What is a white-label payment gateway?</summary><p>It is payment gateway software that you license and run under your own brand. The provider maintains the infrastructure — connectivity, routing, risk tools, reconciliation and dashboards — while you own the merchants, the pricing and the customer relationship.</p></details><details><summary>Can I start a PSP with a white-label gateway?</summary><p>A white-label gateway gives you the technology. Becoming a PSP or payment facilitator also involves acquiring relationships, sponsor banks or licences depending on your country and model, and compliance obligations. The technology removes the biggest engineering barrier, not the regulatory ones.</p></details><details><summary>Will my merchants know I use a white-label provider?</summary><p>Not unless you tell them. Checkout, dashboards, emails and domains carry your brand. With AQ Pay, the platform is invisible to your merchants by default.</p></details><details><summary>Can I move from white-label to my own stack later?</summary><p>Yes, if you plan for it. Make sure your contract covers data and token export, and keep your acquiring relationships in your own name so they move with you.</p></details></section>
+    <section class="cta"><div><h2>See it on your own use case</h2><p>A 45-minute working session with the team that runs AQ Pay — no scripted pitch.</p></div><a class="btn" href="/book-a-demo">Book a Demo</a></section>
+    <div class="author"><img src="/aq-mark.svg" alt="" width="44" height="44"><div><strong>AQ Pay Payments Team</strong>The engineers and payment specialists who build and operate AQ Pay's gateway and orchestration platform.</div></div>
+  </div>
+  <aside class="toc" aria-label="On this page"><span class="mono" style="color:var(--faint)">On this page</span><ol><li><a href="#what-a-payment-gateway-actually-includes">What a payment gateway actually includes</a></li><li><a href="#option-1-build-your-own">Option 1: Build your own</a></li><li><a href="#option-2-resell-someone-else39s-gateway">Option 2: Resell someone else&amp;#39;s gateway</a></li><li><a href="#option-3-license-a-white-label-payment-gateway">Option 3: License a white-label payment gateway</a></li><li><a href="#side-by-side">Side by side</a></li><li><a href="#what-a-white-label-launch-looks-like-in-practice">What a white-label launch looks like in practice</a></li><li><a href="#hidden-costs-to-model-either-way">Hidden costs to model either way</a></li><li><a href="#how-to-decide">How to decide</a></li><li><a href="#next-step">Next step</a></li><li><a href="#faq">FAQ</a></li></ol><a class="btn" href="/book-a-demo">Book a Demo</a></aside>
+</div></div></div>
+</article>
+<section class="related"><div class="wrap"><h2>Keep reading</h2><div class="grid"><a class="card" href="/blog/what-is-payment-orchestration">
+  <img src="/blog/covers/what-is-payment-orchestration.jpg" alt="Payment orchestration diagram: one integration routing payments to several providers" width="1200" height="630" loading="lazy" decoding="async">
+  <span class="body"><span class="mono cat">Guides</span><h3>What is payment orchestration — and when do you need it?</h3><p>Payment orchestration explained: how one integration routes payments across multiple PSPs and acquirers, when it pays off, and what to look for.</p>
+  <span class="meta"><time datetime="2026-11-05">5 November 2026</time><span>4 min read</span></span></span></a><a class="card" href="/blog/high-risk-merchant-account-underwriting">
+  <img src="/blog/covers/high-risk-merchant-account-underwriting.jpg" alt="Shield with a check mark representing high-risk merchant underwriting" width="1200" height="630" loading="lazy" decoding="async">
+  <span class="body"><span class="mono cat">Explainers</span><h3>High-risk merchant accounts: how underwriting actually works</h3><p>What acquirers check when underwriting a high-risk merchant account, which documents to prepare, why applications fail, and how to stay approved.</p>
+  <span class="meta"><time datetime="2026-11-05">5 November 2026</time><span>4 min read</span></span></span></a></div></div></section>
+</main>
+<footer class="ftr"><div class="wrap">
+  <div class="ftr-grid">
+    <div><a class="brand" href="/"><img src="/aq-mark.svg" alt="" width="32" height="32">AQ Pay</a>
+      <p>White-label gateway, orchestration and merchant services infrastructure for PSPs, platforms and merchants.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn" href="/book-a-demo" style="font-size:14px;padding:10px 18px">Book a Demo</a><a class="btn btn-ghost" href="https://demo.aqpay.services/" style="font-size:14px">Portal login ↗</a></div></div>
+    <nav aria-label="Solutions"><h3>Solutions</h3><ul><li><a href="/white-label-gateway">White-Label Gateway</a></li><li><a href="/merchant-services">Merchant Services</a></li><li><a href="/high-risk-processing">High-Risk Processing</a></li><li><a href="/payment-orchestration">Payment Orchestration</a></li><li><a href="/about#consulting">Payment Consulting</a></li><li><a href="/industries">Industries</a></li></ul></nav>
+    <nav aria-label="Platform"><h3>Platform</h3><ul><li><a href="/payment-orchestration#routing">Intelligent Routing</a></li><li><a href="/payment-orchestration#connectivity">Gateway Connectivity</a></li><li><a href="/#risk">Risk &amp; Fraud</a></li><li><a href="/white-label-gateway#operations">Reconciliation</a></li><li><a href="/#security">Security</a></li></ul></nav>
+    <nav aria-label="Developers"><h3>Developers</h3><ul><li><a href="/developers">Overview</a></li><li><a href="/developers#quick-start">Quick Start</a></li><li><a href="/api-reference">API Reference</a></li><li><a href="/api-reference#webhooks">Webhooks</a></li><li><a href="/developers#sandbox">Sandbox</a></li></ul></nav>
+    <nav aria-label="Company"><h3>Company</h3><ul><li><a href="/about">About</a></li><li><a href="/blog">Blog</a></li><li><a href="/partner-program">Partner Program</a></li><li><a href="/book-a-demo">Book a Demo</a></li><li><a href="/book-a-demo#contact">Contact</a></li><li><a href="mailto:hello@aqpay.services">hello@aqpay.services</a></li></ul></nav>
+  </div>
+  <div class="ftr-base"><span>Services are subject to industry eligibility, geographic restrictions, underwriting and partner approval. AQ Pay is a technology provider and does not hold or move client funds unless expressly stated in a service agreement.</span>
+    <div class="row"><span>© 2026 AQ Pay. All rights reserved.</span><span style="display:flex;gap:18px"><a href="/#legal">Privacy</a><a href="/#legal">Terms</a><a href="/#legal">Cookies</a></span></div></div>
+</div></footer>
+</body>
+</html>

@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>High-Risk Merchant Account Underwriting Explained | AQ Pay</title>
+<meta name="description" content="What acquirers check when underwriting a high-risk merchant account, which documents to prepare, why applications fail, and how to stay approved.">
+<link rel="canonical" href="https://aqpay.services/blog/high-risk-merchant-account-underwriting">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#060A14">
+<meta property="og:site_name" content="AQ Pay">
+<meta property="og:type" content="article">
+<meta property="og:title" content="High-Risk Merchant Account Underwriting Explained | AQ Pay">
+<meta property="og:description" content="What acquirers check when underwriting a high-risk merchant account, which documents to prepare, why applications fail, and how to stay approved.">
+<meta property="og:url" content="https://aqpay.services/blog/high-risk-merchant-account-underwriting">
+<meta property="og:image" content="https://aqpay.services/blog/covers/high-risk-merchant-account-underwriting.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="High-Risk Merchant Account Underwriting Explained | AQ Pay">
+<meta name="twitter:description" content="What acquirers check when underwriting a high-risk merchant account, which documents to prepare, why applications fail, and how to stay approved.">
+<meta name="twitter:image" content="https://aqpay.services/blog/covers/high-risk-merchant-account-underwriting.jpg">
+<meta property="article:published_time" content="2026-11-05T00:00:00Z">
+<meta property="article:modified_time" content="2026-11-05T00:00:00Z">
+<meta property="article:section" content="Explainers">
+<meta property="article:tag" content="merchant underwriting">
+<meta property="article:tag" content="high-risk payment processing">
+<meta property="article:tag" content="chargeback ratio">
+<meta property="article:tag" content="merchant account application">
+<meta property="article:tag" content="MATCH list">
+<link rel="icon" href="/aq-mark.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="AQ Pay Blog" href="https://aqpay.services/blog/rss.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/blog/blog.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"High-risk merchant accounts: how underwriting actually works","description":"What acquirers check when underwriting a high-risk merchant account, which documents to prepare, why applications fail, and how to stay approved.","image":["https://aqpay.services/blog/covers/high-risk-merchant-account-underwriting.jpg"],"datePublished":"2026-11-05","dateModified":"2026-11-05","author":{"@type":"Organization","name":"AQ Pay Payments Team","url":"https://aqpay.services/about"},"publisher":{"@type":"Organization","@id":"https://aqpay.services/#organization","name":"AQ Pay","url":"https://aqpay.services","logo":{"@type":"ImageObject","url":"https://aqpay.services/og-image.jpg"},"email":"hello@aqpay.services"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://aqpay.services/blog/high-risk-merchant-account-underwriting"},"articleSection":"Explainers","keywords":"high-risk merchant account, merchant underwriting, high-risk payment processing, chargeback ratio, merchant account application, MATCH list","wordCount":851,"inLanguage":"en"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://aqpay.services/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://aqpay.services/blog"},{"@type":"ListItem","position":3,"name":"Explainers","item":"https://aqpay.services/blog/category/explainers"},{"@type":"ListItem","position":4,"name":"High-risk merchant accounts: how underwriting actually works","item":"https://aqpay.services/blog/high-risk-merchant-account-underwriting"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What makes a business high-risk for payment processing?","acceptedAnswer":{"@type":"Answer","text":"Acquirers weigh the industry and its typical chargeback and fraud rates, how and when goods are delivered, average ticket size, regulatory exposure, the countries involved and any previous processing problems. Travel, subscriptions, gaming, nutraceuticals and some digital goods are common examples."}},{"@type":"Question","name":"How long does high-risk underwriting take?","acceptedAnswer":{"@type":"Answer","text":"It varies by acquirer and by how complete the application is. Simple cases can move in days; complex or regulated businesses can take several weeks, especially when the acquirer asks follow-up questions."}},{"@type":"Question","name":"What is the MATCH list?","acceptedAnswer":{"@type":"Answer","text":"MATCH (Member Alert to Control High-risk Merchants) is a Mastercard database of merchants whose accounts were terminated for specific reasons, such as excessive chargebacks or fraud. Acquirers check it during underwriting, and a listing makes approval much harder."}},{"@type":"Question","name":"Can AQ Pay guarantee approval for a high-risk merchant account?","acceptedAnswer":{"@type":"Answer","text":"No, and no one honestly can. We help prepare the application, introduce you to acquirers who serve your category and connect them to your gateway, but the decision belongs to the acquirer."}}]}</script>
+</head>
+<body>
+<header class="hdr"><div class="wrap">
+  <a class="brand" href="/" aria-label="AQ Pay home"><img src="/aq-mark.svg" alt="" width="36" height="36">AQ Pay</a>
+  <nav class="nav" aria-label="Main">
+    <a href="/white-label-gateway">White-Label Gateway</a><a href="/payment-orchestration">Orchestration</a><a href="/merchant-services">Merchant Services</a><a href="/industries">Industries</a><a href="/developers">Developers</a><a href="/blog" aria-current="page">Blog</a>
+  </nav>
+  <div class="hdr-cta"><a class="login" href="https://demo.aqpay.services/">Login</a><a class="btn" href="/book-a-demo">Book a Demo</a>
+    <details class="menu"><summary aria-label="Open menu"><svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="#F4F7FC" stroke-width="2"><path d="M0 1h18M0 11h18"/></svg></summary>
+      <div class="panel"><a href="/white-label-gateway">White-Label Gateway</a><a href="/payment-orchestration">Payment Orchestration</a><a href="/merchant-services">Merchant Services</a><a href="/high-risk-processing">High-Risk Processing</a><a href="/industries">Industries</a><a href="/developers">Developers</a><a href="/blog">Blog</a><a href="https://demo.aqpay.services/">Login</a><a href="/book-a-demo" class="btn" style="justify-content:center">Book a Demo</a></div>
+    </details>
+  </div>
+</div></header>
+<main>
+<article>
+<div class="article-hero"><div class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/blog">Blog</a><span>/</span><a href="/blog/category/explainers">Explainers</a></nav>
+  <h1>High-risk merchant accounts: how underwriting actually works</h1>
+  <p class="lede">What acquirers check when underwriting a high-risk merchant account, which documents to prepare, why applications fail, and how to stay approved.</p>
+  <div class="byline"><img src="/aq-mark.svg" alt="" width="28" height="28"><span>AQ Pay Payments Team</span><span>·</span><time datetime="2026-11-05">5 November 2026</time><span>·</span><span>4 min read</span></div>
+  <div class="cover"><img src="/blog/covers/high-risk-merchant-account-underwriting.jpg" alt="Shield with a check mark representing high-risk merchant underwriting" width="1200" height="630" fetchpriority="high"></div>
+</div></div>
+<div class="article"><div class="wrap"><div class="layout">
+  <div class="prose">
+    <aside class="takeaways"><h2>Key takeaways</h2><ul><li>“High-risk” is a label acquirers apply based on industry, chargeback exposure, delivery model, geography and history — not a judgement about your honesty.</li><li>Underwriting looks at the business, its owners, its website and its processing history; a complete, consistent application is the single biggest lever you control.</li><li>Approval always rests with the acquirer. Anyone promising guaranteed approval is a red flag.</li><li>Once approved, keeping dispute and fraud ratios well inside card-scheme limits is what keeps the account open.</li></ul></aside>
+    <p>If you&#39;ve been told your business is &quot;high-risk&quot;, you&#39;re in large company: travel, subscriptions, online gaming, nutraceuticals, adult content, CBD, ticketing and many digital-goods businesses are routinely classified that way. The label doesn&#39;t mean you&#39;re doing anything wrong. It means an acquirer expects more financial exposure from your transactions than from, say, a local bakery — and prices and controls the relationship accordingly.</p>
+<p>This guide explains how <strong>high-risk merchant account</strong> underwriting works from the acquirer&#39;s side, so you can prepare an application that gets a fair, fast answer.</p>
+<h2 id="why-acquirers-care-about-risk">Why acquirers care about risk</h2>
+<p>When a cardholder disputes a payment, the card scheme pulls the money back from the acquirer, and the acquirer recovers it from the merchant. If the merchant can&#39;t pay — because it has closed, or chargebacks exceed its funds — the <strong>acquirer absorbs the loss</strong>. Underwriting is the acquirer estimating that exposure before it agrees to carry it.</p>
+<h2 id="what-makes-a-merchant-quothigh-riskquot">What makes a merchant &quot;high-risk&quot;</h2>
+<figure><svg viewBox="0 0 760 260" role="img" aria-label="Five risk factors acquirers weigh: industry, delivery model, chargeback history, geography and business profile"><g font-family="Inter, sans-serif"><rect x="20" y="30" width="136" height="200" rx="16" fill="#0F1729" stroke="#6E9BFF" stroke-width="2"/><text x="88" y="78" fill="#6E9BFF" font-size="13" font-weight="700" text-anchor="middle">01</text><text x="88" y="112" fill="#F4F7FC" font-size="15" font-weight="700" text-anchor="middle">Industry</text><text x="88" y="140" fill="#AEB9CC" font-size="12" text-anchor="middle">MCC &amp; typical</text><text x="88" y="158" fill="#AEB9CC" font-size="12" text-anchor="middle">dispute rates</text><rect x="168" y="30" width="136" height="200" rx="16" fill="#0F1729" stroke="rgba(255,255,255,.18)" stroke-width="2"/><text x="236" y="78" fill="#6E9BFF" font-size="13" font-weight="700" text-anchor="middle">02</text><text x="236" y="112" fill="#F4F7FC" font-size="15" font-weight="700" text-anchor="middle">Delivery</text><text x="236" y="140" fill="#AEB9CC" font-size="12" text-anchor="middle">delayed fulfilment</text><text x="236" y="158" fill="#AEB9CC" font-size="12" text-anchor="middle">&amp; recurring billing</text><rect x="316" y="30" width="136" height="200" rx="16" fill="#0F1729" stroke="rgba(255,255,255,.18)" stroke-width="2"/><text x="384" y="78" fill="#6E9BFF" font-size="13" font-weight="700" text-anchor="middle">03</text><text x="384" y="112" fill="#F4F7FC" font-size="15" font-weight="700" text-anchor="middle">History</text><text x="384" y="140" fill="#AEB9CC" font-size="12" text-anchor="middle">chargebacks, fraud,</text><text x="384" y="158" fill="#AEB9CC" font-size="12" text-anchor="middle">past terminations</text><rect x="464" y="30" width="136" height="200" rx="16" fill="#0F1729" stroke="rgba(255,255,255,.18)" stroke-width="2"/><text x="532" y="78" fill="#6E9BFF" font-size="13" font-weight="700" text-anchor="middle">04</text><text x="532" y="112" fill="#F4F7FC" font-size="15" font-weight="700" text-anchor="middle">Geography</text><text x="532" y="140" fill="#AEB9CC" font-size="12" text-anchor="middle">where you, your</text><text x="532" y="158" fill="#AEB9CC" font-size="12" text-anchor="middle">customers &amp; owners are</text><rect x="612" y="30" width="136" height="200" rx="16" fill="#0F1729" stroke="#3DDC97" stroke-width="2"/><text x="680" y="78" fill="#3DDC97" font-size="13" font-weight="700" text-anchor="middle">05</text><text x="680" y="112" fill="#F4F7FC" font-size="15" font-weight="700" text-anchor="middle">Profile</text><text x="680" y="140" fill="#AEB9CC" font-size="12" text-anchor="middle">ticket size, volume,</text><text x="680" y="158" fill="#AEB9CC" font-size="12" text-anchor="middle">time trading</text></g></svg><figcaption>Acquirers weigh several factors together; no single one decides the outcome.</figcaption></figure>
+
+<ul>
+<li><strong>Industry and MCC.</strong> Every merchant is assigned a merchant category code. Some codes, such as 7995 for betting and gambling, carry scheme-level rules and closer monitoring by default.</li>
+<li><strong>Delivery model.</strong> If customers pay today for something delivered weeks later (flights, events, pre-orders), the acquirer is exposed for that whole window.</li>
+<li><strong>Recurring billing.</strong> Subscriptions are legitimate and popular, but forgotten or unclear renewals are a classic source of disputes.</li>
+<li><strong>Processing history.</strong> Previous chargeback and fraud ratios, refunds, and any account terminations.</li>
+<li><strong>Geography.</strong> Cross-border sales, owners or entities in higher-risk jurisdictions, and sanctioned regions.</li>
+<li><strong>Business profile.</strong> New businesses without trading history, very high average tickets, or sudden volume spikes.</li>
+</ul>
+<h2 id="what-underwriters-review">What underwriters review</h2>
+<h3 id="the-business">The business</h3>
+<p>Company registration documents, ownership structure down to ultimate beneficial owners, licences where your sector requires them (gambling, financial services, pharmacy), and bank statements.</p>
+<h3 id="the-owners">The owners</h3>
+<p>Identity verification for directors and significant owners, and screening against sanctions and adverse-media lists.</p>
+<h3 id="your-website">Your website</h3>
+<p>Underwriters read your site the way a cardholder would. They check that products and prices are clear, terms and refund policy are visible, customer-service contact details are real, and the descriptor that will appear on card statements makes sense. Missing refund or cancellation terms are among the most common — and most avoidable — reasons for delays.</p>
+<h3 id="processing-history">Processing history</h3>
+<p>Usually three to six months of statements from your current or previous processor, showing volume, chargebacks, refunds and fraud.</p>
+<h3 id="fulfilment-and-marketing">Fulfilment and marketing</h3>
+<p>How orders are fulfilled, how long delivery takes, how subscriptions renew and how customers cancel. Affiliate and lead-generation models get extra attention.</p>
+<h2 id="why-applications-get-declined">Why applications get declined</h2>
+<ul>
+<li>Inconsistencies between documents, the website and the application form.</li>
+<li>Missing or vague refund, cancellation and delivery policies.</li>
+<li>A chargeback history above scheme thresholds without a credible remediation plan.</li>
+<li>A product or jurisdiction the acquirer simply doesn&#39;t support — some categories are outside every acquirer&#39;s risk appetite.</li>
+<li>A previous termination that led to a MATCH listing.</li>
+</ul>
+<h2 id="how-to-prepare-a-strong-application">How to prepare a strong application</h2>
+<ol>
+<li><strong>Make everything consistent.</strong> Legal name, trading name, descriptor, addresses and ownership should match across every document and your site.</li>
+<li><strong>Fix your website first.</strong> Clear pricing, terms, refund and cancellation policies, contact details and, for subscriptions, explicit renewal terms at checkout.</li>
+<li><strong>Explain your numbers.</strong> If past chargebacks were high, show what changed: better descriptors, pre-dispute alerts, clearer billing emails, 3-D Secure.</li>
+<li><strong>Show your controls.</strong> Fraud screening, age or geo checks where relevant, and how you handle disputes.</li>
+<li><strong>Be honest about the model.</strong> Underwriters see many applications; surprises discovered later end relationships faster than difficult facts disclosed early.</li>
+</ol>
+<p>Our <a href="/high-risk-processing">high-risk processing</a> service is built around exactly this preparation: we help assemble the application, introduce you to acquirers who serve your category and connect them to your gateway. Approval always rests with the acquirer.</p>
+<h2 id="keeping-the-account-once-you-have-it">Keeping the account once you have it</h2>
+<p>Approval is the start, not the finish. Card schemes run monitoring programmes for disputes and fraud, and thresholds are tighter than many merchants expect — check the current limits with your acquirer rather than relying on older figures you find online. In practice:</p>
+<ul>
+<li><strong>Watch your dispute ratio weekly</strong>, not monthly.</li>
+<li><strong>Use clear descriptors</strong> so customers recognise the charge.</li>
+<li><strong>Make cancelling easy</strong> — a frustrated customer who can&#39;t cancel files a chargeback instead.</li>
+<li><strong>Use 3-D Secure</strong> where it shifts fraud liability, and pre-authorization screening to stop card testing. The <a href="https://www.emvco.com/emv-technologies/3-d-secure/" rel="noopener" target="_blank">EMVCo 3-D Secure specification</a> describes how the protocol works.</li>
+<li><strong>Spread exposure</strong> across more than one acquirer where volume allows; <a href="/blog/what-is-payment-orchestration">payment orchestration</a> makes that manageable.</li>
+<li><strong>Expect a rolling reserve.</strong> Many high-risk accounts hold back a percentage of volume for a period; plan your cash flow for it.</li>
+</ul>
+<blockquote>
+<p>The merchants who keep high-risk accounts for years aren&#39;t lucky — they treat disputes as an operating metric, not an accounting surprise.</p>
+</blockquote>
+<h2 id="talk-to-us">Talk to us</h2>
+<p>If you&#39;re preparing an application or have been declined elsewhere, <a href="/book-a-demo">book a consultation</a>. We&#39;ll tell you honestly what an acquirer is likely to see — including when a category isn&#39;t supportable.</p>
+
+    <section class="faq" aria-labelledby="faq"><h2 id="faq">Frequently asked questions</h2><details><summary>What makes a business high-risk for payment processing?</summary><p>Acquirers weigh the industry and its typical chargeback and fraud rates, how and when goods are delivered, average ticket size, regulatory exposure, the countries involved and any previous processing problems. Travel, subscriptions, gaming, nutraceuticals and some digital goods are common examples.</p></details><details><summary>How long does high-risk underwriting take?</summary><p>It varies by acquirer and by how complete the application is. Simple cases can move in days; complex or regulated businesses can take several weeks, especially when the acquirer asks follow-up questions.</p></details><details><summary>What is the MATCH list?</summary><p>MATCH (Member Alert to Control High-risk Merchants) is a Mastercard database of merchants whose accounts were terminated for specific reasons, such as excessive chargebacks or fraud. Acquirers check it during underwriting, and a listing makes approval much harder.</p></details><details><summary>Can AQ Pay guarantee approval for a high-risk merchant account?</summary><p>No, and no one honestly can. We help prepare the application, introduce you to acquirers who serve your category and connect them to your gateway, but the decision belongs to the acquirer.</p></details></section>
+    <section class="cta"><div><h2>See it on your own use case</h2><p>A 45-minute working session with the team that runs AQ Pay — no scripted pitch.</p></div><a class="btn" href="/book-a-demo">Book a Demo</a></section>
+    <div class="author"><img src="/aq-mark.svg" alt="" width="44" height="44"><div><strong>AQ Pay Payments Team</strong>The engineers and payment specialists who build and operate AQ Pay's gateway and orchestration platform.</div></div>
+  </div>
+  <aside class="toc" aria-label="On this page"><span class="mono" style="color:var(--faint)">On this page</span><ol><li><a href="#why-acquirers-care-about-risk">Why acquirers care about risk</a></li><li><a href="#what-makes-a-merchant-quothigh-riskquot">What makes a merchant &amp;quot;high-risk&amp;quot;</a></li><li><a href="#what-underwriters-review">What underwriters review</a></li><li><a href="#why-applications-get-declined">Why applications get declined</a></li><li><a href="#how-to-prepare-a-strong-application">How to prepare a strong application</a></li><li><a href="#keeping-the-account-once-you-have-it">Keeping the account once you have it</a></li><li><a href="#talk-to-us">Talk to us</a></li><li><a href="#faq">FAQ</a></li></ol><a class="btn" href="/book-a-demo">Book a Demo</a></aside>
+</div></div></div>
+</article>
+<section class="related"><div class="wrap"><h2>Keep reading</h2><div class="grid"><a class="card" href="/blog/what-is-payment-orchestration">
+  <img src="/blog/covers/what-is-payment-orchestration.jpg" alt="Payment orchestration diagram: one integration routing payments to several providers" width="1200" height="630" loading="lazy" decoding="async">
+  <span class="body"><span class="mono cat">Guides</span><h3>What is payment orchestration — and when do you need it?</h3><p>Payment orchestration explained: how one integration routes payments across multiple PSPs and acquirers, when it pays off, and what to look for.</p>
+  <span class="meta"><time datetime="2026-11-05">5 November 2026</time><span>4 min read</span></span></span></a><a class="card" href="/blog/white-label-payment-gateway-vs-building-your-own">
+  <img src="/blog/covers/white-label-payment-gateway-vs-building-your-own.jpg" alt="Stacked platform layers representing a white-label payment gateway" width="1200" height="630" loading="lazy" decoding="async">
+  <span class="body"><span class="mono cat">Guides</span><h3>White-label payment gateway vs. building your own PSP stack</h3><p>Should you license a white-label payment gateway or build your own PSP stack? The real work, costs, timelines and risks of each path — and how to decide.</p>
+  <span class="meta"><time datetime="2026-11-05">5 November 2026</time><span>4 min read</span></span></span></a></div></div></section>
+</main>
+<footer class="ftr"><div class="wrap">
+  <div class="ftr-grid">
+    <div><a class="brand" href="/"><img src="/aq-mark.svg" alt="" width="32" height="32">AQ Pay</a>
+      <p>White-label gateway, orchestration and merchant services infrastructure for PSPs, platforms and merchants.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn" href="/book-a-demo" style="font-size:14px;padding:10px 18px">Book a Demo</a><a class="btn btn-ghost" href="https://demo.aqpay.services/" style="font-size:14px">Portal login ↗</a></div></div>
+    <nav aria-label="Solutions"><h3>Solutions</h3><ul><li><a href="/white-label-gateway">White-Label Gateway</a></li><li><a href="/merchant-services">Merchant Services</a></li><li><a href="/high-risk-processing">High-Risk Processing</a></li><li><a href="/payment-orchestration">Payment Orchestration</a></li><li><a href="/about#consulting">Payment Consulting</a></li><li><a href="/industries">Industries</a></li></ul></nav>
+    <nav aria-label="Platform"><h3>Platform</h3><ul><li><a href="/payment-orchestration#routing">Intelligent Routing</a></li><li><a href="/payment-orchestration#connectivity">Gateway Connectivity</a></li><li><a href="/#risk">Risk &amp; Fraud</a></li><li><a href="/white-label-gateway#operations">Reconciliation</a></li><li><a href="/#security">Security</a></li></ul></nav>
+    <nav aria-label="Developers"><h3>Developers</h3><ul><li><a href="/developers">Overview</a></li><li><a href="/developers#quick-start">Quick Start</a></li><li><a href="/api-reference">API Reference</a></li><li><a href="/api-reference#webhooks">Webhooks</a></li><li><a href="/developers#sandbox">Sandbox</a></li></ul></nav>
+    <nav aria-label="Company"><h3>Company</h3><ul><li><a href="/about">About</a></li><li><a href="/blog">Blog</a></li><li><a href="/partner-program">Partner Program</a></li><li><a href="/book-a-demo">Book a Demo</a></li><li><a href="/book-a-demo#contact">Contact</a></li><li><a href="mailto:hello@aqpay.services">hello@aqpay.services</a></li></ul></nav>
+  </div>
+  <div class="ftr-base"><span>Services are subject to industry eligibility, geographic restrictions, underwriting and partner approval. AQ Pay is a technology provider and does not hold or move client funds unless expressly stated in a service agreement.</span>
+    <div class="row"><span>© 2026 AQ Pay. All rights reserved.</span><span style="display:flex;gap:18px"><a href="/#legal">Privacy</a><a href="/#legal">Terms</a><a href="/#legal">Cookies</a></span></div></div>
+</div></footer>
+</body>
+</html>

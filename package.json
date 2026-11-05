@@ -1,6 +1,14 @@
 {
-  "name": "payment-portal-site",
+  "name": "aqpay-site",
   "private": true,
   "type": "module",
-  "engines": { "node": ">=18" }
+  "engines": { "node": ">=18" },
+  "scripts": {
+    "covers": "node scripts/render-covers.mjs",
+    "blog": "node scripts/render-covers.mjs && node scripts/build-blog.mjs"
+  },
+  "devDependencies": {
+    "@fontsource/inter": "5.0.18",
+    "marked": "14.1.4"
+  }
 }

@@ -20,3 +20,18 @@ your team via Resend and sends the visitor a confirmation. The same code runs on
 1. In Resend, add and verify your sending domain (Domains → Add domain → add the DNS records).
 2. Create an API key (API Keys → Create, "Sending access").
 3. In Netlify or Vercel, add the environment variables from `.env.example`, then redeploy.
+
+## Blog
+Posts live in `content/blog/*.md` (JSON front matter + Markdown). Build:
+
+    npm install
+    node scripts/render-covers.mjs   # branded cover images
+    node scripts/check-posts.mjs     # SEO/quality gate
+    node scripts/build-blog.mjs      # blog pages, RSS, sitemap.xml
+
+The 3x-weekly autopilot follows `AUTOMATION.md` and works through `content/keyword-plan.json`.
+
+## SEO
+Main pages are prerendered: full content, title, description, canonical, Open Graph,
+Twitter cards and JSON-LD are in the HTML for every crawler. `robots.txt` and
+`sitemap.xml` are at the root.

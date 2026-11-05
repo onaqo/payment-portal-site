@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>What Is Payment Orchestration? A Practical Guide | AQ Pay</title>
+<meta name="description" content="Payment orchestration explained: how one integration routes payments across multiple PSPs and acquirers, when it pays off, and what to look for.">
+<link rel="canonical" href="https://aqpay.services/blog/what-is-payment-orchestration">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#060A14">
+<meta property="og:site_name" content="AQ Pay">
+<meta property="og:type" content="article">
+<meta property="og:title" content="What Is Payment Orchestration? A Practical Guide | AQ Pay">
+<meta property="og:description" content="Payment orchestration explained: how one integration routes payments across multiple PSPs and acquirers, when it pays off, and what to look for.">
+<meta property="og:url" content="https://aqpay.services/blog/what-is-payment-orchestration">
+<meta property="og:image" content="https://aqpay.services/blog/covers/what-is-payment-orchestration.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="What Is Payment Orchestration? A Practical Guide | AQ Pay">
+<meta name="twitter:description" content="Payment orchestration explained: how one integration routes payments across multiple PSPs and acquirers, when it pays off, and what to look for.">
+<meta name="twitter:image" content="https://aqpay.services/blog/covers/what-is-payment-orchestration.jpg">
+<meta property="article:published_time" content="2026-11-05T00:00:00Z">
+<meta property="article:modified_time" content="2026-11-05T00:00:00Z">
+<meta property="article:section" content="Guides">
+<meta property="article:tag" content="payment orchestration platform">
+<meta property="article:tag" content="smart payment routing">
+<meta property="article:tag" content="payment cascading">
+<meta property="article:tag" content="multi-PSP strategy">
+<meta property="article:tag" content="payment failover">
+<link rel="icon" href="/aq-mark.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="AQ Pay Blog" href="https://aqpay.services/blog/rss.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/blog/blog.css">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"What is payment orchestration — and when do you need it?","description":"Payment orchestration explained: how one integration routes payments across multiple PSPs and acquirers, when it pays off, and what to look for.","image":["https://aqpay.services/blog/covers/what-is-payment-orchestration.jpg"],"datePublished":"2026-11-05","dateModified":"2026-11-05","author":{"@type":"Organization","name":"AQ Pay Payments Team","url":"https://aqpay.services/about"},"publisher":{"@type":"Organization","@id":"https://aqpay.services/#organization","name":"AQ Pay","url":"https://aqpay.services","logo":{"@type":"ImageObject","url":"https://aqpay.services/og-image.jpg"},"email":"hello@aqpay.services"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://aqpay.services/blog/what-is-payment-orchestration"},"articleSection":"Guides","keywords":"payment orchestration, payment orchestration platform, smart payment routing, payment cascading, multi-PSP strategy, payment failover","wordCount":1007,"inLanguage":"en"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://aqpay.services/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://aqpay.services/blog"},{"@type":"ListItem","position":3,"name":"Guides","item":"https://aqpay.services/blog/category/guides"},{"@type":"ListItem","position":4,"name":"What is payment orchestration — and when do you need it?","item":"https://aqpay.services/blog/what-is-payment-orchestration"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Is a payment orchestration platform the same as a payment gateway?","acceptedAnswer":{"@type":"Answer","text":"No. A payment gateway connects you to one processing path. An orchestration platform sits above several gateways, PSPs and acquirers and decides which one each payment should use, then normalises the results into one API and one set of reports."}},{"@type":"Question","name":"Does payment orchestration increase approval rates?","acceptedAnswer":{"@type":"Answer","text":"It can, but only through specific mechanisms: routing to local acquirers, retrying soft declines on a second provider, and steering traffic away from a provider that is degrading. The size of the uplift depends on your traffic mix, so measure it on your own data rather than relying on generic benchmarks."}},{"@type":"Question","name":"Do I need my own acquiring relationships to use orchestration?","acceptedAnswer":{"@type":"Answer","text":"You need at least one processing relationship for every provider you route to. Many businesses start by connecting the PSPs they already use and add acquirers as volume or regional needs grow."}},{"@type":"Question","name":"Is orchestration only for large enterprises?","acceptedAnswer":{"@type":"Answer","text":"Not any more. Once a business uses two or more PSPs, or a platform needs to route on behalf of many merchants, the operational savings of a single integration and a single reporting layer usually justify it."}}]}</script>
+</head>
+<body>
+<header class="hdr"><div class="wrap">
+  <a class="brand" href="/" aria-label="AQ Pay home"><img src="/aq-mark.svg" alt="" width="36" height="36">AQ Pay</a>
+  <nav class="nav" aria-label="Main">
+    <a href="/white-label-gateway">White-Label Gateway</a><a href="/payment-orchestration">Orchestration</a><a href="/merchant-services">Merchant Services</a><a href="/industries">Industries</a><a href="/developers">Developers</a><a href="/blog" aria-current="page">Blog</a>
+  </nav>
+  <div class="hdr-cta"><a class="login" href="https://demo.aqpay.services/">Login</a><a class="btn" href="/book-a-demo">Book a Demo</a>
+    <details class="menu"><summary aria-label="Open menu"><svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="#F4F7FC" stroke-width="2"><path d="M0 1h18M0 11h18"/></svg></summary>
+      <div class="panel"><a href="/white-label-gateway">White-Label Gateway</a><a href="/payment-orchestration">Payment Orchestration</a><a href="/merchant-services">Merchant Services</a><a href="/high-risk-processing">High-Risk Processing</a><a href="/industries">Industries</a><a href="/developers">Developers</a><a href="/blog">Blog</a><a href="https://demo.aqpay.services/">Login</a><a href="/book-a-demo" class="btn" style="justify-content:center">Book a Demo</a></div>
+    </details>
+  </div>
+</div></header>
+<main>
+<article>
+<div class="article-hero"><div class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/blog">Blog</a><span>/</span><a href="/blog/category/guides">Guides</a></nav>
+  <h1>What is payment orchestration — and when do you need it?</h1>
+  <p class="lede">Payment orchestration explained: how one integration routes payments across multiple PSPs and acquirers, when it pays off, and what to look for.</p>
+  <div class="byline"><img src="/aq-mark.svg" alt="" width="28" height="28"><span>AQ Pay Payments Team</span><span>·</span><time datetime="2026-11-05">5 November 2026</time><span>·</span><span>4 min read</span></div>
+  <div class="cover"><img src="/blog/covers/what-is-payment-orchestration.jpg" alt="Payment orchestration diagram: one integration routing payments to several providers" width="1200" height="630" fetchpriority="high"></div>
+</div></div>
+<div class="article"><div class="wrap"><div class="layout">
+  <div class="prose">
+    <aside class="takeaways"><h2>Key takeaways</h2><ul><li>Payment orchestration puts one integration in front of many payment providers and decides, per transaction, where each payment goes.</li><li>It pays off once you run more than one PSP or acquirer, sell in several regions, or can&#39;t afford a single provider outage.</li><li>The core building blocks are routing rules, cascading on soft declines, failover, tokenization and unified reporting.</li><li>Judge a platform on connector coverage, rule flexibility, token portability and the quality of its decline data.</li></ul></aside>
+    <p>Most businesses start with one payment provider. It&#39;s the right call: one contract, one integration, one dashboard. The trouble starts later — when you expand into a new country, a provider has an outage on your busiest day, or finance asks why approval rates differ by card type and nobody can answer.</p>
+<p><strong>Payment orchestration</strong> is the layer that fixes that. Instead of wiring your checkout directly to a single PSP, you integrate once with an orchestration platform, and it decides — transaction by transaction — which provider, acquirer or payment method should handle each payment.</p>
+<h2 id="what-payment-orchestration-actually-does">What payment orchestration actually does</h2>
+<p>At its simplest, a payment orchestration platform does four jobs:</p>
+<ol>
+<li><strong>Connects</strong> to many providers — PSPs, acquirers, alternative payment methods — through maintained connectors, so your engineers don&#39;t build and maintain each integration.</li>
+<li><strong>Routes</strong> each payment according to rules you control: card country, currency, amount, card brand, merchant, risk score or time of day.</li>
+<li><strong>Recovers</strong> payments that fail for technical or soft-decline reasons by retrying them on another provider (cascading) or switching away from a provider that is down (failover).</li>
+<li><strong>Normalises</strong> everything that comes back — statuses, decline codes, fees, settlement files — into one data model and one set of reports.</li>
+</ol>
+<figure><svg viewBox="0 0 760 300" role="img" aria-label="Checkout sends a payment to the orchestration layer, which routes it to provider A, falls back to provider B, or sends it to a local acquirer"><rect x="20" y="115" width="150" height="70" rx="14" fill="#0F1729" stroke="rgba(255,255,255,.2)" stroke-width="2"/><text x="95" y="146" fill="#F4F7FC" font-size="16" font-weight="700" text-anchor="middle" font-family="Inter, sans-serif">Your checkout</text><text x="95" y="167" fill="#AEB9CC" font-size="12" text-anchor="middle" font-family="Inter, sans-serif">one integration</text><rect x="255" y="95" width="210" height="110" rx="18" fill="rgba(110,155,255,.12)" stroke="#6E9BFF" stroke-width="2.5"/><text x="360" y="138" fill="#F4F7FC" font-size="17" font-weight="700" text-anchor="middle" font-family="Inter, sans-serif">Orchestration layer</text><text x="360" y="162" fill="#AEB9CC" font-size="12.5" text-anchor="middle" font-family="Inter, sans-serif">rules · risk · tokens · retries</text><path d="M170 150 H255" stroke="#6E9BFF" stroke-width="3"/><path d="M465 125 C 520 125, 520 55, 575 55" fill="none" stroke="#3DDC97" stroke-width="3.5"/><path d="M465 150 H575" fill="none" stroke="rgba(230,194,122,.8)" stroke-width="2.5" stroke-dasharray="7 6"/><path d="M465 175 C 520 175, 520 245, 575 245" fill="none" stroke="rgba(110,155,255,.6)" stroke-width="2.5"/><rect x="575" y="25" width="165" height="60" rx="12" fill="#0F1729" stroke="#3DDC97" stroke-width="2"/><text x="657" y="52" fill="#F4F7FC" font-size="14.5" font-weight="700" text-anchor="middle" font-family="Inter, sans-serif">PSP A</text><text x="657" y="71" fill="#3DDC97" font-size="11.5" text-anchor="middle" font-family="Inter, sans-serif">primary route</text><rect x="575" y="120" width="165" height="60" rx="12" fill="#0F1729" stroke="rgba(230,194,122,.7)" stroke-width="2"/><text x="657" y="147" fill="#F4F7FC" font-size="14.5" font-weight="700" text-anchor="middle" font-family="Inter, sans-serif">PSP B</text><text x="657" y="166" fill="#E6C27A" font-size="11.5" text-anchor="middle" font-family="Inter, sans-serif">cascade on soft decline</text><rect x="575" y="215" width="165" height="60" rx="12" fill="#0F1729" stroke="rgba(110,155,255,.6)" stroke-width="2"/><text x="657" y="242" fill="#F4F7FC" font-size="14.5" font-weight="700" text-anchor="middle" font-family="Inter, sans-serif">Local acquirer</text><text x="657" y="261" fill="#6E9BFF" font-size="11.5" text-anchor="middle" font-family="Inter, sans-serif">domestic cards</text></svg><figcaption>One integration in, many providers out: the orchestration layer chooses the route for every payment.</figcaption></figure>
+
+<h2 id="why-businesses-outgrow-a-single-provider">Why businesses outgrow a single provider</h2>
+<p>There is nothing wrong with one PSP until one of these becomes true:</p>
+<ul>
+<li><strong>You sell across borders.</strong> Domestic acquiring usually approves domestic cards more reliably than cross-border processing, and some local payment methods are only available through regional providers.</li>
+<li><strong>Downtime is expensive.</strong> If your provider has an incident, a single-provider setup means checkout stops. With orchestration, traffic can fail over automatically.</li>
+<li><strong>You need negotiating leverage.</strong> With routing in your hands, you can shift volume between providers based on cost and performance — and your pricing conversations change.</li>
+<li><strong>You are a platform or PSP.</strong> If you process on behalf of many merchants, you need per-merchant routing, onboarding and reporting that no single provider&#39;s dashboard gives you.</li>
+<li><strong>Your data is fragmented.</strong> Two providers means two decline-code vocabularies, two settlement formats and two reconciliation processes. Orchestration normalises them.</li>
+</ul>
+<h2 id="the-building-blocks">The building blocks</h2>
+<h3 id="smart-payment-routing">Smart payment routing</h3>
+<p>Routing rules decide the first destination for each payment. Common rule inputs are card BIN and issuing country, currency, amount, card brand, merchant category and your own risk score. Good platforms let you combine conditions, split traffic by percentage for A/B tests, and change rules without a deployment. You can see how this works in practice on our <a href="/payment-orchestration">payment orchestration</a> page.</p>
+<h3 id="cascading-and-retries">Cascading and retries</h3>
+<p>When a payment is declined for a reason that another provider might accept — a timeout, a generic &quot;do not honour&quot; on a provider-specific issue — the platform can retry it elsewhere. Retries need discipline: hard declines (stolen card, closed account) must never be retried, and issuers watch retry behaviour closely.</p>
+<h3 id="failover">Failover</h3>
+<p>Failover is cascading at the provider level: if a provider&#39;s error rate spikes or its health check fails, new traffic is routed away until it recovers.</p>
+<h3 id="tokenization-and-token-portability">Tokenization and token portability</h3>
+<p>To route a returning customer&#39;s card to a different provider, you need to store the card in a way that isn&#39;t locked to one PSP. That means a vault you control (or that your orchestration provider controls on your behalf), plus support for network tokens where the schemes offer them. Ask any vendor how you would export your tokens if you left — and confirm how the vault is kept within the <a href="https://www.pcisecuritystandards.org/" rel="noopener" target="_blank">PCI DSS</a> requirements.</p>
+<h3 id="unified-reporting-and-reconciliation">Unified reporting and reconciliation</h3>
+<p>The least glamorous feature is often the most valuable: one place to see approvals, declines, fees and settlements across every provider, matched to your orders.</p>
+<h2 id="orchestration-vs-a-gateway-vs-a-white-label-platform">Orchestration vs. a gateway vs. a white-label platform</h2>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Single gateway</th>
+<th>Payment orchestration</th>
+<th>White-label gateway platform</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Providers</td>
+<td>One</td>
+<td>Many</td>
+<td>Many</td>
+</tr>
+<tr>
+<td>Who uses it</td>
+<td>A merchant</td>
+<td>A merchant or platform</td>
+<td>A PSP, ISO or platform running payments under its own brand</td>
+</tr>
+<tr>
+<td>Routing control</td>
+<td>Provider decides</td>
+<td>You decide</td>
+<td>You decide, per merchant</td>
+</tr>
+<tr>
+<td>Branding</td>
+<td>Provider&#39;s</td>
+<td>Yours at checkout</td>
+<td>Yours everywhere, including merchant dashboards</td>
+</tr>
+</tbody></table>
+<p>If you want to run a payments business for other merchants — not just optimise your own payments — read our guide on <a href="/blog/white-label-payment-gateway-vs-building-your-own">white-label payment gateways vs. building your own stack</a>.</p>
+<h2 id="when-you-don39t-need-it-yet">When you <em>don&#39;t</em> need it yet</h2>
+<p>Orchestration adds a layer. If you sell in one country, through one provider, at modest volume, and that provider meets your needs, the extra layer may not pay for itself yet. A sensible test: do you have, or will you have within a year, at least two providers you&#39;d like to route between? If not, revisit later.</p>
+<h2 id="how-to-evaluate-a-payment-orchestration-platform">How to evaluate a payment orchestration platform</h2>
+<ul>
+<li><strong>Connector coverage:</strong> are your current and likely future providers already supported, and who maintains the connectors when provider APIs change?</li>
+<li><strong>Rule flexibility:</strong> can non-engineers change routing safely, and can you test rules before rolling them out?</li>
+<li><strong>Token ownership:</strong> can you export your vault, and are network tokens supported?</li>
+<li><strong>Decline intelligence:</strong> does it normalise decline codes so you can act on them?</li>
+<li><strong>Risk tooling:</strong> pre-authorization screening, 3-D Secure orchestration and review queues.</li>
+<li><strong>Operating model:</strong> does the vendor hold funds or stay out of the flow of funds? (AQ Pay deliberately does not hold client funds.)</li>
+</ul>
+<blockquote>
+<p>The best orchestration setups are boring in production: rules are explicit, retries are disciplined, and every decline has a reason someone can read.</p>
+</blockquote>
+<h2 id="getting-started">Getting started</h2>
+<p>Most teams start small: connect the PSP they already use plus one more, route one region or one card type differently, and measure. Once the data shows where the gains are, they expand the rules. If you&#39;d like to see how that would look on your traffic, <a href="/book-a-demo">book a working session</a> with our team or read the <a href="/developers#quick-start">developer quick start</a>.</p>
+
+    <section class="faq" aria-labelledby="faq"><h2 id="faq">Frequently asked questions</h2><details><summary>Is a payment orchestration platform the same as a payment gateway?</summary><p>No. A payment gateway connects you to one processing path. An orchestration platform sits above several gateways, PSPs and acquirers and decides which one each payment should use, then normalises the results into one API and one set of reports.</p></details><details><summary>Does payment orchestration increase approval rates?</summary><p>It can, but only through specific mechanisms: routing to local acquirers, retrying soft declines on a second provider, and steering traffic away from a provider that is degrading. The size of the uplift depends on your traffic mix, so measure it on your own data rather than relying on generic benchmarks.</p></details><details><summary>Do I need my own acquiring relationships to use orchestration?</summary><p>You need at least one processing relationship for every provider you route to. Many businesses start by connecting the PSPs they already use and add acquirers as volume or regional needs grow.</p></details><details><summary>Is orchestration only for large enterprises?</summary><p>Not any more. Once a business uses two or more PSPs, or a platform needs to route on behalf of many merchants, the operational savings of a single integration and a single reporting layer usually justify it.</p></details></section>
+    <section class="cta"><div><h2>See it on your own use case</h2><p>A 45-minute working session with the team that runs AQ Pay — no scripted pitch.</p></div><a class="btn" href="/book-a-demo">Book a Demo</a></section>
+    <div class="author"><img src="/aq-mark.svg" alt="" width="44" height="44"><div><strong>AQ Pay Payments Team</strong>The engineers and payment specialists who build and operate AQ Pay's gateway and orchestration platform.</div></div>
+  </div>
+  <aside class="toc" aria-label="On this page"><span class="mono" style="color:var(--faint)">On this page</span><ol><li><a href="#what-payment-orchestration-actually-does">What payment orchestration actually does</a></li><li><a href="#why-businesses-outgrow-a-single-provider">Why businesses outgrow a single provider</a></li><li><a href="#the-building-blocks">The building blocks</a></li><li><a href="#orchestration-vs-a-gateway-vs-a-white-label-platform">Orchestration vs. a gateway vs. a white-label platform</a></li><li><a href="#when-you-don39t-need-it-yet">When you don&amp;#39;t need it yet</a></li><li><a href="#how-to-evaluate-a-payment-orchestration-platform">How to evaluate a payment orchestration platform</a></li><li><a href="#getting-started">Getting started</a></li><li><a href="#faq">FAQ</a></li></ol><a class="btn" href="/book-a-demo">Book a Demo</a></aside>
+</div></div></div>
+</article>
+<section class="related"><div class="wrap"><h2>Keep reading</h2><div class="grid"><a class="card" href="/blog/white-label-payment-gateway-vs-building-your-own">
+  <img src="/blog/covers/white-label-payment-gateway-vs-building-your-own.jpg" alt="Stacked platform layers representing a white-label payment gateway" width="1200" height="630" loading="lazy" decoding="async">
+  <span class="body"><span class="mono cat">Guides</span><h3>White-label payment gateway vs. building your own PSP stack</h3><p>Should you license a white-label payment gateway or build your own PSP stack? The real work, costs, timelines and risks of each path — and how to decide.</p>
+  <span class="meta"><time datetime="2026-11-05">5 November 2026</time><span>4 min read</span></span></span></a><a class="card" href="/blog/high-risk-merchant-account-underwriting">
+  <img src="/blog/covers/high-risk-merchant-account-underwriting.jpg" alt="Shield with a check mark representing high-risk merchant underwriting" width="1200" height="630" loading="lazy" decoding="async">
+  <span class="body"><span class="mono cat">Explainers</span><h3>High-risk merchant accounts: how underwriting actually works</h3><p>What acquirers check when underwriting a high-risk merchant account, which documents to prepare, why applications fail, and how to stay approved.</p>
+  <span class="meta"><time datetime="2026-11-05">5 November 2026</time><span>4 min read</span></span></span></a></div></div></section>
+</main>
+<footer class="ftr"><div class="wrap">
+  <div class="ftr-grid">
+    <div><a class="brand" href="/"><img src="/aq-mark.svg" alt="" width="32" height="32">AQ Pay</a>
+      <p>White-label gateway, orchestration and merchant services infrastructure for PSPs, platforms and merchants.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn" href="/book-a-demo" style="font-size:14px;padding:10px 18px">Book a Demo</a><a class="btn btn-ghost" href="https://demo.aqpay.services/" style="font-size:14px">Portal login ↗</a></div></div>
+    <nav aria-label="Solutions"><h3>Solutions</h3><ul><li><a href="/white-label-gateway">White-Label Gateway</a></li><li><a href="/merchant-services">Merchant Services</a></li><li><a href="/high-risk-processing">High-Risk Processing</a></li><li><a href="/payment-orchestration">Payment Orchestration</a></li><li><a href="/about#consulting">Payment Consulting</a></li><li><a href="/industries">Industries</a></li></ul></nav>
+    <nav aria-label="Platform"><h3>Platform</h3><ul><li><a href="/payment-orchestration#routing">Intelligent Routing</a></li><li><a href="/payment-orchestration#connectivity">Gateway Connectivity</a></li><li><a href="/#risk">Risk &amp; Fraud</a></li><li><a href="/white-label-gateway#operations">Reconciliation</a></li><li><a href="/#security">Security</a></li></ul></nav>
+    <nav aria-label="Developers"><h3>Developers</h3><ul><li><a href="/developers">Overview</a></li><li><a href="/developers#quick-start">Quick Start</a></li><li><a href="/api-reference">API Reference</a></li><li><a href="/api-reference#webhooks">Webhooks</a></li><li><a href="/developers#sandbox">Sandbox</a></li></ul></nav>
+    <nav aria-label="Company"><h3>Company</h3><ul><li><a href="/about">About</a></li><li><a href="/blog">Blog</a></li><li><a href="/partner-program">Partner Program</a></li><li><a href="/book-a-demo">Book a Demo</a></li><li><a href="/book-a-demo#contact">Contact</a></li><li><a href="mailto:hello@aqpay.services">hello@aqpay.services</a></li></ul></nav>
+  </div>
+  <div class="ftr-base"><span>Services are subject to industry eligibility, geographic restrictions, underwriting and partner approval. AQ Pay is a technology provider and does not hold or move client funds unless expressly stated in a service agreement.</span>
+    <div class="row"><span>© 2026 AQ Pay. All rights reserved.</span><span style="display:flex;gap:18px"><a href="/#legal">Privacy</a><a href="/#legal">Terms</a><a href="/#legal">Cookies</a></span></div></div>
+</div></footer>
+</body>
+</html>
