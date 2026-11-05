@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<footer id="legal" style="border-top:1px solid rgba(255,255,255,.08);padding:64px 24px 32px;background:#070B16;font-family:'Manrope',system-ui,sans-serif;color:#F7F9FC">
+  <div style="max-width:1240px;margin:0 auto">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:40px">
+      <div style="grid-column:span 2;min-width:0">
+        <a href="/" style="display:flex;align-items:center;gap:12px;color:#F7F9FC;text-decoration:none"><span style="position:relative;width:34px;height:34px;border:2px solid #57DCE5;border-radius:10px;display:block"><span style="position:absolute;left:7px;top:7px;width:16px;height:16px;border-radius:50%;border:2px solid rgba(87,220,229,.45);display:block"></span><span style="position:absolute;right:-5px;bottom:-5px;width:12px;height:12px;border-radius:50%;background:#BAEF74;box-shadow:0 0 0 3px #070B16;display:block"></span></span><span style="font-family:'Sora',sans-serif;font-weight:700;font-size:17px">The Payment Portal</span></a>
+        <p style="color:#AEB9CC;line-height:1.55;font-size:14.5px;margin:18px 0 0;max-width:340px">White-label payment gateway, orchestration and merchant services infrastructure for PSPs, platforms and merchants.</p>
+        <p style="color:#6F7D93;line-height:1.55;font-size:12.5px;margin:18px 0 0;max-width:380px">Services are subject to industry eligibility, geographic restrictions, underwriting and partner approval. The Payment Portal is a technology provider and does not hold or move client funds unless expressly stated in a service agreement.</p>
+      </div>
+      <sc-for list="{{ cols }}" as="col" hint-placeholder-count="4">
+        <div>
+          <div style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#AEB9CC;margin-bottom:16px">{{ col.h }}</div>
+          <ul style="list-style:none;padding:0;margin:0;display:grid;gap:10px">
+            <sc-for list="{{ col.links }}" as="l" hint-placeholder-count="5"><li><a href="{{ l.href }}" style="color:#F7F9FC;font-size:14.5px;text-decoration:none" style-hover="color:#57DCE5">{{ l.t }}</a></li></sc-for>
+          </ul>
+        </div>
+      </sc-for>
+    </div>
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;margin-top:56px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);font-size:13px;color:#6F7D93">
+      <span>© 2026 The Payment Portal. All rights reserved.</span>
+      <span style="display:flex;gap:18px;flex-wrap:wrap"><a href="/#legal" style="color:#AEB9CC;text-decoration:none">Privacy</a><a href="/#legal" style="color:#AEB9CC;text-decoration:none">Terms</a><a href="/#legal" style="color:#AEB9CC;text-decoration:none">Cookies</a><a href="/#legal" style="color:#AEB9CC;text-decoration:none">Acceptable use</a></span>
+    </div>
+  </div>
+</footer>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:&quot;420px&quot;}}">
+class Component extends DCLogic {
+  renderVals() {
+    const home = '/';
+    const cols = [
+      { h: 'Solutions', links: [['White-Label Gateway', '/white-label-gateway'], ['Merchant Services', '/merchant-services'], ['High-Risk Processing', '/high-risk-processing'], ['Payment Orchestration', '/payment-orchestration'], ['Payment Consulting', '/about#consulting'], ['Industries', '/industries']] },
+      { h: 'Platform', links: [['Intelligent Routing', '/payment-orchestration#routing'], ['Gateway Connectivity', '/payment-orchestration#connectivity'], ['Risk & Fraud', home + '#risk'], ['Reconciliation', '/white-label-gateway#operations'], ['Branding Demo', home + '#brand-demo'], ['Security', home + '#security']] },
+      { h: 'Developers', links: [['Overview', '/developers'], ['Quick Start', '/developers#quick-start'], ['API Reference', '/api-reference'], ['Webhooks', '/api-reference#webhooks'], ['Sandbox', '/developers#sandbox']] },
+      { h: 'Company', links: [['About', '/about'], ['Partner Program', '/partner-program'], ['Book a Demo', '/book-a-demo'], ['Contact', '/book-a-demo#contact'], ['Login', 'https://demo.aqpay.services/']] },
+    ].map(c => ({ ...c, links: c.links.map(([t, href]) => ({ t, href })) }));
+    return { cols };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+@keyframes tppFade{from{opacity:0}to{opacity:1}}
+@keyframes tppPanel{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+</style>
+</helmet>
+<header style="position:sticky;top:0;z-index:60;font-family:'Manrope',system-ui,sans-serif;color:#F7F9FC" onMouseLeave="{{ closeMenu }}">
+  <div style="backdrop-filter:blur(20px);background:rgba(9,14,27,.76);border-bottom:1px solid rgba(255,255,255,.07)">
+    <div style="max-width:1360px;margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;gap:28px">
+      <a href="{{ homeHref }}" aria-label="The Payment Portal home" style="display:flex;align-items:center;gap:12px;color:#F7F9FC;flex-shrink:0;text-decoration:none">
+        <span style="position:relative;width:34px;height:34px;border:2px solid #57DCE5;border-radius:10px;display:block">
+          <span style="position:absolute;left:7px;top:7px;width:16px;height:16px;border-radius:50%;border:2px solid rgba(87,220,229,.45);display:block"></span>
+          <span style="position:absolute;right:-5px;bottom:-5px;width:12px;height:12px;border-radius:50%;background:#BAEF74;box-shadow:0 0 0 3px #090E1B;display:block"></span>
+        </span>
+        <span style="font-family:'Sora',sans-serif;font-weight:700;letter-spacing:-.01em;font-size:17px;line-height:1">The Payment Portal</span>
+      </a>
+      <nav aria-label="Main" style="display:{{ desktopDisplay }};flex:1;justify-content:center;gap:2px">
+        <sc-for list="{{ navs }}" as="n" hint-placeholder-count="6">
+          <button onMouseEnter="{{ n.open }}" onClick="{{ n.toggle }}" onFocus="{{ n.open }}" aria-expanded="{{ n.isOpen }}" style="background:{{ n.bg }};border:0;color:{{ n.color }};padding:10px 14px;border-radius:999px;font-weight:600;font-size:15px;display:flex;align-items:center;gap:6px;transition:color .2s,background .2s;cursor:pointer;font-family:inherit" style-hover="color:#F7F9FC">{{ n.label }}<span style="width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);display:inline-block;opacity:.7"></span></button>
+        </sc-for>
+      </nav>
+      <div style="display:flex;align-items:center;gap:10px;margin-left:auto">
+        <a href="{{ loginHref }}" style="display:{{ desktopDisplay }};color:#AEB9CC;font-weight:600;font-size:15px;padding:10px 14px;text-decoration:none" style-hover="color:#F7F9FC">Login</a>
+        <a href="/book-a-demo" style="display:{{ desktopDisplay }};background:#57DCE5;color:#090E1B;font-weight:700;font-size:15px;padding:11px 20px;border-radius:999px;transition:background .2s,transform .2s;text-decoration:none" style-hover="background:#BAEF74;transform:translateY(-1px)">Book a Demo</a>
+        <button onClick="{{ toggleMobile }}" aria-label="Open menu" aria-expanded="{{ mobileOpen }}" style="display:{{ mobileDisplay }};background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#F7F9FC;width:44px;height:44px;border-radius:12px;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer">
+          <span style="width:18px;height:2px;background:currentColor;display:block"></span><span style="width:18px;height:2px;background:currentColor;display:block"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;left:0;right:0;top:72px;background:rgba(12,19,34,.97);backdrop-filter:blur(24px);border-bottom:1px solid rgba(255,255,255,.08);box-shadow:0 40px 80px rgba(0,0,0,.5);animation:tppPanel .28s cubic-bezier(.2,.8,.2,1) both">
+      <div style="max-width:1360px;margin:0 auto;padding:36px 24px 40px;display:grid;grid-template-columns:300px 1fr;gap:40px">
+        <div style="border-right:1px solid rgba(255,255,255,.08);padding-right:40px">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#57DCE5">{{ activeMenu.label }}</div>
+          <div style="font-family:'Sora',sans-serif;font-weight:700;font-size:26px;line-height:1.15;letter-spacing:-.02em;margin:12px 0 10px">{{ activeMenu.tagline }}</div>
+          <p style="color:#AEB9CC;line-height:1.55;margin:0 0 22px;font-size:15px">{{ activeMenu.blurb }}</p>
+          <a href="{{ activeMenu.ctaHref }}" style="display:inline-flex;align-items:center;gap:8px;color:#BAEF74;font-weight:700;font-size:15px;text-decoration:none">{{ activeMenu.cta }} <span aria-hidden="true">→</span></a>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:6px 24px">
+          <sc-for list="{{ activeMenu.items }}" as="it" hint-placeholder-count="6">
+            <a href="{{ it.href }}" onClick="{{ closeMenu }}" style="display:flex;gap:14px;padding:12px;border-radius:14px;color:#F7F9FC;transition:background .2s;text-decoration:none;background:{{ it.bg }}" style-hover="background:rgba(255,255,255,.05);color:#F7F9FC">
+              <span style="width:38px;height:38px;border-radius:11px;background:rgba(87,220,229,.08);border:1px solid rgba(87,220,229,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0">{{ it.icon }}</span>
+              <span><span style="display:block;font-weight:700;font-size:15px;margin-bottom:3px">{{ it.t }}</span><span style="display:block;color:#AEB9CC;font-size:13.5px;line-height:1.45">{{ it.d }}</span></span>
+            </a>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+</header>
+<sc-if value="{{ mobileOpen }}" hint-placeholder-val="{{ false }}">
+  <div role="dialog" aria-label="Menu" style="position:fixed;inset:0;z-index:90;background:#0B1324;overflow:auto;animation:tppFade .2s ease both;font-family:'Manrope',system-ui,sans-serif;color:#F7F9FC">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 24px;height:72px;border-bottom:1px solid rgba(255,255,255,.08)">
+      <span style="font-family:'Sora',sans-serif;font-weight:700">The Payment Portal</span>
+      <button onClick="{{ toggleMobile }}" aria-label="Close menu" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#F7F9FC;width:44px;height:44px;border-radius:12px;font-size:20px;cursor:pointer">×</button>
+    </div>
+    <div style="padding:12px 24px 40px;display:flex;flex-direction:column;gap:4px">
+      <sc-for list="{{ navs }}" as="n" hint-placeholder-count="6">
+        <div style="border-bottom:1px solid rgba(255,255,255,.07)">
+          <button onClick="{{ n.toggleMobile }}" aria-expanded="{{ n.mobileOpen }}" style="width:100%;background:none;border:0;color:#F7F9FC;display:flex;justify-content:space-between;align-items:center;padding:18px 0;font-family:'Sora',sans-serif;font-weight:600;font-size:19px;min-height:44px;cursor:pointer">{{ n.label }}<span style="color:#57DCE5;font-size:22px;line-height:1">{{ n.mobileSign }}</span></button>
+          <sc-if value="{{ n.mobileOpen }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;gap:2px;padding-bottom:14px">
+              <sc-for list="{{ n.items }}" as="it" hint-placeholder-count="4">
+                <a href="{{ it.href }}" style="display:flex;gap:12px;align-items:center;color:#F7F9FC;padding:10px 4px;min-height:44px;text-decoration:none"><span style="width:32px;height:32px;border-radius:9px;background:rgba(87,220,229,.08);display:flex;align-items:center;justify-content:center;flex-shrink:0">{{ it.icon }}</span><span style="font-weight:600;font-size:15px">{{ it.t }}</span></a>
+              </sc-for>
+            </div>
+          </sc-if>
+        </div>
+      </sc-for>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:24px">
+        <a href="/book-a-demo" style="background:#57DCE5;color:#090E1B;font-weight:700;text-align:center;padding:15px;border-radius:999px;text-decoration:none">Book a Demo</a>
+        <a href="{{ loginHref }}" style="border:1px solid rgba(255,255,255,.18);color:#F7F9FC;font-weight:600;text-align:center;padding:15px;border-radius:999px;text-decoration:none">Login</a>
+      </div>
+    </div>
+  </div>
+</sc-if>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:&quot;72px&quot;},&quot;current&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;'' | 'solutions' | 'platform' | 'industries' | 'developers' | 'resources' | 'company'&quot;,&quot;options&quot;:[&quot;&quot;,&quot;solutions&quot;,&quot;platform&quot;,&quot;industries&quot;,&quot;developers&quot;,&quot;resources&quot;,&quot;company&quot;]},&quot;page&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { menu: null, mobileOpen: false, mobileGroup: null, isMobile: false };
+  componentDidMount() {
+    this.onResize = () => this.setState({ isMobile: window.innerWidth < 960 }); this.onResize(); window.addEventListener('resize', this.onResize);
+    this.onKey = e => { if (e.key === 'Escape') this.setState({ menu: null, mobileOpen: false }); }; window.addEventListener('keydown', this.onKey);
+  }
+  componentWillUnmount() { window.removeEventListener('resize', this.onResize); window.removeEventListener('keydown', this.onKey); }
+  icon(kind, color = '#57DCE5') {
+    const h = React.createElement, S = { width: 18, height: 18, viewBox: '0 0 18 18', fill: 'none', stroke: color, strokeWidth: 1.6, strokeLinecap: 'round' };
+    const map = {
+      ring: [h('circle', { cx: 9, cy: 9, r: 6.5 }), h('circle', { cx: 9, cy: 9, r: 2, fill: color, stroke: 'none' })],
+      route: [h('circle', { cx: 3.5, cy: 9, r: 2 }), h('circle', { cx: 14.5, cy: 4, r: 2 }), h('circle', { cx: 14.5, cy: 14, r: 2 }), h('path', { d: 'M5.5 9 L12.5 4.5 M5.5 9 L12.5 13.5' })],
+      layers: [h('path', { d: 'M3 5h12M3 9h12M3 13h12' })],
+      grid: [h('rect', { x: 3, y: 3, width: 5, height: 5, rx: 1.2 }), h('rect', { x: 10, y: 3, width: 5, height: 5, rx: 1.2 }), h('rect', { x: 3, y: 10, width: 5, height: 5, rx: 1.2 }), h('rect', { x: 10, y: 10, width: 5, height: 5, rx: 1.2 })],
+      diamond: [h('rect', { x: 4.5, y: 4.5, width: 9, height: 9, rx: 1.5, transform: 'rotate(45 9 9)' })],
+      node: [h('circle', { cx: 9, cy: 9, r: 3 }), h('path', { d: 'M9 2v3M9 13v3M2 9h3M13 9h3' })],
+      bars: [h('path', { d: 'M4 14V9M9 14V4M14 14V7' })],
+      doc: [h('rect', { x: 4, y: 2.5, width: 10, height: 13, rx: 1.5 }), h('path', { d: 'M7 7h4M7 10h4' })],
+      code: [h('path', { d: 'M6 5L2.5 9 6 13M12 5l3.5 4-3.5 4' })],
+      portal: [h('rect', { x: 2.5, y: 2.5, width: 13, height: 13, rx: 3.5 }), h('circle', { cx: 9, cy: 9, r: 3 })],
+      arrows: [h('path', { d: 'M3 6h10l-3-3M15 12H5l3 3' })],
+      wave: [h('path', { d: 'M2 9c2-4 4-4 6 0s4 4 6 0 2-2 2-2' })],
+      box: [h('rect', { x: 3, y: 3, width: 12, height: 12, rx: 2 }), h('path', { d: 'M3 8h12' })],
+      pin: [h('circle', { cx: 9, cy: 7, r: 3.5 }), h('path', { d: 'M9 10.5V16' })],
+      lock: [h('rect', { x: 4, y: 8, width: 10, height: 8, rx: 2 }), h('path', { d: 'M6 8V6a3 3 0 0 1 6 0v2' })],
+    };
+    return h('svg', S, ...(map[kind] || map.ring));
+  }
+  renderVals() {
+    const s = this.state, set = o => this.setState(o), cur = this.props.current || '', isM = s.isMobile;
+    const home = '/';
+    const defs = [
+      { key: 'solutions', label: 'Solutions', tagline: 'Four ways to work with TPP.', blurb: 'License our portal, process through us, or bring us in to design your payment stack.', cta: 'Compare solutions', ctaHref: home + '#platform', items: [
+        ['White-Label Payment Gateway', 'License the portal and launch your own branded payments business.', '/white-label-gateway', 'portal'],
+        ['Merchant Services', 'Accounts, gateway integration, billing and multi-currency acceptance.', '/merchant-services', 'box'],
+        ['High-Risk Payment Processing', 'Consultation, acquirer introductions, underwriting help and risk mitigation.', '/high-risk-processing', 'lock'],
+        ['Payment Consulting', 'Payment stack architecture, operations and dispute strategy.', '/about#consulting', 'wave'],
+        ['Payment Orchestration', 'One API, many providers, intelligent routing and failover.', '/payment-orchestration', 'route'],
+        ['Embedded Payments', 'Payments built into your software, platform or marketplace.', '/industries#marketplaces', 'code']] },
+      { key: 'platform', label: 'Platform', tagline: 'Every capability in one gateway core.', blurb: 'Explore the modules behind the portal — from routing to reconciliation.', cta: 'See how it fits together', ctaHref: home + '#infrastructure', items: [
+        ['Payment Gateway', 'Authorization, capture, refunds and tokenized payments via one API.', '/api-reference#payments', 'portal'],
+        ['Intelligent Routing', 'Rule-based primary selection with cascading and failover.', '/payment-orchestration#routing', 'route'],
+        ['Gateway Connectivity', 'Maintained connectors to acquirers, PSPs and alternative methods.', '/payment-orchestration#connectivity', 'node'],
+        ['Merchant Management', 'Onboarding, KYB data capture, configuration and lifecycle.', '/white-label-gateway#merchants', 'grid'],
+        ['Transaction Management', 'Search, trace, refund and dispute every transaction.', '/merchant-services#transactions', 'layers'],
+        ['Risk & Fraud', 'Pre-authorization screening, 3-D Secure and review queues.', home + '#risk', 'lock'],
+        ['Reconciliation & Settlements', 'Match provider statements to transactions and payouts.', '/white-label-gateway#operations', 'arrows'],
+        ['Analytics & Intelligence', 'Approval, decline and cost analysis across every route.', '/payment-orchestration#analytics', 'bars'],
+        ['White-Label Infrastructure', 'Multi-tenant branding, partner hierarchy and billing.', '/white-label-gateway#infrastructure', 'diamond']] },
+      { key: 'industries', label: 'Industries', tagline: 'Built for demanding business models.', blurb: 'Patterns and provider mixes tuned to how your sector actually transacts.', cta: 'Browse industries', ctaHref: '/industries', items: [
+        ['E-commerce', 'Checkout conversion, multi-currency and APM coverage.', '/industries#ecommerce', 'box'],
+        ['Subscription Businesses', 'Recurring billing, retries and card lifecycle handling.', '/industries#subscriptions', 'ring'],
+        ['Digital Products & Services', 'Instant delivery, fraud screening and global reach.', '/industries#digital', 'code'],
+        ['Travel & Hospitality', 'High tickets, delayed delivery and multi-currency settlement.', '/industries#travel', 'pin'],
+        ['Marketplaces', 'Sub-merchant onboarding and split settlement.', '/industries#marketplaces', 'grid'],
+        ['Gaming & Regulated Industries', 'Specialist acquiring, eligibility-dependent.', '/industries#regulated', 'lock']] },
+      { key: 'developers', label: 'Developers', tagline: 'Integrate once, route anywhere.', blurb: 'REST API, webhooks, sandbox and planned SDKs — documented for engineers.', cta: 'Developer overview', ctaHref: '/developers', items: [
+        ['API Overview', 'Resources, authentication and idempotency.', '/developers', 'code'],
+        ['Quick Start', 'First sandbox payment in four steps.', '/developers#quick-start', 'arrows'],
+        ['API Reference', 'Every endpoint, parameter and response.', '/api-reference', 'doc'],
+        ['Webhooks', 'Signed event delivery with retries.', '/api-reference#webhooks', 'wave'],
+        ['Sandbox', 'Test cards, simulated providers and declines.', '/developers#sandbox', 'box'],
+        ['Integration Guides', 'Hosted checkout, server-to-server, platforms.', '/developers#guides', 'layers'],
+        ['SDKs', 'Planned server and client libraries.', '/developers#sdks', 'grid']] },
+      { key: 'resources', label: 'Resources', tagline: 'Payments knowledge, plainly written.', blurb: 'Guides and references for teams building or buying payment infrastructure.', cta: 'Browse resources', ctaHref: home + '#resources', items: [
+        ['Blog', 'Perspectives on orchestration, risk and white-label models.', home + '#resources', 'doc'],
+        ['Knowledge Base', 'How-to articles for the portal.', home + '#resources', 'layers'],
+        ['Case Studies', 'Published when customers authorise them.', home + '#resources', 'bars'],
+        ['FAQs', 'Straight answers to common questions.', home + '#faq', 'ring'],
+        ['Payment Glossary', 'Acquirer to zero-auth, defined.', home + '#resources', 'grid']] },
+      { key: 'company', label: 'Company', tagline: 'A technology partner, not just a vendor.', blurb: 'Who we are, how we work with partners, and how we protect your data.', cta: 'Get in touch', ctaHref: '/book-a-demo#contact', items: [
+        ['About', 'Our mission and how we work.', '/about', 'ring'],
+        ['Partner Program', 'Referral, reseller and white-label partnerships.', '/partner-program', 'node'],
+        ['Contact', 'Sales, support and press.', '/book-a-demo#contact', 'wave'],
+        ['Security', 'Platform controls and attestations.', home + '#security', 'lock'],
+        ['Legal', 'Privacy, terms, cookies and acceptable use.', home + '#legal', 'doc']] },
+    ];
+    const navs = defs.map(n => ({ ...n, isOpen: s.menu === n.key, color: s.menu === n.key || cur === n.key ? '#F7F9FC' : '#AEB9CC', bg: cur === n.key ? 'rgba(255,255,255,.06)' : 'transparent', open: () => set({ menu: n.key }), toggle: () => set({ menu: s.menu === n.key ? null : n.key }), mobileOpen: s.mobileGroup === n.key, mobileSign: s.mobileGroup === n.key ? '−' : '+', toggleMobile: () => set({ mobileGroup: s.mobileGroup === n.key ? null : n.key }), items: n.items.map(([t, d, href, g]) => ({ t, d, href, icon: this.icon(g), bg: href.split('#')[0] === (this.props.page || '') ? 'rgba(87,220,229,.07)' : 'transparent' })) }));
+    return { navs, activeMenu: navs.find(n => n.key === s.menu) || navs[0], menuOpen: !!s.menu && !isM, closeMenu: () => set({ menu: null }), mobileOpen: s.mobileOpen, toggleMobile: () => set({ mobileOpen: !s.mobileOpen, menu: null }), desktopDisplay: isM ? 'none' : 'flex', mobileDisplay: isM ? 'flex' : 'none', homeHref: home, loginHref: 'https://demo.aqpay.services/' };
+  }
+}
+</script>
+</body>
+</html>

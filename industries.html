@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Industries — E-commerce, Subscription, Digital, Travel, Marketplace & Regulated Payments | The Payment Portal</title>
+<meta name="description" content="Payment infrastructure patterns for e-commerce, subscription businesses, digital products, travel and hospitality, marketplaces and regulated industries: routing, risk, methods and settlement considerations.">
+<link rel="canonical" href="https://thepaymentportal.example/industries">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:#090E1B;color:#F7F9FC;font-family:'Manrope',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:#57DCE5;text-decoration:none}a:hover{color:#BAEF74}input,button,select,textarea{font:inherit}button{cursor:pointer}
+::selection{background:#57DCE5;color:#090E1B}
+[data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}[data-reveal].in{opacity:1;transform:none}
+@keyframes tppRise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+@keyframes tppUp{from{transform:translateY(110%)}to{transform:none}}
+@media (prefers-reduced-motion:reduce){[data-reveal]{opacity:1;transform:none;transition:none}*{animation-duration:.01ms!important}}
+</style>
+</helmet>
+<dc-import name="SiteNav" current="industries" page="/industries" hint-size="100%,72px"></dc-import>
+<main>
+<section data-screen-label="Hero" style="position:relative;overflow:hidden;padding:clamp(80px,10vw,140px) 24px clamp(48px,6vw,80px);background:radial-gradient(ellipse 50% 60% at 80% 30%,rgba(166,139,245,.12),transparent 70%),#090E1B">
+  <div style="max-width:1240px;margin:0 auto">
+    <nav aria-label="Breadcrumb" style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6F7D93;display:flex;gap:10px"><a href="/" style="color:#6F7D93">Home</a><span>/</span><span style="color:#A68BF5">Industries</span></nav>
+    <h1 style="font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(38px,5.6vw,80px);line-height:.98;letter-spacing:-.035em;margin:22px 0 22px;max-width:900px;text-wrap:balance"><span style="display:block;overflow:hidden;padding-bottom:.1em"><span style="display:block;animation:tppUp .9s .15s cubic-bezier(.2,.8,.2,1) both">Built for the business models</span></span><span style="display:block;overflow:hidden;padding-bottom:.1em"><span style="display:block;animation:tppUp .9s .3s cubic-bezier(.2,.8,.2,1) both;color:#A68BF5">that stress ordinary gateways.</span></span></h1>
+    <p style="animation:tppRise .9s .6s both;font-size:clamp(17px,1.3vw,20px);line-height:1.55;color:#AEB9CC;max-width:640px;margin:0 0 28px;text-wrap:pretty">Every sector transacts differently — ticket size, delivery timing, dispute exposure, methods and regulation. The platform is the same; the configuration is not. Here is how we think about each.</p>
+    <div style="animation:tppRise .9s .8s both;display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ jump }}" as="j" hint-placeholder-count="6"><a href="{{ j.href }}" style="font-size:13.5px;font-weight:600;color:#F7F9FC;border:1px solid rgba(255,255,255,.14);padding:9px 14px;border-radius:999px;background:rgba(255,255,255,.03)" style-hover="border-color:#A68BF5;color:#F7F9FC">{{ j.t }}</a></sc-for></div>
+  </div>
+</section>
+
+<sc-for list="{{ industries }}" as="i" hint-placeholder-count="6">
+  <section id="{{ i.id }}" data-screen-label="{{ i.t }}" style="padding:clamp(56px,7vw,96px) 24px;border-top:1px solid rgba(255,255,255,.06);scroll-margin-top:72px;background:{{ i.bg }}">
+    <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:{{ twoCols }};gap:48px;align-items:start">
+      <div data-reveal style="position:sticky;top:96px">
+        <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#A68BF5">{{ i.n }}</div>
+        <h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:clamp(30px,3.8vw,50px);line-height:1.06;letter-spacing:-.025em;margin:14px 0 16px;text-wrap:balance">{{ i.t }}</h2>
+        <p style="font-size:17px;line-height:1.55;color:#AEB9CC;margin:0 0 22px;text-wrap:pretty">{{ i.d }}</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px"><sc-for list="{{ i.tags }}" as="tg" hint-placeholder-count="3"><span style="font-size:12.5px;color:#F7F9FC;background:rgba(166,139,245,.1);border:1px solid rgba(166,139,245,.3);padding:5px 10px;border-radius:999px">{{ tg }}</span></sc-for></div>
+      </div>
+      <div data-reveal style="display:grid;gap:10px">
+        <sc-for list="{{ i.points }}" as="p" hint-placeholder-count="4"><div style="display:grid;grid-template-columns:{{ pointCols }};gap:14px;background:rgba(23,38,58,.42);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:18px 20px"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#6F7D93;padding-top:3px">{{ p.k }}</span><span><span style="display:block;font-weight:700;font-size:15.5px">{{ p.t }}</span><span style="display:block;color:#AEB9CC;font-size:14px;line-height:1.55;margin-top:4px">{{ p.d }}</span></span></div></sc-for>
+        <a href="{{ i.cta.href }}" style="display:inline-flex;align-items:center;gap:8px;color:#BAEF74;font-weight:700;font-size:15px;margin-top:6px">{{ i.cta.t }} <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
+  </section>
+</sc-for>
+
+<section data-screen-label="CTA" style="padding:clamp(64px,8vw,110px) 24px">
+  <div data-reveal style="max-width:1240px;margin:0 auto;background:linear-gradient(135deg,rgba(166,139,245,.16),rgba(87,220,229,.1));border:1px solid rgba(166,139,245,.35);border-radius:28px;padding:clamp(32px,5vw,64px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px">
+    <div style="max-width:640px"><h2 style="font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(28px,3.6vw,46px);line-height:1.05;letter-spacing:-.03em;margin:0 0 12px">Don't see your sector? Describe it.</h2><p style="color:#AEB9CC;font-size:17px;line-height:1.55;margin:0">We configure per business, not per label. Tell us how you transact and we'll tell you what we'd set up — and what depends on partner approval.</p></div>
+    <a href="/book-a-demo" style="background:#A68BF5;color:#090E1B;font-weight:700;padding:16px 26px;border-radius:999px;font-size:16px" style-hover="background:#57DCE5;color:#090E1B">Book a demo</a>
+  </div>
+</section>
+</main>
+<dc-import name="SiteFooter" hint-size="100%,420px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { isMobile: false };
+  componentDidMount() { this.onResize = () => this.setState({ isMobile: window.innerWidth < 900 }); this.onResize(); window.addEventListener('resize', this.onResize); this.io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); this.io.unobserve(en.target); } }), { rootMargin: '0px 0px -8% 0px' }); this.observe(); }
+  componentDidUpdate() { this.observe(); }
+  componentWillUnmount() { window.removeEventListener('resize', this.onResize); this.io?.disconnect(); }
+  observe() { document.querySelectorAll('[data-reveal]:not(.in)').forEach(el => this.io.observe(el)); }
+  renderVals() {
+    const isM = this.state.isMobile, alt = 'linear-gradient(180deg,#090E1B,#0D1729 50%,#090E1B)';
+    const industries = [
+      { id: 'ecommerce', n: '01 · E-commerce', t: 'E-commerce', bg: '#090E1B', d: 'Cross-border stores live or die on checkout conversion. The levers are local methods, local acquiring, sensible 3DS policy and clear declines customers can act on.', tags: ['Routing by region', 'Local methods', '3DS exemptions'], points: [{ k: 'Routing', t: 'Local acquiring where it exists', d: 'Domestic routes typically approve better and cost less; profiles route by issuer country automatically.' }, { k: 'Methods', t: 'Country-specific payment methods', d: 'Bank redirects and wallets added per market with one status model.' }, { k: 'Risk', t: 'Frictionless 3DS where allowed', d: 'Exemption strategy for low-risk, low-value traffic; challenge where the score demands it.' }, { k: 'Ops', t: 'Multi-currency settlement', d: 'Present in local currency, settle in yours, see FX on every payment.' }], cta: { t: 'Merchant services', href: '/merchant-services' } },
+      { id: 'subscriptions', n: '02 · Subscriptions', t: 'Subscription businesses', bg: alt, d: 'Recurring revenue is only as good as renewal success. Card lifecycle, retry timing and dunning determine involuntary churn — and issuers watch retry behaviour closely.', tags: ['Smart retries', 'Account updater', 'Dunning'], points: [{ k: 'Retries', t: 'Schedules that respect decline codes', d: 'Insufficient funds retries on payday patterns; hard declines are never retried.' }, { k: 'Cards', t: 'Account updater & network tokens', d: 'Where schemes support it, expired or reissued cards keep working.' }, { k: 'Billing', t: 'Plans, trials, proration', d: 'Billing logic lives in the platform, not in your codebase.' }, { k: 'Risk', t: 'Merchant-initiated transaction flags', d: 'Correct MIT/CIT framing keeps recurring payments exempt from repeated 3DS.' }], cta: { t: 'Subscription billing', href: '/merchant-services#subscriptions' } },
+      { id: 'digital', n: '03 · Digital', t: 'Digital products & services', bg: '#090E1B', d: 'Instant delivery leaves no time to review after authorization. Fraud has to be caught before the payment, and refunds have to be fast when it isn\u2019t.', tags: ['Pre-auth screening', 'Velocity rules', 'Instant refunds'], points: [{ k: 'Risk', t: 'Screening before authorization', d: 'Velocity, device and behavioural signals stop card testing and bulk fraud at the gate.' }, { k: 'Routing', t: 'Global reach from one integration', d: 'Add regional providers as you expand, without touching the integration.' }, { k: 'Ops', t: 'Dispute automation', d: 'Delivery and access logs attached to representment automatically.' }], cta: { t: 'Risk & monitoring', href: '/#risk' } },
+      { id: 'travel', n: '04 · Travel', t: 'Travel & hospitality', bg: alt, d: 'High tickets, delayed delivery and multi-party fulfilment make travel a specialist acquiring category. Resilience across more than one acquirer is not optional.', tags: ['Multi-acquirer', 'Delayed delivery', 'Dispute workflows'], points: [{ k: 'Acquiring', t: 'Specialist partners', d: 'Introductions to acquirers that underwrite delayed-delivery models, subject to their approval.' }, { k: 'Routing', t: 'Exposure spread by design', d: 'Route by region and ticket size across acquirers; cascade on technical declines.' }, { k: 'Ops', t: 'Long dispute windows', d: 'Dispute tooling built for cases that arrive months after booking.' }, { k: 'FX', t: 'Multi-currency settlement', d: 'Settle in the currency of your supplier payments where possible.' }], cta: { t: 'High-risk & specialist acquiring', href: '/high-risk-processing' } },
+      { id: 'marketplaces', n: '05 · Platforms', t: 'Marketplaces & embedded payments', bg: '#090E1B', d: 'Platforms need to onboard sellers, route their payments, report per seller and keep their own brand on everything. That is the white-label model applied to software.', tags: ['Sub-merchant onboarding', 'White-label', 'Per-seller reporting'], points: [{ k: 'Onboarding', t: 'Sub-merchants via API or portal', d: 'Create merchants, collect KYB data and assign profiles programmatically.' }, { k: 'Brand', t: 'Your checkout, your dashboards', d: 'Sellers see your brand; TPP stays invisible.' }, { k: 'Routing', t: 'Per-seller profiles', d: 'Different sellers, categories or regions can route differently.' }, { k: 'Finance', t: 'Reporting per seller', d: 'Settlement and fees broken down by sub-merchant for your payouts.' }], cta: { t: 'White-label gateway', href: '/white-label-gateway' } },
+      { id: 'regulated', n: '06 · Regulated', t: 'Gaming & regulated industries', bg: alt, d: 'Licensed gaming, financial services and other regulated categories need specialist acquiring, strict screening and detailed reporting. Eligibility depends on licence, jurisdiction and partner appetite.', tags: ['Eligibility-dependent', 'Enhanced risk', 'Jurisdiction rules'], points: [{ k: 'Eligibility', t: 'Licence and jurisdiction first', d: 'We assess what you are licensed to sell, where, before any partner introduction.' }, { k: 'Risk', t: 'Enhanced screening', d: 'Geo-fencing, age and identity checks integrated into the pre-authorization pipeline.' }, { k: 'Acquiring', t: 'Specialist partners only', d: 'Introductions limited to acquirers who serve the category; their decision is final.' }, { k: 'Reporting', t: 'Regulator-ready data', d: 'Transaction-level exports structured for compliance reporting.' }], cta: { t: 'How eligibility works', href: '/high-risk-processing#eligibility' } },
+    ];
+    return { twoCols: isM ? '1fr' : '1fr 1.2fr', pointCols: isM ? '1fr' : '80px 1fr', industries, jump: industries.map(i => ({ t: i.t, href: '#' + i.id })) };
+  }
+}
+</script>
+</body>
+</html>

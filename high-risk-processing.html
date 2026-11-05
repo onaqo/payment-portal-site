@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>High-Risk Merchant Account Services & Processing Consultation | The Payment Portal</title>
+<meta name="description" content="High-risk merchant account consultation, acquiring partner introductions, underwriting assistance, gateway connectivity, chargeback management and risk mitigation. Eligibility subject to industry, geography and partner approval.">
+<link rel="canonical" href="https://thepaymentportal.example/solutions/high-risk-payment-processing">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:#090E1B;color:#F7F9FC;font-family:'Manrope',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:#57DCE5;text-decoration:none}a:hover{color:#BAEF74}input,button,select,textarea{font:inherit}button{cursor:pointer}
+::selection{background:#57DCE5;color:#090E1B}
+[data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}[data-reveal].in{opacity:1;transform:none}
+@keyframes tppRise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+@keyframes tppUp{from{transform:translateY(110%)}to{transform:none}}
+@keyframes tppFade{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){[data-reveal]{opacity:1;transform:none;transition:none}*{animation-duration:.01ms!important}}
+</style>
+</helmet>
+<dc-import name="SiteNav" current="solutions" page="/high-risk-processing" hint-size="100%,72px"></dc-import>
+<main>
+<section data-screen-label="Hero" style="position:relative;overflow:hidden;padding:clamp(80px,10vw,140px) 24px clamp(64px,8vw,110px);background:radial-gradient(ellipse 50% 60% at 80% 40%,rgba(166,139,245,.14),transparent 70%),#090E1B">
+  <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:{{ twoCols }};gap:56px;align-items:center">
+    <div>
+      <nav aria-label="Breadcrumb" style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6F7D93;display:flex;gap:10px"><a href="/" style="color:#6F7D93">Home</a><span>/</span><span style="color:#A68BF5">Solutions</span></nav>
+      <h1 style="font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(38px,5.4vw,72px);line-height:1;letter-spacing:-.035em;margin:22px 0 22px;text-wrap:balance"><span style="display:block;overflow:hidden;padding-bottom:.1em"><span style="display:block;animation:tppUp .9s .15s cubic-bezier(.2,.8,.2,1) both">High-risk merchant</span></span><span style="display:block;overflow:hidden;padding-bottom:.1em"><span style="display:block;animation:tppUp .9s .3s cubic-bezier(.2,.8,.2,1) both;color:#A68BF5">services, done properly.</span></span></h1>
+      <p style="animation:tppRise .9s .6s both;font-size:clamp(17px,1.3vw,20px);line-height:1.55;color:#AEB9CC;max-width:580px;margin:0 0 20px;text-wrap:pretty">If mainstream providers have declined your business category, you need more than another application form. We assess your risk profile, prepare you for underwriting, introduce acquiring partners who serve your industry, and connect you to gateway infrastructure built for elevated risk.</p>
+      <p style="animation:tppRise .9s .7s both;font-size:14px;line-height:1.55;color:#6F7D93;max-width:580px;margin:0 0 32px;border-left:2px solid rgba(166,139,245,.5);padding-left:14px">Services are subject to industry eligibility, geographic restrictions, underwriting and partner approval. We cannot guarantee approval and we do not serve prohibited categories.</p>
+      <div style="animation:tppRise .9s .8s both;display:flex;flex-wrap:wrap;gap:12px"><a href="/book-a-demo" style="background:#A68BF5;color:#090E1B;font-weight:700;padding:16px 26px;border-radius:999px;font-size:16px" style-hover="background:#57DCE5;color:#090E1B">Request a consultation</a><a href="#eligibility" style="border:1px solid rgba(255,255,255,.2);color:#F7F9FC;font-weight:600;padding:15px 24px;border-radius:999px;font-size:16px" style-hover="border-color:#A68BF5;color:#F7F9FC">How eligibility works</a></div>
+    </div>
+    <div style="animation:tppRise 1s .9s both;display:grid;gap:10px">
+      <sc-for list="{{ services }}" as="s" hint-placeholder-count="6"><div style="display:flex;gap:14px;background:rgba(23,38,58,.45);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:16px 18px"><span style="width:8px;height:8px;border-radius:50%;background:#A68BF5;margin-top:7px;flex-shrink:0"></span><span><span style="display:block;font-weight:700;font-size:15px">{{ s.t }}</span><span style="display:block;color:#AEB9CC;font-size:13.5px;line-height:1.5;margin-top:3px">{{ s.d }}</span></span></div></sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="eligibility" data-screen-label="Eligibility" style="padding:clamp(64px,8vw,110px) 24px">
+  <div style="max-width:1240px;margin:0 auto">
+    <div data-reveal style="max-width:760px"><div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#A68BF5">How underwriting actually works</div><h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:clamp(30px,3.8vw,50px);line-height:1.06;letter-spacing:-.025em;margin:16px 0 18px;text-wrap:balance">Acquirers decide. We make sure you're ready for the decision.</h2><p style="font-size:17px;line-height:1.55;color:#AEB9CC;margin:0;text-wrap:pretty">“High risk” is a judgement acquirers make about chargeback exposure, regulatory exposure and reputational exposure. Each acquirer has its own appetite, its own prohibited list and its own jurisdictions. Our role is to match your profile to partners whose appetite fits — and to present it in the form underwriters expect.</p></div>
+    <div data-reveal style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:48px">
+      <sc-for list="{{ factors }}" as="f" hint-placeholder-count="4"><div style="background:rgba(23,38,58,.42);border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:26px"><div style="font-family:'Sora',sans-serif;font-weight:700;font-size:18px;line-height:1.25">{{ f.t }}</div><div style="color:#AEB9CC;line-height:1.55;font-size:15px;margin-top:10px">{{ f.d }}</div></div></sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="process" data-screen-label="Process" style="padding:0 24px clamp(64px,8vw,110px)">
+  <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:{{ twoCols }};gap:56px;align-items:start">
+    <div data-reveal style="position:sticky;top:96px"><div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#A68BF5">Engagement process</div><h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:clamp(30px,3.8vw,50px);line-height:1.06;letter-spacing:-.025em;margin:16px 0 18px;text-wrap:balance">From first call to live processing.</h2><p style="font-size:17px;line-height:1.55;color:#AEB9CC;margin:0;text-wrap:pretty">We work in defined stages so you always know where you stand and what's needed next. Timelines depend on your documentation and on partner response times.</p></div>
+    <div data-reveal style="display:flex;flex-direction:column">
+      <sc-for list="{{ stages }}" as="st" hint-placeholder-count="5"><div style="display:flex;gap:18px"><div style="display:flex;flex-direction:column;align-items:center"><span style="width:34px;height:34px;border-radius:50%;background:rgba(166,139,245,.12);border:1px solid rgba(166,139,245,.5);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:12px;color:#A68BF5;flex-shrink:0">{{ st.n }}</span><span style="width:1px;flex:1;background:rgba(255,255,255,.1);display:{{ st.line }};min-height:20px"></span></div><div style="padding-bottom:26px"><div style="font-weight:700;font-size:17px">{{ st.t }}</div><div style="color:#AEB9CC;font-size:15px;line-height:1.55;margin-top:5px">{{ st.d }}</div></div></div></sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="chargebacks" data-screen-label="Chargebacks" style="padding:clamp(64px,8vw,110px) 24px;background:linear-gradient(180deg,#090E1B,#0F1529 50%,#090E1B)">
+  <div style="max-width:1240px;margin:0 auto">
+    <div data-reveal style="display:grid;grid-template-columns:{{ twoCols }};gap:40px;align-items:end;margin-bottom:44px"><div><div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#A68BF5">Chargeback management &amp; risk mitigation</div><h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:clamp(30px,3.8vw,50px);line-height:1.06;letter-spacing:-.025em;margin:16px 0 0;text-wrap:balance">Staying approved is the real work.</h2></div><p style="font-size:17px;line-height:1.55;color:#AEB9CC;margin:0;text-wrap:pretty">High-risk accounts are monitored closely by acquirers and card schemes. Dispute ratios, refund patterns and descriptor clarity determine whether you keep processing. The platform gives you the controls; our team helps you use them.</p></div>
+    <div data-reveal style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px">
+      <sc-for list="{{ mitigation }}" as="m" hint-placeholder-count="6"><div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:22px"><div style="font-weight:700;font-size:16px">{{ m.t }}</div><div style="color:#AEB9CC;font-size:14.5px;line-height:1.55;margin-top:6px">{{ m.d }}</div></div></sc-for>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="FAQ" style="padding:clamp(64px,8vw,110px) 24px 0">
+  <div style="max-width:900px;margin:0 auto">
+    <div data-reveal style="margin-bottom:28px"><div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#A68BF5">Straight answers</div></div>
+    <div data-reveal style="display:flex;flex-direction:column;gap:8px">
+      <sc-for list="{{ faqs }}" as="q" hint-placeholder-count="5"><div style="background:rgba(23,38,58,.42);border:1px solid {{ q.border }};border-radius:16px;overflow:hidden"><button onClick="{{ q.toggle }}" aria-expanded="{{ q.open }}" style="width:100%;display:flex;justify-content:space-between;align-items:center;gap:16px;background:none;border:0;color:#F7F9FC;text-align:left;padding:20px 22px;font-weight:700;font-size:16.5px;min-height:44px"><span>{{ q.q }}</span><span style="width:26px;height:26px;border-radius:50%;border:1px solid rgba(255,255,255,.2);display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#A68BF5;font-size:18px;transform:rotate({{ q.rot }});transition:transform .3s">+</span></button><sc-if value="{{ q.open }}" hint-placeholder-val="{{ false }}"><p style="margin:0;padding:0 22px 22px;color:#AEB9CC;line-height:1.6;font-size:15.5px;animation:tppFade .3s">{{ q.a }}</p></sc-if></div></sc-for>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="CTA" style="padding:clamp(64px,8vw,110px) 24px">
+  <div data-reveal style="max-width:1240px;margin:0 auto;background:linear-gradient(135deg,rgba(166,139,245,.16),rgba(87,220,229,.08));border:1px solid rgba(166,139,245,.35);border-radius:28px;padding:clamp(32px,5vw,64px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px">
+    <div style="max-width:640px"><h2 style="font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(28px,3.6vw,46px);line-height:1.05;letter-spacing:-.03em;margin:0 0 12px">Tell us about your business. We'll tell you honestly what's possible.</h2><p style="color:#AEB9CC;font-size:17px;line-height:1.55;margin:0">A confidential consultation — industry, geography, history and goals — followed by a written view of realistic options.</p></div>
+    <a href="/book-a-demo" style="background:#A68BF5;color:#090E1B;font-weight:700;padding:16px 26px;border-radius:999px;font-size:16px" style-hover="background:#57DCE5;color:#090E1B">Request a consultation</a>
+  </div>
+</section>
+</main>
+<dc-import name="SiteFooter" hint-size="100%,420px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { isMobile: false, faq: 0 };
+  componentDidMount() { this.onResize = () => this.setState({ isMobile: window.innerWidth < 900 }); this.onResize(); window.addEventListener('resize', this.onResize); this.io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); this.io.unobserve(en.target); } }), { rootMargin: '0px 0px -8% 0px' }); this.observe(); }
+  componentDidUpdate() { this.observe(); }
+  componentWillUnmount() { window.removeEventListener('resize', this.onResize); this.io?.disconnect(); }
+  observe() { document.querySelectorAll('[data-reveal]:not(.in)').forEach(el => this.io.observe(el)); }
+  renderVals() {
+    const s = this.state;
+    const stages = [{ n: '1', t: 'Confidential assessment', d: 'Industry, jurisdictions, products, processing history, dispute ratios and corporate structure.' }, { n: '2', t: 'Partner matching', d: 'We shortlist acquiring partners whose appetite, geography and pricing fit your profile.' }, { n: '3', t: 'Underwriting preparation', d: 'Document pack, website compliance review, descriptor and refund policy alignment.' }, { n: '4', t: 'Introductions & applications', d: 'We introduce you and support the application; the partner makes its own decision.' }, { n: '5', t: 'Gateway connectivity & go-live', d: 'Approved accounts are connected to the TPP gateway with routing, risk rules and monitoring configured.' }];
+    return {
+      twoCols: s.isMobile ? '1fr' : '1fr 1fr',
+      services: [{ t: 'High-risk merchant account consultation', d: 'A realistic assessment of your profile and options before you apply anywhere.' }, { t: 'Acquiring partner introductions', d: 'Introductions to acquirers and PSPs that serve your category and region.' }, { t: 'Underwriting assistance', d: 'Document preparation and application support in the form underwriters expect.' }, { t: 'Gateway connectivity', d: 'Approved accounts connected to one gateway with routing across providers.' }, { t: 'Chargeback management', d: 'Alerts, evidence workflows and ratio monitoring to stay within scheme thresholds.' }, { t: 'Risk mitigation & infrastructure consulting', d: 'Screening rules, descriptor strategy and multi-acquirer resilience.' }],
+      factors: [{ t: 'Chargeback exposure', d: 'Dispute history and ratio, refund policy, delivery timelines and how clearly you describe what you sell.' }, { t: 'Regulatory exposure', d: 'Licences, age verification, jurisdictional restrictions and whether the product is permitted where it is sold.' }, { t: 'Business substance', d: 'Corporate structure, beneficial ownership, financial statements and operating history.' }, { t: 'Presentation', d: 'Website compliance, terms, contact details and descriptors — the things underwriters check first and reject fastest.' }],
+      stages: stages.map((x, i) => ({ ...x, line: i === stages.length - 1 ? 'none' : 'block' })),
+      mitigation: [{ t: 'Dispute alerts', d: 'Pre-chargeback alerts routed into the portal so you can refund before a dispute is filed, where the scheme offers it.' }, { t: 'Evidence workflows', d: 'Structured representment with the transaction, customer and delivery data already attached.' }, { t: 'Ratio monitoring', d: 'Dispute and refund ratios tracked per merchant account against scheme programme thresholds.' }, { t: 'Pre-authorization screening', d: 'Velocity, geography, BIN and behavioural rules tuned to your category\u2019s fraud patterns.' }, { t: 'Descriptor strategy', d: 'Clear, recognisable billing descriptors that reduce “unrecognised transaction” disputes.' }, { t: 'Multi-acquirer resilience', d: 'Spread exposure across more than one acquirer so a single termination doesn\u2019t stop your business.' }],
+      faqs: [
+        { q: 'Can you guarantee approval?', a: 'No. Nobody who is being straight with you can. Approval is the acquirer\u2019s decision. What we can do is improve your preparation and introduce partners whose appetite actually matches your profile.' },
+        { q: 'Which industries do you work with?', a: 'We assess each business individually rather than publishing a list, because appetite varies by partner and jurisdiction. Some categories are prohibited by card schemes or law and we do not work with them.' },
+        { q: 'Do you charge for the consultation?', a: 'Initial assessment is part of our sales process. Ongoing consulting, underwriting preparation and infrastructure work are scoped and quoted before you commit.' },
+        { q: 'Do you provide the merchant account yourself?', a: 'No. TPP is a technology and consulting provider. Merchant accounts are provided by acquiring partners under their own agreements with you.' },
+        { q: 'What happens after approval?', a: 'Your account is connected to the TPP gateway, routing and risk rules are configured for your profile, and chargeback monitoring is switched on. You process through your portal from day one.' },
+      ].map((q, i) => ({ ...q, open: s.faq === i, rot: s.faq === i ? '45deg' : '0deg', border: s.faq === i ? 'rgba(166,139,245,.4)' : 'rgba(255,255,255,.08)', toggle: () => this.setState({ faq: s.faq === i ? -1 : i }) })),
+    };
+  }
+}
+</script>
+</body>
+</html>

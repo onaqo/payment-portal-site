@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>API Reference — Payments, Tokens, Merchants, Routing, Disputes, Webhooks | The Payment Portal</title>
+<meta name="description" content="Reference for the TPP unified payment API: authentication, idempotency, error model, payments lifecycle, tokens, merchants, routing profiles, disputes and signed webhook events.">
+<link rel="canonical" href="https://thepaymentportal.example/developers/api-reference">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:#090E1B;color:#F7F9FC;font-family:'Manrope',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:#57DCE5;text-decoration:none}a:hover{color:#BAEF74}input,button,select,textarea{font:inherit}button{cursor:pointer}
+::selection{background:#57DCE5;color:#090E1B}
+@keyframes tppFade{from{opacity:0}to{opacity:1}}
+</style>
+</helmet>
+<dc-import name="SiteNav" current="developers" page="/api-reference" hint-size="100%,72px"></dc-import>
+<main style="max-width:1360px;margin:0 auto;padding:40px 24px 96px;display:grid;grid-template-columns:{{ cols }};gap:48px;align-items:start">
+  <aside style="position:sticky;top:96px;display:{{ asideDisplay }};flex-direction:column;gap:4px">
+    <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:#6F7D93;padding:0 12px 10px">API reference · v1</div>
+    <sc-for list="{{ toc }}" as="t" hint-placeholder-count="8"><a href="{{ t.href }}" style="color:#AEB9CC;font-size:14px;padding:8px 12px;border-radius:9px;display:block" style-hover="background:rgba(255,255,255,.05);color:#F7F9FC">{{ t.t }}</a></sc-for>
+    <div style="margin-top:20px;padding:14px;border:1px solid rgba(255,255,255,.1);border-radius:14px;font-size:13px;color:#AEB9CC;line-height:1.5">Base URL<br><code style="font-family:'JetBrains Mono',monospace;color:#57DCE5;font-size:12px;word-break:break-all">https://api.yourbrand.example/v1</code><br><span style="color:#6F7D93">Tenants run on their own domains.</span></div>
+  </aside>
+  <article style="min-width:0;display:flex;flex-direction:column;gap:64px">
+    <header>
+      <nav aria-label="Breadcrumb" style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6F7D93;display:flex;gap:10px"><a href="/developers" style="color:#6F7D93">Developers</a><span>/</span><span style="color:#BAEF74">API reference</span></nav>
+      <h1 style="font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(34px,4.6vw,60px);line-height:1;letter-spacing:-.035em;margin:18px 0 16px">API reference</h1>
+      <p style="font-size:17px;line-height:1.6;color:#AEB9CC;max-width:720px;margin:0">The TPP API is REST over HTTPS with JSON bodies. Resources are consistent across every connected provider; provider-specific details appear in a <code style="font-family:'JetBrains Mono',monospace;font-size:14px;color:#57DCE5">route</code> object rather than in the shape of the resource. This reference describes the v1 contract; a machine-readable OpenAPI document will be published alongside the sandbox.</p>
+    </header>
+
+    <section id="auth" style="scroll-margin-top:96px">
+      <h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:clamp(24px,2.8vw,34px);letter-spacing:-.02em;margin:0 0 12px">Authentication</h2>
+      <p style="color:#AEB9CC;line-height:1.6;margin:0 0 18px;max-width:720px">Server calls use a secret key in the <code style="font-family:'JetBrains Mono',monospace;font-size:14px;color:#57DCE5">Authorization: Bearer</code> header. Browser-side tokenization uses a publishable key that can only create tokens. Keys are scoped to one environment and one tenant.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">
+        <sc-for list="{{ keys }}" as="k" hint-placeholder-count="3"><div style="background:rgba(23,38,58,.42);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:16px"><code style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#BAEF74">{{ k.p }}</code><div style="font-weight:700;margin-top:8px;font-size:15px">{{ k.t }}</div><div style="color:#AEB9CC;font-size:13.5px;line-height:1.5;margin-top:4px">{{ k.d }}</div></div></sc-for>
+      </div>
+    </section>
+
+    <section id="conventions" style="scroll-margin-top:96px">
+      <h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:clamp(24px,2.8vw,34px);letter-spacing:-.02em;margin:0 0 12px">Conventions</h2>
+      <div style="display:grid;gap:10px">
+        <sc-for list="{{ conventions }}" as="c" hint-placeholder-count="5"><div style="display:grid;grid-template-columns:{{ convCols }};gap:12px;padding:14px 16px;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:14px"><code style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#57DCE5">{{ c.k }}</code><span style="color:#AEB9CC;font-size:14.5px;line-height:1.55">{{ c.v }}</span></div></sc-for>
+      </div>
+    </section>
+
+    <section id="errors" style="scroll-margin-top:96px">
+      <h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:clamp(24px,2.8vw,34px);letter-spacing:-.02em;margin:0 0 12px">Error model</h2>
+      <p style="color:#AEB9CC;line-height:1.6;margin:0 0 18px;max-width:720px">Errors return a stable <code style="font-family:'JetBrains Mono',monospace;font-size:14px;color:#57DCE5">type</code> and <code style="font-family:'JetBrains Mono',monospace;font-size:14px;color:#57DCE5">code</code>. Provider decline codes are normalised into a shared taxonomy and the raw provider code is preserved for support.</p>
+      <div style="background:#070B16;border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:18px 20px;font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.7;color:#D6DEEA;overflow-x:auto"><pre style="margin:0">{ <span style="color:#57DCE5">"error"</span>: {
+    <span style="color:#57DCE5">"type"</span>: <span style="color:#BAEF74">"card_declined"</span>,
+    <span style="color:#57DCE5">"code"</span>: <span style="color:#BAEF74">"insufficient_funds"</span>,
+    <span style="color:#57DCE5">"retryable"</span>: false,
+    <span style="color:#57DCE5">"provider"</span>: { <span style="color:#57DCE5">"id"</span>: <span style="color:#BAEF74">"acquirer_a"</span>, <span style="color:#57DCE5">"raw_code"</span>: <span style="color:#BAEF74">"51"</span> },
+    <span style="color:#57DCE5">"request_id"</span>: <span style="color:#BAEF74">"req_…"</span> } }</pre></div>
+    </section>
+
+    <sc-for list="{{ resources }}" as="r" hint-placeholder-count="5">
+      <section id="{{ r.id }}" style="scroll-margin-top:96px">
+        <h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:clamp(24px,2.8vw,34px);letter-spacing:-.02em;margin:0 0 12px">{{ r.t }}</h2>
+        <p style="color:#AEB9CC;line-height:1.6;margin:0 0 18px;max-width:720px">{{ r.d }}</p>
+        <div style="border:1px solid rgba(255,255,255,.1);border-radius:16px;overflow:hidden">
+          <sc-for list="{{ r.endpoints }}" as="e" hint-placeholder-count="4"><div style="display:grid;grid-template-columns:{{ epCols }};gap:12px;padding:12px 16px;border-top:1px solid rgba(255,255,255,.07);align-items:baseline;font-size:14px"><span style="font-family:'JetBrains Mono',monospace;font-size:11.5px;font-weight:600;color:{{ e.color }};letter-spacing:.06em">{{ e.m }}</span><code style="font-family:'JetBrains Mono',monospace;font-size:13px;color:#F7F9FC">{{ e.p }}</code><span style="color:#AEB9CC;line-height:1.5">{{ e.d }}</span></div></sc-for>
+        </div>
+        <sc-if value="{{ r.hasFields }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top:14px;display:grid;gap:6px">
+            <div style="font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#6F7D93;padding:6px 4px">Key fields</div>
+            <sc-for list="{{ r.fields }}" as="f" hint-placeholder-count="4"><div style="display:grid;grid-template-columns:{{ fieldCols }};gap:12px;padding:10px 14px;background:rgba(255,255,255,.025);border-radius:10px;font-size:13.5px"><code style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#57DCE5">{{ f.n }}</code><span style="color:#6F7D93;font-family:'JetBrains Mono',monospace;font-size:11.5px">{{ f.ty }}</span><span style="color:#AEB9CC;line-height:1.5">{{ f.d }}</span></div></sc-for>
+          </div>
+        </sc-if>
+      </section>
+    </sc-for>
+
+    <section id="webhooks" style="scroll-margin-top:96px">
+      <h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:clamp(24px,2.8vw,34px);letter-spacing:-.02em;margin:0 0 12px">Webhooks</h2>
+      <p style="color:#AEB9CC;line-height:1.6;margin:0 0 18px;max-width:720px">Events are signed with an HMAC-SHA256 over <code style="font-family:'JetBrains Mono',monospace;font-size:14px;color:#57DCE5">timestamp.body</code> using your endpoint secret, delivered at least once, and retried with exponential backoff for 24 hours until your endpoint returns 2xx. Reject signatures older than five minutes to prevent replay.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:8px">
+        <sc-for list="{{ events }}" as="ev" hint-placeholder-count="10"><div style="background:rgba(23,38,58,.42);border:1px solid rgba(255,255,255,.08);border-radius:12px;padding:12px 14px"><code style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#BAEF74">{{ ev.t }}</code><div style="color:#AEB9CC;font-size:13px;line-height:1.5;margin-top:4px">{{ ev.d }}</div></div></sc-for>
+      </div>
+    </section>
+
+    <section style="border:1px solid rgba(186,239,116,.3);border-radius:22px;padding:28px;background:rgba(186,239,116,.05);display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px;align-items:center">
+      <div><div style="font-family:'Sora',sans-serif;font-weight:700;font-size:20px">Need sandbox access?</div><div style="color:#AEB9CC;font-size:15px;margin-top:4px">Sandbox tenants are issued after a short call so we can configure simulated providers for your use case.</div></div>
+      <a href="/book-a-demo" style="background:#BAEF74;color:#090E1B;font-weight:700;padding:14px 22px;border-radius:999px" style-hover="background:#57DCE5;color:#090E1B">Request sandbox access</a>
+    </section>
+  </article>
+</main>
+<dc-import name="SiteFooter" hint-size="100%,420px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { isMobile: false };
+  componentDidMount() { this.onResize = () => this.setState({ isMobile: window.innerWidth < 960 }); this.onResize(); window.addEventListener('resize', this.onResize); }
+  componentWillUnmount() { window.removeEventListener('resize', this.onResize); }
+  renderVals() {
+    const isM = this.state.isMobile, M = { GET: '#57DCE5', POST: '#BAEF74', DELETE: '#F58B7A', PATCH: '#F2B84B' };
+    const ep = (m, p, d) => ({ m, p, d, color: M[m] });
+    const resources = [
+      { id: 'payments', t: 'Payments', d: 'A payment is one customer intent to pay. It may contain several provider attempts (cascades); the resource exposes the final state and the route that produced it.', endpoints: [ep('POST', '/payments', 'Create and authorize (or authorize + capture) a payment.'), ep('GET', '/payments/{id}', 'Retrieve a payment with attempts, route and 3DS result.'), ep('POST', '/payments/{id}/capture', 'Capture an authorized amount, fully or partially.'), ep('POST', '/payments/{id}/void', 'Release an uncaptured authorization.'), ep('POST', '/payments/{id}/refunds', 'Refund a captured payment, fully or partially.'), ep('GET', '/payments', 'List with filters: status, merchant, created range, method.')], fields: [{ n: 'amount', ty: 'integer', d: 'Minor units (cents). 12800 = €128.00.' }, { n: 'currency', ty: 'ISO 4217', d: 'Presentment currency. Settlement currency depends on the route.' }, { n: 'payment_method', ty: 'object', d: 'A token, a stored method id, or a redirect method type.' }, { n: 'routing.profile', ty: 'string', d: 'Routing profile to evaluate. Defaults to the merchant\u2019s assigned profile.' }, { n: 'status', ty: 'enum', d: 'requires_action · authorized · captured · voided · refunded · failed' }, { n: 'route', ty: 'object', d: 'provider, attempt number, cascade reason, 3DS outcome.' }] },
+      { id: 'tokens', t: 'Tokens & customers', d: 'Tokens replace card data. Create them from hosted fields with a publishable key; attach them to a customer to reuse for recurring or one-click payments.', endpoints: [ep('POST', '/tokens', 'Create a single-use token (publishable key, browser).'), ep('POST', '/customers', 'Create a customer record.'), ep('POST', '/customers/{id}/payment-methods', 'Store a token as a reusable payment method.'), ep('DELETE', '/customers/{id}/payment-methods/{pm}', 'Remove a stored method.')], fields: [{ n: 'token', ty: 'string', d: 'tok_… — single use, expires after 15 minutes.' }, { n: 'network_token', ty: 'boolean', d: 'Whether a scheme network token was provisioned for the stored method.' }] },
+      { id: 'merchants', t: 'Merchants', d: 'For tenants and platforms. Create merchants, assign provider accounts and routing profiles, and read per-merchant configuration. Requires a tenant-scoped key.', endpoints: [ep('POST', '/merchants', 'Create a merchant under your tenant.'), ep('GET', '/merchants/{id}', 'Retrieve configuration and status.'), ep('PATCH', '/merchants/{id}', 'Update routing profile, risk profile, fee schedule or status.'), ep('GET', '/merchants/{id}/balances', 'Settled and pending balances per provider.')], fields: [] },
+      { id: 'routing', t: 'Routing profiles', d: 'Ordered rule sets evaluated per payment. Read access is available to all keys; write access requires the routing permission on a tenant key.', endpoints: [ep('GET', '/routing-profiles', 'List profiles visible to the key.'), ep('GET', '/routing-profiles/{id}', 'Retrieve rules, cascade settings and health policy.'), ep('POST', '/routing-profiles', 'Create a profile (tenant keys).'), ep('POST', '/routing-profiles/{id}/simulate', 'Evaluate a hypothetical payment and return the chosen route.')], fields: [] },
+      { id: 'disputes', t: 'Disputes', d: 'Chargebacks and retrieval requests from any connected provider, normalised into one lifecycle with deadlines.', endpoints: [ep('GET', '/disputes', 'List disputes with status and due dates.'), ep('GET', '/disputes/{id}', 'Retrieve a dispute with the originating payment.'), ep('POST', '/disputes/{id}/evidence', 'Upload evidence files and structured fields.'), ep('POST', '/disputes/{id}/accept', 'Accept liability without representment.')], fields: [] },
+    ].map(r => ({ ...r, hasFields: r.fields.length > 0 }));
+    return {
+      cols: isM ? '1fr' : '240px 1fr', asideDisplay: isM ? 'none' : 'flex', convCols: isM ? '1fr' : '220px 1fr', epCols: isM ? '60px 1fr' : '70px 300px 1fr', fieldCols: isM ? '1fr' : '180px 90px 1fr',
+      toc: [['Authentication', '#auth'], ['Conventions', '#conventions'], ['Error model', '#errors'], ['Payments', '#payments'], ['Tokens & customers', '#tokens'], ['Merchants', '#merchants'], ['Routing profiles', '#routing'], ['Disputes', '#disputes'], ['Webhooks', '#webhooks']].map(([t, href]) => ({ t, href })),
+      keys: [{ p: 'sk_live_… / sk_sandbox_…', t: 'Secret key', d: 'Server-side. Full access within the tenant and environment.' }, { p: 'pk_live_… / pk_sandbox_…', t: 'Publishable key', d: 'Browser-side. Can only create tokens.' }, { p: 'whsec_…', t: 'Webhook secret', d: 'Per endpoint. Used to verify event signatures.' }],
+      conventions: [{ k: 'Idempotency-Key', v: 'Required on POST. Same key within 24h returns the original response.' }, { k: 'Amounts', v: 'Integers in minor units. Currencies without minor units use the whole number.' }, { k: 'Pagination', v: 'Cursor-based: limit (max 100) and starting_after. Responses include has_more.' }, { k: 'Versioning', v: 'Path version (/v1). Additive changes are not versioned; breaking changes get a new path.' }, { k: 'Rate limits', v: 'Per key. 429 responses include Retry-After.' }, { k: 'Timestamps', v: 'ISO 8601 UTC everywhere.' }],
+      resources,
+      events: [['payment.authorized', 'Authorization succeeded on a route.'], ['payment.requires_action', '3DS or redirect needed; action URL in data.'], ['payment.captured', 'Funds captured.'], ['payment.failed', 'Final failure after any cascades.'], ['payment.refunded', 'Refund completed by the provider.'], ['payment.cascaded', 'A cascade attempt started; includes reason.'], ['dispute.created', 'Chargeback or retrieval received.'], ['dispute.updated', 'Status or deadline changed.'], ['payout.settled', 'Provider payout reconciled.'], ['provider.health_changed', 'Connector demoted or recovered.']].map(([t, d]) => ({ t, d })),
+    };
+  }
+}
+</script>
+</body>
+</html>

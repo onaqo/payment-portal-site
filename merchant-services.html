@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Merchant Services & Payment Gateway Integration | The Payment Portal</title>
+<meta name="description" content="Merchant account solutions, payment gateway integration, e-commerce processing, subscription billing, multi-currency and alternative payment methods, with transaction management built in. Merchant services by The Payment Portal.">
+<link rel="canonical" href="https://thepaymentportal.example/solutions/merchant-services">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:#090E1B;color:#F7F9FC;font-family:'Manrope',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:#57DCE5;text-decoration:none}a:hover{color:#BAEF74}input,button,select,textarea{font:inherit}button{cursor:pointer}
+::selection{background:#57DCE5;color:#090E1B}
+[data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}[data-reveal].in{opacity:1;transform:none}
+@keyframes tppRise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+@keyframes tppUp{from{transform:translateY(110%)}to{transform:none}}
+@keyframes tppFade{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){[data-reveal]{opacity:1;transform:none;transition:none}*{animation-duration:.01ms!important}}
+</style>
+</helmet>
+<dc-import name="SiteNav" current="solutions" page="/merchant-services" hint-size="100%,72px"></dc-import>
+<main>
+<section data-screen-label="Hero" style="position:relative;overflow:hidden;padding:clamp(80px,10vw,140px) 24px clamp(64px,8vw,110px);background:radial-gradient(ellipse 50% 60% at 80% 40%,rgba(87,220,229,.12),transparent 70%),#090E1B">
+  <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:{{ twoCols }};gap:56px;align-items:center">
+    <div>
+      <nav aria-label="Breadcrumb" style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6F7D93;display:flex;gap:10px"><a href="/" style="color:#6F7D93">Home</a><span>/</span><span style="color:#57DCE5">Solutions</span></nav>
+      <h1 style="font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(38px,5.4vw,72px);line-height:1;letter-spacing:-.035em;margin:22px 0 22px;text-wrap:balance"><span style="display:block;overflow:hidden;padding-bottom:.1em"><span style="display:block;animation:tppUp .9s .15s cubic-bezier(.2,.8,.2,1) both">Merchant services</span></span><span style="display:block;overflow:hidden;padding-bottom:.1em"><span style="display:block;animation:tppUp .9s .3s cubic-bezier(.2,.8,.2,1) both;color:#57DCE5">built around your model.</span></span></h1>
+      <p style="animation:tppRise .9s .6s both;font-size:clamp(17px,1.3vw,20px);line-height:1.55;color:#AEB9CC;max-width:580px;margin:0 0 32px;text-wrap:pretty">Merchant accounts, gateway integration, subscription billing, multi-currency acceptance and the transaction tooling to run it all — from a team that configures payments for a living. Eligibility depends on industry, geography, underwriting and partner approval.</p>
+      <div style="animation:tppRise .9s .8s both;display:flex;flex-wrap:wrap;gap:12px"><a href="/book-a-demo" style="background:#57DCE5;color:#090E1B;font-weight:700;padding:16px 26px;border-radius:999px;font-size:16px" style-hover="background:#BAEF74;color:#090E1B">Talk to us</a><a href="/developers" style="border:1px solid rgba(255,255,255,.2);color:#F7F9FC;font-weight:600;padding:15px 24px;border-radius:999px;font-size:16px" style-hover="border-color:#57DCE5;color:#F7F9FC">Integration options</a></div>
+    </div>
+    <div style="animation:tppRise 1s .9s both;background:rgba(23,38,58,.45);border:1px solid rgba(255,255,255,.1);border-radius:26px;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.4);font-size:13.5px">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:14px 18px;border-bottom:1px solid rgba(255,255,255,.08)"><span style="font-weight:700">Payments · Sample Merchant Ltd</span><span style="font-family:'JetBrains Mono',monospace;font-size:11px;color:#BAEF74;letter-spacing:.1em">SAMPLE DATA</span></div>
+      <div style="display:grid;grid-template-columns:1.3fr 1fr .8fr .9fr;gap:10px;padding:10px 18px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#AEB9CC;border-bottom:1px solid rgba(255,255,255,.08)"><span>Reference</span><span>Method</span><span>Amount</span><span>Status</span></div>
+      <sc-for list="{{ rows }}" as="r" hint-placeholder-count="5"><div style="display:grid;grid-template-columns:1.3fr 1fr .8fr .9fr;gap:10px;padding:12px 18px;border-bottom:1px solid rgba(255,255,255,.06);align-items:center"><span style="font-family:'JetBrains Mono',monospace;font-size:12px">{{ r.ref }}</span><span style="color:#AEB9CC">{{ r.m }}</span><span style="font-weight:600">{{ r.a }}</span><span style="display:inline-flex;align-items:center;gap:6px"><span style="width:7px;height:7px;border-radius:50%;background:{{ r.dot }};display:block"></span>{{ r.s }}</span></div></sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="services" data-screen-label="Services" style="padding:clamp(64px,8vw,110px) 24px">
+  <div style="max-width:1240px;margin:0 auto">
+    <div data-reveal style="max-width:720px;margin-bottom:44px"><div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#57DCE5">What we provide</div><h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:clamp(30px,3.8vw,50px);line-height:1.06;letter-spacing:-.025em;margin:16px 0 0;text-wrap:balance">Everything between your checkout and your bank account.</h2></div>
+    <div data-reveal style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px">
+      <sc-for list="{{ services }}" as="s" hint-placeholder-count="6"><div id="{{ s.id }}" style="background:rgba(23,38,58,.42);border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:26px;display:flex;flex-direction:column;gap:12px;scroll-margin-top:96px"><span style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:#57DCE5">{{ s.tag }}</span><span style="font-family:'Sora',sans-serif;font-weight:700;font-size:20px;line-height:1.25">{{ s.t }}</span><span style="color:#AEB9CC;line-height:1.55;font-size:15px">{{ s.d }}</span><ul style="margin:4px 0 0;padding:0;list-style:none;display:grid;gap:6px"><sc-for list="{{ s.points }}" as="p" hint-placeholder-count="3"><li style="display:flex;gap:8px;font-size:14px;color:#F7F9FC"><span style="color:#BAEF74">—</span>{{ p }}</li></sc-for></ul></div></sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="transactions" data-screen-label="Transaction management" style="padding:0 24px clamp(64px,8vw,110px)">
+  <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:{{ twoCols }};gap:56px;align-items:center">
+    <div data-reveal><div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#57DCE5">Transaction management</div><h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:clamp(30px,3.8vw,50px);line-height:1.06;letter-spacing:-.025em;margin:16px 0 18px;text-wrap:balance">Every payment, traceable end to end.</h2><p style="font-size:17px;line-height:1.55;color:#AEB9CC;margin:0;text-wrap:pretty">A payment is more than an authorization. The portal records each attempt, route, 3DS result, capture, refund, settlement line and dispute against one reference — so support, finance and risk see the same story.</p></div>
+    <div data-reveal style="display:grid;gap:10px">
+      <sc-for list="{{ txn }}" as="t" hint-placeholder-count="5"><div style="display:flex;gap:14px;background:rgba(23,38,58,.42);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:18px 20px"><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#57DCE5;min-width:36px">{{ t.n }}</span><span><span style="display:block;font-weight:700;font-size:15px">{{ t.t }}</span><span style="display:block;color:#AEB9CC;font-size:13.5px;line-height:1.5;margin-top:3px">{{ t.d }}</span></span></div></sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="integration" data-screen-label="Integration paths" style="padding:clamp(64px,8vw,110px) 24px;background:linear-gradient(180deg,#090E1B,#0D1729 50%,#090E1B)">
+  <div style="max-width:1240px;margin:0 auto">
+    <div data-reveal style="max-width:720px;margin-bottom:44px"><div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#57DCE5">Payment gateway integration</div><h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:clamp(30px,3.8vw,50px);line-height:1.06;letter-spacing:-.025em;margin:16px 0 18px;text-wrap:balance">Three ways in. Pick by how much you want to own.</h2></div>
+    <div data-reveal style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px">
+      <sc-for list="{{ paths }}" as="p" hint-placeholder-count="3"><div style="background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:26px;display:flex;flex-direction:column;gap:12px"><span style="font-family:'Sora',sans-serif;font-weight:700;font-size:19px">{{ p.t }}</span><span style="color:#AEB9CC;line-height:1.55;font-size:15px;flex:1">{{ p.d }}</span><span style="display:flex;justify-content:space-between;font-size:12.5px;color:#6F7D93;border-top:1px solid rgba(255,255,255,.08);padding-top:12px"><span>PCI scope</span><span style="color:#F7F9FC;font-weight:600">{{ p.scope }}</span></span><span style="display:flex;justify-content:space-between;font-size:12.5px;color:#6F7D93"><span>Typical build</span><span style="color:#F7F9FC;font-weight:600">{{ p.effort }}</span></span></div></sc-for>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="High-risk callout" style="padding:0 24px clamp(64px,8vw,110px)">
+  <div data-reveal style="max-width:1240px;margin:0 auto;border:1px solid rgba(166,139,245,.35);border-radius:28px;padding:clamp(28px,4vw,48px);display:grid;grid-template-columns:{{ twoCols }};gap:32px;align-items:center;background:rgba(166,139,245,.05)">
+    <div><div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#A68BF5">Declined elsewhere?</div><h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:clamp(26px,3vw,38px);line-height:1.1;letter-spacing:-.025em;margin:14px 0 12px">High-risk merchant services</h2><p style="color:#AEB9CC;font-size:16px;line-height:1.55;margin:0">Consultation, acquiring-partner introductions, underwriting preparation and chargeback management for categories mainstream providers won't touch. Eligibility-dependent, and we'll tell you honestly what's realistic.</p></div>
+    <div style="display:flex;justify-content:{{ calloutJustify }}"><a href="/high-risk-processing" style="background:#A68BF5;color:#090E1B;font-weight:700;padding:16px 26px;border-radius:999px;font-size:16px" style-hover="background:#57DCE5;color:#090E1B">High-risk services →</a></div>
+  </div>
+</section>
+
+<section data-screen-label="CTA" style="padding:0 24px clamp(64px,8vw,110px)">
+  <div data-reveal style="max-width:1240px;margin:0 auto;background:linear-gradient(135deg,rgba(87,220,229,.14),rgba(186,239,116,.1));border:1px solid rgba(87,220,229,.3);border-radius:28px;padding:clamp(32px,5vw,64px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px">
+    <div style="max-width:640px"><h2 style="font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(28px,3.6vw,46px);line-height:1.05;letter-spacing:-.03em;margin:0 0 12px">Let's look at your checkout together.</h2><p style="color:#AEB9CC;font-size:17px;line-height:1.55;margin:0">Bring your current provider setup and conversion numbers. We'll show you what the portal would change.</p></div>
+    <a href="/book-a-demo" style="background:#57DCE5;color:#090E1B;font-weight:700;padding:16px 26px;border-radius:999px;font-size:16px" style-hover="background:#BAEF74;color:#090E1B">Book a demo</a>
+  </div>
+</section>
+</main>
+<dc-import name="SiteFooter" hint-size="100%,420px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { isMobile: false };
+  componentDidMount() { this.onResize = () => this.setState({ isMobile: window.innerWidth < 900 }); this.onResize(); window.addEventListener('resize', this.onResize); this.io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); this.io.unobserve(en.target); } }), { rootMargin: '0px 0px -8% 0px' }); this.observe(); }
+  componentDidUpdate() { this.observe(); }
+  componentWillUnmount() { window.removeEventListener('resize', this.onResize); this.io?.disconnect(); }
+  observe() { document.querySelectorAll('[data-reveal]:not(.in)').forEach(el => this.io.observe(el)); }
+  renderVals() {
+    const isM = this.state.isMobile;
+    return {
+      twoCols: isM ? '1fr' : '1fr 1fr', calloutJustify: isM ? 'flex-start' : 'flex-end',
+      rows: [{ ref: 'pay_7f3a…', m: 'Visa •• 4242', a: '€128.00', s: 'Captured', dot: '#BAEF74' }, { ref: 'pay_9c21…', m: 'Bank redirect', a: '€64.90', s: 'Pending', dot: '#F2B84B' }, { ref: 'pay_1be0…', m: 'Mastercard •• 0005', a: '$420.00', s: 'Authorized', dot: '#BAEF74' }, { ref: 'pay_55d7…', m: 'Visa •• 0341', a: '€19.00', s: 'Declined', dot: '#F58B7A' }, { ref: 'pay_c0e2…', m: 'Wallet', a: '£89.00', s: 'Refunded', dot: '#AEB9CC' }],
+      services: [
+        { id: 'accounts', tag: 'Merchant accounts', t: 'Merchant account solutions', d: 'We help you obtain accounts suited to your model and geography, then connect them to the gateway with routing already configured.', points: ['Application & underwriting support', 'Settlement currency planning', 'Multi-acquirer setup where appropriate'] },
+        { id: 'gateway', tag: 'Gateway', t: 'Payment gateway integration', d: 'Hosted checkout, embeddable fields or server-to-server API — with tokenization so card data never touches your systems.', points: ['Hosted & embedded options', 'Tokenization & network tokens', 'Webhooks for every state change'] },
+        { id: 'ecommerce', tag: 'E-commerce', t: 'E-commerce processing', d: 'Card and local-method acceptance tuned for conversion: 3DS decisioning, retry logic and clear declines.', points: ['3-D Secure exemptions & challenges', 'Local payment methods', 'Decline reason normalisation'] },
+        { id: 'subscriptions', tag: 'Recurring', t: 'Subscription billing', d: 'Plans, trials, proration and dunning with scheduled retries that respect issuer guidance.', points: ['Smart retry schedules', 'Account updater where supported', 'Invoice & receipt emails'] },
+        { id: 'international', tag: 'Global', t: 'International & multi-currency', d: 'Present and settle in multiple currencies, route to local acquirers where available, and add regional methods per market.', points: ['Multi-currency pricing & settlement', 'Local acquiring routes', 'FX visibility on every payment'] },
+        { id: 'apm', tag: 'Methods', t: 'Alternative payment methods', d: 'Bank redirects, wallets and country-specific methods, where supported for your industry and region.', points: ['Added per market as needed', 'Unified status model', 'Same reconciliation as cards'] },
+      ],
+      txn: [{ n: '01', t: 'Search & trace', d: 'Find by reference, last four, customer, amount or date; see every attempt and route.' }, { n: '02', t: 'Capture, void, refund', d: 'Partial and full operations across every provider from one screen or one API.' }, { n: '03', t: 'Disputes', d: 'Chargeback notifications, evidence upload and deadlines tracked against the original payment.' }, { n: '04', t: 'Settlement matching', d: 'Each payment linked to the provider statement line and payout that settled it.' }, { n: '05', t: 'Audit trail', d: 'Who did what, when — for every operation on every transaction.' }],
+      paths: [{ t: 'Hosted checkout', d: 'Redirect or modal checkout on your branded domain. Fastest to launch; we handle the payment page.', scope: 'Minimal (SAQ A-type)', effort: 'Hours' }, { t: 'Embedded fields', d: 'Your page, our iframe-isolated card fields. Full design control with card data still outside your scope.', scope: 'Reduced', effort: 'Days' }, { t: 'Server-to-server API', d: 'Direct API integration for platforms that already hold PCI compliance or use network tokens.', scope: 'Full (your responsibility)', effort: 'Weeks' }],
+    };
+  }
+}
+</script>
+</body>
+</html>

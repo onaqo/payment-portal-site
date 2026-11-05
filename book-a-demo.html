@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<form name="book-a-demo" data-netlify="true" netlify-honeypot="bot-field" hidden><input name="name"><input name="email"><input name="company"><input name="website"><input name="type"><input name="interest"><input name="volume"><input name="markets"><input name="message"><input name="consent"><input name="bot-field"></form>
+<form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden><input name="name"><input name="email"><input name="company"><input name="website"><input name="type"><input name="interest"><input name="volume"><input name="markets"><input name="message"><input name="consent"><input name="bot-field"></form>
+<x-dc>
+<helmet>
+<title>Book a Demo — White-Label Gateway & Payment Orchestration | The Payment Portal</title>
+<meta name="description" content="Book a 45-minute working session on The Payment Portal: white-label gateway, orchestration, merchant services or high-risk consultation. Contact sales, support and press.">
+<link rel="canonical" href="https://thepaymentportal.example/book-a-demo">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:#090E1B;color:#F7F9FC;font-family:'Manrope',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:#57DCE5;text-decoration:none}a:hover{color:#BAEF74}input,button,select,textarea{font:inherit}button{cursor:pointer}
+::selection{background:#57DCE5;color:#090E1B}
+@keyframes tppRise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+@keyframes tppUp{from{transform:translateY(110%)}to{transform:none}}
+@keyframes tppFade{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){*{animation-duration:.01ms!important}}
+</style>
+</helmet>
+<dc-import name="SiteNav" current="company" page="/book-a-demo" hint-size="100%,72px"></dc-import>
+<main>
+<section data-screen-label="Demo form" style="position:relative;overflow:hidden;padding:clamp(72px,9vw,120px) 24px;background:radial-gradient(ellipse 60% 60% at 20% 30%,rgba(87,220,229,.1),transparent 70%),#090E1B">
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:72px 72px;mask-image:radial-gradient(ellipse 60% 70% at 20% 40%,#000,transparent 80%);-webkit-mask-image:radial-gradient(ellipse 60% 70% at 20% 40%,#000,transparent 80%);pointer-events:none"></div>
+  <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:{{ twoCols }};gap:56px;align-items:start;position:relative">
+    <div style="position:{{ stickyPos }};top:96px">
+      <div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#BAEF74;animation:tppFade .6s both">Book a demo</div>
+      <h1 style="font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(38px,5.2vw,68px);line-height:.98;letter-spacing:-.035em;margin:18px 0 20px;text-wrap:balance"><span style="display:block;overflow:hidden;padding-bottom:.1em"><span style="display:block;animation:tppUp .9s .15s cubic-bezier(.2,.8,.2,1) both">A working session,</span></span><span style="display:block;overflow:hidden;padding-bottom:.1em"><span style="display:block;animation:tppUp .9s .3s cubic-bezier(.2,.8,.2,1) both;color:#57DCE5">not a sales pitch.</span></span></h1>
+      <p style="animation:tppRise .9s .6s both;font-size:clamp(17px,1.3vw,19px);line-height:1.55;color:#AEB9CC;margin:0 0 28px;text-wrap:pretty">Tell us what you're building. We'll walk through the portal, routing engine and white-label model on your use case, then follow up in writing on scope and eligibility.</p>
+      <div style="animation:tppRise .9s .8s both;display:grid;gap:12px">
+        <sc-for list="{{ expect }}" as="e" hint-placeholder-count="4"><div style="display:flex;gap:14px;align-items:flex-start"><span style="width:28px;height:28px;border-radius:50%;background:rgba(87,220,229,.1);border:1px solid rgba(87,220,229,.35);display:flex;align-items:center;justify-content:center;font-family:'JetBrains Mono',monospace;font-size:11px;color:#57DCE5;flex-shrink:0">{{ e.n }}</span><span><span style="display:block;font-weight:700;font-size:15.5px">{{ e.t }}</span><span style="display:block;color:#AEB9CC;font-size:14px;line-height:1.5;margin-top:2px">{{ e.d }}</span></span></div></sc-for>
+      </div>
+      <div id="login" style="margin-top:36px;padding:18px 20px;border:1px solid rgba(255,255,255,.1);border-radius:16px;background:rgba(255,255,255,.03);scroll-margin-top:96px;animation:tppRise .9s 1s both">
+        <div style="font-weight:700;font-size:15px">Already a tenant or merchant?</div>
+        <div style="color:#AEB9CC;font-size:13.5px;line-height:1.5;margin-top:4px">Sign in to the portal below, or use your tenant's branded domain if your provider gave you one.</div>
+        <a href="https://demo.aqpay.services/" style="display:inline-block;margin-top:12px;border:1px solid rgba(87,220,229,.45);color:#57DCE5;font-weight:700;font-size:14.5px;padding:10px 18px;border-radius:999px;text-decoration:none" style-hover="background:#57DCE5;color:#090E1B">Portal login →</a>
+      </div>
+    </div>
+
+    <div style="animation:tppRise 1s .5s both;background:rgba(23,38,58,.5);border:1px solid rgba(255,255,255,.12);border-radius:26px;padding:clamp(22px,3vw,36px);backdrop-filter:blur(16px);box-shadow:0 40px 100px rgba(0,0,0,.4)">
+      <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+        <div style="animation:tppFade .4s">
+          <div style="width:52px;height:52px;border-radius:50%;background:rgba(186,239,116,.12);border:1px solid rgba(186,239,116,.5);display:flex;align-items:center;justify-content:center;color:#BAEF74;font-size:22px;font-weight:800">✓</div>
+          <h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:24px;margin:18px 0 8px">Request captured locally</h2>
+          <p style="color:#AEB9CC;line-height:1.55;margin:0 0 18px;font-size:15px">Your input validated, but this form is not yet connected to a CRM. Integration point: <code style="font-family:'JetBrains Mono',monospace;color:#57DCE5">POST /api/leads</code> with the payload below — map it to HubSpot, Salesforce or your CRM of choice.</p>
+          <pre style="margin:0;background:#0B1324;border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:16px;font-family:'JetBrains Mono',monospace;font-size:12px;color:#D6DEEA;overflow-x:auto;line-height:1.6">{{ payload }}</pre>
+          <button onClick="{{ reset }}" style="margin-top:18px;background:none;border:1px solid rgba(255,255,255,.2);color:#F7F9FC;padding:11px 18px;border-radius:999px;font-weight:600;min-height:44px">Submit another</button>
+        </div>
+      </sc-if>
+      <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+        <form onSubmit="{{ submit }}" noValidate style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+          <div style="grid-column:1 / -1;display:flex;gap:6px;background:rgba(255,255,255,.04);padding:4px;border-radius:12px;margin-bottom:4px">
+            <sc-for list="{{ kinds }}" as="k" hint-placeholder-count="2"><button type="button" onClick="{{ k.pick }}" aria-pressed="{{ k.active }}" style="flex:1;background:{{ k.bg }};color:{{ k.color }};border:0;padding:10px;border-radius:9px;font-weight:700;font-size:14px;min-height:44px">{{ k.label }}</button></sc-for>
+          </div>
+          <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;grid-column:{{ span }}">Full name<input name="name" value="{{ form.name }}" onChange="{{ onField }}" autoComplete="name" style="background:rgba(9,14,27,.6);border:1px solid {{ b.name }};color:#F7F9FC;padding:13px 14px;border-radius:12px;min-height:44px;outline:none" style-focus="border-color:#57DCE5"><span style="color:#F58B7A;font-size:12px;font-weight:500">{{ errors.name }}</span></label>
+          <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;grid-column:{{ span }}">Work email<input name="email" type="email" value="{{ form.email }}" onChange="{{ onField }}" autoComplete="email" style="background:rgba(9,14,27,.6);border:1px solid {{ b.email }};color:#F7F9FC;padding:13px 14px;border-radius:12px;min-height:44px;outline:none" style-focus="border-color:#57DCE5"><span style="color:#F58B7A;font-size:12px;font-weight:500">{{ errors.email }}</span></label>
+          <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;grid-column:{{ span }}">Company<input name="company" value="{{ form.company }}" onChange="{{ onField }}" autoComplete="organization" style="background:rgba(9,14,27,.6);border:1px solid {{ b.company }};color:#F7F9FC;padding:13px 14px;border-radius:12px;min-height:44px;outline:none" style-focus="border-color:#57DCE5"><span style="color:#F58B7A;font-size:12px;font-weight:500">{{ errors.company }}</span></label>
+          <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;grid-column:{{ span }}">Website<input name="website" value="{{ form.website }}" onChange="{{ onField }}" autoComplete="url" placeholder="https://" style="background:rgba(9,14,27,.6);border:1px solid rgba(255,255,255,.14);color:#F7F9FC;padding:13px 14px;border-radius:12px;min-height:44px;outline:none" style-focus="border-color:#57DCE5"><span></span></label>
+          <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;grid-column:{{ span }}">You are a<select name="type" value="{{ form.type }}" onChange="{{ onField }}" style="background:rgba(9,14,27,.6);border:1px solid {{ b.type }};color:#F7F9FC;padding:13px 14px;border-radius:12px;min-height:44px;outline:none"><option value="">Select…</option><option>PSP / payment facilitator</option><option>ISO / reseller</option><option>Software platform or marketplace</option><option>Merchant</option><option>Consultant / agency</option><option>Other</option></select><span style="color:#F58B7A;font-size:12px;font-weight:500">{{ errors.type }}</span></label>
+          <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;grid-column:{{ span }}">Interested in<select name="interest" value="{{ form.interest }}" onChange="{{ onField }}" style="background:rgba(9,14,27,.6);border:1px solid {{ b.interest }};color:#F7F9FC;padding:13px 14px;border-radius:12px;min-height:44px;outline:none"><option value="">Select…</option><option>White-label payment gateway</option><option>Payment orchestration</option><option>Merchant services</option><option>High-risk processing consultation</option><option>Payment consulting</option><option>Developer / API integration</option><option>Partner program</option></select><span style="color:#F58B7A;font-size:12px;font-weight:500">{{ errors.interest }}</span></label>
+          <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;grid-column:{{ span }}">Expected monthly volume<select name="volume" value="{{ form.volume }}" onChange="{{ onField }}" style="background:rgba(9,14,27,.6);border:1px solid rgba(255,255,255,.14);color:#F7F9FC;padding:13px 14px;border-radius:12px;min-height:44px;outline:none"><option value="">Prefer not to say</option><option>Pre-launch</option><option>Under €100k</option><option>€100k – €1M</option><option>€1M – €10M</option><option>Over €10M</option></select><span></span></label>
+          <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;grid-column:{{ span }}">Primary markets<input name="markets" value="{{ form.markets }}" onChange="{{ onField }}" placeholder="e.g. EU, UK, LATAM" style="background:rgba(9,14,27,.6);border:1px solid rgba(255,255,255,.14);color:#F7F9FC;padding:13px 14px;border-radius:12px;min-height:44px;outline:none" style-focus="border-color:#57DCE5"><span></span></label>
+          <label style="display:flex;flex-direction:column;gap:6px;font-size:13px;font-weight:600;grid-column:1 / -1">{{ messageLabel }}<textarea name="message" value="{{ form.message }}" onChange="{{ onField }}" rows="4" style="background:rgba(9,14,27,.6);border:1px solid {{ b.message }};color:#F7F9FC;padding:13px 14px;border-radius:12px;resize:vertical;outline:none" style-focus="border-color:#57DCE5"></textarea><span style="color:#F58B7A;font-size:12px;font-weight:500">{{ errors.message }}</span></label>
+          <label style="grid-column:1 / -1;display:flex;gap:10px;align-items:flex-start;font-size:13px;color:#AEB9CC;line-height:1.5"><input type="checkbox" name="consent" checked="{{ form.consent }}" onChange="{{ onCheck }}" style="margin-top:3px;width:18px;height:18px;accent-color:#57DCE5"><span>I agree to the <a href="/#legal">Privacy Policy</a> and to being contacted about this request.<span style="display:block;color:#F58B7A;font-size:12px;font-weight:500">{{ errors.consent }}</span></span></label>
+          <div style="grid-column:1 / -1;display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;margin-top:4px">
+            <span style="font-size:12.5px;color:#6F7D93">Not connected to a CRM yet — submissions are validated and shown as a payload for integration.</span>
+            <button type="submit" style="background:#57DCE5;color:#090E1B;border:0;font-weight:700;padding:15px 26px;border-radius:999px;font-size:16px;min-height:44px;transition:background .2s" style-hover="background:#BAEF74">{{ submitLabel }}</button>
+          </div>
+        </form>
+      </sc-if>
+    </div>
+  </div>
+</section>
+
+<section id="contact" data-screen-label="Contact" style="padding:0 24px clamp(72px,9vw,120px);scroll-margin-top:80px">
+  <div style="max-width:1240px;margin:0 auto">
+    <div style="max-width:700px;margin-bottom:32px"><div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#57DCE5">Contact</div><h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:clamp(28px,3.4vw,44px);line-height:1.08;letter-spacing:-.02em;margin:14px 0 0">Other ways to reach us</h2></div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px">
+      <sc-for list="{{ contacts }}" as="c" hint-placeholder-count="4"><div style="background:rgba(23,38,58,.42);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:22px"><div style="font-weight:700;font-size:16px">{{ c.t }}</div><div style="color:#AEB9CC;font-size:14px;line-height:1.5;margin-top:5px">{{ c.d }}</div><a href="{{ c.href }}" style="display:inline-block;margin-top:12px;font-family:'JetBrains Mono',monospace;font-size:13px;color:#57DCE5">{{ c.v }}</a></div></sc-for>
+    </div>
+    <p style="color:#6F7D93;font-size:13px;margin:20px 0 0;line-height:1.5">Addresses shown are placeholders on the .example domain until the company's public contact details are confirmed.</p>
+  </div>
+</section>
+</main>
+<dc-import name="SiteFooter" hint-size="100%,420px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { isMobile: false, kind: 'demo', form: { name: '', email: '', company: '', website: '', type: '', interest: '', volume: '', markets: '', message: '', consent: false }, errors: {}, sent: false };
+  componentDidMount() { this.onResize = () => this.setState({ isMobile: window.innerWidth < 960 }); this.onResize(); window.addEventListener('resize', this.onResize); if (location.hash === '#contact') this.setState({ kind: 'contact' }); }
+  componentWillUnmount() { window.removeEventListener('resize', this.onResize); }
+  renderVals() {
+    const s = this.state, f = s.form, e = s.errors, isM = s.isMobile, demo = s.kind === 'demo', set = o => this.setState(o);
+    const br = k => e[k] ? '#F58B7A' : 'rgba(255,255,255,.14)';
+    const validate = () => { const er = {}; if (f.name.trim().length < 2) er.name = 'Please enter your name.'; if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email)) er.email = 'Enter a valid work email.'; if (f.company.trim().length < 2) er.company = 'Please enter your company.'; if (!f.type) er.type = 'Tell us what kind of business you are.'; if (demo && !f.interest) er.interest = 'Choose an area of interest.'; if (!demo && f.message.trim().length < 10) er.message = 'Please add a short message.'; if (!f.consent) er.consent = 'Consent is required so we can reply.'; return er; };
+    return {
+      twoCols: isM ? '1fr' : '1fr 1.15fr', stickyPos: isM ? 'static' : 'sticky', span: isM ? '1 / -1' : 'auto',
+      expect: [{ n: '1', t: 'Discovery (10 min)', d: 'Your model, providers, markets and what\u2019s not working today.' }, { n: '2', t: 'Live walkthrough (25 min)', d: 'Portal, routing engine, risk pipeline and the white-label tenant view — on your scenario.' }, { n: '3', t: 'Scope & eligibility (10 min)', d: 'Honest discussion of fit, timelines and anything partner approval depends on.' }, { n: '4', t: 'Written follow-up', d: 'Summary, sandbox access for your team and next steps within two working days.' }],
+      kinds: [['demo', 'Book a demo'], ['contact', 'General enquiry']].map(([k, label]) => ({ label, active: s.kind === k, bg: s.kind === k ? 'rgba(87,220,229,.18)' : 'transparent', color: '#F7F9FC', pick: () => set({ kind: k, errors: {} }) })),
+      form: f, errors: e, b: { name: br('name'), email: br('email'), company: br('company'), type: br('type'), interest: br('interest'), message: br('message') },
+      messageLabel: demo ? 'What are you trying to achieve? (optional)' : 'Your message',
+      submitLabel: demo ? 'Request a demo' : 'Send enquiry',
+      onField: ev => set({ form: { ...f, [ev.target.name]: ev.target.value }, errors: { ...e, [ev.target.name]: undefined } }),
+      onCheck: ev => set({ form: { ...f, consent: ev.target.checked }, errors: { ...e, consent: undefined } }),
+      submit: ev => { ev.preventDefault(); const er = validate(); if (Object.keys(er).length) { set({ errors: er }); return; } fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: new URLSearchParams({ 'form-name': demo ? 'book-a-demo' : 'contact', ...Object.fromEntries(Object.entries(f).map(([k, v]) => [k, String(v)])) }).toString() }).catch(() => {}); set({ sent: true, errors: {} }); },
+      sent: s.sent, notSent: !s.sent,
+      payload: JSON.stringify({ source: demo ? 'website/book-a-demo' : 'website/contact', submitted_at: new Date().toISOString().slice(0, 10), lead: f }, null, 2),
+      reset: () => set({ sent: false, form: { name: '', email: '', company: '', website: '', type: '', interest: '', volume: '', markets: '', message: '', consent: false } }),
+      contacts: [{ t: 'Sales', d: 'Licensing, merchant services and consulting enquiries.', v: 'sales@thepaymentportal.example', href: 'mailto:sales@thepaymentportal.example' }, { t: 'Partnerships', d: 'Referral, reseller and white-label partner program.', v: 'partners@thepaymentportal.example', href: 'mailto:partners@thepaymentportal.example' }, { t: 'Support', d: 'Existing tenants and merchants — use your portal\u2019s support channel first.', v: 'support@thepaymentportal.example', href: 'mailto:support@thepaymentportal.example' }, { t: 'Press & security', d: 'Media requests and responsible disclosure.', v: 'press@thepaymentportal.example', href: 'mailto:press@thepaymentportal.example' }],
+    };
+  }
+}
+</script>
+</body>
+</html>

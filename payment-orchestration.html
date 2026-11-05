@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Payment Orchestration Platform & Smart Routing | The Payment Portal</title>
+<meta name="description" content="Unified payment API with multiple PSP connections, intelligent transaction routing, cascading and failover, provider health visibility and payment analytics. Payment orchestration by The Payment Portal.">
+<link rel="canonical" href="https://thepaymentportal.example/solutions/payment-orchestration">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:#090E1B;color:#F7F9FC;font-family:'Manrope',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:#57DCE5;text-decoration:none}a:hover{color:#BAEF74}input,button,select,textarea{font:inherit}button{cursor:pointer}
+::selection{background:#57DCE5;color:#090E1B}
+[data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}[data-reveal].in{opacity:1;transform:none}
+@keyframes tppRise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+@keyframes tppUp{from{transform:translateY(110%)}to{transform:none}}
+@keyframes tppPulse{0%,100%{opacity:.45}50%{opacity:1}}
+@keyframes tppFade{from{opacity:0}to{opacity:1}}
+@keyframes tppDash{to{stroke-dashoffset:-48}}
+@media (prefers-reduced-motion:reduce){[data-reveal]{opacity:1;transform:none;transition:none}*{animation-duration:.01ms!important}}
+</style>
+</helmet>
+<dc-import name="SiteNav" current="solutions" page="/payment-orchestration" hint-size="100%,72px"></dc-import>
+<main>
+<section data-screen-label="Hero" style="position:relative;overflow:hidden;padding:clamp(80px,10vw,140px) 24px clamp(64px,8vw,110px);background:radial-gradient(ellipse 50% 60% at 80% 40%,rgba(87,220,229,.12),transparent 70%),#090E1B">
+  <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:{{ twoCols }};gap:56px;align-items:center;position:relative">
+    <div>
+      <nav aria-label="Breadcrumb" style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6F7D93;display:flex;gap:10px"><a href="/" style="color:#6F7D93">Home</a><span>/</span><span style="color:#57DCE5">Solutions</span></nav>
+      <h1 style="font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(38px,5.4vw,72px);line-height:1;letter-spacing:-.035em;margin:22px 0 22px;text-wrap:balance"><span style="display:block;overflow:hidden;padding-bottom:.1em"><span style="display:block;animation:tppUp .9s .15s cubic-bezier(.2,.8,.2,1) both">Payment orchestration</span></span><span style="display:block;overflow:hidden;padding-bottom:.1em"><span style="display:block;animation:tppUp .9s .3s cubic-bezier(.2,.8,.2,1) both;color:#57DCE5">that routes with intent.</span></span></h1>
+      <p style="animation:tppRise .9s .6s both;font-size:clamp(17px,1.3vw,20px);line-height:1.55;color:#AEB9CC;max-width:580px;margin:0 0 32px;text-wrap:pretty">One unified payment API in front of every acquirer, PSP and alternative method you connect. Rules select the best route for each transaction; cascading and health-aware failover keep approvals flowing when a provider doesn't.</p>
+      <div style="animation:tppRise .9s .8s both;display:flex;flex-wrap:wrap;gap:12px"><a href="/book-a-demo" style="background:#57DCE5;color:#090E1B;font-weight:700;padding:16px 26px;border-radius:999px;font-size:16px" style-hover="background:#BAEF74;color:#090E1B">Book a demo</a><a href="/#orchestration" style="border:1px solid rgba(255,255,255,.2);color:#F7F9FC;font-weight:600;padding:15px 24px;border-radius:999px;font-size:16px" style-hover="border-color:#57DCE5;color:#F7F9FC">Try the routing simulator</a></div>
+    </div>
+    <div style="animation:tppRise 1s .9s both;background:rgba(23,38,58,.45);border:1px solid rgba(255,255,255,.1);border-radius:26px;padding:24px;backdrop-filter:blur(14px)">
+      <svg viewBox="0 0 420 300" role="img" aria-label="Diagram: one API fans out to multiple providers through a routing core" style="width:100%;height:auto;display:block;font-family:'Manrope',sans-serif">
+        <g stroke="rgba(87,220,229,.35)" stroke-width="1.5" fill="none" stroke-dasharray="6 6" style="animation:tppDash 2.4s linear infinite"><path d="M110,150 C160,150 160,50 210,50"/><path d="M110,150 C160,150 160,117 210,117"/><path d="M110,150 C160,150 160,183 210,183"/><path d="M110,150 C160,150 160,250 210,250"/></g>
+        <rect x="20" y="120" width="90" height="60" rx="14" fill="#17263A" stroke="#57DCE5" stroke-opacity=".7"/><text x="65" y="146" text-anchor="middle" fill="#F7F9FC" font-size="12" font-weight="700">Your API call</text><text x="65" y="163" text-anchor="middle" fill="#57DCE5" font-size="10" font-family="JetBrains Mono, monospace">POST /payments</text>
+        <g fill="rgba(255,255,255,.04)" stroke="rgba(255,255,255,.14)"><rect x="210" y="30" width="190" height="40" rx="10"/><rect x="210" y="97" width="190" height="40" rx="10"/><rect x="210" y="163" width="190" height="40" rx="10"/><rect x="210" y="230" width="190" height="40" rx="10"/></g>
+        <g fill="#F7F9FC" font-size="12" font-weight="600"><text x="226" y="54">Acquirer A · EU cards</text><text x="226" y="121">Acquirer B · US cards</text><text x="226" y="187">APM connector · local</text><text x="226" y="254">Backup acquirer</text></g>
+        <g><circle cx="384" cy="50" r="4" fill="#BAEF74"/><circle cx="384" cy="117" r="4" fill="#BAEF74"/><circle cx="384" cy="183" r="4" fill="#BAEF74"/><circle cx="384" cy="250" r="4" fill="#F2B84B"/></g>
+        <text x="210" y="290" fill="#6F7D93" font-size="10" font-family="JetBrains Mono, monospace" letter-spacing="1.5">ILLUSTRATIVE</text>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section id="why" data-screen-label="Why orchestrate" style="padding:clamp(64px,8vw,110px) 24px">
+  <div style="max-width:1240px;margin:0 auto">
+    <div data-reveal style="max-width:760px"><div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#57DCE5">Why orchestration</div><h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:clamp(30px,3.8vw,50px);line-height:1.06;letter-spacing:-.025em;margin:16px 0 18px;text-wrap:balance">One provider is a single point of failure. Several, unmanaged, are a maintenance burden.</h2><p style="font-size:17px;line-height:1.55;color:#AEB9CC;margin:0;text-wrap:pretty">Orchestration puts a routing and management layer between your systems and your providers. You integrate once, add or replace providers by configuration, and let rules — not engineers — decide where each transaction goes.</p></div>
+    <div data-reveal style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:48px">
+      <sc-for list="{{ reasons }}" as="r" hint-placeholder-count="4"><div style="background:rgba(23,38,58,.42);border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:26px;display:flex;flex-direction:column;gap:10px"><span style="font-family:'Sora',sans-serif;font-weight:700;font-size:19px;line-height:1.25">{{ r.t }}</span><span style="color:#AEB9CC;line-height:1.55;font-size:15px">{{ r.d }}</span></div></sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="routing" data-screen-label="Routing rules" style="padding:0 24px clamp(64px,8vw,110px)">
+  <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:{{ twoCols }};gap:56px;align-items:start">
+    <div data-reveal style="position:sticky;top:96px"><div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#57DCE5">Intelligent routing</div><h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:clamp(30px,3.8vw,50px);line-height:1.06;letter-spacing:-.025em;margin:16px 0 18px;text-wrap:balance">Routing profiles you can read.</h2><p style="font-size:17px;line-height:1.55;color:#AEB9CC;margin:0 0 18px;text-wrap:pretty">A routing profile is an ordered list of rules. Each rule matches on transaction attributes and names a primary provider plus an optional cascade chain. Profiles are assigned per merchant, group or tenant, and versioned so you can see what changed and when.</p><p style="font-size:15px;line-height:1.55;color:#6F7D93;margin:0">Shown: a readable representation of the rule model. The exact schema is documented in the API reference.</p></div>
+    <div data-reveal style="background:#0B1324;border:1px solid rgba(255,255,255,.1);border-radius:22px;overflow:hidden;font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.7;box-shadow:0 30px 80px rgba(0,0,0,.4)">
+      <div style="display:flex;gap:6px;align-items:center;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03)"><span style="width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.2);display:block"></span><span style="width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.2);display:block"></span><span style="margin-left:10px;color:#AEB9CC;font-size:12px">routing-profile: eu-cards-default · v7</span></div>
+      <pre style="margin:0;padding:22px 24px;overflow-x:auto;color:#D6DEEA"><span style="color:#6F7D93">// rule 1 — EU-issued cards, low value</span>
+<span style="color:#57DCE5">match</span>: { issuer_region: <span style="color:#BAEF74">"EU"</span>, amount_lt: 25000, method: <span style="color:#BAEF74">"card"</span> }
+<span style="color:#57DCE5">primary</span>: <span style="color:#BAEF74">"acquirer_a"</span>
+<span style="color:#57DCE5">cascade</span>: [<span style="color:#BAEF74">"acquirer_b"</span>]
+<span style="color:#57DCE5">cascade_on</span>: [<span style="color:#BAEF74">"issuer_unavailable"</span>, <span style="color:#BAEF74">"timeout"</span>, <span style="color:#BAEF74">"do_not_honor_soft"</span>]
+
+<span style="color:#6F7D93">// rule 2 — high-value, require 3DS challenge</span>
+<span style="color:#57DCE5">match</span>: { amount_gte: 25000 }
+<span style="color:#57DCE5">require</span>: { three_ds: <span style="color:#BAEF74">"challenge"</span> }
+<span style="color:#57DCE5">primary</span>: <span style="color:#BAEF74">"acquirer_a"</span>
+
+<span style="color:#6F7D93">// health policy — applies to all rules</span>
+<span style="color:#57DCE5">health</span>: { demote_when_error_rate_gt: 0.08, window: <span style="color:#BAEF74">"5m"</span>, recover_after: <span style="color:#BAEF74">"10m"</span> }</pre>
+    </div>
+  </div>
+</section>
+
+<section id="cascading" data-screen-label="Cascading" style="padding:clamp(64px,8vw,110px) 24px;background:linear-gradient(180deg,#090E1B,#0C1626 50%,#090E1B)">
+  <div style="max-width:1240px;margin:0 auto">
+    <div data-reveal style="display:grid;grid-template-columns:{{ twoCols }};gap:40px;align-items:end;margin-bottom:44px"><div><div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#57DCE5">Cascading &amp; failover</div><h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:clamp(30px,3.8vw,50px);line-height:1.06;letter-spacing:-.025em;margin:16px 0 0;text-wrap:balance">Retry only when a retry can succeed.</h2></div><p style="font-size:17px;line-height:1.55;color:#AEB9CC;margin:0;text-wrap:pretty">Not every decline should be retried. Hard declines (stolen card, closed account) are final and retrying them harms your reputation with issuers. The engine maps each provider's response codes to a shared taxonomy and cascades only on retry-eligible outcomes.</p></div>
+    <div data-reveal style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px">
+      <sc-for list="{{ declines }}" as="d" hint-placeholder-count="4"><div style="background:rgba(255,255,255,.03);border:1px solid {{ d.border }};border-radius:18px;padding:22px"><div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:{{ d.color }}">{{ d.tag }}</div><div style="font-weight:700;font-size:16px;margin-top:10px">{{ d.t }}</div><div style="color:#AEB9CC;font-size:13.5px;line-height:1.5;margin-top:5px">{{ d.d }}</div></div></sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="connectivity" data-screen-label="Connectivity" style="padding:clamp(64px,8vw,110px) 24px">
+  <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:{{ twoCols }};gap:56px;align-items:center">
+    <div data-reveal><div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#57DCE5">Gateway connectivity</div><h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:clamp(30px,3.8vw,50px);line-height:1.06;letter-spacing:-.025em;margin:16px 0 18px;text-wrap:balance">Connectors we maintain, so you don't.</h2><p style="font-size:17px;line-height:1.55;color:#AEB9CC;margin:0;text-wrap:pretty">Each connector normalises authentication, request formats, response codes, 3DS flows and settlement files for a given provider. When a provider changes its API, we update the connector — your integration with TPP doesn't change. We don't publish a provider logo wall; we'll confirm coverage for the providers you actually need during scoping.</p></div>
+    <div data-reveal style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px">
+      <sc-for list="{{ connectorTypes }}" as="c" hint-placeholder-count="6"><div style="background:rgba(23,38,58,.42);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:18px"><div style="font-weight:700;font-size:15px">{{ c.t }}</div><div style="color:#AEB9CC;font-size:13px;line-height:1.5;margin-top:4px">{{ c.d }}</div></div></sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="analytics" data-screen-label="Analytics" style="padding:0 24px clamp(64px,8vw,110px)">
+  <div style="max-width:1240px;margin:0 auto">
+    <div data-reveal style="max-width:720px;margin-bottom:40px"><div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#57DCE5">Monitoring &amp; analytics</div><h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:clamp(30px,3.8vw,50px);line-height:1.06;letter-spacing:-.025em;margin:16px 0 18px;text-wrap:balance">See every route's performance — and act on it.</h2></div>
+    <div data-reveal style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px">
+      <sc-for list="{{ analytics }}" as="a" hint-placeholder-count="4"><div style="background:rgba(23,38,58,.42);border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:26px"><div style="font-family:'Sora',sans-serif;font-weight:700;font-size:18px">{{ a.t }}</div><div style="color:#AEB9CC;line-height:1.55;font-size:15px;margin-top:8px">{{ a.d }}</div></div></sc-for>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="CTA" style="padding:0 24px clamp(64px,8vw,110px)">
+  <div data-reveal style="max-width:1240px;margin:0 auto;background:linear-gradient(135deg,rgba(87,220,229,.14),rgba(166,139,245,.1));border:1px solid rgba(87,220,229,.3);border-radius:28px;padding:clamp(32px,5vw,64px);display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:24px">
+    <div style="max-width:640px"><h2 style="font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(28px,3.6vw,46px);line-height:1.05;letter-spacing:-.03em;margin:0 0 12px">Bring your provider list. We'll map the routes.</h2><p style="color:#AEB9CC;font-size:17px;line-height:1.55;margin:0">In a demo we model your current provider mix and show what rule-based routing and cascading would change.</p></div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap"><a href="/book-a-demo" style="background:#57DCE5;color:#090E1B;font-weight:700;padding:16px 26px;border-radius:999px;font-size:16px" style-hover="background:#BAEF74;color:#090E1B">Book a demo</a><a href="/api-reference" style="border:1px solid rgba(255,255,255,.2);color:#F7F9FC;font-weight:600;padding:15px 24px;border-radius:999px;font-size:16px" style-hover="border-color:#57DCE5;color:#F7F9FC">API reference</a></div>
+  </div>
+</section>
+</main>
+<dc-import name="SiteFooter" hint-size="100%,420px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { isMobile: false };
+  componentDidMount() { this.onResize = () => this.setState({ isMobile: window.innerWidth < 900 }); this.onResize(); window.addEventListener('resize', this.onResize); this.io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); this.io.unobserve(en.target); } }), { rootMargin: '0px 0px -8% 0px' }); this.observe(); }
+  componentDidUpdate() { this.observe(); }
+  componentWillUnmount() { window.removeEventListener('resize', this.onResize); this.io?.disconnect(); }
+  observe() { document.querySelectorAll('[data-reveal]:not(.in)').forEach(el => this.io.observe(el)); }
+  renderVals() {
+    return {
+      twoCols: this.state.isMobile ? '1fr' : '1fr 1fr',
+      reasons: [{ t: 'Resilience', d: 'When a provider degrades or declines for technical reasons, traffic moves to an eligible alternative automatically.' }, { t: 'Approval performance', d: 'Route by issuer region, card type and method to the provider most likely to approve — and measure the result.' }, { t: 'Cost control', d: 'Prefer lower-cost routes where approval performance is equivalent; see effective cost per route.' }, { t: 'Negotiating leverage', d: 'Adding or shifting providers becomes configuration, which changes the conversation with each of them.' }],
+      declines: [{ tag: 'Retry-eligible', color: '#BAEF74', border: 'rgba(186,239,116,.35)', t: 'Issuer unavailable / timeout', d: 'Technical failures between provider and issuer. Cascade immediately to the next provider.' }, { tag: 'Retry-eligible', color: '#BAEF74', border: 'rgba(186,239,116,.35)', t: 'Soft “do not honor”', d: 'Often provider- or path-specific. Cascade once; stop if the next provider agrees.' }, { tag: 'Final', color: '#F58B7A', border: 'rgba(245,139,122,.35)', t: 'Stolen / lost / closed', d: 'Never retried. Returned to the merchant with a normalised reason code.' }, { tag: 'Final', color: '#F58B7A', border: 'rgba(245,139,122,.35)', t: 'Insufficient funds', d: 'Not retried in the same attempt; eligible for scheduled retry in subscription flows.' }],
+      connectorTypes: [{ t: 'Card acquirers', d: 'Direct acquiring connections with 3DS and tokenisation support.' }, { t: 'PSP aggregators', d: 'Gateway-to-gateway connections where you process via another PSP.' }, { t: 'Bank redirects', d: 'Account-to-account methods with redirect and status polling.' }, { t: 'Wallets', d: 'Digital wallet flows with device-based authentication.' }, { t: 'Local methods', d: 'Country-specific methods added per market as needed.' }, { t: 'Settlement files', d: 'Statement ingestion for reconciliation per provider.' }],
+      analytics: [{ t: 'Approval & decline by route', d: 'Compare providers on the same traffic segment; spot where a rule change would help.' }, { t: 'Provider health', d: 'Latency, error rate and timeout trends per connector, with the demotion events the engine took.' }, { t: 'Cascade outcomes', d: 'How often a cascade recovered an authorization — and what it cost.' }, { t: 'Exportable, per tenant', d: 'Every metric scoped to tenant, merchant group or merchant, exportable for your own BI.' }],
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Developer Overview & Quick Start — Payment Gateway API | The Payment Portal</title>
+<meta name="description" content="Integrate the TPP unified payment API: authentication, idempotency, tokenization, hosted checkout, sandbox, webhooks and planned SDKs. Make your first sandbox payment in four steps.">
+<link rel="canonical" href="https://thepaymentportal.example/developers">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:#090E1B;color:#F7F9FC;font-family:'Manrope',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+a{color:#57DCE5;text-decoration:none}a:hover{color:#BAEF74}input,button,select,textarea{font:inherit}button{cursor:pointer}
+::selection{background:#57DCE5;color:#090E1B}
+[data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1)}[data-reveal].in{opacity:1;transform:none}
+@keyframes tppRise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+@keyframes tppUp{from{transform:translateY(110%)}to{transform:none}}
+@keyframes tppFade{from{opacity:0}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){[data-reveal]{opacity:1;transform:none;transition:none}*{animation-duration:.01ms!important}}
+</style>
+</helmet>
+<dc-import name="SiteNav" current="developers" page="/developers" hint-size="100%,72px"></dc-import>
+<main>
+<section data-screen-label="Hero" style="position:relative;overflow:hidden;padding:clamp(80px,10vw,140px) 24px clamp(64px,8vw,110px);background:#0B1324;border-bottom:1px solid rgba(255,255,255,.06)">
+  <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);background-size:48px 48px;mask-image:radial-gradient(ellipse 70% 80% at 70% 50%,#000,transparent 80%);-webkit-mask-image:radial-gradient(ellipse 70% 80% at 70% 50%,#000,transparent 80%);pointer-events:none"></div>
+  <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:{{ twoCols }};gap:56px;align-items:center;position:relative">
+    <div>
+      <nav aria-label="Breadcrumb" style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6F7D93;display:flex;gap:10px"><a href="/" style="color:#6F7D93">Home</a><span>/</span><span style="color:#BAEF74">Developers</span></nav>
+      <h1 style="font-family:'Sora',sans-serif;font-weight:800;font-size:clamp(38px,5.4vw,72px);line-height:1;letter-spacing:-.035em;margin:22px 0 22px;text-wrap:balance"><span style="display:block;overflow:hidden;padding-bottom:.1em"><span style="display:block;animation:tppUp .9s .15s cubic-bezier(.2,.8,.2,1) both">One API.</span></span><span style="display:block;overflow:hidden;padding-bottom:.1em"><span style="display:block;animation:tppUp .9s .3s cubic-bezier(.2,.8,.2,1) both;color:#BAEF74">Every provider behind it.</span></span></h1>
+      <p style="animation:tppRise .9s .6s both;font-size:clamp(17px,1.3vw,20px);line-height:1.55;color:#AEB9CC;max-width:580px;margin:0 0 32px;text-wrap:pretty">Predictable REST resources, idempotent writes, signed webhooks and a sandbox that simulates providers, declines and 3DS. Integrate once; routing decides the rest.</p>
+      <div style="animation:tppRise .9s .8s both;display:flex;flex-wrap:wrap;gap:12px"><a href="#quick-start" style="background:#BAEF74;color:#090E1B;font-weight:700;padding:16px 26px;border-radius:999px;font-size:16px" style-hover="background:#57DCE5;color:#090E1B">Quick start</a><a href="/api-reference" style="border:1px solid rgba(255,255,255,.2);color:#F7F9FC;font-weight:600;padding:15px 24px;border-radius:999px;font-size:16px" style-hover="border-color:#BAEF74;color:#F7F9FC">API reference</a></div>
+    </div>
+    <div style="animation:tppRise 1s .9s both;background:#070B16;border:1px solid rgba(255,255,255,.1);border-radius:22px;overflow:hidden;font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.7;box-shadow:0 30px 80px rgba(0,0,0,.45)">
+      <div style="display:flex;gap:6px;align-items:center;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03)"><span style="width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.2);display:block"></span><span style="width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,.2);display:block"></span><span style="margin-left:10px;color:#AEB9CC;font-size:12px">node · create a payment</span></div>
+      <pre style="margin:0;padding:22px 24px;overflow-x:auto;color:#D6DEEA"><span style="color:#A68BF5">const</span> payment = <span style="color:#A68BF5">await</span> tpp.payments.create({
+  amount: <span style="color:#F2B84B">12800</span>,
+  currency: <span style="color:#BAEF74">"EUR"</span>,
+  payment_method: { token: <span style="color:#BAEF74">"tok_…"</span> },
+  routing: { profile: <span style="color:#BAEF74">"eu-cards-default"</span> },
+  merchant_id: <span style="color:#BAEF74">"mer_sample_01"</span>,
+}, { idempotencyKey: <span style="color:#BAEF74">"order-8841"</span> });
+
+<span style="color:#6F7D93">// payment.status → "authorized"</span>
+<span style="color:#6F7D93">// payment.route  → { provider: "acquirer_a", attempt: 1 }</span></pre>
+    </div>
+  </div>
+</section>
+
+<section id="concepts" data-screen-label="Concepts" style="padding:clamp(64px,8vw,110px) 24px">
+  <div style="max-width:1240px;margin:0 auto">
+    <div data-reveal style="max-width:720px;margin-bottom:44px"><div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#BAEF74">API overview</div><h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:clamp(30px,3.8vw,50px);line-height:1.06;letter-spacing:-.025em;margin:16px 0 0;text-wrap:balance">Six concepts cover the whole API.</h2></div>
+    <div data-reveal style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px">
+      <sc-for list="{{ concepts }}" as="c" hint-placeholder-count="6"><a href="{{ c.href }}" style="background:rgba(23,38,58,.42);border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:24px;color:#F7F9FC;display:flex;flex-direction:column;gap:10px;transition:border-color .25s" style-hover="border-color:rgba(186,239,116,.5);color:#F7F9FC"><code style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#BAEF74">{{ c.path }}</code><span style="font-family:'Sora',sans-serif;font-weight:700;font-size:18px">{{ c.t }}</span><span style="color:#AEB9CC;line-height:1.55;font-size:14.5px">{{ c.d }}</span></a></sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="quick-start" data-screen-label="Quick start" style="padding:0 24px clamp(64px,8vw,110px);scroll-margin-top:80px">
+  <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:{{ qsCols }};gap:40px;align-items:start">
+    <div data-reveal style="position:sticky;top:96px"><div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#BAEF74">Quick start</div><h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:clamp(30px,3.8vw,50px);line-height:1.06;letter-spacing:-.025em;margin:16px 0 18px;text-wrap:balance">First sandbox payment in four steps.</h2><p style="font-size:16px;line-height:1.55;color:#AEB9CC;margin:0 0 20px">Click a step to view it. Everything here runs against the sandbox — no real money, simulated providers.</p>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <sc-for list="{{ steps }}" as="s" hint-placeholder-count="4"><button onClick="{{ s.pick }}" aria-pressed="{{ s.active }}" style="text-align:left;background:{{ s.bg }};border:1px solid {{ s.border }};color:#F7F9FC;padding:14px 16px;border-radius:14px;min-height:44px;display:flex;gap:12px;align-items:center;transition:border-color .2s"><span style="font-family:'JetBrains Mono',monospace;font-size:12px;color:#BAEF74">{{ s.n }}</span><span style="font-weight:700;font-size:15px">{{ s.t }}</span></button></sc-for>
+      </div>
+    </div>
+    <div data-reveal>
+      <div style="background:#070B16;border:1px solid rgba(255,255,255,.1);border-radius:22px;overflow:hidden;font-family:'JetBrains Mono',monospace;font-size:13px;line-height:1.7;box-shadow:0 30px 80px rgba(0,0,0,.45)">
+        <div style="display:flex;justify-content:space-between;align-items:center;padding:12px 16px;border-bottom:1px solid rgba(255,255,255,.08);background:rgba(255,255,255,.03);color:#AEB9CC;font-size:12px"><span>{{ step.file }}</span><span style="color:#BAEF74">sandbox</span></div>
+        <pre style="margin:0;padding:22px 24px;overflow-x:auto;color:#D6DEEA;white-space:pre-wrap;animation:tppFade .3s">{{ step.code }}</pre>
+      </div>
+      <p style="color:#AEB9CC;font-size:15px;line-height:1.6;margin:18px 0 0">{{ step.note }}</p>
+    </div>
+  </div>
+</section>
+
+<section id="sandbox" data-screen-label="Sandbox" style="padding:clamp(64px,8vw,110px) 24px;background:linear-gradient(180deg,#090E1B,#0B1324 50%,#090E1B)">
+  <div style="max-width:1240px;margin:0 auto;display:grid;grid-template-columns:{{ twoCols }};gap:56px;align-items:center">
+    <div data-reveal><div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#BAEF74">Sandbox</div><h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:clamp(30px,3.8vw,50px);line-height:1.06;letter-spacing:-.025em;margin:16px 0 18px;text-wrap:balance">Simulate providers, declines and cascades.</h2><p style="font-size:17px;line-height:1.55;color:#AEB9CC;margin:0;text-wrap:pretty">The sandbox is a separate environment with its own keys. Test card numbers and amounts trigger specific outcomes so you can exercise your error handling, 3DS flows and webhook consumers before go-live.</p></div>
+    <div data-reveal style="background:rgba(23,38,58,.42);border:1px solid rgba(255,255,255,.08);border-radius:22px;overflow:hidden;font-size:13.5px">
+      <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:10px;padding:12px 18px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#AEB9CC;border-bottom:1px solid rgba(255,255,255,.08)"><span>Trigger</span><span>Outcome</span></div>
+      <sc-for list="{{ triggers }}" as="t" hint-placeholder-count="6"><div style="display:grid;grid-template-columns:1.2fr 1fr;gap:10px;padding:12px 18px;border-bottom:1px solid rgba(255,255,255,.06)"><code style="font-family:'JetBrains Mono',monospace;font-size:12.5px;color:#57DCE5">{{ t.k }}</code><span style="color:#F7F9FC">{{ t.v }}</span></div></sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="guides" data-screen-label="Guides" style="padding:clamp(64px,8vw,110px) 24px 0">
+  <div style="max-width:1240px;margin:0 auto">
+    <div data-reveal style="max-width:720px;margin-bottom:40px"><div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#BAEF74">Integration guides</div><h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:clamp(30px,3.8vw,50px);line-height:1.06;letter-spacing:-.025em;margin:16px 0 0;text-wrap:balance">Guides by integration shape.</h2></div>
+    <div data-reveal style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px">
+      <sc-for list="{{ guides }}" as="g" hint-placeholder-count="4"><div style="background:rgba(23,38,58,.42);border:1px solid rgba(255,255,255,.08);border-radius:22px;padding:24px;display:flex;flex-direction:column;gap:10px"><span style="font-family:'Sora',sans-serif;font-weight:700;font-size:18px">{{ g.t }}</span><span style="color:#AEB9CC;line-height:1.55;font-size:14.5px;flex:1">{{ g.d }}</span><span style="font-family:'JetBrains Mono',monospace;font-size:11.5px;color:#6F7D93">{{ g.status }}</span></div></sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="sdks" data-screen-label="SDKs" style="padding:clamp(64px,8vw,110px) 24px">
+  <div data-reveal style="max-width:1240px;margin:0 auto;border:1px solid rgba(255,255,255,.1);border-radius:28px;padding:clamp(28px,4vw,48px);display:grid;grid-template-columns:{{ twoCols }};gap:32px;align-items:center;background:rgba(255,255,255,.02)">
+    <div><div style="font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:#BAEF74">SDKs</div><h2 style="font-family:'Sora',sans-serif;font-weight:700;font-size:clamp(26px,3vw,38px);line-height:1.1;letter-spacing:-.025em;margin:14px 0 12px">Thin, generated clients — the REST API is the source of truth.</h2><p style="color:#AEB9CC;font-size:16px;line-height:1.55;margin:0">Server libraries wrap authentication, idempotency and retries; the web component handles hosted fields. Published libraries will be listed here with versions as they ship.</p></div>
+    <div style="display:flex;flex-wrap:wrap;gap:10px;justify-content:{{ sdkJustify }}"><sc-for list="{{ sdks }}" as="k" hint-placeholder-count="6"><span style="font-family:'JetBrains Mono',monospace;font-size:13px;border:1px solid rgba(255,255,255,.14);padding:9px 14px;border-radius:999px;color:#F7F9FC;display:inline-flex;gap:8px;align-items:center"><span style="width:7px;height:7px;border-radius:50%;background:{{ k.dot }};display:block"></span>{{ k.n }}</span></sc-for></div>
+  </div>
+</section>
+</main>
+<dc-import name="SiteFooter" hint-size="100%,420px"></dc-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = { isMobile: false, step: 0 };
+  componentDidMount() { this.onResize = () => this.setState({ isMobile: window.innerWidth < 900 }); this.onResize(); window.addEventListener('resize', this.onResize); this.io = new IntersectionObserver(es => es.forEach(en => { if (en.isIntersecting) { en.target.classList.add('in'); this.io.unobserve(en.target); } }), { rootMargin: '0px 0px -8% 0px' }); this.observe(); }
+  componentDidUpdate() { this.observe(); }
+  componentWillUnmount() { window.removeEventListener('resize', this.onResize); this.io?.disconnect(); }
+  observe() { document.querySelectorAll('[data-reveal]:not(.in)').forEach(el => this.io.observe(el)); }
+  renderVals() {
+    const s = this.state, isM = s.isMobile;
+    const steps = [
+      { n: '01', t: 'Get sandbox keys', file: '.env', code: 'TPP_API_KEY=sk_sandbox_••••••••\nTPP_WEBHOOK_SECRET=whsec_••••••••\nTPP_BASE_URL=https://sandbox.api.yourbrand.example', note: 'Create a sandbox tenant in the portal and generate a secret key. Keys are scoped per environment — a sandbox key can never reach live.' },
+      { n: '02', t: 'Tokenize a card', file: 'checkout.html', code: '<tpp-card-fields\n  publishable-key="pk_sandbox_…"\n  on-token="handleToken">\n</tpp-card-fields>\n\nfunction handleToken(e) {\n  // e.detail.token → "tok_…" — send to your server\n}', note: 'Hosted fields render inside an isolated frame on your page, so card data never touches your servers. The token is single-use unless you store it as a customer payment method.' },
+      { n: '03', t: 'Create the payment', file: 'server.js', code: 'POST /v1/payments\nIdempotency-Key: order-8841\n\n{\n  "amount": 12800,\n  "currency": "EUR",\n  "payment_method": { "token": "tok_…" },\n  "routing": { "profile": "eu-cards-default" },\n  "merchant_id": "mer_sample_01",\n  "return_url": "https://shop.example/return"\n}\n\n→ 200 { "id": "pay_…", "status": "authorized",\n        "route": { "provider": "acquirer_a", "attempt": 1 } }', note: 'If 3DS is required the response status is requires_action with a redirect URL. Retrying the same Idempotency-Key returns the original result instead of creating a second payment.' },
+      { n: '04', t: 'Handle webhooks', file: 'webhooks.js', code: 'POST /your/webhook-endpoint\nTPP-Signature: t=1730000000,v1=5f3a…\n\n{\n  "id": "evt_…",\n  "type": "payment.captured",\n  "data": { "id": "pay_…", "amount": 12800, "currency": "EUR" }\n}\n\n// verify: HMAC-SHA256(secret, t + "." + body) == v1\n// respond 2xx within 10s; otherwise we retry with backoff', note: 'Treat webhooks as the source of truth for state changes. Events are delivered at least once — make your handler idempotent on the event id.' },
+    ];
+    return {
+      twoCols: isM ? '1fr' : '1fr 1fr', qsCols: isM ? '1fr' : '380px 1fr', sdkJustify: isM ? 'flex-start' : 'flex-end',
+      concepts: [{ path: '/v1/payments', t: 'Payments', d: 'Authorize, capture, void, refund. One resource across every provider; route details attached.', href: '/api-reference#payments' }, { path: '/v1/tokens', t: 'Tokens & customers', d: 'Tokenize card data via hosted fields; store methods against customers for recurring use.', href: '/api-reference#tokens' }, { path: '/v1/merchants', t: 'Merchants', d: 'For platforms and tenants: create and configure merchants programmatically.', href: '/api-reference#merchants' }, { path: '/v1/routing-profiles', t: 'Routing', d: 'Read and (with permission) manage routing profiles and cascade rules.', href: '/api-reference#routing' }, { path: '/v1/disputes', t: 'Disputes', d: 'List chargebacks, upload evidence, track deadlines and outcomes.', href: '/api-reference#disputes' }, { path: 'webhooks', t: 'Webhooks', d: 'Signed, retried events for every state change. Idempotent on event id.', href: '/api-reference#webhooks' }],
+      steps: steps.map((x, i) => ({ ...x, active: s.step === i, bg: s.step === i ? 'rgba(186,239,116,.08)' : 'rgba(23,38,58,.42)', border: s.step === i ? 'rgba(186,239,116,.5)' : 'rgba(255,255,255,.08)', pick: () => this.setState({ step: i }) })),
+      step: steps[s.step],
+      triggers: [{ k: '4242 4242 4242 4242', v: 'Authorized on primary' }, { k: '4000 0000 0000 0002', v: 'Hard decline — not cascaded' }, { k: '4000 0000 0000 0101', v: 'Soft decline → cascade to backup' }, { k: '4000 0000 0000 3220', v: '3DS challenge required' }, { k: 'amount = 99999', v: 'Provider timeout → health demotion' }, { k: 'amount = 40001', v: 'Dispute created 60s after capture' }],
+      guides: [{ t: 'Hosted checkout', d: 'Redirect-based checkout on your branded domain with return URL handling.', status: 'Guide available at launch' }, { t: 'Embedded fields', d: 'Hosted card fields inside your own page with full styling control.', status: 'Guide available at launch' }, { t: 'Server-to-server', d: 'Direct API integration for PCI-compliant platforms and network tokens.', status: 'Guide available at launch' }, { t: 'Platforms & marketplaces', d: 'Creating merchants, assigning routing profiles and reading per-merchant reports via API.', status: 'In preparation' }],
+      sdks: [{ n: 'Node.js', dot: '#BAEF74' }, { n: 'Python', dot: '#BAEF74' }, { n: 'PHP', dot: '#F2B84B' }, { n: 'Java', dot: '#F2B84B' }, { n: '.NET', dot: '#F2B84B' }, { n: 'Web components', dot: '#BAEF74' }],
+    };
+  }
+}
+</script>
+</body>
+</html>
