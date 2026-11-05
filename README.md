@@ -1,4 +1,4 @@
-# The Payment Portal — marketing site
+# AQ Pay — marketing site
 
 Static site, no build step. Pages are `*.html`; the shared header and footer are
 `SiteNav.dc.html` and `SiteFooter.dc.html` (keep those two file names — the page
@@ -20,6 +20,3 @@ your team via Resend and sends the visitor a confirmation. The same code runs on
 1. In Resend, add and verify your sending domain (Domains → Add domain → add the DNS records).
 2. Create an API key (API Keys → Create, "Sending access").
 3. In Netlify or Vercel, add the environment variables from `.env.example`, then redeploy.
-
-## Still to fill in
-- Real domain: replace `thepaymentportal.example` (canonical tags and contact emails).

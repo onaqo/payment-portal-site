@@ -8,50 +8,48 @@
 <body>
 <x-dc>
 <helmet>
+<link rel="icon" href="aq-mark.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 @keyframes tppFade{from{opacity:0}to{opacity:1}}
 @keyframes tppPanel{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
 </style>
 </helmet>
-<header style="position:sticky;top:0;z-index:60;font-family:'Manrope',system-ui,sans-serif;color:#F7F9FC" onMouseLeave="{{ closeMenu }}">
-  <div style="backdrop-filter:blur(20px);background:rgba(9,14,27,.76);border-bottom:1px solid rgba(255,255,255,.07)">
+<header style="position:sticky;top:0;z-index:60;font-family:'Inter',system-ui,sans-serif;color:#F4F7FC" onMouseLeave="{{ closeMenu }}">
+  <div style="backdrop-filter:blur(20px);background:rgba(6,10,20,.76);border-bottom:1px solid rgba(255,255,255,.07)">
     <div style="max-width:1360px;margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;gap:28px">
-      <a href="{{ homeHref }}" aria-label="The Payment Portal home" style="display:flex;align-items:center;gap:12px;color:#F7F9FC;flex-shrink:0;text-decoration:none">
-        <span style="position:relative;width:34px;height:34px;border:2px solid #57DCE5;border-radius:10px;display:block">
-          <span style="position:absolute;left:7px;top:7px;width:16px;height:16px;border-radius:50%;border:2px solid rgba(87,220,229,.45);display:block"></span>
-          <span style="position:absolute;right:-5px;bottom:-5px;width:12px;height:12px;border-radius:50%;background:#BAEF74;box-shadow:0 0 0 3px #090E1B;display:block"></span>
-        </span>
-        <span style="font-family:'Sora',sans-serif;font-weight:700;letter-spacing:-.01em;font-size:17px;line-height:1">The Payment Portal</span>
+      <a href="{{ homeHref }}" aria-label="AQ Pay home" style="display:flex;align-items:center;gap:12px;color:#F4F7FC;flex-shrink:0;text-decoration:none">
+        <img src="aq-mark.svg" alt="" width="36" height="36" style="display:block;flex-shrink:0;width:36px;height:36px">
+        <span style="font-family:'Inter',system-ui,sans-serif;font-weight:700;letter-spacing:-.01em;font-size:17px;line-height:1">AQ Pay</span>
       </a>
       <nav aria-label="Main" style="display:{{ desktopDisplay }};flex:1;justify-content:center;gap:2px">
         <sc-for list="{{ navs }}" as="n" hint-placeholder-count="6">
-          <button onMouseEnter="{{ n.open }}" onClick="{{ n.toggle }}" onFocus="{{ n.open }}" aria-expanded="{{ n.isOpen }}" style="background:{{ n.bg }};border:0;color:{{ n.color }};padding:10px 14px;border-radius:999px;font-weight:600;font-size:15px;display:flex;align-items:center;gap:6px;transition:color .2s,background .2s;cursor:pointer;font-family:inherit" style-hover="color:#F7F9FC">{{ n.label }}<span style="width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);display:inline-block;opacity:.7"></span></button>
+          <button onMouseEnter="{{ n.open }}" onClick="{{ n.toggle }}" onFocus="{{ n.open }}" aria-expanded="{{ n.isOpen }}" style="background:{{ n.bg }};border:0;color:{{ n.color }};padding:10px 14px;border-radius:999px;font-weight:600;font-size:15px;display:flex;align-items:center;gap:6px;transition:color .2s,background .2s;cursor:pointer;font-family:inherit" style-hover="color:#F4F7FC">{{ n.label }}<span style="width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);display:inline-block;opacity:.7"></span></button>
         </sc-for>
       </nav>
       <div style="display:flex;align-items:center;gap:10px;margin-left:auto">
-        <a href="{{ loginHref }}" style="display:{{ desktopDisplay }};color:#AEB9CC;font-weight:600;font-size:15px;padding:10px 14px;text-decoration:none" style-hover="color:#F7F9FC">Login</a>
-        <a href="/book-a-demo" style="display:{{ desktopDisplay }};background:#57DCE5;color:#090E1B;font-weight:700;font-size:15px;padding:11px 20px;border-radius:999px;transition:background .2s,transform .2s;text-decoration:none" style-hover="background:#BAEF74;transform:translateY(-1px)">Book a Demo</a>
-        <button onClick="{{ toggleMobile }}" aria-label="Open menu" aria-expanded="{{ mobileOpen }}" style="display:{{ mobileDisplay }};background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#F7F9FC;width:44px;height:44px;border-radius:12px;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer">
+        <a href="{{ loginHref }}" style="display:{{ desktopDisplay }};color:#AEB9CC;font-weight:600;font-size:15px;padding:10px 14px;text-decoration:none" style-hover="color:#F4F7FC">Login</a>
+        <a href="/book-a-demo" style="display:{{ desktopDisplay }};background:#6E9BFF;color:#060A14;font-weight:700;font-size:15px;padding:11px 20px;border-radius:999px;transition:background .2s,transform .2s;text-decoration:none" style-hover="background:#3DDC97;transform:translateY(-1px)">Book a Demo</a>
+        <button onClick="{{ toggleMobile }}" aria-label="Open menu" aria-expanded="{{ mobileOpen }}" style="display:{{ mobileDisplay }};background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#F4F7FC;width:44px;height:44px;border-radius:12px;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer">
           <span style="width:18px;height:2px;background:currentColor;display:block"></span><span style="width:18px;height:2px;background:currentColor;display:block"></span>
         </button>
       </div>
     </div>
   </div>
   <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
-    <div style="position:absolute;left:0;right:0;top:72px;background:rgba(12,19,34,.97);backdrop-filter:blur(24px);border-bottom:1px solid rgba(255,255,255,.08);box-shadow:0 40px 80px rgba(0,0,0,.5);animation:tppPanel .28s cubic-bezier(.2,.8,.2,1) both">
+    <div style="position:absolute;left:0;right:0;top:72px;background:rgba(15,23,41,.97);backdrop-filter:blur(24px);border-bottom:1px solid rgba(255,255,255,.08);box-shadow:0 40px 80px rgba(0,0,0,.5);animation:tppPanel .28s cubic-bezier(.2,.8,.2,1) both">
       <div style="max-width:1360px;margin:0 auto;padding:36px 24px 40px;display:grid;grid-template-columns:300px 1fr;gap:40px">
         <div style="border-right:1px solid rgba(255,255,255,.08);padding-right:40px">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#57DCE5">{{ activeMenu.label }}</div>
-          <div style="font-family:'Sora',sans-serif;font-weight:700;font-size:26px;line-height:1.15;letter-spacing:-.02em;margin:12px 0 10px">{{ activeMenu.tagline }}</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#6E9BFF">{{ activeMenu.label }}</div>
+          <div style="font-family:'Inter',system-ui,sans-serif;font-weight:700;font-size:26px;line-height:1.15;letter-spacing:-.02em;margin:12px 0 10px">{{ activeMenu.tagline }}</div>
           <p style="color:#AEB9CC;line-height:1.55;margin:0 0 22px;font-size:15px">{{ activeMenu.blurb }}</p>
-          <a href="{{ activeMenu.ctaHref }}" style="display:inline-flex;align-items:center;gap:8px;color:#BAEF74;font-weight:700;font-size:15px;text-decoration:none">{{ activeMenu.cta }} <span aria-hidden="true">→</span></a>
+          <a href="{{ activeMenu.ctaHref }}" style="display:inline-flex;align-items:center;gap:8px;color:#3DDC97;font-weight:700;font-size:15px;text-decoration:none">{{ activeMenu.cta }} <span aria-hidden="true">→</span></a>
         </div>
         <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:6px 24px">
           <sc-for list="{{ activeMenu.items }}" as="it" hint-placeholder-count="6">
-            <a href="{{ it.href }}" onClick="{{ closeMenu }}" style="display:flex;gap:14px;padding:12px;border-radius:14px;color:#F7F9FC;transition:background .2s;text-decoration:none;background:{{ it.bg }}" style-hover="background:rgba(255,255,255,.05);color:#F7F9FC">
-              <span style="width:38px;height:38px;border-radius:11px;background:rgba(87,220,229,.08);border:1px solid rgba(87,220,229,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0">{{ it.icon }}</span>
+            <a href="{{ it.href }}" onClick="{{ closeMenu }}" style="display:flex;gap:14px;padding:12px;border-radius:14px;color:#F4F7FC;transition:background .2s;text-decoration:none;background:{{ it.bg }}" style-hover="background:rgba(255,255,255,.05);color:#F4F7FC">
+              <span style="width:38px;height:38px;border-radius:11px;background:rgba(110,155,255,.08);border:1px solid rgba(110,155,255,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0">{{ it.icon }}</span>
               <span><span style="display:block;font-weight:700;font-size:15px;margin-bottom:3px">{{ it.t }}</span><span style="display:block;color:#AEB9CC;font-size:13.5px;line-height:1.45">{{ it.d }}</span></span>
             </a>
           </sc-for>
@@ -61,27 +59,27 @@
   </sc-if>
 </header>
 <sc-if value="{{ mobileOpen }}" hint-placeholder-val="{{ false }}">
-  <div role="dialog" aria-label="Menu" style="position:fixed;inset:0;z-index:90;background:#0B1324;overflow:auto;animation:tppFade .2s ease both;font-family:'Manrope',system-ui,sans-serif;color:#F7F9FC">
+  <div role="dialog" aria-label="Menu" style="position:fixed;inset:0;z-index:90;background:#0F1729;overflow:auto;animation:tppFade .2s ease both;font-family:'Inter',system-ui,sans-serif;color:#F4F7FC">
     <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 24px;height:72px;border-bottom:1px solid rgba(255,255,255,.08)">
-      <span style="font-family:'Sora',sans-serif;font-weight:700">The Payment Portal</span>
-      <button onClick="{{ toggleMobile }}" aria-label="Close menu" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#F7F9FC;width:44px;height:44px;border-radius:12px;font-size:20px;cursor:pointer">×</button>
+      <span style="font-family:'Inter',system-ui,sans-serif;font-weight:700">AQ Pay</span>
+      <button onClick="{{ toggleMobile }}" aria-label="Close menu" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#F4F7FC;width:44px;height:44px;border-radius:12px;font-size:20px;cursor:pointer">×</button>
     </div>
     <div style="padding:12px 24px 40px;display:flex;flex-direction:column;gap:4px">
       <sc-for list="{{ navs }}" as="n" hint-placeholder-count="6">
         <div style="border-bottom:1px solid rgba(255,255,255,.07)">
-          <button onClick="{{ n.toggleMobile }}" aria-expanded="{{ n.mobileOpen }}" style="width:100%;background:none;border:0;color:#F7F9FC;display:flex;justify-content:space-between;align-items:center;padding:18px 0;font-family:'Sora',sans-serif;font-weight:600;font-size:19px;min-height:44px;cursor:pointer">{{ n.label }}<span style="color:#57DCE5;font-size:22px;line-height:1">{{ n.mobileSign }}</span></button>
+          <button onClick="{{ n.toggleMobile }}" aria-expanded="{{ n.mobileOpen }}" style="width:100%;background:none;border:0;color:#F4F7FC;display:flex;justify-content:space-between;align-items:center;padding:18px 0;font-family:'Inter',system-ui,sans-serif;font-weight:600;font-size:19px;min-height:44px;cursor:pointer">{{ n.label }}<span style="color:#6E9BFF;font-size:22px;line-height:1">{{ n.mobileSign }}</span></button>
           <sc-if value="{{ n.mobileOpen }}" hint-placeholder-val="{{ false }}">
             <div style="display:flex;flex-direction:column;gap:2px;padding-bottom:14px">
               <sc-for list="{{ n.items }}" as="it" hint-placeholder-count="4">
-                <a href="{{ it.href }}" style="display:flex;gap:12px;align-items:center;color:#F7F9FC;padding:10px 4px;min-height:44px;text-decoration:none"><span style="width:32px;height:32px;border-radius:9px;background:rgba(87,220,229,.08);display:flex;align-items:center;justify-content:center;flex-shrink:0">{{ it.icon }}</span><span style="font-weight:600;font-size:15px">{{ it.t }}</span></a>
+                <a href="{{ it.href }}" style="display:flex;gap:12px;align-items:center;color:#F4F7FC;padding:10px 4px;min-height:44px;text-decoration:none"><span style="width:32px;height:32px;border-radius:9px;background:rgba(110,155,255,.08);display:flex;align-items:center;justify-content:center;flex-shrink:0">{{ it.icon }}</span><span style="font-weight:600;font-size:15px">{{ it.t }}</span></a>
               </sc-for>
             </div>
           </sc-if>
         </div>
       </sc-for>
       <div style="display:flex;flex-direction:column;gap:10px;margin-top:24px">
-        <a href="/book-a-demo" style="background:#57DCE5;color:#090E1B;font-weight:700;text-align:center;padding:15px;border-radius:999px;text-decoration:none">Book a Demo</a>
-        <a href="{{ loginHref }}" style="border:1px solid rgba(255,255,255,.18);color:#F7F9FC;font-weight:600;text-align:center;padding:15px;border-radius:999px;text-decoration:none">Login</a>
+        <a href="/book-a-demo" style="background:#6E9BFF;color:#060A14;font-weight:700;text-align:center;padding:15px;border-radius:999px;text-decoration:none">Book a Demo</a>
+        <a href="{{ loginHref }}" style="border:1px solid rgba(255,255,255,.18);color:#F4F7FC;font-weight:600;text-align:center;padding:15px;border-radius:999px;text-decoration:none">Login</a>
       </div>
     </div>
   </div>
@@ -95,7 +93,7 @@ class Component extends DCLogic {
     this.onKey = e => { if (e.key === 'Escape') this.setState({ menu: null, mobileOpen: false }); }; window.addEventListener('keydown', this.onKey);
   }
   componentWillUnmount() { window.removeEventListener('resize', this.onResize); window.removeEventListener('keydown', this.onKey); }
-  icon(kind, color = '#57DCE5') {
+  icon(kind, color = '#6E9BFF') {
     const h = React.createElement, S = { width: 18, height: 18, viewBox: '0 0 18 18', fill: 'none', stroke: color, strokeWidth: 1.6, strokeLinecap: 'round' };
     const map = {
       ring: [h('circle', { cx: 9, cy: 9, r: 6.5 }), h('circle', { cx: 9, cy: 9, r: 2, fill: color, stroke: 'none' })],
@@ -120,7 +118,7 @@ class Component extends DCLogic {
     const s = this.state, set = o => this.setState(o), cur = this.props.current || '', isM = s.isMobile;
     const home = '/';
     const defs = [
-      { key: 'solutions', label: 'Solutions', tagline: 'Four ways to work with TPP.', blurb: 'License our portal, process through us, or bring us in to design your payment stack.', cta: 'Compare solutions', ctaHref: home + '#platform', items: [
+      { key: 'solutions', label: 'Solutions', tagline: 'Four ways to work with AQ Pay.', blurb: 'License our portal, process through us, or bring us in to design your payment stack.', cta: 'Compare solutions', ctaHref: home + '#platform', items: [
         ['White-Label Payment Gateway', 'License the portal and launch your own branded payments business.', '/white-label-gateway', 'portal'],
         ['Merchant Services', 'Accounts, gateway integration, billing and multi-currency acceptance.', '/merchant-services', 'box'],
         ['High-Risk Payment Processing', 'Consultation, acquirer introductions, underwriting help and risk mitigation.', '/high-risk-processing', 'lock'],
@@ -165,7 +163,7 @@ class Component extends DCLogic {
         ['Security', 'Platform controls and attestations.', home + '#security', 'lock'],
         ['Legal', 'Privacy, terms, cookies and acceptable use.', home + '#legal', 'doc']] },
     ];
-    const navs = defs.map(n => ({ ...n, isOpen: s.menu === n.key, color: s.menu === n.key || cur === n.key ? '#F7F9FC' : '#AEB9CC', bg: cur === n.key ? 'rgba(255,255,255,.06)' : 'transparent', open: () => set({ menu: n.key }), toggle: () => set({ menu: s.menu === n.key ? null : n.key }), mobileOpen: s.mobileGroup === n.key, mobileSign: s.mobileGroup === n.key ? '−' : '+', toggleMobile: () => set({ mobileGroup: s.mobileGroup === n.key ? null : n.key }), items: n.items.map(([t, d, href, g]) => ({ t, d, href, icon: this.icon(g), bg: href.split('#')[0] === (this.props.page || '') ? 'rgba(87,220,229,.07)' : 'transparent' })) }));
+    const navs = defs.map(n => ({ ...n, isOpen: s.menu === n.key, color: s.menu === n.key || cur === n.key ? '#F4F7FC' : '#AEB9CC', bg: cur === n.key ? 'rgba(255,255,255,.06)' : 'transparent', open: () => set({ menu: n.key }), toggle: () => set({ menu: s.menu === n.key ? null : n.key }), mobileOpen: s.mobileGroup === n.key, mobileSign: s.mobileGroup === n.key ? '−' : '+', toggleMobile: () => set({ mobileGroup: s.mobileGroup === n.key ? null : n.key }), items: n.items.map(([t, d, href, g]) => ({ t, d, href, icon: this.icon(g), bg: href.split('#')[0] === (this.props.page || '') ? 'rgba(110,155,255,.07)' : 'transparent' })) }));
     return { navs, activeMenu: navs.find(n => n.key === s.menu) || navs[0], menuOpen: !!s.menu && !isM, closeMenu: () => set({ menu: null }), mobileOpen: s.mobileOpen, toggleMobile: () => set({ mobileOpen: !s.mobileOpen, menu: null }), desktopDisplay: isM ? 'none' : 'flex', mobileDisplay: isM ? 'flex' : 'none', homeHref: home, loginHref: 'https://demo.aqpay.services/' };
   }
 }

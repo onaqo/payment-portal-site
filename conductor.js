@@ -3,9 +3,9 @@ import * as THREE from 'https://unpkg.com/three@0.160.0/build/three.module.js';
 
 function makeEnv(renderer) {
   const pm = new THREE.PMREMGenerator(renderer);
-  const s = new THREE.Scene(); s.background = new THREE.Color(0x0b1322);
+  const s = new THREE.Scene(); s.background = new THREE.Color(0x0F1729);
   const add = (c, x, y, z, w, h, i) => { const m = new THREE.Mesh(new THREE.PlaneGeometry(w, h), new THREE.MeshBasicMaterial({ color: c })); m.material.color.multiplyScalar(i); m.position.set(x, y, z); m.lookAt(0, 0, 0); s.add(m); };
-  add(0xffffff, 0, 8, 0, 6, 6, 4); add(0x57dce5, -8, 2, -3, 5, 8, 3); add(0xa68bf5, 8, -2, -4, 5, 8, 2); add(0xf7f9fc, 3, 1, 9, 8, 4, 1.5);
+  add(0xffffff, 0, 8, 0, 6, 6, 4); add(0x6E9BFF, -8, 2, -3, 5, 8, 3); add(0xE6C27A, 8, -2, -4, 5, 8, 2); add(0xF4F7FC, 3, 1, 9, 8, 4, 1.5);
   const t = pm.fromScene(s, 0.04).texture; pm.dispose(); return t;
 }
 
@@ -16,19 +16,19 @@ export function mount(canvas) {
   renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.05;
   const scene = new THREE.Scene(); scene.environment = makeEnv(renderer);
   const camera = new THREE.PerspectiveCamera(34, W() / H(), 0.1, 60); camera.position.set(0, 0.3, 14);
-  scene.add(new THREE.HemisphereLight(0x9fd8ff, 0x090e1b, 0.5));
+  scene.add(new THREE.HemisphereLight(0x9fd8ff, 0x060A14, 0.5));
   const key = new THREE.DirectionalLight(0xffffff, 2.2); key.position.set(4, 6, 6); scene.add(key);
-  const cyanL = new THREE.PointLight(0x57dce5, 14, 30, 2); cyanL.position.set(-4, 2, -1); scene.add(cyanL);
-  const irisL = new THREE.PointLight(0xa68bf5, 22, 30, 2); irisL.position.set(4, -3, -2); scene.add(irisL);
+  const cyanL = new THREE.PointLight(0x6E9BFF, 14, 30, 2); cyanL.position.set(-4, 2, -1); scene.add(cyanL);
+  const irisL = new THREE.PointLight(0xE6C27A, 22, 30, 2); irisL.position.set(4, -3, -2); scene.add(irisL);
 
   const root = new THREE.Group(); scene.add(root);
   const wide = () => W() > 960; const zFor = () => 9.7 * Math.max(1, 1.45 / (W() / H())); const xFor = () => wide() ? 1.9 : 0; const yFor = () => wide() ? 0 : 1.4; root.position.x = xFor();
   const glass = new THREE.MeshPhysicalMaterial({ color: 0xdfe9f3, roughness: 0.04, metalness: 0, transmission: 0.95, thickness: 1.2, ior: 1.6, clearcoat: 1, clearcoatRoughness: 0.04, envMapIntensity: 1.5, flatShading: true });
   const ti = new THREE.MeshStandardMaterial({ color: 0x9aa6b8, metalness: 1, roughness: 0.28 });
   const tiDark = new THREE.MeshStandardMaterial({ color: 0x4b5a70, metalness: 1, roughness: 0.42 });
-  const glow = new THREE.MeshBasicMaterial({ color: 0x57dce5 });
-  const lime = new THREE.MeshBasicMaterial({ color: 0xbaef74 });
-  const glowSoft = new THREE.MeshBasicMaterial({ color: 0x57dce5, transparent: true, opacity: 0.3 });
+  const glow = new THREE.MeshBasicMaterial({ color: 0x6E9BFF });
+  const lime = new THREE.MeshBasicMaterial({ color: 0x3DDC97 });
+  const glowSoft = new THREE.MeshBasicMaterial({ color: 0x6E9BFF, transparent: true, opacity: 0.3 });
 
   // --- character body: crystal core inside a gyroscope ---
   const body = new THREE.Group(); root.add(body);
@@ -55,7 +55,7 @@ export function mount(canvas) {
     const h = new THREE.Mesh(haloGeo, glowSoft); h.position.copy(p); h.visible = i % 3 === 0; root.add(h);
     nodes.push({ m: n, p, h, phase: i * 0.7 }); linePos.push(0, 0, 0, p.x, p.y, p.z);
   }
-  const lines = new THREE.LineSegments(new THREE.BufferGeometry().setAttribute('position', new THREE.Float32BufferAttribute(linePos, 3)), new THREE.LineBasicMaterial({ color: 0x57dce5, transparent: true, opacity: 0 })); root.add(lines);
+  const lines = new THREE.LineSegments(new THREE.BufferGeometry().setAttribute('position', new THREE.Float32BufferAttribute(linePos, 3)), new THREE.LineBasicMaterial({ color: 0x6E9BFF, transparent: true, opacity: 0 })); root.add(lines);
   const signals = [];
   for (let i = 0; i < 8; i++) { const s = new THREE.Mesh(new THREE.SphereGeometry(0.045, 10, 8), glow); root.add(s); signals.push({ m: s, node: (i * 5) % nodes.length, t: Math.random(), speed: 0.25 + Math.random() * 0.3, dir: i % 2 ? 1 : -1 }); }
 

@@ -7,40 +7,40 @@
 </head>
 <body>
 <x-dc>
-<footer id="legal" style="position:relative;background:#070B16;font-family:'Manrope',system-ui,sans-serif;color:#F7F9FC;overflow:hidden">
-  <div aria-hidden="true" style="position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(87,220,229,.55) 30%,rgba(186,239,116,.45) 70%,transparent)"></div>
-  <div aria-hidden="true" style="position:absolute;left:-10%;top:-220px;width:620px;height:420px;background:radial-gradient(closest-side,rgba(87,220,229,.08),transparent);pointer-events:none"></div>
+<footer id="legal" style="position:relative;background:#04070F;font-family:'Inter',system-ui,sans-serif;color:#F4F7FC;overflow:hidden">
+  <div aria-hidden="true" style="position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(110,155,255,.55) 30%,rgba(61,220,151,.45) 70%,transparent)"></div>
+  <div aria-hidden="true" style="position:absolute;left:-10%;top:-220px;width:620px;height:420px;background:radial-gradient(closest-side,rgba(110,155,255,.08),transparent);pointer-events:none"></div>
   <div style="position:relative;max-width:1240px;margin:0 auto;padding:{{ pad }}">
 
     <div style="display:grid;grid-template-columns:{{ gridCols }};gap:{{ gap }}">
       <div style="grid-column:{{ brandSpan }};min-width:0;max-width:380px">
-        <a href="/" aria-label="The Payment Portal home" style="display:inline-flex;align-items:center;gap:12px;color:#F7F9FC;text-decoration:none">
-          <span style="position:relative;width:32px;height:32px;border:2px solid #57DCE5;border-radius:10px;display:block;flex-shrink:0"><span style="position:absolute;left:6px;top:6px;width:16px;height:16px;border-radius:50%;border:2px solid rgba(87,220,229,.45);display:block;box-sizing:border-box"></span><span style="position:absolute;right:-5px;bottom:-5px;width:12px;height:12px;border-radius:50%;background:#BAEF74;box-shadow:0 0 0 3px #070B16;display:block"></span></span>
-          <span style="font-family:'Sora',sans-serif;font-weight:700;font-size:17px;letter-spacing:-.01em">The Payment Portal</span>
+        <a href="/" aria-label="AQ Pay home" style="display:inline-flex;align-items:center;gap:12px;color:#F4F7FC;text-decoration:none">
+          <img src="aq-mark.svg" alt="" width="36" height="36" style="display:block;flex-shrink:0;width:36px;height:36px">
+          <span style="font-family:'Inter',system-ui,sans-serif;font-weight:700;font-size:17px;letter-spacing:-.01em">AQ Pay</span>
         </a>
         <p style="color:#AEB9CC;line-height:1.6;font-size:14.5px;margin:18px 0 24px">White-label gateway, orchestration and merchant services infrastructure for PSPs, platforms and merchants.</p>
         <div style="display:flex;flex-wrap:wrap;gap:10px">
-          <a href="/book-a-demo" style="background:#57DCE5;color:#090E1B;font-weight:700;font-size:14px;padding:10px 18px;border-radius:999px;text-decoration:none;transition:background .2s" style-hover="background:#BAEF74;color:#090E1B">Book a Demo</a>
-          <a href="https://demo.aqpay.services/" style="border:1px solid rgba(255,255,255,.16);color:#F7F9FC;font-weight:600;font-size:14px;padding:9px 17px;border-radius:999px;text-decoration:none;transition:border-color .2s" style-hover="border-color:#57DCE5;color:#F7F9FC">Portal login ↗</a>
+          <a href="/book-a-demo" style="background:#6E9BFF;color:#060A14;font-weight:700;font-size:14px;padding:10px 18px;border-radius:999px;text-decoration:none;transition:background .2s" style-hover="background:#3DDC97;color:#060A14">Book a Demo</a>
+          <a href="https://demo.aqpay.services/" style="border:1px solid rgba(255,255,255,.16);color:#F4F7FC;font-weight:600;font-size:14px;padding:9px 17px;border-radius:999px;text-decoration:none;transition:border-color .2s" style-hover="border-color:#6E9BFF;color:#F4F7FC">Portal login ↗</a>
         </div>
       </div>
 
       <sc-for list="{{ cols }}" as="col" hint-placeholder-count="4">
         <nav aria-label="{{ col.h }}" style="min-width:0">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:#57DCE5;margin-bottom:18px">{{ col.h }}</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:#6E9BFF;margin-bottom:18px">{{ col.h }}</div>
           <ul style="list-style:none;padding:0;margin:0;display:grid;gap:12px">
-            <sc-for list="{{ col.links }}" as="l" hint-placeholder-count="5"><li><a href="{{ l.href }}" style="color:#AEB9CC;font-size:14.5px;line-height:1.4;text-decoration:none;transition:color .2s" style-hover="color:#F7F9FC">{{ l.t }}</a></li></sc-for>
+            <sc-for list="{{ col.links }}" as="l" hint-placeholder-count="5"><li><a href="{{ l.href }}" style="color:#AEB9CC;font-size:14.5px;line-height:1.4;text-decoration:none;transition:color .2s" style-hover="color:#F4F7FC">{{ l.t }}</a></li></sc-for>
           </ul>
         </nav>
       </sc-for>
     </div>
 
     <div style="margin-top:{{ bottomGap }};padding-top:24px;border-top:1px solid rgba(255,255,255,.08);display:grid;gap:18px">
-      <p style="color:#6F7D93;line-height:1.6;font-size:12.5px;margin:0;max-width:880px">Services are subject to industry eligibility, geographic restrictions, underwriting and partner approval. The Payment Portal is a technology provider and does not hold or move client funds unless expressly stated in a service agreement.</p>
+      <p style="color:#6F7D93;line-height:1.6;font-size:12.5px;margin:0;max-width:880px">Services are subject to industry eligibility, geographic restrictions, underwriting and partner approval. AQ Pay is a technology provider and does not hold or move client funds unless expressly stated in a service agreement.</p>
       <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;font-size:13px;color:#6F7D93">
-        <span>© 2026 The Payment Portal. All rights reserved.</span>
+        <span>© 2026 AQ Pay. All rights reserved.</span>
         <span style="display:flex;gap:20px;flex-wrap:wrap">
-          <sc-for list="{{ legal }}" as="g" hint-placeholder-count="4"><a href="{{ g.href }}" style="color:#AEB9CC;text-decoration:none" style-hover="color:#F7F9FC">{{ g.t }}</a></sc-for>
+          <sc-for list="{{ legal }}" as="g" hint-placeholder-count="4"><a href="{{ g.href }}" style="color:#AEB9CC;text-decoration:none" style-hover="color:#F4F7FC">{{ g.t }}</a></sc-for>
         </span>
       </div>
     </div>
