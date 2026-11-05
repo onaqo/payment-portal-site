@@ -7,41 +7,70 @@
 </head>
 <body>
 <x-dc>
-<footer id="legal" style="border-top:1px solid rgba(255,255,255,.08);padding:64px 24px 32px;background:#070B16;font-family:'Manrope',system-ui,sans-serif;color:#F7F9FC">
-  <div style="max-width:1240px;margin:0 auto">
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:40px">
-      <div style="grid-column:span 2;min-width:0">
-        <a href="/" style="display:flex;align-items:center;gap:12px;color:#F7F9FC;text-decoration:none"><span style="position:relative;width:34px;height:34px;border:2px solid #57DCE5;border-radius:10px;display:block"><span style="position:absolute;left:7px;top:7px;width:16px;height:16px;border-radius:50%;border:2px solid rgba(87,220,229,.45);display:block"></span><span style="position:absolute;right:-5px;bottom:-5px;width:12px;height:12px;border-radius:50%;background:#BAEF74;box-shadow:0 0 0 3px #070B16;display:block"></span></span><span style="font-family:'Sora',sans-serif;font-weight:700;font-size:17px">The Payment Portal</span></a>
-        <p style="color:#AEB9CC;line-height:1.55;font-size:14.5px;margin:18px 0 0;max-width:340px">White-label payment gateway, orchestration and merchant services infrastructure for PSPs, platforms and merchants.</p>
-        <p style="color:#6F7D93;line-height:1.55;font-size:12.5px;margin:18px 0 0;max-width:380px">Services are subject to industry eligibility, geographic restrictions, underwriting and partner approval. The Payment Portal is a technology provider and does not hold or move client funds unless expressly stated in a service agreement.</p>
-      </div>
-      <sc-for list="{{ cols }}" as="col" hint-placeholder-count="4">
-        <div>
-          <div style="font-size:12px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#AEB9CC;margin-bottom:16px">{{ col.h }}</div>
-          <ul style="list-style:none;padding:0;margin:0;display:grid;gap:10px">
-            <sc-for list="{{ col.links }}" as="l" hint-placeholder-count="5"><li><a href="{{ l.href }}" style="color:#F7F9FC;font-size:14.5px;text-decoration:none" style-hover="color:#57DCE5">{{ l.t }}</a></li></sc-for>
-          </ul>
+<footer id="legal" style="position:relative;background:#070B16;font-family:'Manrope',system-ui,sans-serif;color:#F7F9FC;overflow:hidden">
+  <div aria-hidden="true" style="position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(87,220,229,.55) 30%,rgba(186,239,116,.45) 70%,transparent)"></div>
+  <div aria-hidden="true" style="position:absolute;left:-10%;top:-220px;width:620px;height:420px;background:radial-gradient(closest-side,rgba(87,220,229,.08),transparent);pointer-events:none"></div>
+  <div style="position:relative;max-width:1240px;margin:0 auto;padding:{{ pad }}">
+
+    <div style="display:grid;grid-template-columns:{{ gridCols }};gap:{{ gap }}">
+      <div style="grid-column:{{ brandSpan }};min-width:0;max-width:380px">
+        <a href="/" aria-label="The Payment Portal home" style="display:inline-flex;align-items:center;gap:12px;color:#F7F9FC;text-decoration:none">
+          <span style="position:relative;width:32px;height:32px;border:2px solid #57DCE5;border-radius:10px;display:block;flex-shrink:0"><span style="position:absolute;left:6px;top:6px;width:16px;height:16px;border-radius:50%;border:2px solid rgba(87,220,229,.45);display:block;box-sizing:border-box"></span><span style="position:absolute;right:-5px;bottom:-5px;width:12px;height:12px;border-radius:50%;background:#BAEF74;box-shadow:0 0 0 3px #070B16;display:block"></span></span>
+          <span style="font-family:'Sora',sans-serif;font-weight:700;font-size:17px;letter-spacing:-.01em">The Payment Portal</span>
+        </a>
+        <p style="color:#AEB9CC;line-height:1.6;font-size:14.5px;margin:18px 0 24px">White-label gateway, orchestration and merchant services infrastructure for PSPs, platforms and merchants.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:10px">
+          <a href="/book-a-demo" style="background:#57DCE5;color:#090E1B;font-weight:700;font-size:14px;padding:10px 18px;border-radius:999px;text-decoration:none;transition:background .2s" style-hover="background:#BAEF74;color:#090E1B">Book a Demo</a>
+          <a href="https://demo.aqpay.services/" style="border:1px solid rgba(255,255,255,.16);color:#F7F9FC;font-weight:600;font-size:14px;padding:9px 17px;border-radius:999px;text-decoration:none;transition:border-color .2s" style-hover="border-color:#57DCE5;color:#F7F9FC">Portal login ↗</a>
         </div>
+      </div>
+
+      <sc-for list="{{ cols }}" as="col" hint-placeholder-count="4">
+        <nav aria-label="{{ col.h }}" style="min-width:0">
+          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:#57DCE5;margin-bottom:18px">{{ col.h }}</div>
+          <ul style="list-style:none;padding:0;margin:0;display:grid;gap:12px">
+            <sc-for list="{{ col.links }}" as="l" hint-placeholder-count="5"><li><a href="{{ l.href }}" style="color:#AEB9CC;font-size:14.5px;line-height:1.4;text-decoration:none;transition:color .2s" style-hover="color:#F7F9FC">{{ l.t }}</a></li></sc-for>
+          </ul>
+        </nav>
       </sc-for>
     </div>
-    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;margin-top:56px;padding-top:24px;border-top:1px solid rgba(255,255,255,.08);font-size:13px;color:#6F7D93">
-      <span>© 2026 The Payment Portal. All rights reserved.</span>
-      <span style="display:flex;gap:18px;flex-wrap:wrap"><a href="/#legal" style="color:#AEB9CC;text-decoration:none">Privacy</a><a href="/#legal" style="color:#AEB9CC;text-decoration:none">Terms</a><a href="/#legal" style="color:#AEB9CC;text-decoration:none">Cookies</a><a href="/#legal" style="color:#AEB9CC;text-decoration:none">Acceptable use</a></span>
+
+    <div style="margin-top:{{ bottomGap }};padding-top:24px;border-top:1px solid rgba(255,255,255,.08);display:grid;gap:18px">
+      <p style="color:#6F7D93;line-height:1.6;font-size:12.5px;margin:0;max-width:880px">Services are subject to industry eligibility, geographic restrictions, underwriting and partner approval. The Payment Portal is a technology provider and does not hold or move client funds unless expressly stated in a service agreement.</p>
+      <div style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;font-size:13px;color:#6F7D93">
+        <span>© 2026 The Payment Portal. All rights reserved.</span>
+        <span style="display:flex;gap:20px;flex-wrap:wrap">
+          <sc-for list="{{ legal }}" as="g" hint-placeholder-count="4"><a href="{{ g.href }}" style="color:#AEB9CC;text-decoration:none" style-hover="color:#F7F9FC">{{ g.t }}</a></sc-for>
+        </span>
+      </div>
     </div>
+
   </div>
 </footer>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:&quot;420px&quot;}}">
 class Component extends DCLogic {
+  state = { w: 1280 };
+  componentDidMount() { this.onResize = () => this.setState({ w: window.innerWidth }); this.onResize(); window.addEventListener('resize', this.onResize); }
+  componentWillUnmount() { window.removeEventListener('resize', this.onResize); }
   renderVals() {
-    const home = '/';
+    const home = '/', w = this.state.w;
+    const desk = w >= 1024, tab = w >= 640 && w < 1024;
     const cols = [
       { h: 'Solutions', links: [['White-Label Gateway', '/white-label-gateway'], ['Merchant Services', '/merchant-services'], ['High-Risk Processing', '/high-risk-processing'], ['Payment Orchestration', '/payment-orchestration'], ['Payment Consulting', '/about#consulting'], ['Industries', '/industries']] },
       { h: 'Platform', links: [['Intelligent Routing', '/payment-orchestration#routing'], ['Gateway Connectivity', '/payment-orchestration#connectivity'], ['Risk & Fraud', home + '#risk'], ['Reconciliation', '/white-label-gateway#operations'], ['Branding Demo', home + '#brand-demo'], ['Security', home + '#security']] },
       { h: 'Developers', links: [['Overview', '/developers'], ['Quick Start', '/developers#quick-start'], ['API Reference', '/api-reference'], ['Webhooks', '/api-reference#webhooks'], ['Sandbox', '/developers#sandbox']] },
       { h: 'Company', links: [['About', '/about'], ['Partner Program', '/partner-program'], ['Book a Demo', '/book-a-demo'], ['Contact', '/book-a-demo#contact'], ['Login', 'https://demo.aqpay.services/']] },
     ].map(c => ({ ...c, links: c.links.map(([t, href]) => ({ t, href })) }));
-    return { cols };
+    const legal = [['Privacy', home + '#legal'], ['Terms', home + '#legal'], ['Cookies', home + '#legal'], ['Acceptable use', home + '#legal']].map(([t, href]) => ({ t, href }));
+    return {
+      cols, legal,
+      gridCols: desk ? 'minmax(260px,1.5fr) repeat(4,minmax(0,1fr))' : tab ? 'repeat(4,minmax(0,1fr))' : 'repeat(2,minmax(0,1fr))',
+      brandSpan: desk ? 'auto' : '1 / -1',
+      gap: desk ? '40px 32px' : '40px 24px',
+      pad: desk ? '72px 24px 32px' : '56px 24px 28px',
+      bottomGap: desk ? '64px' : '48px',
+    };
   }
 }
 </script>
