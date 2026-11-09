@@ -12,6 +12,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
+@media (max-width:1200px){.tpp-navbtn{padding:10px 9px!important;font-size:14.5px!important}.tpp-login{padding:10px 8px!important}}
+.tpp-mlink{transition:background .2s}.tpp-mlink:active{background:rgba(255,255,255,.06)}
 @keyframes tppFade{from{opacity:0}to{opacity:1}}
 @keyframes tppPanel{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
 </style>
@@ -25,11 +27,11 @@
       </a>
       <nav aria-label="Main" style="display:{{ desktopDisplay }};flex:1;justify-content:center;gap:2px">
         <sc-for list="{{ navs }}" as="n" hint-placeholder-count="6">
-          <button onMouseEnter="{{ n.open }}" onClick="{{ n.toggle }}" onFocus="{{ n.open }}" aria-expanded="{{ n.isOpen }}" style="background:{{ n.bg }};border:0;color:{{ n.color }};padding:10px 14px;border-radius:999px;font-weight:600;font-size:15px;display:flex;align-items:center;gap:6px;transition:color .2s,background .2s;cursor:pointer;font-family:inherit" style-hover="color:#F4F7FC">{{ n.label }}<span style="width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);display:inline-block;opacity:.7"></span></button>
+          <button class="tpp-navbtn" onMouseEnter="{{ n.open }}" onClick="{{ n.toggle }}" onFocus="{{ n.open }}" aria-expanded="{{ n.isOpen }}" style="background:{{ n.bg }};border:0;color:{{ n.color }};padding:10px 14px;border-radius:999px;font-weight:600;font-size:15px;display:flex;align-items:center;gap:6px;transition:color .2s,background .2s;cursor:pointer;font-family:inherit" style-hover="color:#F4F7FC">{{ n.label }}<span style="width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);display:inline-block;opacity:.7"></span></button>
         </sc-for>
       </nav>
       <div style="display:flex;align-items:center;gap:10px;margin-left:auto">
-        <a href="{{ loginHref }}" style="display:{{ desktopDisplay }};color:#AEB9CC;font-weight:600;font-size:15px;padding:10px 14px;text-decoration:none" style-hover="color:#F4F7FC">Login</a>
+        <a class="tpp-login" href="{{ loginHref }}" style="display:{{ desktopDisplay }};color:#AEB9CC;font-weight:600;font-size:15px;padding:10px 14px;text-decoration:none" style-hover="color:#F4F7FC">Login</a>
         <a href="/book-a-demo" style="display:{{ desktopDisplay }};background:#6E9BFF;color:#060A14;font-weight:700;font-size:15px;padding:11px 20px;border-radius:999px;transition:background .2s,transform .2s;text-decoration:none" style-hover="background:#3DDC97;transform:translateY(-1px)">Book a Demo</a>
         <button onClick="{{ toggleMobile }}" aria-label="Open menu" aria-expanded="{{ mobileOpen }}" style="display:{{ mobileDisplay }};background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#F4F7FC;width:44px;height:44px;border-radius:12px;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer">
           <span style="width:18px;height:2px;background:currentColor;display:block"></span><span style="width:18px;height:2px;background:currentColor;display:block"></span>
@@ -71,12 +73,13 @@
           <sc-if value="{{ n.mobileOpen }}" hint-placeholder-val="{{ false }}">
             <div style="display:flex;flex-direction:column;gap:2px;padding-bottom:14px">
               <sc-for list="{{ n.items }}" as="it" hint-placeholder-count="4">
-                <a href="{{ it.href }}" style="display:flex;gap:12px;align-items:center;color:#F4F7FC;padding:10px 4px;min-height:44px;text-decoration:none"><span style="width:32px;height:32px;border-radius:9px;background:rgba(110,155,255,.08);display:flex;align-items:center;justify-content:center;flex-shrink:0">{{ it.icon }}</span><span style="font-weight:600;font-size:15px">{{ it.t }}</span></a>
+                <a class="tpp-mlink" href="{{ it.href }}" onClick="{{ toggleMobile }}" style="display:flex;gap:12px;align-items:center;color:#F4F7FC;padding:10px 6px;min-height:48px;border-radius:12px;text-decoration:none"><span style="width:32px;height:32px;border-radius:9px;background:rgba(110,155,255,.08);display:flex;align-items:center;justify-content:center;flex-shrink:0">{{ it.icon }}</span><span style="font-weight:600;font-size:15px">{{ it.t }}</span></a>
               </sc-for>
             </div>
           </sc-if>
         </div>
       </sc-for>
+      <a class="tpp-mlink" href="/blog" style="display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.07);color:#F4F7FC;font-weight:600;font-size:19px;text-decoration:none">Blog<span style="color:#6E9BFF;font-size:18px">→</span></a>
       <div style="display:flex;flex-direction:column;gap:10px;margin-top:24px">
         <a href="/book-a-demo" style="background:#6E9BFF;color:#060A14;font-weight:700;text-align:center;padding:15px;border-radius:999px;text-decoration:none">Book a Demo</a>
         <a href="{{ loginHref }}" style="border:1px solid rgba(255,255,255,.18);color:#F4F7FC;font-weight:600;text-align:center;padding:15px;border-radius:999px;text-decoration:none">Login</a>
@@ -87,9 +90,10 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:&quot;72px&quot;},&quot;current&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;'' | 'solutions' | 'platform' | 'industries' | 'developers' | 'resources' | 'company'&quot;,&quot;options&quot;:[&quot;&quot;,&quot;solutions&quot;,&quot;platform&quot;,&quot;industries&quot;,&quot;developers&quot;,&quot;resources&quot;,&quot;company&quot;]},&quot;page&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
 class Component extends DCLogic {
-  state = { menu: null, mobileOpen: false, mobileGroup: null, isMobile: false };
+  state = { menu: null, mobileOpen: false, mobileGroup: null, isMobile: typeof window !== 'undefined' && window.matchMedia('(max-width: 959px)').matches };
+  componentDidUpdate(pp, ps) { if (ps.mobileOpen !== this.state.mobileOpen) document.documentElement.style.overflow = this.state.mobileOpen ? 'hidden' : ''; }
   componentDidMount() {
-    this.onResize = () => this.setState({ isMobile: window.innerWidth < 960 }); this.onResize(); window.addEventListener('resize', this.onResize);
+    this.mq = window.matchMedia('(max-width: 959px)'); this.onResize = () => this.setState({ isMobile: this.mq.matches }); this.onResize(); window.addEventListener('resize', this.onResize);
     this.onKey = e => { if (e.key === 'Escape') this.setState({ menu: null, mobileOpen: false }); }; window.addEventListener('keydown', this.onKey);
   }
   componentWillUnmount() { window.removeEventListener('resize', this.onResize); window.removeEventListener('keydown', this.onKey); }
