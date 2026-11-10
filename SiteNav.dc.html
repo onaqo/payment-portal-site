@@ -12,7 +12,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-@media (max-width:1200px){.tpp-navbtn{padding:10px 9px!important;font-size:14.5px!important}.tpp-login{padding:10px 8px!important}}
+@media (max-width:1200px){.tpp-navbtn{padding:10px 9px!important;font-size:14.5px!important}.tpp-login{padding:9px 12px!important}}
+.tpp-login{align-items:center;gap:6px;padding:9px 16px!important;border-radius:999px;border:1px solid rgba(244,247,252,.2);background:rgba(244,247,252,.05);color:#F4F7FC!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.1);transition:background .3s,border-color .3s,transform .4s cubic-bezier(.16,1,.3,1)}
+.tpp-login::after{content:"\2197";font-size:13px;opacity:.75}
+.tpp-login:hover{background:rgba(244,247,252,.12);border-color:rgba(244,247,252,.5);transform:translateY(-2px)}
 .tpp-mlink{transition:background .2s}.tpp-mlink:active{background:rgba(255,255,255,.06)}
 @keyframes tppFade{from{opacity:0}to{opacity:1}}
 @keyframes tppPanel{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}

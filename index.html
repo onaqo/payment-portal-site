@@ -94,7 +94,7 @@
       </div>
       <div data-dc-tpl="31" class="chipf c2" style="position: absolute; right: 0px; top: 300px; background: rgba(19, 28, 48, 0.85); border: 1px solid rgba(244, 247, 252, 0.12); border-radius: 18px; padding: 14px 18px; text-align: left; backdrop-filter: blur(12px);">
         <span data-dc-tpl="32" class="mono" style="font-size: 12px; color: rgb(154, 167, 189); letter-spacing: 0.08em; text-transform: uppercase;">Routed via</span><br data-dc-tpl="33">
-        <span data-dc-tpl="34" style="font-size: 15px; font-weight: 600;">Razorpay · UPI</span>
+        <span data-dc-tpl="34" style="font-size: 15px; font-weight: 600;">Stripe · Cards</span>
       </div>
 
       <div data-dc-tpl="35" class="phone" style="width: 300px; max-width: 80vw; border-radius: 44px; padding: 10px; background: rgb(27, 37, 64); border: 1px solid rgba(244, 247, 252, 0.16); box-shadow: rgba(0, 0, 0, 0.8) 0px 60px 120px -30px, rgba(0, 0, 0, 0.4) 0px 0px 0px 1px; box-sizing: border-box;">
@@ -108,13 +108,13 @@
             </span>
           </div>
           <p data-dc-tpl="43" style="margin: 28px 0px 4px; font-size: 13px; color: rgb(85, 97, 122);">Amount to pay · example</p>
-          <p data-dc-tpl="44" style="margin: 0px; font-size: 44px; font-weight: 600; letter-spacing: -0.03em;">₹499.00</p>
+          <p data-dc-tpl="44" style="margin: 0px; font-size: 44px; font-weight: 600; letter-spacing: -0.03em;">$49.00</p>
           <div data-dc-tpl="45" style="margin-top: 24px; display: flex; flex-direction: column; gap: 10px;">
-            <div data-dc-tpl="46" style="display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; border-radius: 14px; border: 1.5px solid rgb(11, 18, 32); font-size: 15px; font-weight: 500;"><span data-dc-tpl="47">UPI</span><span data-dc-tpl="48" class="mono" style="font-size: 12px; color: rgb(85, 97, 122);">Intent · QR</span></div>
-            <div data-dc-tpl="49" style="display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; border-radius: 14px; border: 1.5px solid rgb(213, 219, 232); font-size: 15px; font-weight: 500; color: rgb(85, 97, 122);"><span data-dc-tpl="50">Card</span><span data-dc-tpl="51" class="mono" style="font-size: 12px;">via processor</span></div>
+            <div data-dc-tpl="46" style="display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; border-radius: 14px; border: 1.5px solid rgb(11, 18, 32); font-size: 15px; font-weight: 500;"><span data-dc-tpl="47">Card</span><span data-dc-tpl="48" class="mono" style="font-size: 12px; color: rgb(85, 97, 122);">credit · debit</span></div>
+            <div data-dc-tpl="49" style="display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; border-radius: 14px; border: 1.5px solid rgb(213, 219, 232); font-size: 15px; font-weight: 500; color: rgb(85, 97, 122);"><span data-dc-tpl="50">Local methods</span><span data-dc-tpl="51" class="mono" style="font-size: 12px;">UPI and more</span></div>
           </div>
-          <div data-dc-tpl="52" class="tint" style="margin-top: 20px; border-radius: 14px; padding: 16px; text-align: center; font-weight: 600; font-size: 16px; color: rgb(6, 10, 20); background: rgb(110, 155, 255);">Open UPI app</div>
-          <p data-dc-tpl="53" style="margin: 14px 0px 0px; font-size: 11px; color: rgb(85, 97, 122); text-align: center;">UPI PIN is never requested here</p>
+          <div data-dc-tpl="52" class="tint" style="margin-top: 20px; border-radius: 14px; padding: 16px; text-align: center; font-weight: 600; font-size: 16px; color: rgb(6, 10, 20); background: rgb(110, 155, 255);">Pay $49.00</div>
+          <p data-dc-tpl="53" style="margin: 14px 0px 0px; font-size: 11px; color: rgb(85, 97, 122); text-align: center;">Card numbers are never stored</p>
         </div>
       </div>
     </div>
@@ -222,9 +222,9 @@
         <div data-dc-tpl="192" class="mono" style="margin: 0px; padding: 24px; font-size: 14px; line-height: 1.75; color: rgb(182, 192, 212); overflow-x: auto;">
           <span data-dc-tpl="193" style="display: block; white-space: pre;">curl https://api.example/v1/payments \</span>
           <span data-dc-tpl="194" style="display: block; white-space: pre;">  -H <span data-dc-tpl="195" style="color: rgb(61, 220, 151);">"Authorization: Bearer sk_test_..."</span> \</span>
-          <span data-dc-tpl="196" style="display: block; white-space: pre;">  -d amount=<span data-dc-tpl="197" style="color: rgb(230, 194, 122);">49900</span> \</span>
-          <span data-dc-tpl="198" style="display: block; white-space: pre;">  -d currency=<span data-dc-tpl="199" style="color: rgb(61, 220, 151);">"INR"</span> \</span>
-          <span data-dc-tpl="200" style="display: block; white-space: pre;">  -d method=<span data-dc-tpl="201" style="color: rgb(61, 220, 151);">"upi_intent"</span> <span data-dc-tpl="202" class="caret" aria-hidden="true"></span></span>
+          <span data-dc-tpl="196" style="display: block; white-space: pre;">  -d amount=<span data-dc-tpl="197" style="color: rgb(230, 194, 122);">4900</span> \</span>
+          <span data-dc-tpl="198" style="display: block; white-space: pre;">  -d currency=<span data-dc-tpl="199" style="color: rgb(61, 220, 151);">"USD"</span> \</span>
+          <span data-dc-tpl="200" style="display: block; white-space: pre;">  -d method=<span data-dc-tpl="201" style="color: rgb(61, 220, 151);">"card"</span> <span data-dc-tpl="202" class="caret" aria-hidden="true"></span></span>
           <span data-dc-tpl="203" style="display: block; white-space: pre; margin-top: 20px; color: rgb(127, 140, 166);"># webhook, signed</span>
           <span data-dc-tpl="204" style="display: block; white-space: pre;"><span data-dc-tpl="205" style="color: rgb(110, 155, 255);">payment.succeeded</span>  status=<span data-dc-tpl="206" style="color: rgb(61, 220, 151);">"paid"</span></span>
         </div>
@@ -251,8 +251,8 @@
       <h2 data-dc-tpl="230" style="margin: 0px auto; max-width: 900px; font-size: clamp(38px, 6.6vw, 96px); line-height: 0.98; letter-spacing: -0.045em; font-weight: 600;">Launch your own payment gateway.</h2>
       <p data-dc-tpl="231" style="margin: 28px auto 36px; max-width: 480px; font-size: 18px; line-height: 1.55; color: rgb(11, 31, 77);">A 45-minute working session, tailored to your model.</p>
       <div data-dc-tpl="232" style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap;">
-        <a data-dc-tpl="233" class="btn" href="/book-a-demo" style="background: rgb(6, 10, 20); color: rgb(244, 247, 252);">Book a demo <span data-dc-tpl="234" class="arr" aria-hidden="true">→</span></a>
-        <a data-dc-tpl="235" class="btn" href="mailto:hello@aqpay.services" style="border: 1.5px solid rgb(6, 10, 20); color: rgb(6, 10, 20);">hello@aqpay.services</a>
+        <a data-dc-tpl="233" class="btn btn-d" href="/book-a-demo">Book a demo <span data-dc-tpl="234" class="arr" aria-hidden="true">→</span></a>
+        <a data-dc-tpl="235" class="btn btn-o" href="mailto:hello@aqpay.services">hello@aqpay.services</a>
       </div>
     </div>
   </section></main><div class="sc-host" data-sc-name="SiteFooter" data-dc-tpl="236"><footer data-dc-tpl="0" id="legal" style="position: relative; background: rgb(4, 7, 15); font-family: Geist, system-ui, sans-serif; color: rgb(244, 247, 252); overflow: hidden;">
@@ -348,7 +348,7 @@
       </div>
       <div class="chipf c2" style="position: absolute; right: 0; top: 300px; background: rgba(19,28,48,.85); border: 1px solid rgba(244,247,252,.12); border-radius: 18px; padding: 14px 18px; text-align: left; backdrop-filter: blur(12px)">
         <span class="mono" style="font-size: 12px; color: #9AA7BD; letter-spacing: .08em; text-transform: uppercase">Routed via</span><br>
-        <span style="font-size: 15px; font-weight: 600">Razorpay · UPI</span>
+        <span style="font-size: 15px; font-weight: 600">Stripe · Cards</span>
       </div>
 
       <div class="phone" style="width: 300px; max-width: 80vw; border-radius: 44px; padding: 10px; background: #1B2540; border: 1px solid rgba(244,247,252,.16); box-shadow: 0 60px 120px -30px rgba(0,0,0,.8), 0 0 0 1px rgba(0,0,0,.4); box-sizing: border-box">
@@ -362,13 +362,13 @@
             </span>
           </div>
           <p style="margin: 28px 0 4px; font-size: 13px; color: #55617A">Amount to pay · example</p>
-          <p style="margin: 0; font-size: 44px; font-weight: 600; letter-spacing: -.03em">₹499.00</p>
+          <p style="margin: 0; font-size: 44px; font-weight: 600; letter-spacing: -.03em">$49.00</p>
           <div style="margin-top: 24px; display: flex; flex-direction: column; gap: 10px">
-            <div style="display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; border-radius: 14px; border: 1.5px solid #0B1220; font-size: 15px; font-weight: 500"><span>UPI</span><span class="mono" style="font-size: 12px; color: #55617A">Intent · QR</span></div>
-            <div style="display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; border-radius: 14px; border: 1.5px solid #D5DBE8; font-size: 15px; font-weight: 500; color: #55617A"><span>Card</span><span class="mono" style="font-size: 12px">via processor</span></div>
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; border-radius: 14px; border: 1.5px solid #0B1220; font-size: 15px; font-weight: 500"><span>Card</span><span class="mono" style="font-size: 12px; color: #55617A">credit · debit</span></div>
+            <div style="display: flex; justify-content: space-between; align-items: center; padding: 14px 16px; border-radius: 14px; border: 1.5px solid #D5DBE8; font-size: 15px; font-weight: 500; color: #55617A"><span>Local methods</span><span class="mono" style="font-size: 12px">UPI and more</span></div>
           </div>
-          <div class="tint" style="margin-top: 20px; border-radius: 14px; padding: 16px; text-align: center; font-weight: 600; font-size: 16px; color: #060A14; background: #6E9BFF">Open UPI app</div>
-          <p style="margin: 14px 0 0; font-size: 11px; color: #55617A; text-align: center">UPI PIN is never requested here</p>
+          <div class="tint" style="margin-top: 20px; border-radius: 14px; padding: 16px; text-align: center; font-weight: 600; font-size: 16px; color: #060A14; background: #6E9BFF">Pay $49.00</div>
+          <p style="margin: 14px 0 0; font-size: 11px; color: #55617A; text-align: center">Card numbers are never stored</p>
         </div>
       </div>
     </div>
@@ -476,9 +476,9 @@
         <div class="mono" style="margin: 0; padding: 24px; font-size: 14px; line-height: 1.75; color: #B6C0D4; overflow-x: auto">
           <span style="display: block; white-space: pre">curl https://api.example/v1/payments \</span>
           <span style="display: block; white-space: pre">  -H <span style="color: #3DDC97">"Authorization: Bearer sk_test_..."</span> \</span>
-          <span style="display: block; white-space: pre">  -d amount=<span style="color: #E6C27A">49900</span> \</span>
-          <span style="display: block; white-space: pre">  -d currency=<span style="color: #3DDC97">"INR"</span> \</span>
-          <span style="display: block; white-space: pre">  -d method=<span style="color: #3DDC97">"upi_intent"</span> <span class="caret" aria-hidden="true"></span></span>
+          <span style="display: block; white-space: pre">  -d amount=<span style="color: #E6C27A">4900</span> \</span>
+          <span style="display: block; white-space: pre">  -d currency=<span style="color: #3DDC97">"USD"</span> \</span>
+          <span style="display: block; white-space: pre">  -d method=<span style="color: #3DDC97">"card"</span> <span class="caret" aria-hidden="true"></span></span>
           <span style="display: block; white-space: pre; margin-top: 20px; color: #7F8CA6"># webhook, signed</span>
           <span style="display: block; white-space: pre"><span style="color: #6E9BFF">payment.succeeded</span>  status=<span style="color: #3DDC97">"paid"</span></span>
         </div>
@@ -505,8 +505,8 @@
       <h2 style="margin: 0 auto; max-width: 900px; font-size: clamp(38px, 6.6vw, 96px); line-height: .98; letter-spacing: -.045em; font-weight: 600">Launch your own payment gateway.</h2>
       <p style="margin: 28px auto 36px; max-width: 480px; font-size: 18px; line-height: 1.55; color: #0B1F4D">A 45-minute working session, tailored to your model.</p>
       <div style="display: flex; gap: 12px; justify-content: center; flex-wrap: wrap">
-        <a class="btn" href="/book-a-demo" style="background: #060A14; color: #F4F7FC">Book a demo <span class="arr" aria-hidden="true">→</span></a>
-        <a class="btn" href="mailto:hello@aqpay.services" style="border: 1.5px solid #060A14; color: #060A14">hello@aqpay.services</a>
+        <a class="btn btn-d" href="/book-a-demo">Book a demo <span class="arr" aria-hidden="true">→</span></a>
+        <a class="btn btn-o" href="mailto:hello@aqpay.services">hello@aqpay.services</a>
       </div>
     </div>
   </section>
