@@ -95,6 +95,8 @@ ${extra}<link rel="icon" href="/aq-mark.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/blog/blog.css">
+<link rel="stylesheet" href="/fx.css">
+<script src="/fx.js" data-fx defer></script>
 ${jsonld.map(ld).join('\n')}
 </head>
 <body>`;
@@ -105,9 +107,9 @@ const header = active => `
   <nav class="nav" aria-label="Main">
     <a href="/white-label-gateway">White-Label Gateway</a><a href="/payment-orchestration">Orchestration</a><a href="/merchant-services">Merchant Services</a><a href="/industries">Industries</a><a href="/developers">Developers</a><a href="/blog"${active ? ' aria-current="page"' : ''}>Blog</a>
   </nav>
-  <div class="hdr-cta"><a class="login" href="https://demo.aqpay.services/">Login</a><a class="btn" href="/book-a-demo">Book a Demo</a>
+  <div class="hdr-cta"><a class="login" href="https://demo.aqpay.services/" target="_blank" rel="noopener">Login</a><a class="btn" href="/book-a-demo">Book a Demo</a>
     <details class="menu"><summary aria-label="Open menu"><svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="#F4F7FC" stroke-width="2"><path d="M0 1h18M0 11h18"/></svg></summary>
-      <div class="panel"><a href="/white-label-gateway">White-Label Gateway</a><a href="/payment-orchestration">Payment Orchestration</a><a href="/merchant-services">Merchant Services</a><a href="/high-risk-processing">High-Risk Processing</a><a href="/industries">Industries</a><a href="/developers">Developers</a><a href="/blog">Blog</a><a href="https://demo.aqpay.services/">Login</a><a href="/book-a-demo" class="btn" style="justify-content:center">Book a Demo</a></div>
+      <div class="panel"><a href="/white-label-gateway">White-Label Gateway</a><a href="/payment-orchestration">Payment Orchestration</a><a href="/merchant-services">Merchant Services</a><a href="/high-risk-processing">High-Risk Processing</a><a href="/industries">Industries</a><a href="/developers">Developers</a><a href="/blog">Blog</a><a href="https://demo.aqpay.services/" target="_blank" rel="noopener">Login</a><a href="/book-a-demo" class="btn" style="justify-content:center">Book a Demo</a></div>
     </details>
   </div>
 </div></header>`;
@@ -117,14 +119,14 @@ const footer = () => `
   <div class="ftr-grid">
     <div><a class="brand" href="/"><img src="/aq-mark.svg" alt="" width="32" height="32">${BRAND}</a>
       <p>White-label gateway, orchestration and merchant services infrastructure for PSPs, platforms and merchants.</p>
-      <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn" href="/book-a-demo" style="font-size:14px;padding:10px 18px">Book a Demo</a><a class="btn btn-ghost" href="https://demo.aqpay.services/" style="font-size:14px">Portal login ↗</a></div></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn" href="/book-a-demo" style="font-size:14px;padding:10px 18px">Book a Demo</a><a class="btn btn-ghost" href="https://demo.aqpay.services/" target="_blank" rel="noopener" style="font-size:14px">Portal login ↗</a></div></div>
     <nav aria-label="Solutions"><h3>Solutions</h3><ul><li><a href="/white-label-gateway">White-Label Gateway</a></li><li><a href="/merchant-services">Merchant Services</a></li><li><a href="/high-risk-processing">High-Risk Processing</a></li><li><a href="/payment-orchestration">Payment Orchestration</a></li><li><a href="/about#consulting">Payment Consulting</a></li><li><a href="/industries">Industries</a></li></ul></nav>
     <nav aria-label="Platform"><h3>Platform</h3><ul><li><a href="/payment-orchestration#routing">Intelligent Routing</a></li><li><a href="/payment-orchestration#connectivity">Gateway Connectivity</a></li><li><a href="/#risk">Risk &amp; Fraud</a></li><li><a href="/white-label-gateway#operations">Reconciliation</a></li><li><a href="/#security">Security</a></li></ul></nav>
     <nav aria-label="Developers"><h3>Developers</h3><ul><li><a href="/developers">Overview</a></li><li><a href="/developers#quick-start">Quick Start</a></li><li><a href="/api-reference">API Reference</a></li><li><a href="/api-reference#webhooks">Webhooks</a></li><li><a href="/developers#sandbox">Sandbox</a></li></ul></nav>
     <nav aria-label="Company"><h3>Company</h3><ul><li><a href="/about">About</a></li><li><a href="/blog">Blog</a></li><li><a href="/partner-program">Partner Program</a></li><li><a href="/book-a-demo">Book a Demo</a></li><li><a href="/book-a-demo#contact">Contact</a></li><li><a href="mailto:hello@aqpay.services">hello@aqpay.services</a></li></ul></nav>
   </div>
   <div class="ftr-base"><span>Services are subject to industry eligibility, geographic restrictions, underwriting and partner approval. ${BRAND} is a technology provider and does not hold or move client funds unless expressly stated in a service agreement.</span>
-    <div class="row"><span>© ${TODAY.slice(0, 4)} ${BRAND}. All rights reserved.</span><span style="display:flex;gap:18px"><a href="/#legal">Privacy</a><a href="/#legal">Terms</a><a href="/#legal">Cookies</a></span></div></div>
+    <div class="row"><span>© ${TODAY.slice(0, 4)} ${BRAND}. All rights reserved.</span><span style="display:flex;gap:18px"><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/cookies">Cookies</a><a href="/acceptable-use">Acceptable use</a></span></div></div>
 </div></footer>
 </body>
 </html>
@@ -211,6 +213,28 @@ fs.writeFileSync(path.join(OUT, 'index.html'), listPage({ posts, cats, title: `P
 for (const c of cats) fs.writeFileSync(path.join(OUT, 'category', `${slugify(c)}.html`), listPage({ posts: posts.filter(p => p.category === c), cats, active: c,
   title: `${c} — Payments Blog | ${BRAND}`, h1: c, lede: `${c} from the ${BRAND} blog: payment gateways, orchestration, risk and merchant services explained.`, canonical: `${SITE}/blog/category/${slugify(c)}` }));
 
+// Legal / policy pages (content/legal/*.md -> /<slug>.html)
+const LEGAL_DIR = path.join(ROOT, 'content/legal'); const legal = [];
+if (fs.existsSync(LEGAL_DIR)) for (const f of fs.readdirSync(LEGAL_DIR).filter(f => f.endsWith('.md'))) {
+  const raw = fs.readFileSync(path.join(LEGAL_DIR, f), 'utf8'); const m = raw.match(/^---\s*\n([\s\S]*?)\n---\s*\n([\s\S]*)$/); const fm = JSON.parse(m[1]); const r = render(m[2]); legal.push(fm);
+  const url = `${SITE}/${fm.slug}`;
+  fs.writeFileSync(path.join(ROOT, `${fm.slug}.html`), head({ title: `${fm.title} | ${BRAND}`, description: fm.description, canonical: url, image: `${SITE}/og-image.jpg`,
+    jsonld: [{ '@context': 'https://schema.org', '@type': 'WebPage', name: fm.title, description: fm.description, url, dateModified: fm.updated, publisher: ORG },
+      { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/` }, { '@type': 'ListItem', position: 2, name: fm.title, item: url }] }] }) + header(false) + `
+<main>
+<div class="article-hero"><div class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span aria-current="page">Legal</span></nav>
+  <h1>${esc(fm.title)}</h1>
+  <p class="lede">${esc(fm.description)}</p>
+  <div class="byline"><span>Last updated <time datetime="${fm.updated}">${fmtDate(fm.updated)}</time></span></div>
+</div></div>
+<div class="article"><div class="wrap"><div class="layout">
+  <div class="prose">${r.html}</div>
+  <aside class="toc" aria-label="On this page"><span class="mono" style="color:var(--faint)">Legal</span><ol>${[['privacy', 'Privacy Policy'], ['terms', 'Terms of Use'], ['cookies', 'Cookie Policy'], ['acceptable-use', 'Acceptable Use Policy']].map(([s, n]) => `<li><a href="/${s}"${s === fm.slug ? ' style="color:var(--fg);font-weight:600"' : ''}>${n}</a></li>`).join('')}</ol><span class="mono" style="color:var(--faint);display:block;margin-top:18px">On this page</span><ol>${r.toc.map(x => `<li><a href="#${x.id}">${esc(x.text)}</a></li>`).join('')}</ol></aside>
+</div></div></div>
+</main>` + footer());
+}
+
 // RSS
 fs.writeFileSync(path.join(OUT, 'rss.xml'), `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel>
@@ -226,10 +250,11 @@ const urls = [
   { loc: `${SITE}/blog`, lastmod: posts[0]?.updated || TODAY, pri: '0.8' },
   ...cats.map(c => ({ loc: `${SITE}/blog/category/${slugify(c)}`, lastmod: posts.find(p => p.category === c)?.updated, pri: '0.5' })),
   ...posts.map(p => ({ loc: `${SITE}/blog/${p.slug}`, lastmod: p.updated, pri: '0.7', img: `${SITE}${coverUrl(p)}` })),
+  ...legal.map(l => ({ loc: `${SITE}/${l.slug}`, lastmod: l.updated, pri: '0.3' })),
 ];
 fs.writeFileSync(path.join(ROOT, 'sitemap.xml'), `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 ${urls.map(u => `<url><loc>${u.loc}</loc>${u.lastmod ? `<lastmod>${u.lastmod}</lastmod>` : ''}<priority>${u.pri}</priority>${u.img ? `<image:image><image:loc>${u.img}</image:loc></image:image>` : ''}</url>`).join('\n')}
 </urlset>
 `);
-console.log(`Built ${posts.length} posts, ${cats.length} categories, sitemap with ${urls.length} URLs.`);
+console.log(`Built ${legal.length} legal pages, ${posts.length} posts, ${cats.length} categories, sitemap with ${urls.length} URLs.`);

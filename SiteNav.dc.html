@@ -31,7 +31,7 @@
         </sc-for>
       </nav>
       <div style="display:flex;align-items:center;gap:10px;margin-left:auto">
-        <a class="tpp-login" href="{{ loginHref }}" style="display:{{ desktopDisplay }};color:#AEB9CC;font-weight:600;font-size:15px;padding:10px 14px;text-decoration:none" style-hover="color:#F4F7FC">Login</a>
+        <a class="tpp-login" href="{{ loginHref }}" target="_blank" rel="noopener" style="display:{{ desktopDisplay }};color:#AEB9CC;font-weight:600;font-size:15px;padding:10px 14px;text-decoration:none" style-hover="color:#F4F7FC">Login</a>
         <a href="/book-a-demo" style="display:{{ desktopDisplay }};background:#6E9BFF;color:#060A14;font-weight:700;font-size:15px;padding:11px 20px;border-radius:999px;transition:background .2s,transform .2s;text-decoration:none" style-hover="background:#3DDC97;transform:translateY(-1px)">Book a Demo</a>
         <button onClick="{{ toggleMobile }}" aria-label="Open menu" aria-expanded="{{ mobileOpen }}" style="display:{{ mobileDisplay }};background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#F4F7FC;width:44px;height:44px;border-radius:12px;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer">
           <span style="width:18px;height:2px;background:currentColor;display:block"></span><span style="width:18px;height:2px;background:currentColor;display:block"></span>
@@ -82,7 +82,7 @@
       <a class="tpp-mlink" href="/blog" style="display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.07);color:#F4F7FC;font-weight:600;font-size:19px;text-decoration:none">Blog<span style="color:#6E9BFF;font-size:18px">→</span></a>
       <div style="display:flex;flex-direction:column;gap:10px;margin-top:24px">
         <a href="/book-a-demo" style="background:#6E9BFF;color:#060A14;font-weight:700;text-align:center;padding:15px;border-radius:999px;text-decoration:none">Book a Demo</a>
-        <a href="{{ loginHref }}" style="border:1px solid rgba(255,255,255,.18);color:#F4F7FC;font-weight:600;text-align:center;padding:15px;border-radius:999px;text-decoration:none">Login</a>
+        <a href="{{ loginHref }}" target="_blank" rel="noopener" style="border:1px solid rgba(255,255,255,.18);color:#F4F7FC;font-weight:600;text-align:center;padding:15px;border-radius:999px;text-decoration:none">Login</a>
       </div>
     </div>
   </div>
@@ -91,8 +91,9 @@
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:&quot;72px&quot;},&quot;current&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;'' | 'solutions' | 'platform' | 'industries' | 'developers' | 'resources' | 'company'&quot;,&quot;options&quot;:[&quot;&quot;,&quot;solutions&quot;,&quot;platform&quot;,&quot;industries&quot;,&quot;developers&quot;,&quot;resources&quot;,&quot;company&quot;]},&quot;page&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
 class Component extends DCLogic {
   state = { menu: null, mobileOpen: false, mobileGroup: null, isMobile: typeof window !== 'undefined' && window.matchMedia('(max-width: 959px)').matches };
-  componentDidUpdate(pp, ps) { if (ps.mobileOpen !== this.state.mobileOpen) document.documentElement.style.overflow = this.state.mobileOpen ? 'hidden' : ''; }
+  componentDidUpdate() { if (this._mo !== this.state.mobileOpen) { this._mo = this.state.mobileOpen; document.documentElement.style.overflow = this.state.mobileOpen ? 'hidden' : ''; } }
   componentDidMount() {
+    if (!window.__fx && !document.querySelector('script[data-fx]')) { const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = 'fx.css'; document.head.appendChild(l); const s = document.createElement('script'); s.src = 'fx.js'; s.dataset.fx = '1'; document.head.appendChild(s); }
     this.mq = window.matchMedia('(max-width: 959px)'); this.onResize = () => this.setState({ isMobile: this.mq.matches }); this.onResize(); window.addEventListener('resize', this.onResize);
     this.onKey = e => { if (e.key === 'Escape') this.setState({ menu: null, mobileOpen: false }); }; window.addEventListener('keydown', this.onKey);
   }
@@ -165,7 +166,7 @@ class Component extends DCLogic {
         ['Partner Program', 'Referral, reseller and white-label partnerships.', '/partner-program', 'node'],
         ['Contact', 'Sales, support and press.', '/book-a-demo#contact', 'wave'],
         ['Security', 'Platform controls and attestations.', home + '#security', 'lock'],
-        ['Legal', 'Privacy, terms, cookies and acceptable use.', home + '#legal', 'doc']] },
+        ['Legal', 'Privacy, terms, cookies and acceptable use.', '/privacy', 'doc']] },
     ];
     const navs = defs.map(n => ({ ...n, isOpen: s.menu === n.key, color: s.menu === n.key || cur === n.key ? '#F4F7FC' : '#AEB9CC', bg: cur === n.key ? 'rgba(255,255,255,.06)' : 'transparent', open: () => set({ menu: n.key }), toggle: () => set({ menu: s.menu === n.key ? null : n.key }), mobileOpen: s.mobileGroup === n.key, mobileSign: s.mobileGroup === n.key ? '−' : '+', toggleMobile: () => set({ mobileGroup: s.mobileGroup === n.key ? null : n.key }), items: n.items.map(([t, d, href, g]) => ({ t, d, href, icon: this.icon(g), bg: href.split('#')[0] === (this.props.page || '') ? 'rgba(110,155,255,.07)' : 'transparent' })) }));
     return { navs, activeMenu: navs.find(n => n.key === s.menu) || navs[0], menuOpen: !!s.menu && !isM, closeMenu: () => set({ menu: null }), mobileOpen: s.mobileOpen, toggleMobile: () => set({ mobileOpen: !s.mobileOpen, menu: null }), desktopDisplay: isM ? 'none' : 'flex', mobileDisplay: isM ? 'flex' : 'none', homeHref: home, loginHref: 'https://demo.aqpay.services/' };

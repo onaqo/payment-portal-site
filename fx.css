@@ -1,0 +1,30 @@
+/* AQ Pay motion system — loaded on every page */
+@view-transition{navigation:auto}
+::view-transition-old(root){animation:fxOut .18s ease both}::view-transition-new(root){animation:fxIn .32s ease both}
+@keyframes fxOut{to{opacity:0}}@keyframes fxIn{from{opacity:0;transform:translateY(8px)}}
+@keyframes fxUp{from{opacity:0;transform:translateY(26px) scale(.985)}}
+@keyframes fxAurora{0%,100%{transform:translate(0,0) scale(1)}50%{transform:translate(-6%,5%) scale(1.12)}}
+@keyframes fxShine{to{transform:translateX(260%) skewX(-20deg)}}
+.fx-bar{position:fixed;left:0;top:0;height:3px;width:100%;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,#6E9BFF,#3DDC97 60%,#E6C27A);z-index:200;pointer-events:none}
+.fx-glow{position:fixed;left:0;top:0;width:520px;height:520px;margin:-260px 0 0 -260px;border-radius:50%;background:radial-gradient(circle,rgba(110,155,255,.10),rgba(61,220,151,.04) 40%,transparent 68%);pointer-events:none;z-index:1;mix-blend-mode:screen;opacity:0;transition:opacity .4s}
+.fx-top{position:fixed;right:18px;bottom:18px;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.16);background:rgba(15,23,41,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:#F4F7FC;font-size:18px;cursor:pointer;z-index:70;opacity:0;transform:translateY(12px);pointer-events:none;transition:opacity .3s,transform .3s,border-color .2s}
+.fx-top.on{opacity:1;transform:none;pointer-events:auto}.fx-top:hover{border-color:#6E9BFF}
+header.fx-nav{transition:transform .35s cubic-bezier(.2,.8,.2,1)}header.fx-nav.fx-hide{transform:translateY(-100%)}
+/* glass cards with cursor spotlight + gradient edge */
+.fx-card{position:relative;isolation:isolate;transition:border-color .25s,transform .35s cubic-bezier(.2,.8,.2,1),box-shadow .35s!important}
+.fx-card::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:-1;opacity:0;transition:opacity .3s;background:radial-gradient(340px circle at var(--mx,50%) var(--my,0%),rgba(110,155,255,.16),transparent 62%)}
+.fx-card::after{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;pointer-events:none;opacity:0;transition:opacity .3s;background:radial-gradient(260px circle at var(--mx,50%) var(--my,0%),rgba(110,155,255,.9),rgba(61,220,151,.5) 45%,transparent 70%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask:linear-gradient(#000 0 0) content-box exclude,linear-gradient(#000 0 0)}
+@media (hover:hover){.fx-card:hover::before,.fx-card:hover::after{opacity:1}a.fx-card:hover{transform:translateY(-4px);box-shadow:0 24px 50px rgba(0,0,0,.35)}}
+/* primary buttons: light sweep */
+.fx-btn{position:relative;overflow:hidden;isolation:isolate}
+.fx-btn::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:45%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.55),transparent);transform:translateX(-100%) skewX(-20deg);pointer-events:none}
+@media (hover:hover){.fx-btn:hover::after{animation:fxShine .75s ease}}
+/* staggered grid reveals */
+.fx-stagger:not(.in)>*{opacity:0}
+.fx-stagger.in>*{animation:fxUp .75s cubic-bezier(.2,.7,.2,1) backwards;animation-delay:calc(var(--i,0)*75ms)}
+/* inner-page heroes: living aurora */
+.fx-hero{isolation:isolate}
+.fx-hero::after{content:"";position:absolute;z-index:-1;pointer-events:none;right:-12%;top:-30%;width:70%;height:150%;filter:blur(60px);opacity:.55;background:radial-gradient(ellipse 45% 40% at 60% 40%,rgba(110,155,255,.5),transparent 70%),radial-gradient(ellipse 35% 32% at 35% 68%,rgba(61,220,151,.28),transparent 70%),radial-gradient(ellipse 28% 26% at 75% 78%,rgba(230,194,122,.2),transparent 70%);animation:fxAurora 16s ease-in-out infinite}
+h2{text-wrap:balance}
+@media (max-width:899px){.fx-glow{display:none}.fx-hero::after{right:-30%;width:120%;opacity:.4}}
+@media (prefers-reduced-motion:reduce){.fx-stagger:not(.in)>*{opacity:1}.fx-stagger.in>*,.fx-hero::after{animation:none}.fx-glow{display:none}::view-transition-old(root),::view-transition-new(root){animation:none}header.fx-nav{transition:none}}

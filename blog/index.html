@@ -26,6 +26,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/blog/blog.css">
+<link rel="stylesheet" href="/fx.css">
+<script src="/fx.js" data-fx defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"AQ Pay Blog","url":"https://aqpay.services/blog","publisher":{"@type":"Organization","@id":"https://aqpay.services/#organization","name":"AQ Pay","url":"https://aqpay.services","logo":{"@type":"ImageObject","url":"https://aqpay.services/og-image.jpg"},"email":"hello@aqpay.services"},"blogPost":[{"@type":"BlogPosting","headline":"High-risk merchant accounts: how underwriting actually works","url":"https://aqpay.services/blog/high-risk-merchant-account-underwriting","datePublished":"2026-11-05","image":"https://aqpay.services/blog/covers/high-risk-merchant-account-underwriting.jpg"},{"@type":"BlogPosting","headline":"What is payment orchestration — and when do you need it?","url":"https://aqpay.services/blog/what-is-payment-orchestration","datePublished":"2026-11-05","image":"https://aqpay.services/blog/covers/what-is-payment-orchestration.jpg"},{"@type":"BlogPosting","headline":"White-label payment gateway vs. building your own PSP stack","url":"https://aqpay.services/blog/white-label-payment-gateway-vs-building-your-own","datePublished":"2026-11-05","image":"https://aqpay.services/blog/covers/white-label-payment-gateway-vs-building-your-own.jpg"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://aqpay.services/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://aqpay.services/blog"}]}</script>
 </head>
@@ -35,9 +37,9 @@
   <nav class="nav" aria-label="Main">
     <a href="/white-label-gateway">White-Label Gateway</a><a href="/payment-orchestration">Orchestration</a><a href="/merchant-services">Merchant Services</a><a href="/industries">Industries</a><a href="/developers">Developers</a><a href="/blog" aria-current="page">Blog</a>
   </nav>
-  <div class="hdr-cta"><a class="login" href="https://demo.aqpay.services/">Login</a><a class="btn" href="/book-a-demo">Book a Demo</a>
+  <div class="hdr-cta"><a class="login" href="https://demo.aqpay.services/" target="_blank" rel="noopener">Login</a><a class="btn" href="/book-a-demo">Book a Demo</a>
     <details class="menu"><summary aria-label="Open menu"><svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="#F4F7FC" stroke-width="2"><path d="M0 1h18M0 11h18"/></svg></summary>
-      <div class="panel"><a href="/white-label-gateway">White-Label Gateway</a><a href="/payment-orchestration">Payment Orchestration</a><a href="/merchant-services">Merchant Services</a><a href="/high-risk-processing">High-Risk Processing</a><a href="/industries">Industries</a><a href="/developers">Developers</a><a href="/blog">Blog</a><a href="https://demo.aqpay.services/">Login</a><a href="/book-a-demo" class="btn" style="justify-content:center">Book a Demo</a></div>
+      <div class="panel"><a href="/white-label-gateway">White-Label Gateway</a><a href="/payment-orchestration">Payment Orchestration</a><a href="/merchant-services">Merchant Services</a><a href="/high-risk-processing">High-Risk Processing</a><a href="/industries">Industries</a><a href="/developers">Developers</a><a href="/blog">Blog</a><a href="https://demo.aqpay.services/" target="_blank" rel="noopener">Login</a><a href="/book-a-demo" class="btn" style="justify-content:center">Book a Demo</a></div>
     </details>
   </div>
 </div></header>
@@ -62,14 +64,14 @@
   <div class="ftr-grid">
     <div><a class="brand" href="/"><img src="/aq-mark.svg" alt="" width="32" height="32">AQ Pay</a>
       <p>White-label gateway, orchestration and merchant services infrastructure for PSPs, platforms and merchants.</p>
-      <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn" href="/book-a-demo" style="font-size:14px;padding:10px 18px">Book a Demo</a><a class="btn btn-ghost" href="https://demo.aqpay.services/" style="font-size:14px">Portal login ↗</a></div></div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn" href="/book-a-demo" style="font-size:14px;padding:10px 18px">Book a Demo</a><a class="btn btn-ghost" href="https://demo.aqpay.services/" target="_blank" rel="noopener" style="font-size:14px">Portal login ↗</a></div></div>
     <nav aria-label="Solutions"><h3>Solutions</h3><ul><li><a href="/white-label-gateway">White-Label Gateway</a></li><li><a href="/merchant-services">Merchant Services</a></li><li><a href="/high-risk-processing">High-Risk Processing</a></li><li><a href="/payment-orchestration">Payment Orchestration</a></li><li><a href="/about#consulting">Payment Consulting</a></li><li><a href="/industries">Industries</a></li></ul></nav>
     <nav aria-label="Platform"><h3>Platform</h3><ul><li><a href="/payment-orchestration#routing">Intelligent Routing</a></li><li><a href="/payment-orchestration#connectivity">Gateway Connectivity</a></li><li><a href="/#risk">Risk &amp; Fraud</a></li><li><a href="/white-label-gateway#operations">Reconciliation</a></li><li><a href="/#security">Security</a></li></ul></nav>
     <nav aria-label="Developers"><h3>Developers</h3><ul><li><a href="/developers">Overview</a></li><li><a href="/developers#quick-start">Quick Start</a></li><li><a href="/api-reference">API Reference</a></li><li><a href="/api-reference#webhooks">Webhooks</a></li><li><a href="/developers#sandbox">Sandbox</a></li></ul></nav>
     <nav aria-label="Company"><h3>Company</h3><ul><li><a href="/about">About</a></li><li><a href="/blog">Blog</a></li><li><a href="/partner-program">Partner Program</a></li><li><a href="/book-a-demo">Book a Demo</a></li><li><a href="/book-a-demo#contact">Contact</a></li><li><a href="mailto:hello@aqpay.services">hello@aqpay.services</a></li></ul></nav>
   </div>
   <div class="ftr-base"><span>Services are subject to industry eligibility, geographic restrictions, underwriting and partner approval. AQ Pay is a technology provider and does not hold or move client funds unless expressly stated in a service agreement.</span>
-    <div class="row"><span>© 2026 AQ Pay. All rights reserved.</span><span style="display:flex;gap:18px"><a href="/#legal">Privacy</a><a href="/#legal">Terms</a><a href="/#legal">Cookies</a></span></div></div>
+    <div class="row"><span>© 2026 AQ Pay. All rights reserved.</span><span style="display:flex;gap:18px"><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/cookies">Cookies</a><a href="/acceptable-use">Acceptable use</a></span></div></div>
 </div></footer>
 </body>
 </html>
