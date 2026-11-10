@@ -74,6 +74,45 @@ body { margin: 0; background: #060A14; }
   .aqh .hchip { min-width: 0; }
 }
 
+/* hero staged reveal */
+.aqh .line > span { animation-name: riseblur; }
+@keyframes riseblur { from { transform: translateY(105%) rotate(4deg); filter: blur(10px); opacity: 0 } to { transform: none; filter: blur(0); opacity: 1 } }
+.aqh .hv { perspective: 1400px; }
+.aqh .hmid { animation: phoneIn 1.5s cubic-bezier(.16,1,.3,1) .55s backwards; transform-style: preserve-3d; transition: transform .5s cubic-bezier(.16,1,.3,1); will-change: transform; }
+@keyframes phoneIn { 0% { opacity: 0; transform: translateY(120px) rotateX(38deg) scale(.78); filter: blur(14px) } 60% { opacity: 1; filter: blur(0) } 100% { opacity: 1; transform: none; filter: blur(0) } }
+.aqh .halo { position: absolute; left: 50%; top: 50%; width: 520px; height: 520px; margin: -260px 0 0 -260px; border-radius: 50%; background: conic-gradient(from 0deg, rgba(110,155,255,0), rgba(110,155,255,.55), rgba(61,220,151,.45), rgba(230,194,122,.35), rgba(110,155,255,0)); filter: blur(60px); opacity: .55; animation: spin 14s linear infinite, haloIn 2s ease-out .8s backwards; pointer-events: none; }
+@keyframes spin { to { transform: rotate(360deg) } }
+@keyframes haloIn { from { opacity: 0 } to { opacity: .55 } }
+.aqh .hmid .phone { position: relative; }
+.aqh .hlab { animation: fade 1s cubic-bezier(.16,1,.3,1) 1.2s backwards; }
+.aqh .hl .hchip { animation: fromL .95s cubic-bezier(.16,1,.3,1) backwards; }
+.aqh .hr .hchip { animation: fromR .95s cubic-bezier(.16,1,.3,1) backwards; }
+@keyframes fromL { from { opacity: 0; transform: translateX(-90px) scale(.9); filter: blur(8px) } to { opacity: 1; transform: none; filter: blur(0) } }
+@keyframes fromR { from { opacity: 0; transform: translateX(90px) scale(.9); filter: blur(8px) } to { opacity: 1; transform: none; filter: blur(0) } }
+.aqh .hrow:nth-of-type(1) .hchip { animation-delay: 1.25s; } .aqh .hrow:nth-of-type(2) .hchip { animation-delay: 1.37s; }
+.aqh .hrow:nth-of-type(3) .hchip { animation-delay: 1.49s; } .aqh .hrow:nth-of-type(4) .hchip { animation-delay: 1.61s; }
+.aqh .hrow .track { animation: draw .9s cubic-bezier(.65,0,.35,1) backwards; }
+.aqh .hl .track { transform-origin: left center; } .aqh .hr .track { transform-origin: right center; }
+@keyframes draw { from { transform: scaleX(0); opacity: 0 } to { transform: scaleX(1); opacity: 1 } }
+.aqh .hrow:nth-of-type(1) .track { animation-delay: 1.7s; } .aqh .hrow:nth-of-type(2) .track { animation-delay: 1.82s; }
+.aqh .hrow:nth-of-type(3) .track { animation-delay: 1.94s; } .aqh .hrow:nth-of-type(4) .track { animation-delay: 2.06s; }
+.aqh .hrow .runner { animation-delay: 2.6s; } .aqh .hrow .runner.r2 { animation-delay: 3.4s; } .aqh .hrow .runner.r3 { animation-delay: 4.2s; }
+.aqh .hrow .runner i { opacity: 1; }
+.aqh .hrow .runner { opacity: 0; }
+.aqh .htoast { animation: toastIn .9s cubic-bezier(.34,1.56,.64,1) 2.5s backwards; }
+@keyframes toastIn { from { opacity: 0; transform: translateX(-50%) translateY(26px) scale(.8) } to { opacity: 1; transform: translateX(-50%) } }
+.aqh .mq span { transition: color .3s; }
+
+/* richer scroll reveal */
+.aqh.js .rv { opacity: 0; transform: translateY(56px) scale(.96); filter: blur(10px); transition: opacity 1s cubic-bezier(.16,1,.3,1), transform 1s cubic-bezier(.16,1,.3,1), filter 1s cubic-bezier(.16,1,.3,1); }
+.aqh.js .rv.in { opacity: 1; transform: none; filter: blur(0); }
+.aqh.js .cell.rv { transform: translateY(70px) rotateX(14deg) scale(.94); transform-origin: 50% 100%; }
+.aqh.js .cell.rv.in { transform: none; }
+.aqh.js .cell.rv.in:hover { transform: translateY(-4px); }
+.aqh.js .role.rv { transform: translateX(-60px); }
+.aqh.js .role.rv.in { transform: none; }
+.aqh .bento { perspective: 1400px; }
+
 /* marquee */
 .aqh .mq { display: flex; gap: 56px; width: max-content; animation: mq 32s linear infinite; }
 @keyframes mq { from { transform: translateX(0) } to { transform: translateX(-50%) } }
@@ -117,8 +156,6 @@ body { margin: 0; background: #060A14; }
 .aqh details[open] summary::after { transform: rotate(45deg); }
 
 /* scroll reveal, only once scripts run */
-.aqh.js .rv { opacity: 0; transform: translateY(32px); transition: opacity .8s cubic-bezier(.16,1,.3,1), transform .8s cubic-bezier(.16,1,.3,1); }
-.aqh.js .rv.in { opacity: 1; transform: none; }
 
 .aqh .two { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 64px; align-items: center; }
 .aqh .navl { display: flex; gap: 32px; }
@@ -135,5 +172,5 @@ body { margin: 0; background: #060A14; }
 @media (prefers-reduced-motion: reduce) {
   .aqh *, .aqh *::after { animation: none !important; transition: none !important; }
   .aqh .brand.b1 { opacity: 1; }
-  .aqh.js .rv { opacity: 1; transform: none; }
+  .aqh.js .rv, .aqh.js .cell.rv, .aqh.js .role.rv { opacity: 1; transform: none; filter: none; }
 }
