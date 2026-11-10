@@ -7,7 +7,7 @@
 </head>
 <body>
 <x-dc>
-<footer id="legal" style="position:relative;background:#04070F;font-family:'Inter',system-ui,sans-serif;color:#F4F7FC;overflow:hidden">
+<footer id="legal" style="position:relative;background:#04070F;font-family:'Geist',system-ui,sans-serif;color:#F4F7FC;overflow:hidden">
   <div aria-hidden="true" style="position:absolute;left:0;right:0;top:0;height:1px;background:linear-gradient(90deg,transparent,rgba(110,155,255,.55) 30%,rgba(61,220,151,.45) 70%,transparent)"></div>
   <div aria-hidden="true" style="position:absolute;left:-10%;top:-220px;width:620px;height:420px;background:radial-gradient(closest-side,rgba(110,155,255,.08),transparent);pointer-events:none"></div>
   <div style="position:relative;max-width:1240px;margin:0 auto;padding:{{ pad }}">
@@ -16,7 +16,7 @@
       <div style="grid-column:{{ brandSpan }};min-width:0;max-width:380px">
         <a href="/" aria-label="AQ Pay home" style="display:inline-flex;align-items:center;gap:12px;color:#F4F7FC;text-decoration:none">
           <img src="aq-mark.svg" alt="" width="36" height="36" style="display:block;flex-shrink:0;width:36px;height:36px">
-          <span style="font-family:'Inter',system-ui,sans-serif;font-weight:700;font-size:17px;letter-spacing:-.01em">AQ Pay</span>
+          <span style="font-family:'Geist',system-ui,sans-serif;font-weight:700;font-size:17px;letter-spacing:-.01em">AQ Pay</span>
         </a>
         <p style="color:#AEB9CC;line-height:1.6;font-size:14.5px;margin:18px 0 24px">White-label gateway, orchestration and merchant services infrastructure for PSPs, platforms and merchants.</p>
         <div style="display:flex;flex-wrap:wrap;gap:10px">
@@ -27,7 +27,7 @@
 
       <sc-for list="{{ cols }}" as="col" hint-placeholder-count="4">
         <nav aria-label="{{ col.h }}" style="min-width:0">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:#6E9BFF;margin-bottom:18px">{{ col.h }}</div>
+          <div style="font-family:'Geist Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:#6E9BFF;margin-bottom:18px">{{ col.h }}</div>
           <ul style="list-style:none;padding:0;margin:0;display:grid;gap:2px">
             <sc-for list="{{ col.links }}" as="l" hint-placeholder-count="5"><li><a href="{{ l.href }}" target="{{ l.target }}" rel="{{ l.rel }}" style="display:inline-block;padding:6px 0;color:#AEB9CC;font-size:14.5px;line-height:1.4;text-decoration:none;transition:color .2s" style-hover="color:#F4F7FC">{{ l.t }}</a></li></sc-for>
           </ul>

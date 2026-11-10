@@ -1,12 +1,12 @@
 /* AQ Pay blog — matches the portal palette (demo.aqpay.services) */
 :root{--bg:#060A14;--surface:#0F1729;--card:rgba(19,29,54,.42);--fg:#F4F7FC;--muted:#AEB9CC;--faint:#6F7D93;--line:rgba(255,255,255,.08);--primary:#6E9BFF;--accent:#3DDC97;--gold:#E6C27A;--radius:18px}
 *{box-sizing:border-box}html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--fg);font-family:'Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden}
+body{margin:0;background:var(--bg);color:var(--fg);font-family:'Geist','Inter',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;-webkit-font-smoothing:antialiased;line-height:1.6;overflow-x:hidden}
 a{color:var(--primary);text-decoration:none}a:hover{color:var(--accent)}
 img{max-width:100%;height:auto;display:block}
 ::selection{background:var(--primary);color:var(--bg)}
 .wrap{max-width:1240px;margin:0 auto;padding:0 24px}
-.mono{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase}
+.mono{font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase}
 /* header */
 .hdr{position:sticky;top:0;z-index:50;backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);background:rgba(6,10,20,.78);border-bottom:1px solid var(--line)}
 .hdr .wrap{height:72px;display:flex;align-items:center;gap:28px}
@@ -30,7 +30,7 @@ img{max-width:100%;height:auto;display:block}
 @media (max-width:960px){.nav,.hdr-cta .login,.hdr-cta .btn{display:none}.menu{display:block}}
 /* hero / index */
 .hero{padding:clamp(64px,9vw,120px) 0 clamp(36px,5vw,56px);background:radial-gradient(ellipse 50% 60% at 85% 20%,rgba(110,155,255,.12),transparent 70%)}
-.crumbs{font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);display:flex;flex-wrap:wrap;gap:10px}
+.crumbs{font-family:'Geist Mono',monospace;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);display:flex;flex-wrap:wrap;gap:10px}
 .crumbs a{color:var(--faint)}.crumbs a:hover{color:var(--fg)}.crumbs [aria-current]{color:var(--primary)}
 h1{font-weight:700;font-size:clamp(36px,5.2vw,68px);line-height:1.02;letter-spacing:-.035em;margin:18px 0 18px;text-wrap:balance}
 .lede{font-size:clamp(17px,1.4vw,20px);color:var(--muted);max-width:680px;margin:0;text-wrap:pretty}
@@ -74,7 +74,7 @@ h1{font-weight:700;font-size:clamp(36px,5.2vw,68px);line-height:1.02;letter-spac
 .prose a{text-decoration:underline;text-decoration-color:rgba(110,155,255,.45);text-underline-offset:3px}
 .prose blockquote{margin:1.6em 0;padding:18px 22px;border-left:3px solid var(--accent);background:rgba(61,220,151,.06);border-radius:0 14px 14px 0;color:var(--fg)}
 .prose blockquote p:last-child{margin:0}
-.prose code{font-family:'JetBrains Mono',monospace;font-size:.86em;background:rgba(255,255,255,.06);padding:.15em .4em;border-radius:6px}
+.prose code{font-family:'Geist Mono',monospace;font-size:.86em;background:rgba(255,255,255,.06);padding:.15em .4em;border-radius:6px}
 .prose pre{background:#0B1324;border:1px solid var(--line);border-radius:14px;padding:18px;overflow-x:auto;font-size:14px;line-height:1.6}
 .prose pre code{background:none;padding:0}
 .prose table{width:100%;border-collapse:collapse;margin:1.6em 0;font-size:15px;display:block;overflow-x:auto}
@@ -85,7 +85,7 @@ h1{font-weight:700;font-size:clamp(36px,5.2vw,68px);line-height:1.02;letter-spac
 .prose figcaption{margin-top:14px;font-size:14px;color:var(--faint);text-align:center}
 .prose img{border-radius:16px}
 .takeaways{border:1px solid rgba(110,155,255,.35);background:linear-gradient(135deg,rgba(110,155,255,.1),rgba(61,220,151,.05));border-radius:20px;padding:22px 24px;margin:0 0 2em}
-.takeaways h2{margin:0 0 10px!important;font-size:15px!important;letter-spacing:.14em!important;text-transform:uppercase;color:var(--primary)!important;font-family:'JetBrains Mono',monospace}
+.takeaways h2{margin:0 0 10px!important;font-size:15px!important;letter-spacing:.14em!important;text-transform:uppercase;color:var(--primary)!important;font-family:'Geist Mono',monospace}
 .takeaways ul{margin:0}
 .faq{margin-top:3em}.faq h2{margin-bottom:.8em}
 .faq details{border:1px solid var(--line);border-radius:14px;background:var(--card);margin-bottom:8px}
@@ -107,7 +107,7 @@ h1{font-weight:700;font-size:clamp(36px,5.2vw,68px);line-height:1.02;letter-spac
 .ftr::before{content:'';position:absolute;left:0;right:0;top:-1px;height:1px;background:linear-gradient(90deg,transparent,rgba(110,155,255,.55) 30%,rgba(61,220,151,.45) 70%,transparent)}
 .ftr-grid{display:grid;grid-template-columns:minmax(240px,1.5fr) repeat(4,minmax(0,1fr));gap:40px 32px}
 .ftr p{color:var(--muted);font-size:14.5px;margin:16px 0 22px;max-width:360px}
-.ftr h3{font-family:'JetBrains Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--primary);margin:0 0 16px}
+.ftr h3{font-family:'Geist Mono',monospace;font-size:11px;font-weight:500;letter-spacing:.16em;text-transform:uppercase;color:var(--primary);margin:0 0 16px}
 .ftr ul{list-style:none;margin:0;padding:0;display:grid;gap:11px}
 .ftr ul a{color:var(--muted);font-size:14.5px}.ftr ul a:hover{color:var(--fg)}
 .ftr-base{margin-top:56px;padding-top:22px;border-top:1px solid var(--line);display:grid;gap:14px;font-size:13px;color:var(--faint)}

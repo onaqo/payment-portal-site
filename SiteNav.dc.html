@@ -10,7 +10,7 @@
 <helmet>
 <link rel="icon" href="aq-mark.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
 @media (max-width:1200px){.tpp-navbtn{padding:10px 9px!important;font-size:14.5px!important}.tpp-login{padding:10px 8px!important}}
 .tpp-mlink{transition:background .2s}.tpp-mlink:active{background:rgba(255,255,255,.06)}
@@ -18,12 +18,12 @@
 @keyframes tppPanel{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
 </style>
 </helmet>
-<header style="position:sticky;top:0;z-index:60;font-family:'Inter',system-ui,sans-serif;color:#F4F7FC" onMouseLeave="{{ closeMenu }}">
+<header style="position:sticky;top:0;z-index:60;font-family:'Geist',system-ui,sans-serif;color:#F4F7FC" onMouseLeave="{{ closeMenu }}">
   <div style="backdrop-filter:blur(20px);background:rgba(6,10,20,.76);border-bottom:1px solid rgba(255,255,255,.07)">
     <div style="max-width:1360px;margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;gap:28px">
       <a href="{{ homeHref }}" aria-label="AQ Pay home" style="display:flex;align-items:center;gap:12px;color:#F4F7FC;flex-shrink:0;text-decoration:none">
         <img src="aq-mark.svg" alt="" width="36" height="36" style="display:block;flex-shrink:0;width:36px;height:36px">
-        <span style="font-family:'Inter',system-ui,sans-serif;font-weight:700;letter-spacing:-.01em;font-size:17px;line-height:1">AQ Pay</span>
+        <span style="font-family:'Geist',system-ui,sans-serif;font-weight:700;letter-spacing:-.01em;font-size:17px;line-height:1">AQ Pay</span>
       </a>
       <nav aria-label="Main" style="display:{{ desktopDisplay }};flex:1;justify-content:center;gap:2px">
         <sc-for list="{{ navs }}" as="n" hint-placeholder-count="6">
@@ -43,8 +43,8 @@
     <div style="position:absolute;left:0;right:0;top:72px;background:rgba(15,23,41,.97);backdrop-filter:blur(24px);border-bottom:1px solid rgba(255,255,255,.08);box-shadow:0 40px 80px rgba(0,0,0,.5);animation:tppPanel .28s cubic-bezier(.2,.8,.2,1) both">
       <div style="max-width:1360px;margin:0 auto;padding:36px 24px 40px;display:grid;grid-template-columns:300px 1fr;gap:40px">
         <div style="border-right:1px solid rgba(255,255,255,.08);padding-right:40px">
-          <div style="font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#6E9BFF">{{ activeMenu.label }}</div>
-          <div style="font-family:'Inter',system-ui,sans-serif;font-weight:700;font-size:26px;line-height:1.15;letter-spacing:-.02em;margin:12px 0 10px">{{ activeMenu.tagline }}</div>
+          <div style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#6E9BFF">{{ activeMenu.label }}</div>
+          <div style="font-family:'Geist',system-ui,sans-serif;font-weight:700;font-size:26px;line-height:1.15;letter-spacing:-.02em;margin:12px 0 10px">{{ activeMenu.tagline }}</div>
           <p style="color:#AEB9CC;line-height:1.55;margin:0 0 22px;font-size:15px">{{ activeMenu.blurb }}</p>
           <a href="{{ activeMenu.ctaHref }}" style="display:inline-flex;align-items:center;gap:8px;color:#3DDC97;font-weight:700;font-size:15px;text-decoration:none">{{ activeMenu.cta }} <span aria-hidden="true">→</span></a>
         </div>
@@ -61,15 +61,15 @@
   </sc-if>
 </header>
 <sc-if value="{{ mobileOpen }}" hint-placeholder-val="{{ false }}">
-  <div role="dialog" aria-label="Menu" style="position:fixed;inset:0;z-index:90;background:#0F1729;overflow:auto;animation:tppFade .2s ease both;font-family:'Inter',system-ui,sans-serif;color:#F4F7FC">
+  <div role="dialog" aria-label="Menu" style="position:fixed;inset:0;z-index:90;background:#0F1729;overflow:auto;animation:tppFade .2s ease both;font-family:'Geist',system-ui,sans-serif;color:#F4F7FC">
     <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 24px;height:72px;border-bottom:1px solid rgba(255,255,255,.08)">
-      <span style="font-family:'Inter',system-ui,sans-serif;font-weight:700">AQ Pay</span>
+      <span style="font-family:'Geist',system-ui,sans-serif;font-weight:700">AQ Pay</span>
       <button onClick="{{ toggleMobile }}" aria-label="Close menu" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#F4F7FC;width:44px;height:44px;border-radius:12px;font-size:20px;cursor:pointer">×</button>
     </div>
     <div style="padding:12px 24px 40px;display:flex;flex-direction:column;gap:4px">
       <sc-for list="{{ navs }}" as="n" hint-placeholder-count="6">
         <div style="border-bottom:1px solid rgba(255,255,255,.07)">
-          <button onClick="{{ n.toggleMobile }}" aria-expanded="{{ n.mobileOpen }}" style="width:100%;background:none;border:0;color:#F4F7FC;display:flex;justify-content:space-between;align-items:center;padding:18px 0;font-family:'Inter',system-ui,sans-serif;font-weight:600;font-size:19px;min-height:44px;cursor:pointer">{{ n.label }}<span style="color:#6E9BFF;font-size:22px;line-height:1">{{ n.mobileSign }}</span></button>
+          <button onClick="{{ n.toggleMobile }}" aria-expanded="{{ n.mobileOpen }}" style="width:100%;background:none;border:0;color:#F4F7FC;display:flex;justify-content:space-between;align-items:center;padding:18px 0;font-family:'Geist',system-ui,sans-serif;font-weight:600;font-size:19px;min-height:44px;cursor:pointer">{{ n.label }}<span style="color:#6E9BFF;font-size:22px;line-height:1">{{ n.mobileSign }}</span></button>
           <sc-if value="{{ n.mobileOpen }}" hint-placeholder-val="{{ false }}">
             <div style="display:flex;flex-direction:column;gap:2px;padding-bottom:14px">
               <sc-for list="{{ n.items }}" as="it" hint-placeholder-count="4">

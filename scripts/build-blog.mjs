@@ -93,7 +93,7 @@ const head = ({ title, description, canonical, image, type = 'website', extra = 
 ${extra}<link rel="icon" href="/aq-mark.svg" type="image/svg+xml">
 <link rel="alternate" type="application/rss+xml" title="${BRAND} Blog" href="${SITE}/blog/rss.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/blog/blog.css">
 <link rel="stylesheet" href="/fx.css">
 <script src="/fx.js" data-fx defer></script>
