@@ -49,10 +49,10 @@ body { margin: 0; background: #060A14; }
 /* phone brand cycle */
 .aqh .phone { animation: float 7s ease-in-out infinite; }
 @keyframes float { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-12px) } }
-.aqh .brand { position: absolute; left: 0; top: 0; opacity: 0; animation: swap 9s infinite; white-space: nowrap; }
-.aqh .brand.b2 { animation-delay: 3s; } .aqh .brand.b3 { animation-delay: 6s; }
+.aqh .brand { position: absolute; left: 0; top: 0; opacity: 0; animation: swap 21s infinite 2.6s backwards; white-space: nowrap; }
+.aqh .brand.b2 { animation-delay: 9.6s; } .aqh .brand.b3 { animation-delay: 16.6s; }
 @keyframes swap { 0% { opacity: 0; transform: translateY(8px) } 4%,30% { opacity: 1; transform: translateY(0) } 34%,100% { opacity: 0; transform: translateY(-8px) } }
-.aqh .tint { animation: tint 9s infinite; }
+.aqh .tint { animation: tint 21s infinite 2.6s backwards; }
 @keyframes tint { 0%,30% { background: #6E9BFF } 34%,63% { background: #3DDC97 } 67%,96% { background: #E6C27A } 100% { background: #6E9BFF } }
 .aqh .chipf { animation: float 6s ease-in-out infinite; }
 .aqh .chipf.c2 { animation-duration: 8s; animation-delay: -3s; }
@@ -106,7 +106,7 @@ body { margin: 0; background: #060A14; }
 .aqh .hrow .runner { animation-delay: 2.6s; } .aqh .hrow .runner.r2 { animation-delay: 3.4s; } .aqh .hrow .runner.r3 { animation-delay: 4.2s; }
 .aqh .hrow .runner i { opacity: 1; }
 .aqh .hrow .runner { opacity: 0; }
-.aqh .htoast { animation: toastIn .9s cubic-bezier(.34,1.56,.64,1) 2.5s backwards; }
+.aqh .htoast { animation: pToast 7s cubic-bezier(.34,1.56,.64,1) 2.6s infinite backwards; }
 @keyframes toastIn { from { opacity: 0; transform: translateX(-50%) translateY(26px) scale(.8) } to { opacity: 1; transform: translateX(-50%) } }
 .aqh .mq span { transition: color .3s; }
 
@@ -119,6 +119,58 @@ body { margin: 0; background: #060A14; }
 .aqh.js .role.rv { transform: translateX(-60px); }
 .aqh.js .role.rv.in { transform: none; }
 .aqh .bento { perspective: 1400px; }
+
+/* hero payment loop: tap, spinner, success bloom (7s, starts after the reveal) */
+.aqh .p-tap { animation: pTap 7s 2.6s infinite backwards; }
+@keyframes pTap { 0%,10% { opacity: 0; transform: translate(60px,70px) scale(1) } 17% { opacity: 1; transform: translate(0,0) scale(1) } 20% { opacity: 1; transform: translate(0,0) scale(.7) } 23% { opacity: 1; transform: translate(0,0) scale(1) } 28%,100% { opacity: 0; transform: translate(0,0) scale(1.6) } }
+.aqh .p-lbl { animation: pLbl 7s 2.6s infinite backwards; }
+@keyframes pLbl { 0%,22% { opacity: 1 } 25%,100% { opacity: 0 } }
+.aqh .p-spin { animation: pSpinShow 7s 2.6s infinite backwards, pRot .8s linear infinite; }
+@keyframes pSpinShow { 0%,23% { opacity: 0 } 26%,36% { opacity: 1 } 38%,100% { opacity: 0 } }
+@keyframes pRot { to { transform: rotate(360deg) } }
+.aqh .p-done { animation: pDone 7s cubic-bezier(.16,1,.3,1) 2.6s infinite backwards; }
+@keyframes pDone { 0%,35% { clip-path: circle(0% at 50% 80%); opacity: 1 } 46%,91% { clip-path: circle(150% at 50% 80%); opacity: 1 } 97%,100% { clip-path: circle(150% at 50% 80%); opacity: 0 } }
+.aqh .p-badge { animation: pBadge 7s cubic-bezier(.34,1.56,.64,1) 2.6s infinite backwards; }
+@keyframes pBadge { 0%,40% { transform: scale(0) } 48%,100% { transform: scale(1) } }
+.aqh .p-tick { stroke-dasharray: 48; animation: pTick 7s 2.6s infinite backwards; }
+@keyframes pTick { 0%,46% { stroke-dashoffset: 48 } 54%,100% { stroke-dashoffset: 0 } }
+.aqh .p-ring { animation: pRing 7s 2.6s infinite backwards; }
+.aqh .p-ring.r2 { animation-name: pRing2; }
+@keyframes pRing { 0%,44% { transform: scale(.6); opacity: 0 } 46% { opacity: .9 } 64%,100% { transform: scale(2.6); opacity: 0 } }
+@keyframes pRing2 { 0%,50% { transform: scale(.6); opacity: 0 } 52% { opacity: .7 } 72%,100% { transform: scale(3.2); opacity: 0 } }
+.aqh .p-up { animation: pUp 7s cubic-bezier(.16,1,.3,1) 2.6s infinite backwards; }
+.aqh .p-up.u2 { animation-name: pUp2; }
+@keyframes pUp { 0%,50% { opacity: 0; transform: translateY(16px) } 58%,100% { opacity: 1; transform: none } }
+@keyframes pUp2 { 0%,55% { opacity: 0; transform: translateY(16px) } 63%,100% { opacity: 1; transform: none } }
+.aqh .p-bit { position: absolute; left: 50%; top: 50%; width: 10px; height: 10px; border-radius: 3px; opacity: 0; animation: pBit 7s cubic-bezier(.16,1,.3,1) 2.6s infinite backwards; }
+@keyframes pBit { 0%,44% { opacity: 0; transform: translate(0,0) rotate(0) scale(.4) } 47% { opacity: 1 } 68% { opacity: 1 } 78%,100% { opacity: 0; transform: translate(var(--x),var(--y)) rotate(260deg) scale(1) } }
+@keyframes pToast { 0%,56% { opacity: 0; transform: translateX(-50%) translateY(26px) scale(.8) } 64%,90% { opacity: 1; transform: translateX(-50%) } 96%,100% { opacity: 0; transform: translateX(-50%) } }
+
+/* faq in two groups */
+.aqh .fqg { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: start; }
+.aqh .fq { border-radius: 24px; padding: 28px 28px 8px; background: #0F1729; border: 1px solid rgba(244,247,252,.08); transition: border-color .3s; }
+.aqh .fq:hover { border-color: rgba(110,155,255,.35); }
+.aqh .fq details:first-of-type { border-top: 0; }
+.aqh .fq summary { font-size: 18px; padding: 20px 0; }
+.aqh .fq details[open] summary { color: #6E9BFF; }
+.aqh .fq details p { animation: fade .6s cubic-bezier(.16,1,.3,1); }
+
+/* closing call to action */
+@property --ctaa { syntax: "<angle>"; inherits: false; initial-value: 0deg; }
+.aqh .cta { position: relative; overflow: hidden; text-align: center; border-radius: 40px; padding: clamp(56px, 9vw, 120px) 24px; border: 1.5px solid transparent; background: linear-gradient(#0A1120, #0A1120) padding-box, conic-gradient(from var(--ctaa), rgba(244,247,252,.1), #6E9BFF, #3DDC97, #E6C27A, rgba(244,247,252,.1), rgba(244,247,252,.1)) border-box; box-shadow: 0 60px 140px -50px rgba(110,155,255,.55); animation: ctaSpin 8s linear infinite; }
+@keyframes ctaSpin { to { --ctaa: 360deg } }
+.aqh .cta-glow { position: absolute; left: 50%; top: 50%; width: 900px; height: 900px; margin: -450px 0 0 -450px; border-radius: 50%; background: conic-gradient(from 0deg, rgba(110,155,255,.5), rgba(61,220,151,.4), rgba(230,194,122,.3), rgba(110,155,255,.5)); filter: blur(110px); opacity: .5; animation: spin 18s linear infinite; }
+.aqh .cta-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(244,247,252,.06) 1px, transparent 1px), linear-gradient(90deg, rgba(244,247,252,.06) 1px, transparent 1px); background-size: 56px 56px; -webkit-mask-image: radial-gradient(ellipse at center, #000 10%, transparent 70%); mask-image: radial-gradient(ellipse at center, #000 10%, transparent 70%); animation: ctaGrid 12s linear infinite; }
+@keyframes ctaGrid { to { background-position: 56px 56px, 56px 56px } }
+.aqh .cta-orb { position: absolute; border-radius: 50%; animation: ctaOrb 9s ease-in-out infinite; }
+.aqh .cta-orb.o1 { width: 14px; height: 14px; background: #6E9BFF; left: 12%; top: 26%; box-shadow: 0 0 24px #6E9BFF; }
+.aqh .cta-orb.o2 { width: 10px; height: 10px; background: #3DDC97; right: 14%; top: 34%; box-shadow: 0 0 20px #3DDC97; animation-delay: -3s; }
+.aqh .cta-orb.o3 { width: 8px; height: 8px; background: #E6C27A; left: 22%; bottom: 20%; box-shadow: 0 0 18px #E6C27A; animation-delay: -6s; }
+@keyframes ctaOrb { 0%,100% { transform: translate(0,0) } 33% { transform: translate(26px,-34px) } 66% { transform: translate(-18px,22px) } }
+.aqh .cta-h { background: linear-gradient(100deg, #F4F7FC 20%, #6E9BFF 40%, #3DDC97 55%, #F4F7FC 75%); background-size: 250% 100%; -webkit-background-clip: text; background-clip: text; color: transparent; animation: ctaText 7s linear infinite; }
+@keyframes ctaText { from { background-position: 125% 0 } to { background-position: -125% 0 } }
+.aqh.js .cta.rv { transform: translateY(70px) scale(.9); }
+.aqh.js .cta.rv.in { transform: none; }
 
 /* marquee */
 .aqh .mq { display: flex; gap: 56px; width: max-content; animation: mq 32s linear infinite; }
@@ -169,6 +221,7 @@ body { margin: 0; background: #060A14; }
 
 @media (max-width: 900px) {
   .aqh .bento { grid-template-columns: minmax(0, 1fr); }
+  .aqh .fqg { grid-template-columns: minmax(0, 1fr); }
   .aqh .wide { grid-column: auto; }
   .aqh .two { grid-template-columns: minmax(0, 1fr); gap: 40px; }
   .aqh .navl { display: none; }
@@ -179,5 +232,6 @@ body { margin: 0; background: #060A14; }
 @media (prefers-reduced-motion: reduce) {
   .aqh *, .aqh *::after { animation: none !important; transition: none !important; }
   .aqh .brand.b1 { opacity: 1; }
+  .aqh .cta-h { color: #F4F7FC; background: none; }
   .aqh.js .rv, .aqh.js .cell.rv, .aqh.js .role.rv { opacity: 1; transform: none; filter: none; }
 }
