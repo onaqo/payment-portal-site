@@ -52,6 +52,28 @@ body { margin: 0; background: #060A14; }
 .aqh .pulse { animation: pulse 2s ease-in-out infinite; }
 @keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(61,220,151,.5) } 50% { box-shadow: 0 0 0 8px rgba(61,220,151,0) } }
 
+/* hero visual: methods -> checkout -> processors */
+.aqh .hv { position: relative; margin: 72px auto 0; display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: 0; align-items: center; text-align: left; }
+.aqh .hmid { position: relative; display: flex; justify-content: center; }
+.aqh .hcol { display: flex; flex-direction: column; gap: 16px; }
+.aqh .hlab { margin: 0 0 6px; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #9FB3D9; }
+.aqh .hr .hlab { text-align: right; }
+.aqh .hrow { display: flex; align-items: center; gap: 0; }
+.aqh .hchip { flex: none; display: flex; flex-direction: column; gap: 2px; min-width: 150px; box-sizing: border-box; padding: 12px 16px; border-radius: 16px; background: rgba(19,28,48,.8); border: 1px solid rgba(244,247,252,.12); box-shadow: inset 0 1px 0 rgba(255,255,255,.06); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); transition: transform .45s cubic-bezier(.16,1,.3,1), border-color .3s; }
+.aqh .hchip:hover { transform: translateY(-3px); border-color: rgba(110,155,255,.55); }
+.aqh .hchip strong { font-size: 15px; font-weight: 600; }
+.aqh .hchip span { font-size: 12.5px; color: #9AA7BD; }
+.aqh .hchip.dash { background: transparent; border-style: dashed; border-color: rgba(244,247,252,.28); box-shadow: none; }
+.aqh .htoast { position: absolute; left: 50%; bottom: -22px; transform: translateX(-50%); display: flex; align-items: center; gap: 12px; white-space: nowrap; padding: 12px 18px; border-radius: 18px; background: rgba(19,28,48,.94); border: 1px solid rgba(61,220,151,.35); box-shadow: 0 24px 50px -16px rgba(0,0,0,.8); }
+@media (max-width: 900px) {
+  .aqh .hv { grid-template-columns: minmax(0, 1fr); gap: 44px; }
+  .aqh .hmid { order: -1; }
+  .aqh .hcol { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 10px; }
+  .aqh .hlab, .aqh .hr .hlab { width: 100%; text-align: center; margin: 0; }
+  .aqh .hrow .track { display: none; }
+  .aqh .hchip { min-width: 0; }
+}
+
 /* marquee */
 .aqh .mq { display: flex; gap: 56px; width: max-content; animation: mq 32s linear infinite; }
 @keyframes mq { from { transform: translateX(0) } to { transform: translateX(-50%) } }
