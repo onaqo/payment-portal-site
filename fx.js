@@ -19,7 +19,7 @@
     d.querySelectorAll('#dc-root a[style*="border-radius: 999px"][style*="font-weight: 700"]:not(.fx-btn), #dc-root button[type="submit"]:not(.fx-btn)').forEach(function (b) { if (/rgb\((110, 155, 255|61, 220, 151|230, 194, 122)\)/.test(b.style.background || b.style.backgroundColor)) b.classList.add('fx-btn'); });
     d.querySelectorAll('#dc-root [data-reveal]:not(.fx-seen)').forEach(function (g) { g.classList.add('fx-seen'); if (g.children.length >= 3 && /grid/.test(getComputedStyle(g).display) && !g.classList.contains('in')) { g.classList.add('fx-stagger'); for (var i = 0; i < g.children.length; i++) g.children[i].style.setProperty('--i', Math.min(i, 8)); } });
     d.querySelectorAll('#dc-root section[data-screen-label="Hero"]:not(.hx):not(.fx-hero)').forEach(function (s) { s.classList.add('fx-hero'); });
-    d.querySelectorAll('#dc-root a[href^="https://demo.aqpay.services"]:not([target])').forEach(function (a) { a.target = '_blank'; a.rel = 'noopener'; });
+    d.querySelectorAll('#dc-root a[href^="https://portal.aqpay.services"]:not([target])').forEach(function (a) { a.target = '_blank'; a.rel = 'noopener'; });
   }
   try { if (!localStorage.getItem('tpp-cookie-consent')) { var ck = el('div', 'fx-ck'); ck.setAttribute('role', 'dialog'); ck.setAttribute('aria-label', 'Cookie preferences');
     ck.innerHTML = '<p>We use essential storage to run the site and, only with your consent, analytics to understand how it is used. Read the <a href="/cookies">Cookie Policy</a>.</p><div><button data-v="all">Accept all</button><button data-v="essential">Essential only</button></div>';

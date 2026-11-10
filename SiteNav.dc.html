@@ -16,6 +16,17 @@
 .tpp-login{align-items:center;gap:6px;padding:9px 16px!important;border-radius:999px;border:1px solid rgba(244,247,252,.2);background:rgba(244,247,252,.05);color:#F4F7FC!important;box-shadow:inset 0 1px 0 rgba(255,255,255,.1);transition:background .3s,border-color .3s,transform .4s cubic-bezier(.16,1,.3,1)}
 .tpp-login::after{content:"\2197";font-size:13px;opacity:.75}
 .tpp-login:hover{background:rgba(244,247,252,.12);border-color:rgba(244,247,252,.5);transform:translateY(-2px)}
+.tpp-signup{margin-left:8px;position:relative;overflow:hidden;align-items:center;gap:10px;padding:10px 12px 10px 20px;border-radius:999px;font-weight:700;font-size:15px;color:#060A14!important;text-decoration:none;background:linear-gradient(110deg,#6E9BFF,#3DDC97,#6E9BFF);background-size:220% 100%;animation:tppGrow 2.6s cubic-bezier(.45,0,.2,1) infinite,tppFlow 6s linear infinite;transition:transform .45s cubic-bezier(.34,1.56,.64,1)}
+.tpp-signup::before{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.6),transparent);transform:skewX(-20deg);animation:tppShine 3.2s ease-in-out infinite;pointer-events:none}
+.tpp-signup:hover{animation-play-state:paused,running;transform:scale(1.1);box-shadow:0 0 0 6px rgba(110,155,255,.22),0 26px 60px -10px rgba(61,220,151,.9)}
+.tpp-signup:active{transform:scale(.97)}
+.tpp-su-arr{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:#060A14;color:#F4F7FC;font-size:13px;transition:transform .45s cubic-bezier(.16,1,.3,1)}
+.tpp-signup:hover .tpp-su-arr{transform:translateX(3px)}
+@keyframes tppGrow{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(110,155,255,.6),0 10px 28px -10px rgba(110,155,255,.7)}50%{transform:scale(1.06);box-shadow:0 0 0 12px rgba(110,155,255,0),0 22px 50px -10px rgba(61,220,151,.8)}}
+@keyframes tppFlow{to{background-position:-220% 0}}
+@keyframes tppShine{0%,55%{left:-60%}100%{left:130%}}
+@media (max-width:1340px){.tpp-demo{display:none!important}}
+@media (prefers-reduced-motion:reduce){.tpp-signup,.tpp-signup::before{animation:none}}
 .tpp-mlink{transition:background .2s}.tpp-mlink:active{background:rgba(255,255,255,.06)}
 @keyframes tppFade{from{opacity:0}to{opacity:1}}
 @keyframes tppPanel{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
@@ -35,7 +46,8 @@
       </nav>
       <div style="display:flex;align-items:center;gap:10px;margin-left:auto">
         <a class="tpp-login" href="{{ loginHref }}" target="_blank" rel="noopener" style="display:{{ desktopDisplay }};color:#AEB9CC;font-weight:600;font-size:15px;padding:10px 14px;text-decoration:none" style-hover="color:#F4F7FC">Login</a>
-        <a href="/book-a-demo" style="display:{{ desktopDisplay }};background:#6E9BFF;color:#060A14;font-weight:700;font-size:15px;padding:11px 20px;border-radius:999px;transition:background .2s,transform .2s;text-decoration:none" style-hover="background:#3DDC97;transform:translateY(-1px)">Book a Demo</a>
+        <a class="tpp-demo" href="/book-a-demo" style="display:{{ desktopDisplay }};border:1px solid rgba(244,247,252,.2);background:rgba(244,247,252,.05);color:#F4F7FC;font-weight:600;font-size:15px;padding:9px 16px;border-radius:999px;transition:background .3s,border-color .3s;text-decoration:none" style-hover="background:rgba(244,247,252,.12)">Book a Demo</a>
+        <a class="tpp-signup" href="https://portal.aqpay.services/signup" target="_blank" rel="noopener" style="display:{{ desktopDisplay }}">Sign up<span class="tpp-su-arr" aria-hidden="true">→</span></a>
         <button onClick="{{ toggleMobile }}" aria-label="Open menu" aria-expanded="{{ mobileOpen }}" style="display:{{ mobileDisplay }};background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#F4F7FC;width:44px;height:44px;border-radius:12px;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer">
           <span style="width:18px;height:2px;background:currentColor;display:block"></span><span style="width:18px;height:2px;background:currentColor;display:block"></span>
         </button>
@@ -84,7 +96,8 @@
       </sc-for>
       <a class="tpp-mlink" href="/blog" style="display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.07);color:#F4F7FC;font-weight:600;font-size:19px;text-decoration:none">Blog<span style="color:#6E9BFF;font-size:18px">→</span></a>
       <div style="display:flex;flex-direction:column;gap:10px;margin-top:24px">
-        <a href="/book-a-demo" style="background:#6E9BFF;color:#060A14;font-weight:700;text-align:center;padding:15px;border-radius:999px;text-decoration:none">Book a Demo</a>
+        <a class="tpp-signup" href="https://portal.aqpay.services/signup" target="_blank" rel="noopener" style="display:flex;justify-content:center;padding:15px">Sign up<span class="tpp-su-arr" aria-hidden="true">→</span></a>
+        <a href="/book-a-demo" style="border:1px solid rgba(255,255,255,.18);color:#F4F7FC;font-weight:600;text-align:center;padding:15px;border-radius:999px;text-decoration:none">Book a Demo</a>
         <a href="{{ loginHref }}" target="_blank" rel="noopener" style="border:1px solid rgba(255,255,255,.18);color:#F4F7FC;font-weight:600;text-align:center;padding:15px;border-radius:999px;text-decoration:none">Login</a>
       </div>
     </div>
@@ -172,7 +185,7 @@ class Component extends DCLogic {
         ['Legal', 'Privacy, terms, cookies and acceptable use.', '/privacy', 'doc']] },
     ];
     const navs = defs.map(n => ({ ...n, isOpen: s.menu === n.key, color: s.menu === n.key || cur === n.key ? '#F4F7FC' : '#AEB9CC', bg: cur === n.key ? 'rgba(255,255,255,.06)' : 'transparent', open: () => set({ menu: n.key }), toggle: () => set({ menu: s.menu === n.key ? null : n.key }), mobileOpen: s.mobileGroup === n.key, mobileSign: s.mobileGroup === n.key ? '−' : '+', toggleMobile: () => set({ mobileGroup: s.mobileGroup === n.key ? null : n.key }), items: n.items.map(([t, d, href, g]) => ({ t, d, href, icon: this.icon(g), bg: href.split('#')[0] === (this.props.page || '') ? 'rgba(110,155,255,.07)' : 'transparent' })) }));
-    return { navs, activeMenu: navs.find(n => n.key === s.menu) || navs[0], menuOpen: !!s.menu && !isM, closeMenu: () => set({ menu: null }), mobileOpen: s.mobileOpen, toggleMobile: () => set({ mobileOpen: !s.mobileOpen, menu: null }), desktopDisplay: isM ? 'none' : 'flex', mobileDisplay: isM ? 'flex' : 'none', homeHref: home, loginHref: 'https://demo.aqpay.services/' };
+    return { navs, activeMenu: navs.find(n => n.key === s.menu) || navs[0], menuOpen: !!s.menu && !isM, closeMenu: () => set({ menu: null }), mobileOpen: s.mobileOpen, toggleMobile: () => set({ mobileOpen: !s.mobileOpen, menu: null }), desktopDisplay: isM ? 'none' : 'flex', mobileDisplay: isM ? 'flex' : 'none', homeHref: home, loginHref: 'https://portal.aqpay.services/' };
   }
 }
 </script>

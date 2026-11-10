@@ -21,7 +21,7 @@
         <p style="color:#AEB9CC;line-height:1.6;font-size:14.5px;margin:18px 0 24px">White-label gateway, orchestration and merchant services infrastructure for PSPs, platforms and merchants.</p>
         <div style="display:flex;flex-wrap:wrap;gap:10px">
           <a href="/book-a-demo" style="background:#6E9BFF;color:#060A14;font-weight:700;font-size:14px;padding:10px 18px;border-radius:999px;text-decoration:none;transition:background .2s" style-hover="background:#3DDC97;color:#060A14">Book a Demo</a>
-          <a href="https://demo.aqpay.services/" target="_blank" rel="noopener" style="border:1px solid rgba(255,255,255,.16);color:#F4F7FC;font-weight:600;font-size:14px;padding:9px 17px;border-radius:999px;text-decoration:none;transition:border-color .2s" style-hover="border-color:#6E9BFF;color:#F4F7FC">Portal login ↗</a>
+          <a href="https://portal.aqpay.services/" target="_blank" rel="noopener" style="border:1px solid rgba(255,255,255,.16);color:#F4F7FC;font-weight:600;font-size:14px;padding:9px 17px;border-radius:999px;text-decoration:none;transition:border-color .2s" style-hover="border-color:#6E9BFF;color:#F4F7FC">Portal login ↗</a>
         </div>
       </div>
 
@@ -60,7 +60,7 @@ class Component extends DCLogic {
       { h: 'Solutions', links: [['White-Label Gateway', '/white-label-gateway'], ['Merchant Services', '/merchant-services'], ['High-Risk Processing', '/high-risk-processing'], ['Payment Orchestration', '/payment-orchestration'], ['Payment Consulting', '/about#consulting'], ['Industries', '/industries']] },
       { h: 'Platform', links: [['Intelligent Routing', '/payment-orchestration#routing'], ['Gateway Connectivity', '/payment-orchestration#connectivity'], ['Risk & Fraud', home + '#risk'], ['Reconciliation', '/white-label-gateway#operations'], ['Branding Demo', home + '#brand-demo'], ['Security', home + '#security']] },
       { h: 'Developers', links: [['Overview', '/developers'], ['Quick Start', '/developers#quick-start'], ['API Reference', '/api-reference'], ['Webhooks', '/api-reference#webhooks'], ['Sandbox', '/developers#sandbox']] },
-      { h: 'Company', links: [['About', '/about'], ['Blog', '/blog'], ['Partner Program', '/partner-program'], ['Book a Demo', '/book-a-demo'], ['Contact', '/book-a-demo#contact'], ['Login', 'https://demo.aqpay.services/']] },
+      { h: 'Company', links: [['About', '/about'], ['Blog', '/blog'], ['Partner Program', '/partner-program'], ['Book a Demo', '/book-a-demo'], ['Contact', '/book-a-demo#contact'], ['Login', 'https://portal.aqpay.services/']] },
     ].map(c => ({ ...c, links: c.links.map(([t, href]) => ({ t, href, target: /^https?:/.test(href) ? '_blank' : '_self', rel: /^https?:/.test(href) ? 'noopener' : '' })) }));
     const legal = [['Privacy', '/privacy'], ['Terms', '/terms'], ['Cookies', '/cookies'], ['Acceptable use', '/acceptable-use']].map(([t, href]) => ({ t, href }));
     return {
