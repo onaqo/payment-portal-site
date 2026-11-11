@@ -21,9 +21,23 @@
     d.querySelectorAll('#dc-root section[data-screen-label="Hero"]:not(.hx):not(.fx-hero)').forEach(function (s) { s.classList.add('fx-hero'); });
     d.querySelectorAll('#dc-root a[href^="https://portal.aqpay.services"]:not([target])').forEach(function (a) { a.target = '_blank'; a.rel = 'noopener'; });
   }
+  // Google Tag Manager (container GTM-KDFQMVGQ) loads Google Analytics. It loads only after the visitor chooses
+  // "Accept all", and never for a browser that sends Do Not Track or Global Privacy Control.
+  var GTM_ID = 'GTM-KDFQMVGQ';
+  function optedOut() { return navigator.globalPrivacyControl === true || navigator.doNotTrack === '1' || window.doNotTrack === '1'; }
+  function loadGTM() { if (!GTM_ID || window.__gtm || optedOut()) return; window.__gtm = true; window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+    var s = d.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtm.js?id=' + GTM_ID; d.head.appendChild(s); }
+  function gtmEvent(name) { if (window.__gtm) window.dataLayer.push({ event: name, page_path: location.pathname }); }
+  try { if (localStorage.getItem('tpp-cookie-consent') === 'all') loadGTM(); } catch (x) {}
+  d.addEventListener('click', function (e) { var a = e.target.closest && e.target.closest('a[href]'); if (!a) return; var h = a.getAttribute('href') || '';
+    if (h.indexOf('https://portal.aqpay.services/signup') === 0) gtmEvent('sign_up_click');
+    else if (h.indexOf('https://portal.aqpay.services') === 0) gtmEvent('login_click');
+    else if (/book-a-demo/.test(h)) gtmEvent('book_demo_click'); }, true);
+  d.addEventListener('submit', function () { gtmEvent('demo_form_submit'); }, true);
   try { if (!localStorage.getItem('tpp-cookie-consent')) { var ck = el('div', 'fx-ck'); ck.setAttribute('role', 'dialog'); ck.setAttribute('aria-label', 'Cookie preferences');
-    ck.innerHTML = '<p>We count visits without cookies. If you accept, your browser also keeps an id so we recognise a return visit. Read the <a href="/cookies">Cookie Policy</a>.</p><div><button data-v="all">Accept all</button><button data-v="essential">Essential only</button></div>';
-    ck.addEventListener('click', function (e) { var v = e.target.getAttribute && e.target.getAttribute('data-v'); if (!v) return; try { localStorage.setItem('tpp-cookie-consent', v); } catch (x) {} ck.remove(); }); } } catch (x) {}
+    ck.innerHTML = '<p>We count visits without cookies. If you accept, your browser also keeps an id so we recognise a return visit, and Google Analytics loads. Read the <a href="/cookies">Cookie Policy</a>.</p><div><button data-v="all">Accept all</button><button data-v="essential">Essential only</button></div>';
+    ck.addEventListener('click', function (e) { var v = e.target.getAttribute && e.target.getAttribute('data-v'); if (!v) return; try { localStorage.setItem('tpp-cookie-consent', v); } catch (x) {} if (v === 'all') loadGTM(); ck.remove(); }); } } catch (x) {}
   var t; new MutationObserver(function () { clearTimeout(t); t = setTimeout(decorate, 120); }).observe(d.documentElement, { childList: true, subtree: true }); decorate();
   // The chat box (chat.js) shows itself only while the chat is switched on in the sales portal.
   var cs = d.createElement('script'); cs.src = '/chat.js'; cs.defer = true; d.head.appendChild(cs);
