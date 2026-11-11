@@ -21,6 +21,17 @@ your team via Resend and sends the visitor a confirmation. The same code runs on
 2. Create an API key (API Keys → Create, "Sending access").
 3. In Netlify or Vercel, add the environment variables from `.env.example`, then redeploy.
 
+### Leads in the sales portal (optional)
+Every enquiry can also be registered as a lead in the sales portal, with the source "Website", an owner, a task and
+a notification for that person. The form handler sends it from the server, so the key is never in a page.
+
+1. In the sales portal open **Settings → Website enquiries**, add this website and choose who receives enquiries.
+2. Copy the address and the key it shows (the key is shown once) into `SALES_ENQUIRY_URL` and `SALES_ENQUIRY_KEY`
+   in Vercel or Netlify, then redeploy.
+3. Send a test enquiry from the site: it appears under **Latest enquiries** in the portal.
+
+If the portal cannot be reached the form still works and the emails are still sent; the failure is in the function log.
+
 ## Blog
 Posts live in `content/blog/*.md` (JSON front matter + Markdown). Build:
 
