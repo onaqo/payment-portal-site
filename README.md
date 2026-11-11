@@ -32,6 +32,28 @@ a notification for that person. The form handler sends it from the server, so th
 
 If the portal cannot be reached the form still works and the emails are still sent; the failure is in the function log.
 
+## Visitor analytics
+
+Every page reports its views to the sales portal, where they appear under **Web Analytics**: visitors, pages,
+sources, countries, devices, who is on the site now, and which known leads visited.
+
+- `fx.js` loads `track.js` on every page. `track.js` posts to `/api/t` (`api/t.js` on Vercel,
+  `netlify/functions/t.mjs` on Netlify, both using `lib/track.mjs`), which passes the page view to the portal with
+  the same two variables as the forms: `SALES_ENQUIRY_URL` and `SALES_ENQUIRY_KEY`. Nothing else needs to be set, and
+  nothing is sent to anyone but your own portal. With the variables missing, nothing is recorded.
+- No cookie is set. A visitor's address never reaches the portal: `/api/t` sends a one-way hash of it. Only after
+  "Accept all" in the cookie banner does the browser keep a random id (`aq-vid`) so a return visit is recognised.
+  Browsers that send Do Not Track or Global Privacy Control are not counted.
+- Counting is switched on and off in the portal: **Settings → Website enquiries & chat → Edit** on this website.
+- A page can report something a visitor did with `window.aqTrack('name')` (lower-case letters, digits, `_`, `-`,
+  `:`). Sent forms, the "Book a demo" link, links to other sites, email and phone links and downloads are reported
+  already.
+- The forms and the chat send the same visitor reference with an enquiry, so the pages seen before it show on the
+  lead in the portal.
+- What is collected is described in `content/legal/cookies.md` and `content/legal/privacy.md`. Keep them in step with
+  `track.js`. After editing them run `node scripts/build-blog.mjs`, then put back the `?v=` stamps on the script and
+  style links of the rebuilt pages (the build writes them without).
+
 ## Chat (optional)
 A chat box at the bottom right of every page. An AI assistant in the sales portal answers visitors from text your
 team keeps there, and a visitor who leaves their details becomes a website lead with a summary of the conversation.

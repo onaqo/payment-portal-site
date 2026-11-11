@@ -1,5 +1,5 @@
 ---
-{ "title": "Privacy Policy", "slug": "privacy", "description": "How AQ Pay collects, uses, shares and protects personal data on aqpay.services, and the rights you have over your information.", "updated": "2026-11-10" }
+{ "title": "Privacy Policy", "slug": "privacy", "description": "How AQ Pay collects, uses, shares and protects personal data on aqpay.services, and the rights you have over your information.", "updated": "2026-11-12" }
 ---
 
 This Privacy Policy explains how AQ Pay ("AQ Pay", "we", "us") handles personal data when you visit **aqpay.services**, contact us, or request a demo. It does not cover data processed inside the AQ Pay platform on behalf of our customers — that processing is governed by the agreement between AQ Pay and each customer.
@@ -15,6 +15,7 @@ AQ Pay is the controller of the personal data described in this policy. You can 
 | Contact details | When you submit a demo, contact or partner form, or email us | Name, work email, company, website |
 | Business context | When you choose to tell us about your business | Business type, areas of interest, expected volume, markets, your message |
 | Technical data | When you browse the site | IP address, browser type, device type, pages requested (in server logs kept by our hosting provider) |
+| Usage data | When you browse the site | The pages you open, the website that linked to them, device and browser type, language, time on page, and the country and city your network appears to be in. Counted on our own systems without cookies; see the [Cookie Policy](/cookies) |
 | Preferences | When you answer the cookie banner | Your cookie choice, stored in your browser |
 
 We do not ask for, and you should not send us, payment card numbers, bank account details or government ID through this website.
@@ -23,6 +24,7 @@ We do not ask for, and you should not send us, payment card numbers, bank accoun
 
 - **To respond to you** — replying to enquiries, arranging and running demos, and sending the confirmation email after you submit a form. Legal basis: our legitimate interest in answering requests you make, and steps taken at your request before entering a contract.
 - **To run and protect the site** — security, debugging and preventing abuse. Legal basis: our legitimate interest in a secure, working website.
+- **To understand how the site is used** — counting visits and seeing which pages are read, so we can improve them. Legal basis: our legitimate interest in a useful website; the identifier that recognises a return visit is used only with your consent.
 - **To keep in touch about our services** — only where you have asked us to or the law allows it. You can opt out at any time.
 
 We do not sell personal data, and we do not use it for automated decisions that have legal or similarly significant effects on you.

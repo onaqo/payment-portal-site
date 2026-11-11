@@ -258,7 +258,7 @@
       if (!consent.checked) return bad('Please tick the box so we may contact you about this request.', consent);
       busy = true; go.disabled = true; go.textContent = 'Sending…';
       function done() { busy = false; go.disabled = false; go.textContent = 'Send my details'; }
-      post({ action: 'contact', sessionId: state.sessionId, name: name, email: email, company: fCompany.value.trim(), consent: true, hp: hp.value }).then(function (r) {
+      post({ action: 'contact', sessionId: state.sessionId, name: name, email: email, company: fCompany.value.trim(), consent: true, hp: hp.value, visitorId: window.aqVisitorId ? window.aqVisitorId() : undefined }).then(function (r) {
         done();
         if (!r.ok) { fErr.textContent = r.body.error || 'That did not go through. Please try again.'; fErr.hidden = false; return; }
         state.captured = true; state.form = false; add({ who: 'a', text: r.body.reply || 'Thank you. A colleague will get back to you by email.' }, true); input.focus();

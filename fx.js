@@ -22,9 +22,11 @@
     d.querySelectorAll('#dc-root a[href^="https://portal.aqpay.services"]:not([target])').forEach(function (a) { a.target = '_blank'; a.rel = 'noopener'; });
   }
   try { if (!localStorage.getItem('tpp-cookie-consent')) { var ck = el('div', 'fx-ck'); ck.setAttribute('role', 'dialog'); ck.setAttribute('aria-label', 'Cookie preferences');
-    ck.innerHTML = '<p>We use essential storage to run the site and, only with your consent, analytics to understand how it is used. Read the <a href="/cookies">Cookie Policy</a>.</p><div><button data-v="all">Accept all</button><button data-v="essential">Essential only</button></div>';
+    ck.innerHTML = '<p>We count visits without cookies. If you accept, your browser also keeps an id so we recognise a return visit. Read the <a href="/cookies">Cookie Policy</a>.</p><div><button data-v="all">Accept all</button><button data-v="essential">Essential only</button></div>';
     ck.addEventListener('click', function (e) { var v = e.target.getAttribute && e.target.getAttribute('data-v'); if (!v) return; try { localStorage.setItem('tpp-cookie-consent', v); } catch (x) {} ck.remove(); }); } } catch (x) {}
   var t; new MutationObserver(function () { clearTimeout(t); t = setTimeout(decorate, 120); }).observe(d.documentElement, { childList: true, subtree: true }); decorate();
   // The chat box (chat.js) shows itself only while the chat is switched on in the sales portal.
   var cs = d.createElement('script'); cs.src = '/chat.js'; cs.defer = true; d.head.appendChild(cs);
+  // Visitor analytics (track.js): counts page views through the site's own server. No cookie; see the Cookie Policy.
+  var ts = d.createElement('script'); ts.src = '/track.js'; ts.defer = true; d.head.appendChild(ts);
 })();
