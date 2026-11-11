@@ -70,6 +70,7 @@
     '.aqc-act{font:inherit;font-size:13px;font-weight:600;color:#F4F7FC;cursor:pointer;min-height:38px;padding:0 14px;border-radius:999px;border:1px solid rgba(244,247,252,.2);background:rgba(244,247,252,.04);display:inline-flex;align-items:center;gap:8px;transition:border-color .2s,background .2s,transform .2s}',
     '.aqc-act:hover{border-color:#6E9BFF;background:rgba(110,155,255,.12);transform:translateY(-1px)}.aqc-act:disabled{opacity:.55;cursor:default;transform:none}',
     '.aqc-act b{width:8px;height:8px;border-radius:50%;background:#3DDC97;animation:aqcBeat 2s ease-out infinite}',
+    '.aqc-away{font-size:13px;color:rgba(244,247,252,.7);min-height:38px;padding:0 12px;border-radius:999px;border:1px dashed rgba(244,247,252,.2);display:inline-flex;align-items:center;gap:8px}.aqc-away b{width:8px;height:8px;border-radius:50%;background:#E6C27A}',
     '.aqc-err{align-self:stretch;color:#FFB4A8;font-size:13px}',
     '.aqc-form{align-self:stretch;padding:14px;border-radius:16px;border:1px solid transparent;background:linear-gradient(#0E1730,#0E1730) padding-box,linear-gradient(135deg,rgba(110,155,255,.8),rgba(61,220,151,.45)) border-box;display:grid;gap:9px}',
     '.aqc-form p{margin:0;font-size:13px;color:rgba(244,247,252,.85)}',
@@ -127,6 +128,7 @@
     var acts = el('div', 'aqc-acts');
     var person = el('button', 'aqc-act'); person.type = 'button'; person.appendChild(el('b')); person.appendChild(d.createTextNode('Talk to a person'));
     var leave = el('button', 'aqc-act', 'Leave your details'); leave.type = 'button';
+    var away = el('span', 'aqc-away'); away.appendChild(el('b')); away.appendChild(d.createTextNode('Team away right now'));
 
     var foot = el('div', 'aqc-foot'); var row = el('form', 'aqc-row');
     var input = el('textarea'); input.rows = 1; input.maxLength = max; input.placeholder = 'Type your question'; input.setAttribute('aria-label', 'Your message');
@@ -141,7 +143,7 @@
     function bottom() { log.scrollTop = log.scrollHeight; }
     function header() {
       var s = state.status;
-      subText.textContent = s === 'LIVE' ? (state.agent ? state.agent + ' is here' : 'A colleague is here') : s === 'WAITING' ? 'Asking a colleague to join…' : 'AI assistant · answers in seconds';
+      subText.textContent = s === 'LIVE' ? (state.agent ? state.agent + ' is here' : 'A colleague is here') : s === 'WAITING' ? 'Asking a colleague to join…' : cfg.live && cfg.online ? 'AI assistant · team online' : 'AI assistant · answers in seconds';
       liveDot.className = 'aqc-live' + (s === 'WAITING' ? ' aqc-wait' : '');
       orbIn.textContent = s === 'LIVE' && state.agent ? state.agent.charAt(0).toUpperCase() : 'AQ';
       noteText.textContent = s === 'LIVE' ? 'You are talking to a member of our team. Messages are kept so we can follow up. See our ' : 'You are talking to an AI assistant, not a person. It can be wrong; a colleague confirms anything important. Messages are kept so our team can follow up. See our ';
@@ -162,7 +164,8 @@
       var showForm = state.form && !state.captured;
       acts.textContent = '';
       // A person stays one press away, also while the form is showing.
-      if (cfg.live && state.status === 'AI') acts.appendChild(person);
+      // "Talk to a person" while someone of the team is there; otherwise a note that they are away.
+      if (cfg.live && state.status === 'AI') acts.appendChild(cfg.online ? person : away);
       if (!state.captured && !showForm && state.status !== 'WAITING') acts.appendChild(leave);
       if (acts.childNodes.length) log.appendChild(acts);
       if (showForm) log.appendChild(form);
@@ -262,6 +265,16 @@
       }).catch(function () { done(); fErr.textContent = 'That did not go through. Please check your connection and try again.'; fErr.hidden = false; });
     });
 
+    /** Asks again whether someone of the team is there, so the button and the header say what is true now. */
+    function refresh() {
+      if (state.status !== 'AI') return;
+      fetch(API, { headers: { Accept: 'application/json' } }).then(json).then(function (r) {
+        if (!r.ok || !r.body.enabled) return;
+        var changed = cfg.online !== !!r.body.online || cfg.live !== !!r.body.live; cfg.online = !!r.body.online; cfg.live = !!r.body.live;
+        if (changed && state.open) { tail(); header(); }
+      }).catch(function () {});
+    }
+    setInterval(function () { if (state.open && !d.hidden) refresh(); }, 30000);
     var tease = null;
     function untease() { if (tease) { tease.remove(); tease = null; } }
     function setOpen(on, focus) {
@@ -271,7 +284,7 @@
         unread = 0; badge.hidden = true; panel.hidden = false; render();
         // Two frames later, so the panel grows out of the button instead of appearing at full size.
         requestAnimationFrame(function () { requestAnimationFrame(function () { panel.classList.add('aqc-in'); }); });
-        if (focus) (state.form && !state.captured ? fName : input).focus();
+        if (focus) { (state.form && !state.captured ? fName : input).focus(); refresh(); }
       } else {
         panel.classList.remove('aqc-in'); closing = setTimeout(function () { panel.hidden = true; }, calm ? 0 : 240);
         if (focus) btn.focus();
@@ -287,7 +300,7 @@
     if (!state.teased && !state.open) setTimeout(function () {
       if (state.open || state.teased || d.querySelector('.fx-ck')) return;
       state.teased = true; save(); btn.classList.add('aqc-quiet');
-      tease = el('button', 'aqc-tease'); tease.type = 'button'; tease.appendChild(el('b', '', 'Questions about payments?')); tease.appendChild(el('span', '', cfg.live ? 'Ask our assistant, or talk to a person.' : 'Ask our assistant. It answers in seconds.'));
+      tease = el('button', 'aqc-tease'); tease.type = 'button'; tease.appendChild(el('b', '', 'Questions about payments?')); tease.appendChild(el('span', '', cfg.live && cfg.online ? 'Ask our assistant, or talk to a person.' : 'Ask our assistant. It answers in seconds.'));
       tease.addEventListener('click', function () { setOpen(true, true); }); d.body.appendChild(tease);
       setTimeout(untease, 12000);
     }, 6000);
