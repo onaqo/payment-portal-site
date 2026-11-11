@@ -47,7 +47,11 @@ for (const f of fs.readdirSync(DIR).filter(f => f.endsWith('.md'))) {
   const internal = links.filter(l => PAGES.has(l) || (l.startsWith('/blog/') && slugs.has(l.slice(6))));
   const broken = links.filter(l => !(PAGES.has(l) || (l.startsWith('/blog/') && slugs.has(l.slice(6)))));
   if (broken.length) errs.push(`broken internal links: ${broken.join(', ')}`);
-  if (new Set(internal).size < 3) errs.push(`only ${new Set(internal).size} distinct internal links (min 3)`);
+  if (new Set(internal).size < 4) errs.push(`only ${new Set(internal).size} distinct internal links (min 4)`);
+  const SERVICE = ['/white-label-gateway', '/payment-orchestration', '/merchant-services', '/high-risk-processing', '/industries', '/developers', '/api-reference', '/partner-program'];
+  if (!links.some(l => SERVICE.includes(l))) errs.push('link to at least one service page');
+  const generic = [...body.matchAll(/\[([^\]]+)\]\(\/[^)]*\)/g)].map(x => x[1].trim().toLowerCase()).filter(a => /^(click here|read more|here|this page|learn more|link)$/.test(a));
+  if (generic.length) errs.push(`generic anchor text on internal links: ${[...new Set(generic)].join(', ')}`);
   if (!links.some(l => l.startsWith('/blog/')) && slugs.size > 1) errs.push('link to at least one other blog post');
   if (!links.includes('/book-a-demo')) warns.push('no link to /book-a-demo');
   const ext = [...body.matchAll(/\]\((https?:\/\/[^)\s]+)\)/g)].map(x => x[1]);

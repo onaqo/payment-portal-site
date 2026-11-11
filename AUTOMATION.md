@@ -1,7 +1,7 @@
 # AQ Pay blog autopilot — playbook
 
 This file is the complete instruction set for the scheduled run that publishes one blog post
-**every Monday, Wednesday and Friday**. Follow it top to bottom. Never skip the quality gate.
+**every day**. Follow it top to bottom. Never skip the quality gate.
 
 ## 0. Setup (every run)
 
@@ -65,13 +65,23 @@ Body rules (Markdown; inline HTML allowed):
   and a `<figcaption>`. Use the brand palette only: background `#0F1729`, blue `#6E9BFF`, green `#3DDC97`,
   gold `#E6C27A`, text `#F4F7FC` / `#AEB9CC`, font `Inter, sans-serif`, `viewBox` width 760.
   **No blank lines inside the `<figure>`.** Look at the existing posts for the style.
-- **Internal links (min 3):** the topic's `linkTo` service page, at least one other published blog post,
-  and `/book-a-demo`. Only link to pages that exist (see `scripts/check-posts.mjs` for the list).
+- **Internal links (min 4 distinct):** every post must send readers and search engines back to the money pages.
+  - The topic's `linkTo` service page, linked in the first 300 words, with anchor text that is that page's
+    target keyword or a close natural variation (for example "white-label payment gateway",
+    "payment orchestration platform", "high-risk merchant account", "merchant services").
+  - A second, different service or product page where it genuinely helps the reader
+    (`/white-label-gateway`, `/payment-orchestration`, `/merchant-services`, `/high-risk-processing`,
+    `/industries`, `/developers`, `/api-reference`, `/partner-program`).
+  - At least one other published blog post, and `/book-a-demo`.
+  - Anchor text must describe the destination. Never use "click here", "read more", "this page" or a bare URL,
+    and never repeat the exact same anchor text for the same page more than twice in one post.
+  - Only link to pages that exist (see `scripts/check-posts.mjs` for the list).
 - **External links (1–3):** the authoritative sources from your research.
 - Honesty rules: AQ Pay is a technology provider that does not hold client funds by default; acquirers decide
   approvals; never promise approval, rankings, approval-rate uplifts or savings; don't name or disparage competitors;
   no legal or financial advice — say "check with your acquirer / adviser / regulator" where appropriate.
-- End with a short practical "next step" paragraph pointing to the relevant service page or `/book-a-demo`.
+- End with a short practical "next step" paragraph pointing to the relevant service page and `/book-a-demo`.
+- Do not repeat a topic or angle already covered by a published post; one post per day means each must add something new.
 
 ## 4. Build, check, fix
 
