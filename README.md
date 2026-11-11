@@ -32,6 +32,21 @@ a notification for that person. The form handler sends it from the server, so th
 
 If the portal cannot be reached the form still works and the emails are still sent; the failure is in the function log.
 
+## Chat (optional)
+A chat box at the bottom right of every page. An AI assistant in the sales portal answers visitors from text your
+team keeps there, and a visitor who leaves their details becomes a website lead with a summary of the conversation.
+
+- It needs nothing new here: it uses `SALES_ENQUIRY_URL` and `SALES_ENQUIRY_KEY` from the section above.
+- It is switched on and off in the portal: **Settings → Website enquiries & chat → Chat** on this website. While it
+  is off, or the two variables are missing, no chat box is shown. A change shows on the site within a minute.
+- `fx.js` loads `chat.js` on every page. `chat.js` asks `/api/chat` whether the chat is on and, if so, draws the box.
+  `/api/chat` (`api/chat.js` on Vercel, `netlify/functions/chat.mjs` on Netlify, both using `lib/chat.mjs`) passes
+  each message to the portal with the key, so the key never reaches a page.
+- Everything the visitor or the assistant writes is put on the page as plain text. The conversation is kept in the
+  browser tab (session storage) so it follows the visitor from page to page, and in the portal for the sales team.
+- The note under the chat tells visitors they are talking to an AI assistant and that messages are kept, and links
+  to `/privacy`. Check that the privacy policy covers this before switching the chat on.
+
 ## Blog
 Posts live in `content/blog/*.md` (JSON front matter + Markdown). Build:
 

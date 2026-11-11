@@ -25,4 +25,6 @@
     ck.innerHTML = '<p>We use essential storage to run the site and, only with your consent, analytics to understand how it is used. Read the <a href="/cookies">Cookie Policy</a>.</p><div><button data-v="all">Accept all</button><button data-v="essential">Essential only</button></div>';
     ck.addEventListener('click', function (e) { var v = e.target.getAttribute && e.target.getAttribute('data-v'); if (!v) return; try { localStorage.setItem('tpp-cookie-consent', v); } catch (x) {} ck.remove(); }); } } catch (x) {}
   var t; new MutationObserver(function () { clearTimeout(t); t = setTimeout(decorate, 120); }).observe(d.documentElement, { childList: true, subtree: true }); decorate();
+  // The chat box (chat.js) shows itself only while the chat is switched on in the sales portal.
+  var cs = d.createElement('script'); cs.src = '/chat.js'; cs.defer = true; d.head.appendChild(cs);
 })();
