@@ -11,9 +11,10 @@
 <url><loc>https://aqpay.services/partner-program</loc><priority>0.8</priority></url>
 <url><loc>https://aqpay.services/about</loc><priority>0.8</priority></url>
 <url><loc>https://aqpay.services/book-a-demo</loc><priority>0.8</priority></url>
-<url><loc>https://aqpay.services/blog</loc><lastmod>2026-11-05</lastmod><priority>0.8</priority></url>
-<url><loc>https://aqpay.services/blog/category/explainers</loc><lastmod>2026-11-05</lastmod><priority>0.5</priority></url>
+<url><loc>https://aqpay.services/blog</loc><lastmod>2026-11-11</lastmod><priority>0.8</priority></url>
+<url><loc>https://aqpay.services/blog/category/explainers</loc><lastmod>2026-11-11</lastmod><priority>0.5</priority></url>
 <url><loc>https://aqpay.services/blog/category/guides</loc><lastmod>2026-11-05</lastmod><priority>0.5</priority></url>
+<url><loc>https://aqpay.services/blog/payment-facilitator-vs-iso</loc><lastmod>2026-11-11</lastmod><priority>0.7</priority><image:image><image:loc>https://aqpay.services/blog/covers/payment-facilitator-vs-iso.jpg</image:loc></image:image></url>
 <url><loc>https://aqpay.services/blog/high-risk-merchant-account-underwriting</loc><lastmod>2026-11-05</lastmod><priority>0.7</priority><image:image><image:loc>https://aqpay.services/blog/covers/high-risk-merchant-account-underwriting.jpg</image:loc></image:image></url>
 <url><loc>https://aqpay.services/blog/what-is-payment-orchestration</loc><lastmod>2026-11-05</lastmod><priority>0.7</priority><image:image><image:loc>https://aqpay.services/blog/covers/what-is-payment-orchestration.jpg</image:loc></image:image></url>
 <url><loc>https://aqpay.services/blog/white-label-payment-gateway-vs-building-your-own</loc><lastmod>2026-11-05</lastmod><priority>0.7</priority><image:image><image:loc>https://aqpay.services/blog/covers/white-label-payment-gateway-vs-building-your-own.jpg</image:loc></image:image></url>
