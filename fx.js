@@ -32,6 +32,7 @@
   try { if (localStorage.getItem('tpp-cookie-consent') === 'all') loadGTM(); } catch (x) {}
   d.addEventListener('click', function (e) { var a = e.target.closest && e.target.closest('a[href]'); if (!a) return; var h = a.getAttribute('href') || '';
     if (h.indexOf('https://portal.aqpay.services/signup') === 0) gtmEvent('sign_up_click');
+    else if (h.indexOf('https://portal.aqpay.services/login') === 0) gtmEvent('live_demo_click');
     else if (h.indexOf('https://portal.aqpay.services') === 0) gtmEvent('login_click');
     else if (/book-a-demo/.test(h)) gtmEvent('book_demo_click'); }, true);
   d.addEventListener('submit', function () { gtmEvent('demo_form_submit'); }, true);
