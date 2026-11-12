@@ -13,6 +13,7 @@ AQ Pay is the controller of the personal data described in this policy. You can 
 | Data | When we collect it | Examples |
 | --- | --- | --- |
 | Contact details | When you submit a demo, contact or partner form, or email us | Name, work email, company, website |
+| Merchant account applications | When you submit the application form | Your business and registration details, licence, the account you need, processing volumes and history, and your contact details, including WhatsApp and Telegram if you give them |
 | Chat messages | When you use the chat box on the site | What you write, the replies, and any contact details you choose to leave. An AI assistant answers first and says so; a member of our team may take over |
 | Business context | When you choose to tell us about your business | Business type, areas of interest, expected volume, markets, your message |
 | Technical data | When you browse the site | IP address, browser type, device type, pages requested (in server logs kept by our hosting provider) |
@@ -24,6 +25,7 @@ We do not ask for, and you should not send us, payment card numbers, bank accoun
 ## 3. How we use it and why
 
 - **To respond to you** — replying to enquiries and chat messages, arranging and running demos, recording your enquiry in our sales system so the right person can follow up, and sending the confirmation email after you submit a form. Legal basis: our legitimate interest in answering requests you make, and steps taken at your request before entering a contract.
+- **To handle a merchant account application** — assessing the application, contacting you about it, and passing your application details to the acquiring banks and payment processors that could provide the account. Legal basis: steps taken at your request before entering a contract.
 - **To run and protect the site** — security, debugging and preventing abuse. Legal basis: our legitimate interest in a secure, working website.
 - **To understand how the site is used** — counting visits and seeing which pages are read, so we can improve them. Legal basis: our legitimate interest in a useful website; the identifier that recognises a return visit, and Google Analytics, are used only with your consent.
 - **To keep in touch about our services** — only as described under "Marketing messages" below. Legal basis: your consent, or our legitimate interest where the law allows it.
@@ -41,7 +43,9 @@ We share personal data only with the service providers that help us run this web
 | Google (Tag Manager and Analytics) | Website analytics, **only if you choose "Accept all"** | The pages you view, actions you take on the site, and technical information such as your IP address |
 | Google Fonts and the unpkg content delivery network | Deliver fonts and scripts the pages need | Your IP address and browser type, as part of the request |
 
-Enquiries, chat conversations and visit counts are stored in AQ Pay's own sales system, which we operate ourselves.
+If you apply for a merchant account, we share your application with acquiring banks and payment processors only to arrange the account you applied for.
+
+Enquiries, applications, chat conversations and visit counts are stored in AQ Pay's own sales system, which we operate ourselves.
 
 We do not sell personal data, and we do not share it with anyone else for their own marketing. We may disclose data where the law requires it, or to protect our rights, users or the public. If AQ Pay is ever merged with or acquired by another business, personal data may pass to the new owner under the terms of this policy.
 
@@ -53,7 +57,7 @@ Our providers may process data in countries other than your own. Where the law r
 
 We keep personal data only for as long as we need it for the purpose it was collected for:
 
-- **Enquiries, demo requests and chat conversations** — while we are handling your request and for as long as we have an ongoing business relationship with you, then for a limited period for our records.
+- **Enquiries, demo requests, merchant account applications and chat conversations** — while we are handling your request and for as long as we have an ongoing business relationship with you, then for a limited period for our records.
 - **Visit counts** — as described in the [Cookie Policy](/cookies). The daily code that separates one visitor from another cannot be linked to you on a later day.
 - **Server logs** — for the short period our hosting provider keeps them for security and troubleshooting.
 - **Marketing preferences** — until you opt out, after which we keep only what is needed to make sure we do not contact you again.

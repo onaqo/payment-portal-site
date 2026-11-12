@@ -16,7 +16,7 @@ const OUT = path.join(ROOT, 'blog');
 const TODAY = new Date().toISOString().slice(0, 10);
 
 const STATIC_PAGES = ['/', '/white-label-gateway', '/payment-orchestration', '/merchant-services', '/high-risk-processing',
-  '/industries', '/developers', '/api-reference', '/partner-program', '/about', '/book-a-demo'];
+  '/industries', '/developers', '/api-reference', '/partner-program', '/about', '/book-a-demo', '/apply'];
 
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const slugify = s => String(s).toLowerCase().normalize('NFKD').replace(/[^\w\s-]/g, '').trim().replace(/[\s_]+/g, '-').replace(/-+/g, '-');
