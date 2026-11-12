@@ -91,8 +91,23 @@ body { margin: 0; background: #060A14; }
 .aqh .hchip.on-p::after { border: 1.5px solid #3DDC97; box-shadow: 0 0 28px rgba(61,220,151,.6); animation: chipP 9s 2.6s infinite backwards; }
 @keyframes chipM { 0%,6% { opacity: 0 } 10%,26% { opacity: 1 } 34%,100% { opacity: 0 } }
 @keyframes chipP { 0%,50% { opacity: 0 } 54%,90% { opacity: 1 } 96%,100% { opacity: 0 } }
-.aqh .hst { position: absolute; right: 10px; top: -11px; padding: 3px 9px; border-radius: 999px; background: #3DDC97; color: #060A14; font-style: normal; font-size: 10.5px; font-weight: 700; letter-spacing: .04em; opacity: 0; animation: hstIn 9s cubic-bezier(.34,1.56,.64,1) 2.6s infinite backwards; }
+.aqh .hst { position: absolute; z-index: 2; right: 10px; top: -11px; padding: 3px 9px; border-radius: 999px; background: #3DDC97; color: #060A14; font-style: normal; font-size: 10.5px; font-weight: 700; letter-spacing: .04em; opacity: 0; animation: hstIn 9s cubic-bezier(.34,1.56,.64,1) 2.6s infinite backwards; }
 @keyframes hstIn { 0%,52% { opacity: 0; transform: translateY(6px) scale(.7) } 57%,90% { opacity: 1; transform: none } 96%,100% { opacity: 0; transform: none } }
+/* phone layout: one compact route strip replaces the eight tags */
+.aqh .hmob { display: none; }
+.aqh .mroute { display: flex; align-items: center; justify-content: center; gap: 10px; }
+.aqh .mpill { position: relative; flex: none; display: inline-flex; align-items: center; gap: 9px; padding: 7px 16px 7px 7px; border-radius: 999px; background: rgba(19,28,48,.85); border: 1px solid rgba(244,247,252,.14); font-size: 15px; font-weight: 600; }
+.aqh .mpill .hic { width: 30px; height: 30px; border-radius: 50%; }
+.aqh .mpill.mp .hic { background: rgba(61,220,151,.13); color: #6BE5B0; }
+.aqh .mpill::after { content: ""; position: absolute; inset: -1px; border-radius: inherit; pointer-events: none; opacity: 0; }
+.aqh .mpill.on-m::after { border: 1.5px solid #6E9BFF; box-shadow: 0 0 24px rgba(110,155,255,.65); animation: chipM 9s 2.6s infinite backwards; }
+.aqh .mpill.on-p::after { border: 1.5px solid #3DDC97; box-shadow: 0 0 24px rgba(61,220,151,.6); animation: chipP 9s 2.6s infinite backwards; }
+.aqh .mline { position: relative; flex: 1; max-width: 84px; height: 2px; border-radius: 2px; background: rgba(244,247,252,.16); }
+.aqh .mline i { position: absolute; top: -3px; left: 0; width: 8px; height: 8px; border-radius: 50%; background: #3DDC97; box-shadow: 0 0 12px #3DDC97; opacity: 0; animation: mDot 9s cubic-bezier(.65,0,.35,1) 2.6s infinite backwards; }
+@keyframes mDot { 0%,26% { left: 0; opacity: 0 } 29% { opacity: 1 } 50% { left: calc(100% - 8px); opacity: 1 } 54%,100% { left: calc(100% - 8px); opacity: 0 } }
+.aqh .mlist { margin: 18px 0 0; text-align: center; font-size: 14px; line-height: 1.5; color: #B6C0D4; }
+.aqh .mlist .mono { display: block; margin-bottom: 4px; font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: #9FB3D9; }
+
 /* curved wires between the chips and the checkout; geometry is set by script */
 .aqh .hwires { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
 .aqh .hwires path { fill: none; stroke-linecap: round; }
@@ -117,7 +132,9 @@ body { margin: 0; background: #060A14; }
   .aqh .hmid { order: -1; }
   .aqh .hcol { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 10px; }
   .aqh .hlab, .aqh .hr .hlab { width: 100%; text-align: center; margin: 0; }
-  .aqh .hwires { display: none; }
+  .aqh .hwires, .aqh .hcol { display: none; }
+  .aqh .hmob { display: block; }
+  .aqh .hv { gap: 34px; }
   .aqh .hl .hrow:nth-of-type(n), .aqh .hr .hrow:nth-of-type(n) { padding: 0; }
   .aqh .hchip { min-width: 0; }
 }
