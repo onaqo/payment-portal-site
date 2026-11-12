@@ -9,7 +9,7 @@ import { fileURLToPath } from 'node:url';
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const DIR = path.join(ROOT, 'content/blog');
 const only = process.argv[2];
-const PAGES = new Set(['/', '/white-label-gateway', '/payment-orchestration', '/merchant-services', '/high-risk-processing', '/industries', '/developers', '/api-reference', '/partner-program', '/about', '/book-a-demo', '/blog', '/privacy', '/terms', '/cookies', '/acceptable-use']);
+const PAGES = new Set(['/', '/white-label-gateway', '/payment-orchestration', '/merchant-services', '/high-risk-processing', '/industries', '/developers', '/api-reference', '/partner-program', '/about', '/book-a-demo', '/blog', '/privacy', '/terms', '/cookies', '/acceptable-use', '/licences']);
 const slugs = new Set(fs.readdirSync(DIR).filter(f => f.endsWith('.md')).map(f => f.replace(/\.md$/, '')));
 const BANNED = [/we guarantee (approval|acceptance)/i, /100% approval/i, /\bbest in the world\b/i, /#1 /, /lorem ipsum/i, /\[citation needed\]/i, /as an ai\b/i, /\bTODO\b/];
 let failed = 0;

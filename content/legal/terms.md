@@ -1,5 +1,5 @@
 ---
-{ "title": "Terms of Use", "slug": "terms", "description": "The terms that apply when you use the AQ Pay website at aqpay.services, including acceptable use, intellectual property and liability.", "updated": "2026-11-10" }
+{ "title": "Terms of Use", "slug": "terms", "description": "The terms that apply when you use the AQ Pay website at aqpay.services, including acceptable use, intellectual property and liability.", "updated": "2026-11-12" }
 ---
 
 These Terms of Use govern your use of the website at **aqpay.services** (the "Site"). By using the Site you agree to them. They do not govern use of the AQ Pay platform or services — those are covered by the written agreement between AQ Pay and each customer or partner.
@@ -13,6 +13,8 @@ The Site provides information about AQ Pay's payment technology and related serv
 Content on the Site, including the blog, is general information. It is not legal, financial, tax or regulatory advice, and it is not an offer or a commitment to provide any service. Product descriptions explain how the platform is designed to work; the features available to you are those set out in your agreement.
 
 Services are subject to industry eligibility, geographic restrictions, underwriting and the approval of acquiring and other partners. Nothing on the Site guarantees approval, processing volumes, approval rates, pricing or any other outcome.
+
+No payments are taken through the Site. Any fees for AQ Pay services, and how a subscription is billed, renewed and cancelled, are set out in your service agreement or in the terms shown in the customer portal when you sign up.
 
 ## 3. Illustrative material
 

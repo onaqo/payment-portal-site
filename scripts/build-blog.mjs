@@ -126,7 +126,7 @@ const footer = () => `
     <nav aria-label="Company"><h3>Company</h3><ul><li><a href="/about">About</a></li><li><a href="/blog">Blog</a></li><li><a href="/partner-program">Partner Program</a></li><li><a href="/book-a-demo">Book a Demo</a></li><li><a href="/book-a-demo#contact">Contact</a></li><li><a href="mailto:hello@aqpay.services">hello@aqpay.services</a></li></ul></nav>
   </div>
   <div class="ftr-base"><span>Services are subject to industry eligibility, geographic restrictions, underwriting and partner approval. ${BRAND} is a technology provider and does not hold or move client funds unless expressly stated in a service agreement.</span>
-    <div class="row"><span>© ${TODAY.slice(0, 4)} ${BRAND}. All rights reserved.</span><span style="display:flex;gap:18px"><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/cookies">Cookies</a><a href="/acceptable-use">Acceptable use</a></span></div></div>
+    <div class="row"><span>© ${TODAY.slice(0, 4)} ${BRAND}. All rights reserved.</span><span style="display:flex;gap:18px"><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/cookies">Cookies</a><a href="/licences">Licences</a><a href="/acceptable-use">Acceptable use</a></span></div></div>
 </div></footer>
 </body>
 </html>
@@ -230,7 +230,7 @@ if (fs.existsSync(LEGAL_DIR)) for (const f of fs.readdirSync(LEGAL_DIR).filter(f
 </div></div>
 <div class="article"><div class="wrap"><div class="layout">
   <div class="prose">${r.html}</div>
-  <aside class="toc" aria-label="On this page"><span class="mono" style="color:var(--faint)">Legal</span><ol>${[['privacy', 'Privacy Policy'], ['terms', 'Terms of Use'], ['cookies', 'Cookie Policy'], ['acceptable-use', 'Acceptable Use Policy']].map(([s, n]) => `<li><a href="/${s}"${s === fm.slug ? ' style="color:var(--fg);font-weight:600"' : ''}>${n}</a></li>`).join('')}</ol><span class="mono" style="color:var(--faint);display:block;margin-top:18px">On this page</span><ol>${r.toc.map(x => `<li><a href="#${x.id}">${esc(x.text)}</a></li>`).join('')}</ol></aside>
+  <aside class="toc" aria-label="On this page"><span class="mono" style="color:var(--faint)">Legal</span><ol>${[['privacy', 'Privacy Policy'], ['terms', 'Terms of Use'], ['cookies', 'Cookie Policy'], ['acceptable-use', 'Acceptable Use Policy'], ['licences', 'Open-Source Licences']].map(([s, n]) => `<li><a href="/${s}"${s === fm.slug ? ' style="color:var(--fg);font-weight:600"' : ''}>${n}</a></li>`).join('')}</ol><span class="mono" style="color:var(--faint);display:block;margin-top:18px">On this page</span><ol>${r.toc.map(x => `<li><a href="#${x.id}">${esc(x.text)}</a></li>`).join('')}</ol></aside>
 </div></div></div>
 </main>` + footer());
 }
