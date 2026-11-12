@@ -76,11 +76,40 @@ body { margin: 0; background: #060A14; }
 .aqh .hcol { display: flex; flex-direction: column; gap: 16px; }
 .aqh .hlab { margin: 0 0 6px; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #9FB3D9; }
 .aqh .hr .hlab { text-align: right; }
-.aqh .hrow { display: flex; align-items: center; gap: 0; }
-.aqh .hchip { flex: none; display: flex; flex-direction: column; gap: 2px; min-width: 150px; box-sizing: border-box; padding: 12px 16px; border-radius: 16px; background: rgba(19,28,48,.8); border: 1px solid rgba(244,247,252,.12); box-shadow: inset 0 1px 0 rgba(255,255,255,.06); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); transition: transform .45s cubic-bezier(.16,1,.3,1), border-color .3s; }
+.aqh .hrow { display: flex; align-items: center; }
+.aqh .hr .hrow { justify-content: flex-end; }
+.aqh .hl .hrow:nth-of-type(1), .aqh .hl .hrow:nth-of-type(4) { padding-left: 72px; }
+.aqh .hr .hrow:nth-of-type(1), .aqh .hr .hrow:nth-of-type(4) { padding-right: 72px; }
+.aqh .hcol { gap: 22px; }
+.aqh .hchip { position: relative; flex: none; display: flex; align-items: center; gap: 12px; min-width: 176px; box-sizing: border-box; padding: 11px 16px 11px 11px; border-radius: 18px; background: rgba(19,28,48,.82); border: 1px solid rgba(244,247,252,.12); box-shadow: inset 0 1px 0 rgba(255,255,255,.06), 0 18px 40px -22px rgba(0,0,0,.9); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); transition: transform .45s cubic-bezier(.16,1,.3,1), border-color .3s; }
+.aqh .hic { flex: none; width: 36px; height: 36px; border-radius: 11px; display: inline-flex; align-items: center; justify-content: center; background: rgba(110,155,255,.14); color: #9DBBFF; font-style: normal; }
+.aqh .hr .hic { background: rgba(61,220,151,.13); color: #6BE5B0; }
+.aqh .hmo { font-weight: 700; font-size: 15px; }
+.aqh .htx { display: flex; flex-direction: column; gap: 2px; }
+.aqh .hchip::after { content: ""; position: absolute; inset: -1px; border-radius: inherit; pointer-events: none; opacity: 0; }
+.aqh .hchip.on-m::after { border: 1.5px solid #6E9BFF; box-shadow: 0 0 28px rgba(110,155,255,.65); animation: chipM 9s 2.6s infinite backwards; }
+.aqh .hchip.on-p::after { border: 1.5px solid #3DDC97; box-shadow: 0 0 28px rgba(61,220,151,.6); animation: chipP 9s 2.6s infinite backwards; }
+@keyframes chipM { 0%,6% { opacity: 0 } 10%,26% { opacity: 1 } 34%,100% { opacity: 0 } }
+@keyframes chipP { 0%,50% { opacity: 0 } 54%,90% { opacity: 1 } 96%,100% { opacity: 0 } }
+.aqh .hst { position: absolute; right: 10px; top: -11px; padding: 3px 9px; border-radius: 999px; background: #3DDC97; color: #060A14; font-style: normal; font-size: 10.5px; font-weight: 700; letter-spacing: .04em; opacity: 0; animation: hstIn 9s cubic-bezier(.34,1.56,.64,1) 2.6s infinite backwards; }
+@keyframes hstIn { 0%,52% { opacity: 0; transform: translateY(6px) scale(.7) } 57%,90% { opacity: 1; transform: none } 96%,100% { opacity: 0; transform: none } }
+/* curved wires between the chips and the checkout; geometry is set by script */
+.aqh .hwires { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; pointer-events: none; }
+.aqh .hwires path { fill: none; stroke-linecap: round; }
+.aqh .wire { stroke: rgba(244,247,252,.16); stroke-width: 1.5; stroke-dasharray: var(--len, 0); stroke-dashoffset: var(--len, 0); animation: wDraw 1.1s cubic-bezier(.65,0,.35,1) forwards; animation-delay: calc(1.75s + var(--i) * .1s); }
+@keyframes wDraw { to { stroke-dashoffset: 0 } }
+.aqh .wflow { stroke-width: 3; stroke-dasharray: 34 4000; stroke-dashoffset: 34; opacity: 0; }
+.aqh .wflow.wl { stroke: #6E9BFF; filter: drop-shadow(0 0 8px rgba(110,155,255,.95)); }
+.aqh .wflow.wr { stroke: #3DDC97; filter: drop-shadow(0 0 8px rgba(61,220,151,.95)); }
+.aqh .wflow.am { animation: wM 9s linear 2.6s infinite backwards; }
+.aqh .wflow.ap { animation: wP 9s linear 2.6s infinite backwards; }
+.aqh .wflow.amb { stroke-width: 2; animation: wAmb 9s linear infinite backwards; animation-delay: calc(2.6s + var(--d)); }
+@keyframes wM { 0%,7% { opacity: 0; stroke-dashoffset: 34 } 9% { opacity: 1 } 21% { opacity: 1 } 23%,100% { opacity: 0; stroke-dashoffset: calc(var(--len, 400) * -1) } }
+@keyframes wP { 0%,38% { opacity: 0; stroke-dashoffset: 34 } 40% { opacity: 1 } 52% { opacity: 1 } 54%,100% { opacity: 0; stroke-dashoffset: calc(var(--len, 400) * -1) } }
+@keyframes wAmb { 0% { opacity: 0; stroke-dashoffset: 34 } 3% { opacity: .32 } 20% { opacity: .32 } 24%,100% { opacity: 0; stroke-dashoffset: calc(var(--len, 400) * -1) } }
 .aqh .hchip:hover { transform: translateY(-3px); border-color: rgba(110,155,255,.55); }
 .aqh .hchip strong { font-size: 15px; font-weight: 600; }
-.aqh .hchip span { font-size: 12.5px; color: #9AA7BD; }
+.aqh .hchip .htx span { font-size: 12.5px; color: #9AA7BD; }
 .aqh .hchip.dash { background: transparent; border-style: dashed; border-color: rgba(244,247,252,.28); box-shadow: none; }
 .aqh .htoast { position: absolute; left: 50%; bottom: -22px; transform: translateX(-50%); display: flex; align-items: center; gap: 12px; white-space: nowrap; padding: 12px 18px; border-radius: 18px; background: rgba(19,28,48,.94); border: 1px solid rgba(61,220,151,.35); box-shadow: 0 24px 50px -16px rgba(0,0,0,.8); }
 @media (max-width: 900px) {
@@ -88,7 +117,8 @@ body { margin: 0; background: #060A14; }
   .aqh .hmid { order: -1; }
   .aqh .hcol { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 10px; }
   .aqh .hlab, .aqh .hr .hlab { width: 100%; text-align: center; margin: 0; }
-  .aqh .hrow .track { display: none; }
+  .aqh .hwires { display: none; }
+  .aqh .hl .hrow:nth-of-type(n), .aqh .hr .hrow:nth-of-type(n) { padding: 0; }
   .aqh .hchip { min-width: 0; }
 }
 
@@ -109,14 +139,6 @@ body { margin: 0; background: #060A14; }
 @keyframes fromR { from { opacity: 0; transform: translateX(90px) scale(.9); filter: blur(8px) } to { opacity: 1; transform: none; filter: blur(0) } }
 .aqh .hrow:nth-of-type(1) .hchip { animation-delay: 1.25s; } .aqh .hrow:nth-of-type(2) .hchip { animation-delay: 1.37s; }
 .aqh .hrow:nth-of-type(3) .hchip { animation-delay: 1.49s; } .aqh .hrow:nth-of-type(4) .hchip { animation-delay: 1.61s; }
-.aqh .hrow .track { animation: draw .9s cubic-bezier(.65,0,.35,1) backwards; }
-.aqh .hl .track { transform-origin: left center; } .aqh .hr .track { transform-origin: right center; }
-@keyframes draw { from { transform: scaleX(0); opacity: 0 } to { transform: scaleX(1); opacity: 1 } }
-.aqh .hrow:nth-of-type(1) .track { animation-delay: 1.7s; } .aqh .hrow:nth-of-type(2) .track { animation-delay: 1.82s; }
-.aqh .hrow:nth-of-type(3) .track { animation-delay: 1.94s; } .aqh .hrow:nth-of-type(4) .track { animation-delay: 2.06s; }
-.aqh .hrow .runner { animation-delay: 2.6s; } .aqh .hrow .runner.r2 { animation-delay: 3.4s; } .aqh .hrow .runner.r3 { animation-delay: 4.2s; }
-.aqh .hrow .runner i { opacity: 1; }
-.aqh .hrow .runner { opacity: 0; }
 .aqh .htoast { left: auto; right: -34px; bottom: auto; top: 64px; transform: none; z-index: 5; animation: pToast 9s cubic-bezier(.34,1.56,.64,1) 2.6s infinite backwards; }
 @keyframes toastIn { from { opacity: 0; transform: translateX(-50%) translateY(26px) scale(.8) } to { opacity: 1; transform: translateX(-50%) } }
 .aqh .mq span { transition: color .3s; }
@@ -291,6 +313,7 @@ body { margin: 0; background: #060A14; }
   .aqh .sub .sw { opacity: 1; }
   .aqh .grad { color: #6E9BFF; background: none; }
   .aqh .uline path { stroke-dashoffset: 0; }
+  .aqh .wire { stroke-dashoffset: 0; }
   .aqh .sub mark { background-size: 100% 2px; }
   .aqh .cta-h { color: #F4F7FC; background: none; }
   .aqh.js .rv, .aqh.js .cell.rv, .aqh.js .role.rv { opacity: 1; transform: none; filter: none; }
