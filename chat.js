@@ -6,7 +6,7 @@
   if (window.__aqChat) return; window.__aqChat = true;
   var d = document, API = '/api/chat', KEY = 'aq-chat-v2';
   var calm = false; try { calm = matchMedia('(prefers-reduced-motion: reduce)').matches; } catch (e) {}
-  var state = { sessionId: '', messages: [], captured: false, form: false, open: false, status: 'AI', agent: '', cursor: '', seen: [], teased: false };
+  var state = { sessionId: '', messages: [], captured: false, named: false, form: false, open: false, status: 'AI', agent: '', cursor: '', seen: [], teased: false };
   function load() { try { var s = JSON.parse(sessionStorage.getItem(KEY) || 'null'); if (s && typeof s.sessionId === 'string' && Array.isArray(s.messages)) { for (var k in state) if (s[k] !== undefined) state[k] = s[k]; state.messages = state.messages.slice(-80); state.seen = (state.seen || []).slice(-120); } } catch (e) {} }
   function save() { try { sessionStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
   function newId() { try { if (crypto.randomUUID) return crypto.randomUUID().replace(/-/g, ''); var a = new Uint8Array(16); crypto.getRandomValues(a); return Array.prototype.map.call(a, function (b) { return ('0' + b.toString(16)).slice(-2); }).join(''); } catch (e) { return 'v' + Date.now().toString(36) + Math.random().toString(36).slice(2) + Math.random().toString(36).slice(2); } }
@@ -198,7 +198,9 @@
     function formMode() {
       var intro = state.form === 'intro';
       fTitle.textContent = intro ? 'Before we connect you' : 'Leave a message';
-      fLead.textContent = intro ? 'Tell us your name and email, and a colleague joins this chat.' : 'Leave your details and a colleague will get back to you by email.';
+      fLead.textContent = intro ? 'Tell us your name, and a colleague joins this chat. An email or a phone number is optional.' : 'Leave your details and a colleague will get back to you by email.';
+      // An email is needed only when the answer is to come by email.
+      fEmail.parentNode.firstChild.textContent = intro ? 'Email (optional)' : 'Email'; fEmail.required = !intro;
       fCompany.parentNode.hidden = intro; cl.hidden = intro; consent.required = !intro;
       if (!busy) go.textContent = intro ? 'Connect me to a person' : 'Send my details';
     }
@@ -274,7 +276,7 @@
         if (r.body.status && r.body.status !== state.status) setStatus(r.body.status);
         if (!r.body.reply) return;
         // The assistant suggests a person: with the team there, that is one short step away; otherwise a message for later.
-        if (r.body.askContact && !state.captured) state.form = cfg.live && cfg.online ? 'intro' : 'leave';
+        if (r.body.askContact && !state.captured) state.form = cfg.live && cfg.online ? (state.named ? false : 'intro') : 'leave';
         add({ who: 'a', text: r.body.reply }, true);
       }).catch(function () { waiting(false); problem('That did not go through. Please check your connection and try again.'); });
     }
@@ -288,6 +290,7 @@
       return post(body).then(function (r) {
         if (!r.ok) return r;
         if (r.body.captured) state.captured = true;
+        if (r.body.named) state.named = true;
         // Nobody there after all: a visitor we do not know yet is offered the message form instead.
         state.form = r.body.askContact && !state.captured ? 'leave' : false;
         take(r.body.messages); setStatus(r.body.status); tail(); bottom();
@@ -298,7 +301,7 @@
       if (busy || state.status !== 'AI') return; problem('');
       if (cfg.live && cfg.online) {
         // Somebody whose name we have goes straight through; everybody else is asked who they are first.
-        if (state.captured) { ctaBtn.disabled = true; connect(null).then(function (r) { ctaBtn.disabled = false; if (!r.ok) problem(r.body.error || 'That did not go through. Please try again.'); else input.focus(); }).catch(function () { ctaBtn.disabled = false; problem('That did not go through. Please check your connection and try again.'); }); }
+        if (state.captured || state.named) { ctaBtn.disabled = true; connect(null).then(function (r) { ctaBtn.disabled = false; if (!r.ok) problem(r.body.error || 'That did not go through. Please try again.'); else input.focus(); }).catch(function () { ctaBtn.disabled = false; problem('That did not go through. Please check your connection and try again.'); }); }
         else { state.form = 'intro'; save(); tail(); bottom(); fName.focus(); }
       } else if (!state.captured) { state.form = 'leave'; save(); tail(); bottom(); fName.focus(); }
     });
@@ -307,8 +310,9 @@
       var name = fName.value.trim(), email = fEmail.value.trim();
       function bad(msg, f) { fErr.textContent = msg; fErr.hidden = false; f.focus(); }
       if (name.length < 2) return bad('Please enter your name.', fName);
-      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return bad('Please enter a valid email address.', fEmail);
       var intro = state.form === 'intro';
+      // To be connected to a person a name is enough; an email is checked only if one was typed.
+      if ((email || !intro) && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) return bad(intro ? 'Please enter a valid email address, or leave it empty.' : 'Please enter a valid email address.', fEmail);
       if (!intro && !consent.checked) return bad('Please tick the box so we may contact you about this request.', consent);
       busy = true; go.disabled = true; go.textContent = intro ? 'Connecting…' : 'Sending…';
       function done() { busy = false; go.disabled = false; formMode(); }
