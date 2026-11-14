@@ -3,20 +3,16 @@
 //   node scripts/render-covers.mjs            -> covers for posts that don't have one yet
 //   node scripts/render-covers.mjs --all      -> re-render every cover
 //   node scripts/render-covers.mjs --site     -> also render /og-image.jpg for the main site
-// Needs Playwright with Chromium available (preinstalled in Claude's cloud workspace) and `npm install`.
+// Install Chromium with npx playwright install chromium, or use PLAYWRIGHT_CHANNEL=chrome.
 import fs from 'node:fs';
 import path from 'node:path';
-import { createRequire } from 'node:module';
+import { chromium } from 'playwright';
 import { fileURLToPath } from 'node:url';
 
-const require = createRequire(import.meta.url);
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const CONTENT = path.join(ROOT, 'content/blog');
 const OUT = path.join(ROOT, 'blog/covers');
 const args = new Set(process.argv.slice(2));
-
-let chromium;
-try { ({ chromium } = require('playwright')); } catch { ({ chromium } = require(require.resolve('playwright', { paths: [process.cwd(), '/usr/lib/node_modules', '/usr/local/lib/node_modules'] }))); }
 
 const font = w => {
   const f = path.join(ROOT, `node_modules/@fontsource/inter/files/inter-latin-${w}-normal.woff2`);
@@ -87,7 +83,7 @@ if (args.has('--site')) jobs.push({ out: path.join(ROOT, 'og-image.jpg'), p: { t
 fs.mkdirSync(OUT, { recursive: true });
 for (const p of loadPosts()) { const out = path.join(OUT, `${p.slug}.jpg`); if (args.has('--all') || !fs.existsSync(out)) jobs.push({ out, p }); }
 if (!jobs.length) { console.log('All covers up to date.'); process.exit(0); }
-const browser = await chromium.launch();
+const browser = await chromium.launch({ channel: process.env.PLAYWRIGHT_CHANNEL || undefined });
 const page = await browser.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1 });
 for (const { out, p } of jobs) {
   await page.setContent(html(p), { waitUntil: 'load' });

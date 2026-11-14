@@ -5,4 +5,4 @@ Disallow: /scripts/
 Disallow: /content/
 Disallow: /lib/
 
-Sitemap: https://aqpay.services/sitemap.xml
+Sitemap: https://www.aqpay.services/sitemap.xml

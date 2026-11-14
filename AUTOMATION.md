@@ -7,7 +7,10 @@ This file is the complete instruction set for the scheduled run that publishes o
 
 ```bash
 git clone https://github.com/onaqo/payment-portal-site.git aqpay && cd aqpay
-npm install --no-audit --no-fund
+npm ci --no-audit --no-fund
+# On machines with Google Chrome installed, including the publishing Mac:
+export PLAYWRIGHT_CHANNEL=chrome
+# Otherwise use npx playwright install chromium and leave PLAYWRIGHT_CHANNEL unset.
 ```
 
 Work only inside this repository. Do not change anything outside `content/`, `blog/`, `sitemap.xml`
@@ -100,12 +103,12 @@ Then look at the cover image (Read `blog/covers/<slug>.jpg`) to confirm the titl
 2. Commit and push:
 
 ```bash
-git add -A
+git add -- content/blog content/keyword-plan.json blog sitemap.xml
 git -c user.name="AQ Pay Blog Bot" -c user.email="hello@aqpay.services" commit -m "Blog: <title>"
 git push origin main
 ```
 
-Vercel deploys automatically after the push. The sitemap is already updated, so Google picks it up.
+Vercel deploys automatically after the push. Verify that the public post, cover, blog index, RSS feed and sitemap contain the new post after deployment.
 
 ## 6. If anything fails
 
@@ -117,5 +120,5 @@ Vercel deploys automatically after the push. The sitemap is already updated, so 
 
 ## 7. Report
 
-Finish with a two-line summary: the post title, its URL (`https://aqpay.services/blog/<slug>`),
+Finish with a two-line summary: the post title, its URL (`https://www.aqpay.services/blog/<slug>`),
 the primary keyword and market.

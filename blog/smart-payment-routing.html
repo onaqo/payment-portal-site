@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smart payment routing for a two-processor pilot | AQ Pay</title>
+<meta name="description" content="Design a smart payment routing pilot with two processors. Use a route worksheet, timeout decision table and refund test before switching live traffic.">
+<link rel="canonical" href="https://www.aqpay.services/blog/smart-payment-routing">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#060A14">
+<meta property="og:site_name" content="AQ Pay">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Smart payment routing for a two-processor pilot | AQ Pay">
+<meta property="og:description" content="Design a smart payment routing pilot with two processors. Use a route worksheet, timeout decision table and refund test before switching live traffic.">
+<meta property="og:url" content="https://www.aqpay.services/blog/smart-payment-routing">
+<meta property="og:image" content="https://www.aqpay.services/blog/covers/smart-payment-routing.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Smart payment routing for a two-processor pilot | AQ Pay">
+<meta name="twitter:description" content="Design a smart payment routing pilot with two processors. Use a route worksheet, timeout decision table and refund test before switching live traffic.">
+<meta name="twitter:image" content="https://www.aqpay.services/blog/covers/smart-payment-routing.jpg">
+<meta property="article:published_time" content="2026-11-14T00:00:00Z">
+<meta property="article:modified_time" content="2026-11-14T00:00:00Z">
+<meta property="article:section" content="Guides">
+<meta property="article:tag" content="payment routing rules">
+<meta property="article:tag" content="payment processor failover">
+<meta property="article:tag" content="payment retries">
+<meta property="article:tag" content="payment reconciliation">
+<link rel="icon" href="/aq-mark.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="AQ Pay Blog" href="https://www.aqpay.services/blog/rss.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/blog/blog.css?v=78e8ed2d">
+<link rel="stylesheet" href="/fx.css?v=28e8a3e9">
+<script src="/fx.js?v=11e120b2" data-fx defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Smart payment routing from the first rule to the first refund","description":"Design a smart payment routing pilot with two processors. Use a route worksheet, timeout decision table and refund test before switching live traffic.","image":["https://www.aqpay.services/blog/covers/smart-payment-routing.jpg"],"datePublished":"2026-11-14","dateModified":"2026-11-14","author":{"@type":"Organization","name":"AQ Pay Payments Team","url":"https://www.aqpay.services/about"},"publisher":{"@type":"Organization","@id":"https://www.aqpay.services/#organization","name":"AQ Pay","url":"https://www.aqpay.services","logo":{"@type":"ImageObject","url":"https://www.aqpay.services/og-image.jpg"},"email":"hello@aqpay.services"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.aqpay.services/blog/smart-payment-routing"},"articleSection":"Guides","keywords":"smart payment routing, payment routing rules, payment processor failover, payment retries, payment reconciliation","wordCount":1158,"inLanguage":"en"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.aqpay.services/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.aqpay.services/blog"},{"@type":"ListItem","position":3,"name":"Guides","item":"https://www.aqpay.services/blog/category/guides"},{"@type":"ListItem","position":4,"name":"Smart payment routing from the first rule to the first refund","item":"https://www.aqpay.services/blog/smart-payment-routing"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can a merchant route payments with only one processor?","acceptedAnswer":{"@type":"Answer","text":"You can classify transactions and record the route you would choose. A live comparison between processors needs two approved, working connections for the same type of payment."}},{"@type":"Question","name":"Should a timeout trigger automatic failover?","acceptedAnswer":{"@type":"Answer","text":"First establish whether the request reached the processor. If the original outcome is unknown, keep the order pending and check its status before deciding whether another attempt is appropriate."}},{"@type":"Question","name":"Which approval rate should a routing pilot track?","acceptedAnswer":{"@type":"Answer","text":"Keep two figures. First-attempt approval describes the initial route. The share of unique orders eventually paid includes recovery and describes the outcome the merchant cares about."}}]}</script>
+</head>
+<body>
+<header class="hdr"><div class="wrap">
+  <a class="brand" href="/" aria-label="AQ Pay home"><img src="/aq-mark.svg" alt="" width="36" height="36">AQ Pay</a>
+  <nav class="nav" aria-label="Main">
+    <a href="/white-label-gateway">White-Label Gateway</a><a href="/payment-orchestration">Orchestration</a><a href="/merchant-services">Merchant Services</a><a href="/industries">Industries</a><a href="/developers">Developers</a><a href="/blog" aria-current="page">Blog</a>
+  </nav>
+  <div class="hdr-cta"><a class="login" href="https://portal.aqpay.services/" target="_blank" rel="noopener">Login</a><a class="btn" href="/book-a-demo">Book a Demo</a>
+    <details class="menu"><summary aria-label="Open menu"><svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="#F4F7FC" stroke-width="2"><path d="M0 1h18M0 11h18"/></svg></summary>
+      <div class="panel"><a href="/white-label-gateway">White-Label Gateway</a><a href="/payment-orchestration">Payment Orchestration</a><a href="/merchant-services">Merchant Services</a><a href="/high-risk-processing">High-Risk Processing</a><a href="/industries">Industries</a><a href="/developers">Developers</a><a href="/blog">Blog</a><a href="https://portal.aqpay.services/" target="_blank" rel="noopener">Login</a><a href="/book-a-demo" class="btn" style="justify-content:center">Book a Demo</a></div>
+    </details>
+  </div>
+</div></header>
+<main>
+<article>
+<div class="article-hero"><div class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/blog">Blog</a><span>/</span><a href="/blog/category/guides">Guides</a></nav>
+  <h1>Smart payment routing from the first rule to the first refund</h1>
+  <p class="lede">Design a smart payment routing pilot with two processors. Use a route worksheet, timeout decision table and refund test before switching live traffic.</p>
+  <div class="byline"><img src="/aq-mark.svg" alt="" width="28" height="28"><span>AQ Pay Payments Team</span><span>·</span><time datetime="2026-11-14">14 November 2026</time><span>·</span><span>5 min read</span></div>
+  <div class="cover"><img src="/blog/covers/smart-payment-routing.jpg" alt="A payment enters a routing diagram with several possible processor paths." width="1200" height="630" fetchpriority="high"></div>
+</div></div>
+<div class="article"><div class="wrap"><div class="layout">
+  <div class="prose">
+    <aside class="takeaways"><h2>Key takeaways</h2><ul><li>Write down which merchants, payment methods and currencies each processor can accept before choosing an order of preference.</li><li>When a request times out after submission, resolve the first attempt before considering a second charge.</li><li>Include a refund and a settlement report in the pilot so finance can follow the same order after checkout.</li></ul></aside>
+    <p>Imagine a merchant accepting a card payment for a £49 order. The customer presses Pay, the checkout waits, and the processor connection drops. Sending the order to a second processor sounds helpful. But what if the first processor authorised the payment just before the connection dropped? That one order makes a good test for a smart payment routing pilot.</p>
+<p>A useful pilot starts with a narrow question. Can this merchant use a second eligible processor for a defined group of new orders, and can the team explain what happened to each one afterwards? Our <a href="/payment-orchestration">payment orchestration platform</a> describes how routing profiles work. The worksheet below is a way for operations, engineering and finance to agree on one profile before enabling it. The £49 order and processors A and B are illustrative.</p>
+<h2 id="write-the-first-smart-payment-routing-rule">Write the first smart payment routing rule</h2>
+<p>Pick one merchant, one currency, one payment method and one kind of purchase. A one-off payment made with a new card is a simpler starting point than a subscription renewal using a credential originally saved by another provider. Ask both processors which transactions the merchant is approved to submit. Record who checked the answer and where to find it when the agreement or account configuration changes.</p>
+<table>
+<thead>
+<tr>
+<th>Worksheet field</th>
+<th>Example pilot entry</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Scope</td>
+<td>Merchant M, GBP, one-off online card purchase</td>
+</tr>
+<tr>
+<td>Eligible destinations</td>
+<td>A and B after merchant account and credential checks</td>
+</tr>
+<tr>
+<td>First choice</td>
+<td>A for the initial baseline</td>
+</tr>
+<tr>
+<td>Comparison</td>
+<td>A small, preselected share of eligible new orders starts on B</td>
+</tr>
+<tr>
+<td>Unknown outcome</td>
+<td>Retain the original attempt reference and check status</td>
+</tr>
+<tr>
+<td>Rollback owner</td>
+<td>Payments operations returns new orders to A</td>
+</tr>
+<tr>
+<td>Refund owner</td>
+<td>Finance locates the processor that captured the original order</td>
+</tr>
+</tbody></table>
+<p>Ask a colleague outside the project to route three example orders using this sheet. Give them a GBP card order, a euro card order and a GBP renewal. If they send all three into the pilot, the rule is ambiguous. Document the existing treatment of out-of-scope orders so a change to one merchant cannot silently become a change to the whole portfolio.</p>
+<h2 id="keep-an-order-separate-from-its-attempts">Keep an order separate from its attempts</h2>
+<p>Give the merchant order one stable reference. Give each processor submission its own attempt record and retain the provider reference when it becomes available. A support agent looking up the £49 order should see the original request, its outcome, any later attempt and the processor that captured the payment. That history matters when the customer has already closed the checkout.</p>
+<figure><svg viewBox="0 0 760 125" role="img" aria-label="Order 49 has an attempt at A. An unknown outcome leads to a status check." font-family="Inter, sans-serif" text-anchor="middle"><rect width="760" height="125" rx="12" fill="#0F1729"/><path d="M80 75H680" stroke="#6E9BFF" stroke-width="3"/><g fill="#3DDC97"><circle cx="80" cy="75" r="7"/><circle cx="275" cy="75" r="7"/><circle cx="485" cy="75" r="7"/><circle cx="680" cy="75" r="7"/></g><g fill="#F4F7FC" font-size="21"><text x="80" y="48">Order 49</text><text x="275" y="48">Attempt at A</text><text x="485" y="48">No response</text><text x="680" y="48">Check A</text></g></svg><figcaption>The last known attempt tells the operator where to look for the missing outcome.</figcaption></figure>
+
+<p>Check the scope of the idempotency key used by each connector. For example, Stripe documents how it returns a stored result for a repeated request using the same key. A second processor runs its own system and has no access to that stored result. The merchant therefore needs an order-level decision about whether it is safe to start a separate attempt. <a href="https://docs.stripe.com/api/idempotent_requests" rel="noopener" target="_blank">Stripe’s idempotent request documentation</a></p>
+<h2 id="decide-what-the-checkout-should-do-next">Decide what the checkout should do next</h2>
+<table>
+<thead>
+<tr>
+<th>What the team knows</th>
+<th>Next step in the pilot</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A is unavailable before a new request is submitted</td>
+<td>Select B if it is eligible for this order</td>
+</tr>
+<tr>
+<td>A might have received the request</td>
+<td>Hold the order pending, query A and reconcile the event</td>
+</tr>
+<tr>
+<td>The issuer asks the customer to authenticate</td>
+<td>Continue the required customer action on the existing flow</td>
+</tr>
+<tr>
+<td>The provider reports a final decline with instructions to stop</td>
+<td>End the attempt and present the permitted customer-facing message</td>
+</tr>
+<tr>
+<td>A confirms capture</td>
+<td>Complete the order once and preserve A’s reference for the refund</td>
+</tr>
+</tbody></table>
+<p>Use the processor’s response and its documented advice when deciding how to handle a decline. Codes that appear similar can require different next actions. Stripe, for instance, distinguishes authentication requirements from reports that a card was stolen and provides guidance on what to tell the customer. Check the advice from the processor serving that transaction before enabling a retry. <a href="https://docs.stripe.com/declines/codes" rel="noopener" target="_blank">Stripe’s decline code reference</a></p>
+<p>Include the support message in the exercise. When the status is unknown, tell the customer that confirmation is pending and give them a reference. Test what happens if they refresh the page or reopen the same order from an email. A second click should return them to the existing order state while your team resolves the first submission.</p>
+<h2 id="test-the-payment-after-checkout-closes">Test the payment after checkout closes</h2>
+<p>Run a sandbox purchase through each eligible route. Save the merchant order reference, the processor reference and the event that causes your system to release the order. Deliver the same event a second time and inspect fulfilment. The customer should receive one order confirmation and the warehouse should see one instruction to ship. Adyen documents webhook verification, acknowledgement and duplicate handling in its integration guide. <a href="https://docs.adyen.com/development-resources/webhooks/handle-webhook-events/" rel="noopener" target="_blank">Adyen’s webhook handling guide</a></p>
+<p>Now refund the example order after switching the default route from A to B. The finance operator should be able to find the original capture at A without asking an engineer which routing rule was active yesterday. Have the operator record where the refund appears in the processor report and how to match it back to the merchant order. A sandbox may lack real settlement reports, so confirm that last step using an appropriate live reconciliation sample when available.</p>
+<h2 id="measure-the-pilot-and-decide-whether-to-expand-it">Measure the pilot and decide whether to expand it</h2>
+<p>Before changing traffic, write down the decision the team will make at the end of the pilot. Compare eligible orders from the same merchant, currency and purchase type over the same period. Count unique orders separately from processor attempts. A recovered purchase can generate two attempts and one paid order. Giving both attempts the weight of separate shoppers changes the story the figures tell.</p>
+<p>In an illustrative batch of 100 orders, 80 succeed on the first attempt. If five different orders later succeed through an allowed recovery path, first-attempt approval is 80% and eventual order success is 85%. The five recovered orders do not establish that another processor would have performed better on the entire batch. Keep the comparison group and record exclusions, outages and any rule changes during the observation period.</p>
+<p>Look at time to confirmation, unresolved orders, refunds that need manual matching and the cost per paid order alongside approval. An improvement in one measure can create work elsewhere. Ask support and finance to sign off on the sample history they actually used. If the evidence is inconclusive, retain the narrow scope and collect another comparable batch before expanding to new merchants or currencies.</p>
+<p>For the broader integration choices, see our <a href="/blog/what-is-payment-orchestration">guide to payment orchestration</a>. To prepare a pilot, take the worksheet to the <a href="/developers#quick-start">developer quick start</a>, identify both processor references and <a href="/book-a-demo">book a routing walkthrough</a> using your own example order.</p>
+
+    <section class="faq" aria-labelledby="faq"><h2 id="faq">Frequently asked questions</h2><details><summary>Can a merchant route payments with only one processor?</summary><p>You can classify transactions and record the route you would choose. A live comparison between processors needs two approved, working connections for the same type of payment.</p></details><details><summary>Should a timeout trigger automatic failover?</summary><p>First establish whether the request reached the processor. If the original outcome is unknown, keep the order pending and check its status before deciding whether another attempt is appropriate.</p></details><details><summary>Which approval rate should a routing pilot track?</summary><p>Keep two figures. First-attempt approval describes the initial route. The share of unique orders eventually paid includes recovery and describes the outcome the merchant cares about.</p></details></section>
+    <section class="cta"><div><h2>See it on your own use case</h2><p>A 45-minute working session with the team that runs AQ Pay — no scripted pitch.</p></div><a class="btn" href="/book-a-demo">Book a Demo</a></section>
+    <div class="author"><img src="/aq-mark.svg" alt="" width="44" height="44"><div><strong>AQ Pay Payments Team</strong>The engineers and payment specialists who build and operate AQ Pay's gateway and orchestration platform.</div></div>
+  </div>
+  <aside class="toc" aria-label="On this page"><span class="mono" style="color:var(--faint)">On this page</span><ol><li><a href="#write-the-first-smart-payment-routing-rule">Write the first smart payment routing rule</a></li><li><a href="#keep-an-order-separate-from-its-attempts">Keep an order separate from its attempts</a></li><li><a href="#decide-what-the-checkout-should-do-next">Decide what the checkout should do next</a></li><li><a href="#test-the-payment-after-checkout-closes">Test the payment after checkout closes</a></li><li><a href="#measure-the-pilot-and-decide-whether-to-expand-it">Measure the pilot and decide whether to expand it</a></li><li><a href="#faq">FAQ</a></li></ol><a class="btn" href="/book-a-demo">Book a Demo</a></aside>
+</div></div></div>
+</article>
+<section class="related"><div class="wrap"><h2>Keep reading</h2><div class="grid"><a class="card" href="/blog/what-is-payment-orchestration">
+  <img src="/blog/covers/what-is-payment-orchestration.jpg" alt="Payment orchestration diagram: one integration routing payments to several providers" width="1200" height="630" loading="lazy" decoding="async">
+  <span class="body"><span class="mono cat">Guides</span><h3>What is payment orchestration — and when do you need it?</h3><p>Payment orchestration explained: how one integration routes payments across multiple PSPs and acquirers, when it pays off, and what to look for.</p>
+  <span class="meta"><time datetime="2026-11-05">5 November 2026</time><span>4 min read</span></span></span></a><a class="card" href="/blog/white-label-payment-gateway-vs-building-your-own">
+  <img src="/blog/covers/white-label-payment-gateway-vs-building-your-own.jpg" alt="Stacked platform layers representing a white-label payment gateway" width="1200" height="630" loading="lazy" decoding="async">
+  <span class="body"><span class="mono cat">Guides</span><h3>White-label payment gateway vs. building your own PSP stack</h3><p>Should you license a white-label payment gateway or build your own PSP stack? The real work, costs, timelines and risks of each path — and how to decide.</p>
+  <span class="meta"><time datetime="2026-11-05">5 November 2026</time><span>4 min read</span></span></span></a><a class="card" href="/blog/high-risk-merchant-account-underwriting">
+  <img src="/blog/covers/high-risk-merchant-account-underwriting.jpg" alt="Shield with a check mark representing high-risk merchant underwriting" width="1200" height="630" loading="lazy" decoding="async">
+  <span class="body"><span class="mono cat">Explainers</span><h3>High-risk merchant accounts: how underwriting actually works</h3><p>What acquirers check when underwriting a high-risk merchant account, which documents to prepare, why applications fail, and how to stay approved.</p>
+  <span class="meta"><time datetime="2026-11-05">5 November 2026</time><span>4 min read</span></span></span></a></div></div></section>
+</main>
+<footer class="ftr"><div class="wrap">
+  <div class="ftr-grid">
+    <div><a class="brand" href="/"><img src="/aq-mark.svg" alt="" width="32" height="32">AQ Pay</a>
+      <p>White-label gateway, orchestration and merchant services infrastructure for PSPs, platforms and merchants.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn" href="/book-a-demo" style="font-size:14px;padding:10px 18px">Book a Demo</a><a class="btn btn-ghost" href="https://portal.aqpay.services/" target="_blank" rel="noopener" style="font-size:14px">Portal login ↗</a></div></div>
+    <nav aria-label="Solutions"><h3>Solutions</h3><ul><li><a href="/white-label-gateway">White-Label Gateway</a></li><li><a href="/merchant-services">Merchant Services</a></li><li><a href="/high-risk-processing">High-Risk Processing</a></li><li><a href="/payment-orchestration">Payment Orchestration</a></li><li><a href="/about#consulting">Payment Consulting</a></li><li><a href="/industries">Industries</a></li></ul></nav>
+    <nav aria-label="Platform"><h3>Platform</h3><ul><li><a href="/payment-orchestration#routing">Intelligent Routing</a></li><li><a href="/payment-orchestration#connectivity">Gateway Connectivity</a></li><li><a href="/#risk">Risk &amp; Fraud</a></li><li><a href="/white-label-gateway#operations">Reconciliation</a></li><li><a href="/#security">Security</a></li></ul></nav>
+    <nav aria-label="Developers"><h3>Developers</h3><ul><li><a href="/developers">Overview</a></li><li><a href="/developers#quick-start">Quick Start</a></li><li><a href="/api-reference">API Reference</a></li><li><a href="/api-reference#webhooks">Webhooks</a></li><li><a href="/developers#sandbox">Sandbox</a></li></ul></nav>
+    <nav aria-label="Company"><h3>Company</h3><ul><li><a href="/about">About</a></li><li><a href="/blog">Blog</a></li><li><a href="/partner-program">Partner Program</a></li><li><a href="/book-a-demo">Book a Demo</a></li><li><a href="/book-a-demo#contact">Contact</a></li><li><a href="mailto:hello@aqpay.services">hello@aqpay.services</a></li></ul></nav>
+  </div>
+  <div class="ftr-base"><span>Services are subject to industry eligibility, geographic restrictions, underwriting and partner approval. AQ Pay is a technology provider and does not hold or move client funds unless expressly stated in a service agreement.</span>
+    <div class="row"><span>© 2026 AQ Pay. All rights reserved.</span><span style="display:flex;gap:18px"><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/cookies">Cookies</a><a href="/licences">Licences</a><a href="/acceptable-use">Acceptable use</a></span></div></div>
+</div></footer>
+</body>
+</html>

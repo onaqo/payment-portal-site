@@ -5,11 +5,14 @@
 // Post format: a JSON front-matter block between --- lines, then Markdown (inline HTML/SVG allowed).
 import fs from 'node:fs';
 import path from 'node:path';
+import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { marked } from 'marked';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const SITE = 'https://aqpay.services';
+const SITE = 'https://www.aqpay.services';
+// Feed readers use the original URL namespace to recognise previously seen articles.
+const FEED_ID_ORIGIN = 'https://aqpay.services';
 const BRAND = 'AQ Pay';
 const CONTENT = path.join(ROOT, 'content/blog');
 const OUT = path.join(ROOT, 'blog');
@@ -66,6 +69,15 @@ function render(md) {
   return { html, toc, words, minutes: Math.max(3, Math.round(words / 225)) };
 }
 
+// Keep shared asset URLs in step with the versioned links on marketing pages.
+const assetUrl = name => {
+  const digest = createHash('md5').update(fs.readFileSync(path.join(ROOT, name))).digest('hex').slice(0, 8);
+  return `/${name}?v=${digest}`;
+};
+const blogCss = assetUrl('blog/blog.css');
+const fxCss = assetUrl('fx.css');
+const fxScript = assetUrl('fx.js');
+
 // ---------- shared chrome ----------
 const head = ({ title, description, canonical, image, type = 'website', extra = '', jsonld = [] }) => `<!doctype html>
 <html lang="en">
@@ -94,9 +106,9 @@ ${extra}<link rel="icon" href="/aq-mark.svg" type="image/svg+xml">
 <link rel="alternate" type="application/rss+xml" title="${BRAND} Blog" href="${SITE}/blog/rss.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/blog/blog.css">
-<link rel="stylesheet" href="/fx.css">
-<script src="/fx.js" data-fx defer></script>
+<link rel="stylesheet" href="${blogCss}">
+<link rel="stylesheet" href="${fxCss}">
+<script src="${fxScript}" data-fx defer></script>
 ${jsonld.map(ld).join('\n')}
 </head>
 <body>`;
@@ -240,7 +252,7 @@ fs.writeFileSync(path.join(OUT, 'rss.xml'), `<?xml version="1.0" encoding="UTF-8
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel>
 <title>${BRAND} Blog</title><link>${SITE}/blog</link><description>Payment gateways, orchestration, risk and merchant services.</description><language>en</language>
 <atom:link href="${SITE}/blog/rss.xml" rel="self" type="application/rss+xml"/>
-${posts.slice(0, 30).map(p => `<item><title>${esc(p.title)}</title><link>${SITE}/blog/${p.slug}</link><guid>${SITE}/blog/${p.slug}</guid><pubDate>${new Date(p.date + 'T08:00:00Z').toUTCString()}</pubDate><category>${esc(p.category)}</category><description>${esc(p.description)}</description></item>`).join('\n')}
+${posts.slice(0, 30).map(p => `<item><title>${esc(p.title)}</title><link>${SITE}/blog/${p.slug}</link><guid>${FEED_ID_ORIGIN}/blog/${p.slug}</guid><pubDate>${new Date(p.date + 'T08:00:00Z').toUTCString()}</pubDate><category>${esc(p.category)}</category><description>${esc(p.description)}</description></item>`).join('\n')}
 </channel></rss>
 `);
 

@@ -5,6 +5,7 @@
   "description": "What acquirers check when underwriting a high-risk merchant account, which documents to prepare, why applications fail, and how to stay approved.",
   "slug": "high-risk-merchant-account-underwriting",
   "date": "2026-11-05",
+  "updated": "2026-11-14",
   "category": "Explainers",
   "market": "Global",
   "primaryKeyword": "high-risk merchant account",
@@ -92,6 +93,8 @@ How orders are fulfilled, how long delivery takes, how subscriptions renew and h
 - A previous termination that led to a MATCH listing.
 
 ## How to prepare a strong application
+
+Use the [merchant account application](/apply) to see which business and contact details you will need.
 
 1. **Make everything consistent.** Legal name, trading name, descriptor, addresses and ownership should match across every document and your site.
 2. **Fix your website first.** Clear pricing, terms, refund and cancellation policies, contact details and, for subscriptions, explicit renewal terms at checkout.

@@ -51,8 +51,7 @@ sources, countries, devices, who is on the site now, and which known leads visit
 - The forms and the chat send the same visitor reference with an enquiry, so the pages seen before it show on the
   lead in the portal.
 - What is collected is described in `content/legal/cookies.md` and `content/legal/privacy.md`. Keep them in step with
-  `track.js`. After editing them run `node scripts/build-blog.mjs`, then put back the `?v=` stamps on the script and
-  style links of the rebuilt pages (the build writes them without).
+  `track.js`. After editing them, run `node scripts/build-blog.mjs`. The build versions shared script and style links automatically.
 
 ## Chat (optional)
 A chat box at the bottom right of every page. An AI assistant in the sales portal answers visitors from text your
@@ -81,7 +80,7 @@ Posts live in `content/blog/*.md` (JSON front matter + Markdown). Build:
     node scripts/check-posts.mjs     # SEO/quality gate
     node scripts/build-blog.mjs      # blog pages, RSS, sitemap.xml
 
-The 3x-weekly autopilot follows `AUTOMATION.md` and works through `content/keyword-plan.json`.
+The daily autopilot follows `AUTOMATION.md` and works through `content/keyword-plan.json`.
 
 ## SEO
 Main pages are prerendered: full content, title, description, canonical, Open Graph,

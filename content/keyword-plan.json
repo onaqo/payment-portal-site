@@ -45,9 +45,9 @@
       "cluster": "orchestration",
       "intent": "informational",
       "linkTo": "/payment-orchestration",
-      "status": "todo",
-      "slug": null,
-      "date": null
+      "status": "published",
+      "slug": "smart-payment-routing",
+      "date": "2026-11-14"
     },
     {
       "primaryKeyword": "how to start a payment service provider",
