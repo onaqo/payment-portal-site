@@ -108,15 +108,56 @@ ${extra}<link rel="icon" href="/aq-mark.svg" type="image/svg+xml">
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="${blogCss}">
 <link rel="stylesheet" href="${fxCss}">
-<link rel="stylesheet" href="${assetUrl('site.css')}">
+${canonical.startsWith(SITE + '/blog') ? `<link rel="stylesheet" href="${assetUrl('site.css')}">` : ''}
 <script src="${fxScript}" data-fx defer></script>
 ${jsonld.map(ld).join('\n')}
 </head>
 <body>`;
 
-const navComponent = fs.readFileSync(path.join(ROOT, 'SiteNav.dc.html'), 'utf8');
-const navMarkup = navComponent.match(/<x-dc>([\s\S]*?)<\/x-dc>/)[1];
-const header = () => navMarkup;
+const legalHeader = active => `
+<header class="hdr"><div class="wrap">
+  <a class="brand" href="/" aria-label="${BRAND} home"><img src="/aq-mark.svg" alt="" width="36" height="36">${BRAND}</a>
+  <nav class="nav" aria-label="Main">
+    <a href="/white-label-gateway">White-Label Gateway</a><a href="/payment-orchestration">Orchestration</a><a href="/merchant-services">Merchant Services</a><a href="/industries">Industries</a><a href="/developers">Developers</a><a href="/blog"${active ? ' aria-current="page"' : ''}>Blog</a>
+  </nav>
+  <div class="hdr-cta"><a class="login" href="https://portal.aqpay.services/" target="_blank" rel="noopener">Login</a><a class="btn" href="/book-a-demo">Book a Demo</a>
+    <details class="menu"><summary aria-label="Open menu"><svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="#F4F7FC" stroke-width="2"><path d="M0 1h18M0 11h18"/></svg></summary>
+      <div class="panel"><a href="/white-label-gateway">White-Label Gateway</a><a href="/payment-orchestration">Payment Orchestration</a><a href="/merchant-services">Merchant Services</a><a href="/high-risk-processing">High-Risk Processing</a><a href="/industries">Industries</a><a href="/developers">Developers</a><a href="/blog">Blog</a><a href="https://portal.aqpay.services/" target="_blank" rel="noopener">Login</a><a href="/book-a-demo" class="btn" style="justify-content:center">Book a Demo</a></div>
+    </details>
+  </div>
+</div></header>`;
+
+const header = () => `
+<header class="site-header">
+  <div class="site-nav-inner">
+    <a class="site-brand" href="/" aria-label="AQ Pay home"><img src="/aq-mark.svg" alt="" width="34" height="34">AQ Pay</a>
+    <nav class="site-links" aria-label="Main"><a href="/merchant-services">Merchants</a>
+<a href="/white-label-gateway">Platforms</a>
+<a href="/payment-orchestration">Orchestration</a>
+<a href="/developers">Developers</a>
+      <details class="site-more"><summary>Explore</summary><div class="site-menu"><a href="/high-risk-processing">High-risk processing</a>
+<a href="/industries">Industries</a>
+<a href="/partner-program">Partner program</a>
+<a href="/blog">Payments blog</a>
+<a href="/api-reference">API reference</a>
+<a href="/about">About AQ Pay</a>
+<a href="/book-a-demo">Book a demo</a></div></details>
+    </nav>
+    <div class="site-accounts"><a href="https://portal.aqpay.services/" rel="noopener" target="_blank">Login</a><a class="site-signup" href="https://portal.aqpay.services/signup" rel="noopener" target="_blank">Sign up</a></div>
+    <details class="site-mobile"><summary>Menu</summary><nav class="site-menu" aria-label="Mobile"><a href="/merchant-services">Merchants</a>
+<a href="/white-label-gateway">Platforms</a>
+<a href="/payment-orchestration">Orchestration</a>
+<a href="/developers">Developers</a>
+<a href="/high-risk-processing">High-risk processing</a>
+<a href="/industries">Industries</a>
+<a href="/partner-program">Partner program</a>
+<a href="/blog">Payments blog</a>
+<a href="/api-reference">API reference</a>
+<a href="/about">About AQ Pay</a>
+<a href="/book-a-demo">Book a demo</a><a href="https://portal.aqpay.services/" rel="noopener" target="_blank">Portal login</a></nav></details>
+  </div>
+</header>
+`;
 
 const footer = () => `
 <footer class="ftr"><div class="wrap">
@@ -224,7 +265,7 @@ if (fs.existsSync(LEGAL_DIR)) for (const f of fs.readdirSync(LEGAL_DIR).filter(f
   const url = `${SITE}/${fm.slug}`;
   fs.writeFileSync(path.join(ROOT, `${fm.slug}.html`), head({ title: `${fm.title} | ${BRAND}`, description: fm.description, canonical: url, image: `${SITE}/og-image.jpg`,
     jsonld: [{ '@context': 'https://schema.org', '@type': 'WebPage', name: fm.title, description: fm.description, url, dateModified: fm.updated, publisher: ORG },
-      { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/` }, { '@type': 'ListItem', position: 2, name: fm.title, item: url }] }] }) + header(false) + `
+      { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [{ '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE}/` }, { '@type': 'ListItem', position: 2, name: fm.title, item: url }] }] }) + legalHeader(false) + `
 <main>
 <div class="article-hero"><div class="wrap">
   <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><span aria-current="page">Legal</span></nav>

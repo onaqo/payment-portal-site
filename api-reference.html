@@ -39,43 +39,46 @@ a{color:#6E9BFF;text-decoration:none}a:hover{color:#3DDC97}input,button,select,t
 @keyframes tppFade{from{opacity:0}to{opacity:1}}
 </style>
 <style>x-dc{display:none!important}#pre ~ #dc-root{display:none}</style>
-<link rel="stylesheet" href="/site.css?v=82339017">
+
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Payment Gateway API Reference | AQ Pay","description":"REST API reference for AQ Pay: payments, tokenization, merchants, routing rules, disputes and signed webhooks, with request and response examples.","url":"https://www.aqpay.services/api-reference","isPartOf":{"@type":"WebSite","url":"https://www.aqpay.services","name":"AQ Pay"},"publisher":{"@type":"Organization","name":"AQ Pay","url":"https://www.aqpay.services"}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.aqpay.services/"},{"@type":"ListItem","position":2,"name":"API Reference","item":"https://www.aqpay.services/api-reference"}]}</script>
 <link rel="stylesheet" href="/fx.css?v=28e8a3e9">
-<script src="/fx.js?v=c8b87900" data-fx defer></script>
+<script src="/fx.js?v=2d052c7e" data-fx defer></script>
 <script src="/support.js?v=a05343a5"></script>
 </head>
 <body>
-<div id="pre"><div class="sc-host" data-sc-name="api-reference"><div class="sc-host" data-sc-name="SiteNav" data-dc-tpl="8"><header class="site-header">
-  <div class="site-nav-inner">
-    <a class="site-brand" href="/" aria-label="AQ Pay home"><img src="/aq-mark.svg" alt="" width="34" height="34">AQ Pay</a>
-    <nav class="site-links" aria-label="Main"><a href="/merchant-services">Merchants</a>
-<a href="/white-label-gateway">Platforms</a>
-<a href="/payment-orchestration">Orchestration</a>
-<a href="/developers">Developers</a>
-      <details class="site-more"><summary>Explore</summary><div class="site-menu"><a href="/high-risk-processing">High-risk processing</a>
-<a href="/industries">Industries</a>
-<a href="/partner-program">Partner program</a>
-<a href="/blog">Payments blog</a>
-<a href="/api-reference">API reference</a>
-<a href="/about">About AQ Pay</a>
-<a href="/book-a-demo">Book a demo</a></div></details>
-    </nav>
-    <div class="site-accounts"><a href="https://portal.aqpay.services/" rel="noopener" target="_blank">Login</a><a class="site-signup" href="https://portal.aqpay.services/signup" rel="noopener" target="_blank">Sign up</a></div>
-    <details class="site-mobile"><summary>Menu</summary><nav class="site-menu" aria-label="Mobile"><a href="/merchant-services">Merchants</a>
-<a href="/white-label-gateway">Platforms</a>
-<a href="/payment-orchestration">Orchestration</a>
-<a href="/developers">Developers</a>
-<a href="/high-risk-processing">High-risk processing</a>
-<a href="/industries">Industries</a>
-<a href="/partner-program">Partner program</a>
-<a href="/blog">Payments blog</a>
-<a href="/api-reference">API reference</a>
-<a href="/about">About AQ Pay</a>
-<a href="/book-a-demo">Book a demo</a><a href="https://portal.aqpay.services/" rel="noopener" target="_blank">Portal login</a></nav></details>
+<div id="pre"><div class="sc-host" data-sc-name="api-reference"><div class="sc-host" data-sc-name="SiteNav" data-dc-tpl="8"><header data-dc-tpl="5" style="position: sticky; top: 0px; z-index: 60; font-family: Geist, system-ui, sans-serif; color: rgb(244, 247, 252);" class="fx-nav">
+  <div data-dc-tpl="6" style="backdrop-filter: blur(20px); background: rgba(6, 10, 20, 0.76); border-bottom: 1px solid rgba(255, 255, 255, 0.07);">
+    <div data-dc-tpl="7" style="max-width: 1360px; margin: 0px auto; padding: 0px 24px; height: 72px; display: flex; align-items: center; gap: 28px;">
+      <a data-dc-tpl="8" href="/" aria-label="AQ Pay home" style="display: flex; align-items: center; gap: 12px; color: rgb(244, 247, 252); flex-shrink: 0; text-decoration: none;">
+        <img data-dc-tpl="9" src="aq-mark.svg" alt="" width="36" height="36" style="display: block; flex-shrink: 0; width: 36px; height: 36px;">
+        <span data-dc-tpl="10" style="font-family: Geist, system-ui, sans-serif; font-weight: 700; letter-spacing: -0.01em; font-size: 17px; line-height: 1;">AQ Pay</span>
+      </a>
+      <nav data-dc-tpl="11" aria-label="Main" style="display: flex; flex: 1 1 0%; justify-content: center; gap: 2px;">
+
+          <button data-dc-tpl="13" class="tpp-navbtn scp2" aria-expanded="false" style="background: transparent; border: 0px; color: rgb(174, 185, 204); padding: 10px 14px; border-radius: 999px; font-weight: 600; font-size: 15px; display: flex; align-items: center; gap: 6px; transition: color 0.2s, background 0.2s; cursor: pointer; font-family: inherit;"><span class="sc-interp">Solutions</span><span data-dc-tpl="14" style="width: 6px; height: 6px; border-right: 1.5px solid; border-bottom: 1.5px solid; transform: rotate(45deg) translateY(-2px); display: inline-block; opacity: 0.7;"></span></button>
+
+          <button data-dc-tpl="13" class="tpp-navbtn scp2" aria-expanded="false" style="background: transparent; border: 0px; color: rgb(174, 185, 204); padding: 10px 14px; border-radius: 999px; font-weight: 600; font-size: 15px; display: flex; align-items: center; gap: 6px; transition: color 0.2s, background 0.2s; cursor: pointer; font-family: inherit;"><span class="sc-interp">Platform</span><span data-dc-tpl="14" style="width: 6px; height: 6px; border-right: 1.5px solid; border-bottom: 1.5px solid; transform: rotate(45deg) translateY(-2px); display: inline-block; opacity: 0.7;"></span></button>
+
+          <button data-dc-tpl="13" class="tpp-navbtn scp2" aria-expanded="false" style="background: transparent; border: 0px; color: rgb(174, 185, 204); padding: 10px 14px; border-radius: 999px; font-weight: 600; font-size: 15px; display: flex; align-items: center; gap: 6px; transition: color 0.2s, background 0.2s; cursor: pointer; font-family: inherit;"><span class="sc-interp">Industries</span><span data-dc-tpl="14" style="width: 6px; height: 6px; border-right: 1.5px solid; border-bottom: 1.5px solid; transform: rotate(45deg) translateY(-2px); display: inline-block; opacity: 0.7;"></span></button>
+
+          <button data-dc-tpl="13" class="tpp-navbtn scp2" aria-expanded="false" style="background: rgba(255, 255, 255, 0.06); border: 0px; color: rgb(244, 247, 252); padding: 10px 14px; border-radius: 999px; font-weight: 600; font-size: 15px; display: flex; align-items: center; gap: 6px; transition: color 0.2s, background 0.2s; cursor: pointer; font-family: inherit;"><span class="sc-interp">Developers</span><span data-dc-tpl="14" style="width: 6px; height: 6px; border-right: 1.5px solid; border-bottom: 1.5px solid; transform: rotate(45deg) translateY(-2px); display: inline-block; opacity: 0.7;"></span></button>
+
+          <button data-dc-tpl="13" class="tpp-navbtn scp2" aria-expanded="false" style="background: transparent; border: 0px; color: rgb(174, 185, 204); padding: 10px 14px; border-radius: 999px; font-weight: 600; font-size: 15px; display: flex; align-items: center; gap: 6px; transition: color 0.2s, background 0.2s; cursor: pointer; font-family: inherit;"><span class="sc-interp">Resources</span><span data-dc-tpl="14" style="width: 6px; height: 6px; border-right: 1.5px solid; border-bottom: 1.5px solid; transform: rotate(45deg) translateY(-2px); display: inline-block; opacity: 0.7;"></span></button>
+
+          <button data-dc-tpl="13" class="tpp-navbtn scp2" aria-expanded="false" style="background: transparent; border: 0px; color: rgb(174, 185, 204); padding: 10px 14px; border-radius: 999px; font-weight: 600; font-size: 15px; display: flex; align-items: center; gap: 6px; transition: color 0.2s, background 0.2s; cursor: pointer; font-family: inherit;"><span class="sc-interp">Company</span><span data-dc-tpl="14" style="width: 6px; height: 6px; border-right: 1.5px solid; border-bottom: 1.5px solid; transform: rotate(45deg) translateY(-2px); display: inline-block; opacity: 0.7;"></span></button>
+
+      </nav>
+      <div data-dc-tpl="15" style="display: flex; align-items: center; gap: 10px; margin-left: auto;">
+        <a data-dc-tpl="16" class="tpp-login scp2" href="https://portal.aqpay.services/" target="_blank" rel="noopener" style="display: flex; color: rgb(174, 185, 204); font-weight: 600; font-size: 15px; padding: 10px 14px; text-decoration: none;">Login</a>
+        <a data-dc-tpl="17" class="tpp-signup" href="https://portal.aqpay.services/signup" target="_blank" rel="noopener" style="display: flex;">Sign up<span data-dc-tpl="18" class="tpp-su-arr" aria-hidden="true">→</span></a>
+        <button data-dc-tpl="19" aria-label="Open menu" aria-expanded="false" style="display: none; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1); color: rgb(244, 247, 252); width: 44px; height: 44px; border-radius: 12px; flex-direction: column; align-items: center; justify-content: center; gap: 5px; cursor: pointer;">
+          <span data-dc-tpl="20" style="width: 18px; height: 2px; background: currentcolor; display: block;"></span><span data-dc-tpl="21" style="width: 18px; height: 2px; background: currentcolor; display: block;"></span>
+        </button>
+      </div>
+    </div>
   </div>
-</header></div><main data-dc-tpl="9" style="max-width: 1360px; margin: 0px auto; padding: 40px 24px 96px; display: grid; grid-template-columns: 240px 1fr; gap: 48px; align-items: start;">
+  </header></div><main data-dc-tpl="9" style="max-width: 1360px; margin: 0px auto; padding: 40px 24px 96px; display: grid; grid-template-columns: 240px 1fr; gap: 48px; align-items: start;">
   <aside data-dc-tpl="10" style="position: sticky; top: 96px; display: flex; flex-direction: column; gap: 4px;">
     <div data-dc-tpl="11" style="font-family: &quot;Geist Mono&quot;, monospace; font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase; color: rgb(111, 125, 147); padding: 0px 12px 10px;">API reference · v1</div>
     <a data-dc-tpl="13" href="#auth" class="scp0" style="color: rgb(174, 185, 204); font-size: 14px; padding: 8px 12px; border-radius: 9px; display: block;"><span class="sc-interp">Authentication</span></a><a data-dc-tpl="13" href="#conventions" class="scp0" style="color: rgb(174, 185, 204); font-size: 14px; padding: 8px 12px; border-radius: 9px; display: block;"><span class="sc-interp">Conventions</span></a><a data-dc-tpl="13" href="#errors" class="scp0" style="color: rgb(174, 185, 204); font-size: 14px; padding: 8px 12px; border-radius: 9px; display: block;"><span class="sc-interp">Error model</span></a><a data-dc-tpl="13" href="#payments" class="scp0" style="color: rgb(174, 185, 204); font-size: 14px; padding: 8px 12px; border-radius: 9px; display: block;"><span class="sc-interp">Payments</span></a><a data-dc-tpl="13" href="#tokens" class="scp0" style="color: rgb(174, 185, 204); font-size: 14px; padding: 8px 12px; border-radius: 9px; display: block;"><span class="sc-interp">Tokens &amp; customers</span></a><a data-dc-tpl="13" href="#merchants" class="scp0" style="color: rgb(174, 185, 204); font-size: 14px; padding: 8px 12px; border-radius: 9px; display: block;"><span class="sc-interp">Merchants</span></a><a data-dc-tpl="13" href="#routing" class="scp0" style="color: rgb(174, 185, 204); font-size: 14px; padding: 8px 12px; border-radius: 9px; display: block;"><span class="sc-interp">Routing profiles</span></a><a data-dc-tpl="13" href="#disputes" class="scp0" style="color: rgb(174, 185, 204); font-size: 14px; padding: 8px 12px; border-radius: 9px; display: block;"><span class="sc-interp">Disputes</span></a><a data-dc-tpl="13" href="#webhooks" class="scp0" style="color: rgb(174, 185, 204); font-size: 14px; padding: 8px 12px; border-radius: 9px; display: block;"><span class="sc-interp">Webhooks</span></a>
