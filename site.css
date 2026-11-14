@@ -98,10 +98,10 @@ body > .fx-ck button { min-height: 36px; padding: 0 14px; }
   .ap .step { flex-direction: column; justify-content: center; gap: 4px; font-size: 12px; }
   .ap .step>span { display: block; }
 }
-.aqh .g1, .aqh .g2, .aqh .drole, .aqh .cta-h, .aqh .btn-s, .aqh .cta-glow, .aqh .cta-orb, .aqh .cta-grid,
-.aqh .btn-s::before, body .aq-demo, body .aq-demo::before, body .aq-demo .pl::before, body .aq-demo .pl::after { animation: none; }
-body .aq-demo { background: #18253a; border: 1px solid #556889; box-shadow: none; }
-body .aq-demo .pl { background: #b6cbff; }
+.aqh .drole, .aqh .cta-h, .aqh .btn-s, .aqh .cta-glow, .aqh .cta-orb, .aqh .cta-grid,
+.aqh .btn-s::before, body .aq-demo:not(#top .aq-demo), body .aq-demo:not(#top .aq-demo)::before, body .aq-demo:not(#top .aq-demo) .pl::before, body .aq-demo:not(#top .aq-demo) .pl::after { animation: none; }
+body .aq-demo:not(#top .aq-demo) { background: #18253a; border: 1px solid #556889; box-shadow: none; }
+body .aq-demo:not(#top .aq-demo) .pl { background: #b6cbff; }
 
 #pre form[inert] { display: none !important; }
 .form-loading { color: #bfcbe0; line-height: 1.6; }
