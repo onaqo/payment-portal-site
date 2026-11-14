@@ -90,7 +90,7 @@ When an actual reviewer has confirmed the article, record their supplied name an
 
 ## 4. Build, check, fix
 
-Compose a new 1200 × 630 cover at `content/blog/covers/<slug>.svg`. Use the existing covers’ dark navy background, light lettering and blue, green or gold accents. Place the approved wordmark using an SVG image with href="/aq-pay-logo.svg" and a 7:3 aspect ratio. Base the illustration on a concrete example from this article. Compare the finished thumbnail with the existing covers, especially others in the same topic cluster. If the central illustration or composition repeats one already published, design a different scene before publishing. Update `coverAlt` to describe the actual art.
+Compose a new 1200 × 630 cover at `content/blog/covers/<slug>.svg`. Use the existing covers’ dark navy background, light lettering and blue, green or gold accents. Place the approved wordmark using an SVG image with href="/aq-pay-logo.svg" and a 13:3 aspect ratio. Base the illustration on a concrete example from this article. Compare the finished thumbnail with the existing covers, especially others in the same topic cluster. If the central illustration or composition repeats one already published, design a different scene before publishing. Update `coverAlt` to describe the actual art.
 
 ```bash
 node scripts/render-covers.mjs      # branded 1200x630 cover → blog/covers/<slug>.jpg

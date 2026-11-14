@@ -67,7 +67,7 @@ h1{margin-top:22px;font-weight:700;font-size:${t}px;line-height:1.06;letter-spac
 .edge{position:absolute;inset:0;border:1px solid rgba(255,255,255,.06)}
 </style></head><body><div class="grid"></div>
 <svg class="art" viewBox="0 0 420 420">${MOTIFS[motifFor(p)](r)}</svg>
-<div class="l"><div class="brand"><img src="data:image/svg+xml;base64,${logo}" width="107" height="46" alt="AQ Pay"></div><div class="cat"><i></i>${esc(p.category)}</div><h1>${esc(p.title)}</h1>
+<div class="l"><div class="brand"><img src="data:image/svg+xml;base64,${logo}" width="234" height="54" alt="AQ Pay"></div><div class="cat"><i></i>${esc(p.category)}</div><h1>${esc(p.title)}</h1>
 <div class="foot">${p.market ? `<span class="chip">${esc(p.market)}</span>` : ''}<span>aqpay.services${p.slug ? '/blog' : ''}</span></div></div><div class="edge"></div></body></html>`;
 }
 
