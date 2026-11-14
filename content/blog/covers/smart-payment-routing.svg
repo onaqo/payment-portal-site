@@ -9,7 +9,7 @@
   <rect width="1200" height="630" fill="url(#desk)"/>
   <path d="M508 0h692v630H420z" fill="url(#dots)" opacity=".5"/>
   <g font-family="Arial,sans-serif" fill="#F4F7FC">
-    <image href="/aq-pay-logo.svg" x="60" y="39" width="107" height="46"/>
+    <image href="/aq-pay-logo.svg" x="60" y="39" width="234" height="54"/>
     <path d="M64 110h415" stroke="#35465f"/>
     <text x="63" y="190" font-family="monospace" font-size="18" letter-spacing="3" fill="#6E9BFF">PAYMENTS GUIDE</text>
     <text x="57" y="284" font-size="89" font-weight="700" letter-spacing="-5">Smart</text>

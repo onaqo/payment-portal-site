@@ -13,14 +13,14 @@
 <meta property="og:title" content="Smart payment routing for a two-processor pilot | AQ Pay">
 <meta property="og:description" content="Design a smart payment routing pilot with two processors. Use a route worksheet, timeout decision table and refund test before switching live traffic.">
 <meta property="og:url" content="https://www.aqpay.services/blog/smart-payment-routing">
-<meta property="og:image" content="https://www.aqpay.services/blog/covers/smart-payment-routing.jpg?v=01d7d660">
+<meta property="og:image" content="https://www.aqpay.services/blog/covers/smart-payment-routing.jpg?v=372e3380">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Smart payment routing for a two-processor pilot | AQ Pay">
 <meta name="twitter:description" content="Design a smart payment routing pilot with two processors. Use a route worksheet, timeout decision table and refund test before switching live traffic.">
-<meta name="twitter:image" content="https://www.aqpay.services/blog/covers/smart-payment-routing.jpg?v=01d7d660">
+<meta name="twitter:image" content="https://www.aqpay.services/blog/covers/smart-payment-routing.jpg?v=372e3380">
 <meta property="article:published_time" content="2026-11-14T00:00:00Z">
 <meta property="article:modified_time" content="2026-11-14T00:00:00Z">
 <meta property="article:section" content="Guides">
@@ -38,7 +38,7 @@
 <style>.shared-nav{position:sticky;top:0;z-index:60;min-height:72px}.shared-nav x-dc{display:none}.shared-nav:has(#dc-root header) .nav-fallback{display:none}@media(max-width:959px){.nav-fallback nav{display:none!important}}</style>
 <script defer src="/support.js?v=a05343a5"></script>
 <script src="/fx.js?v=2d052c7e" data-fx defer></script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Smart payment routing from the first rule to the first refund","description":"Design a smart payment routing pilot with two processors. Use a route worksheet, timeout decision table and refund test before switching live traffic.","image":["https://www.aqpay.services/blog/covers/smart-payment-routing.jpg?v=01d7d660"],"datePublished":"2026-11-14","dateModified":"2026-11-14","author":{"@type":"Organization","name":"AQ Pay Payments Team","url":"https://www.aqpay.services/about"},"publisher":{"@type":"Organization","@id":"https://www.aqpay.services/#organization","name":"AQ Pay","url":"https://www.aqpay.services","logo":{"@type":"ImageObject","url":"https://www.aqpay.services/aq-mark.svg"},"email":"hello@aqpay.services"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.aqpay.services/blog/smart-payment-routing"},"articleSection":"Guides","keywords":"smart payment routing, payment routing rules, payment processor failover, payment retries, payment reconciliation","wordCount":1174,"inLanguage":"en"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Smart payment routing from the first rule to the first refund","description":"Design a smart payment routing pilot with two processors. Use a route worksheet, timeout decision table and refund test before switching live traffic.","image":["https://www.aqpay.services/blog/covers/smart-payment-routing.jpg?v=372e3380"],"datePublished":"2026-11-14","dateModified":"2026-11-14","author":{"@type":"Organization","name":"AQ Pay Payments Team","url":"https://www.aqpay.services/about"},"publisher":{"@type":"Organization","@id":"https://www.aqpay.services/#organization","name":"AQ Pay","url":"https://www.aqpay.services","logo":{"@type":"ImageObject","url":"https://www.aqpay.services/aq-mark.svg"},"email":"hello@aqpay.services"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.aqpay.services/blog/smart-payment-routing"},"articleSection":"Guides","keywords":"smart payment routing, payment routing rules, payment processor failover, payment retries, payment reconciliation","wordCount":1174,"inLanguage":"en"}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.aqpay.services/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.aqpay.services/blog"},{"@type":"ListItem","position":3,"name":"Guides","item":"https://www.aqpay.services/blog/category/guides"},{"@type":"ListItem","position":4,"name":"Smart payment routing from the first rule to the first refund","item":"https://www.aqpay.services/blog/smart-payment-routing"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Can a merchant route payments with only one processor?","acceptedAnswer":{"@type":"Answer","text":"You can classify transactions and record the route you would choose. A live comparison between processors needs two approved, working connections for the same type of payment."}},{"@type":"Question","name":"Should a timeout trigger automatic failover?","acceptedAnswer":{"@type":"Answer","text":"First establish whether the request reached the processor. If the original outcome is unknown, keep the order pending and check its status before deciding whether another attempt is appropriate."}},{"@type":"Question","name":"Which approval rate should a routing pilot track?","acceptedAnswer":{"@type":"Answer","text":"Keep two figures. First-attempt approval describes the initial route. The share of unique orders eventually paid includes recovery and describes the outcome the merchant cares about."}}]}</script>
 </head>
@@ -46,7 +46,7 @@
   <div data-dc-tpl="6" style="backdrop-filter: blur(20px); background: rgba(6, 10, 20, 0.76); border-bottom: 1px solid rgba(255, 255, 255, 0.07);">
     <div data-dc-tpl="7" style="max-width: 1360px; margin: 0px auto; padding: 0px 24px; height: 72px; display: flex; align-items: center; gap: 28px;">
       <a data-dc-tpl="8" href="/" aria-label="AQ Pay home" style="display: flex; align-items: center; gap: 12px; color: rgb(244, 247, 252); flex-shrink: 0; text-decoration: none;">
-        <img src="/aq-pay-logo.svg" alt="" width="89" height="38" style="display:block;flex:none;width:89px;height:38px">
+        <img src="/aq-pay-logo.svg" alt="" width="164" height="44" style="display:block;flex:none;width:164px;height:44px">
       </a>
       <nav data-dc-tpl="11" aria-label="Main" style="display: flex; flex: 1 1 0%; justify-content: center; gap: 2px;">
 
@@ -107,7 +107,7 @@
   <div style="backdrop-filter:blur(20px);background:rgba(6,10,20,.76);border-bottom:1px solid rgba(255,255,255,.07)">
     <div style="max-width:1360px;margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;gap:28px">
       <a href="{{ homeHref }}" aria-label="AQ Pay home" style="display:flex;align-items:center;gap:12px;color:#F4F7FC;flex-shrink:0;text-decoration:none">
-        <img src="/aq-pay-logo.svg" alt="" width="89" height="38" style="display:block;flex:none;width:89px;height:38px">
+        <img src="/aq-pay-logo.svg" alt="" width="164" height="44" style="display:block;flex:none;width:164px;height:44px">
       </a>
       <nav aria-label="Main" style="display:{{ desktopDisplay }};flex:1;justify-content:center;gap:2px">
         <sc-for list="{{ navs }}" as="n" hint-placeholder-count="6">
@@ -147,7 +147,7 @@
 <sc-if value="{{ mobileOpen }}" hint-placeholder-val="{{ false }}">
   <div role="dialog" aria-label="Menu" style="position:fixed;inset:0;z-index:90;background:#0F1729;overflow:auto;animation:tppFade .2s ease both;font-family:'Geist',system-ui,sans-serif;color:#F4F7FC">
     <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 24px;height:72px;border-bottom:1px solid rgba(255,255,255,.08)">
-      <a href="/" aria-label="AQ Pay home"><img src="/aq-pay-logo.svg" alt="" width="89" height="38" style="display:block;flex:none;width:89px;height:38px"></a>
+      <a href="/" aria-label="AQ Pay home"><img src="/aq-pay-logo.svg" alt="" width="164" height="44" style="display:block;flex:none;width:164px;height:44px"></a>
       <button onClick="{{ toggleMobile }}" aria-label="Close menu" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#F4F7FC;width:44px;height:44px;border-radius:12px;font-size:20px;cursor:pointer">×</button>
     </div>
     <div style="padding:12px 24px 40px;display:flex;flex-direction:column;gap:4px">
@@ -264,7 +264,7 @@ class Component extends DCLogic {
   <h1>Smart payment routing from the first rule to the first refund</h1>
   <p class="lede">Design a smart payment routing pilot with two processors. Use a route worksheet, timeout decision table and refund test before switching live traffic.</p>
   <div class="byline"><img src="/aq-mark.svg" alt="" width="28" height="28"><span>AQ Pay Payments Team</span><span>·</span><time datetime="2026-11-14">14 November 2026</time><span>·</span><span>5 min read</span></div>
-  <div class="cover"><img src="/blog/covers/smart-payment-routing.jpg?v=01d7d660" alt="A £49 order receipt and its matching refund receipt both identify processor A." width="1200" height="630" fetchpriority="high"></div>
+  <div class="cover"><img src="/blog/covers/smart-payment-routing.jpg?v=372e3380" alt="A £49 order receipt and its matching refund receipt both identify processor A." width="1200" height="630" fetchpriority="high"></div>
 </div></div>
 <div class="article"><div class="wrap"><div class="layout">
   <div class="prose">
@@ -364,19 +364,19 @@ class Component extends DCLogic {
 </div></div></div>
 </article>
 <section class="related"><div class="wrap"><h2>Keep reading</h2><div class="grid"><a class="card" href="/blog/what-is-payment-orchestration">
-  <img src="/blog/covers/what-is-payment-orchestration.jpg?v=a1c42087" alt="Payment orchestration diagram: one integration routing payments to several providers" width="1200" height="630" loading="lazy" decoding="async">
+  <img src="/blog/covers/what-is-payment-orchestration.jpg?v=9225afec" alt="Payment orchestration diagram: one integration routing payments to several providers" width="1200" height="630" loading="lazy" decoding="async">
   <span class="body"><span class="mono cat">Guides</span><h3>What is payment orchestration — and when do you need it?</h3><p>Payment orchestration explained: how one integration routes payments across multiple PSPs and acquirers, when it pays off, and what to look for.</p>
   <span class="meta"><time datetime="2026-11-05">5 November 2026</time><span>4 min read</span></span></span></a><a class="card" href="/blog/white-label-payment-gateway-vs-building-your-own">
-  <img src="/blog/covers/white-label-payment-gateway-vs-building-your-own.jpg?v=246186b5" alt="Stacked platform layers representing a white-label payment gateway" width="1200" height="630" loading="lazy" decoding="async">
+  <img src="/blog/covers/white-label-payment-gateway-vs-building-your-own.jpg?v=1ecaa926" alt="Stacked platform layers representing a white-label payment gateway" width="1200" height="630" loading="lazy" decoding="async">
   <span class="body"><span class="mono cat">Guides</span><h3>White-label payment gateway vs. building your own PSP stack</h3><p>Should you license a white-label payment gateway or build your own PSP stack? The real work, costs, timelines and risks of each path — and how to decide.</p>
   <span class="meta"><time datetime="2026-11-05">5 November 2026</time><span>4 min read</span></span></span></a><a class="card" href="/blog/high-risk-merchant-account-underwriting">
-  <img src="/blog/covers/high-risk-merchant-account-underwriting.jpg?v=68c50e15" alt="Shield with a check mark representing high-risk merchant underwriting" width="1200" height="630" loading="lazy" decoding="async">
+  <img src="/blog/covers/high-risk-merchant-account-underwriting.jpg?v=c385c23a" alt="Shield with a check mark representing high-risk merchant underwriting" width="1200" height="630" loading="lazy" decoding="async">
   <span class="body"><span class="mono cat">Explainers</span><h3>High-risk merchant accounts: how underwriting actually works</h3><p>What acquirers check when underwriting a high-risk merchant account, which documents to prepare, why applications fail, and how to stay approved.</p>
   <span class="meta"><time datetime="2026-11-05">5 November 2026</time><span>4 min read</span></span></span></a></div></div></section>
 </main>
 <footer class="ftr"><div class="wrap">
   <div class="ftr-grid">
-    <div><a class="brand" href="/" aria-label="AQ Pay home"><img src="/aq-pay-logo.svg" alt="" width="89" height="38" style="display:block;flex:none;width:89px;height:38px"></a>
+    <div><a class="brand" href="/" aria-label="AQ Pay home"><img src="/aq-pay-logo.svg" alt="" width="164" height="44" style="display:block;flex:none;width:164px;height:44px"></a>
       <p>White-label gateway, orchestration and merchant services infrastructure for PSPs, platforms and merchants.</p>
       <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn" href="/book-a-demo" style="font-size:14px;padding:10px 18px">Book a Demo</a><a class="btn btn-ghost" href="https://portal.aqpay.services/" target="_blank" rel="noopener" style="font-size:14px">Portal login ↗</a></div></div>
     <nav aria-label="Solutions"><h3>Solutions</h3><ul><li><a href="/white-label-gateway">White-Label Gateway</a></li><li><a href="/merchant-services">Merchant Services</a></li><li><a href="/high-risk-processing">High-Risk Processing</a></li><li><a href="/payment-orchestration">Payment Orchestration</a></li><li><a href="/about#consulting">Payment Consulting</a></li><li><a href="/industries">Industries</a></li></ul></nav>
