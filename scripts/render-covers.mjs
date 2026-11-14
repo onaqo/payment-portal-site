@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // Renders branded 1200x630 cover images (used on the page AND as the social/Google preview image).
 //   node scripts/render-covers.mjs            -> covers for posts that don't have one yet
+//   node scripts/render-covers.mjs <slug>     -> refresh one article’s updated artwork
 //   node scripts/render-covers.mjs --all      -> re-render every cover
 //   node scripts/render-covers.mjs --site     -> also render /og-image.jpg for the main site
 // Install Chromium with npx playwright install chromium, or use PLAYWRIGHT_CHANNEL=chrome.
@@ -81,12 +82,39 @@ function loadPosts() {
 const jobs = [];
 if (args.has('--site')) jobs.push({ out: path.join(ROOT, 'og-image.jpg'), p: { title: 'White-label payment gateway & payment orchestration', category: 'Payment infrastructure', market: 'PSPs · ISOs · Platforms · Merchants', motif: 'routing' } });
 fs.mkdirSync(OUT, { recursive: true });
-for (const p of loadPosts()) { const out = path.join(OUT, `${p.slug}.jpg`); if (args.has('--all') || !fs.existsSync(out)) jobs.push({ out, p }); }
+// The initial four articles keep their original cover treatment when rebuilt.
+const legacySlugs = new Set([
+  'what-is-payment-orchestration', 'white-label-payment-gateway-vs-building-your-own',
+  'high-risk-merchant-account-underwriting', 'payment-facilitator-vs-iso',
+]);
+const artworkUsed = new Map();
+for (const p of loadPosts()) {
+  const out = path.join(OUT, `${p.slug}.jpg`);
+  const source = path.join(CONTENT, 'covers', `${p.slug}.svg`);
+  if (!fs.existsSync(source)) {
+    if (!legacySlugs.has(p.slug)) throw new Error(`Create original artwork at content/blog/covers/${p.slug}.svg`);
+    if (args.has('--all') || !fs.existsSync(out)) jobs.push({ out, p });
+    continue;
+  }
+  const art = fs.readFileSync(source, 'utf8');
+  const drawing = art.replace(/<(title|desc|text)\b[^>]*>[\s\S]*?<\/\1>/gi, '').replace(/\s+/g, '');
+  if (artworkUsed.has(drawing)) throw new Error(`${p.slug} repeats the artwork for ${artworkUsed.get(drawing)}`);
+  artworkUsed.set(drawing, p.slug);
+  if (args.has('--all') || args.has(p.slug) || !fs.existsSync(out)) {
+    jobs.push({ out, p, art });
+  }
+}
 if (!jobs.length) { console.log('All covers up to date.'); process.exit(0); }
 const browser = await chromium.launch({ channel: process.env.PLAYWRIGHT_CHANNEL || undefined });
 const page = await browser.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1 });
-for (const { out, p } of jobs) {
-  await page.setContent(html(p), { waitUntil: 'load' });
+for (const { out, p, art } of jobs) {
+  if (art) {
+    const image = 'data:image/svg+xml;base64,' + Buffer.from(art).toString('base64');
+    await page.setContent(`<body style="margin:0"><img width="1200" height="630" src="${image}"></body>`);
+    await page.locator('img').evaluate(img => img.decode());
+  } else {
+    await page.setContent(html(p), { waitUntil: 'load' });
+  }
   await page.screenshot({ path: out, type: 'jpeg', quality: 86 });
   console.log('cover:', path.relative(ROOT, out));
 }

@@ -1,0 +1,12 @@
+Decision,Illustrative example,Your pilot,Owner
+Scope,"Merchant M / GBP / one-off card order",,
+Eligible routes,"A and B after account and credential checks",,
+First choice,A for the baseline,,
+Comparison group,Preselected share of eligible orders starts on B,,
+Unknown outcome,"Pause and reconcile the original attempt",,
+Rollback,Return new orders to A,,
+Refund,Find the processor that captured the original payment,,
+First-attempt approvals,"80 orders out of 100",,
+Eventual paid orders,"85 unique orders out of 100",,
+Decision,Expand or keep collecting comparable orders,,
+Source,https://www.aqpay.services/blog/smart-payment-routing,,

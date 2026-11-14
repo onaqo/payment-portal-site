@@ -45,9 +45,17 @@
   // What visitors do: named once here, so pages only say window.aqTrack('name').
   window.aqTrack = function (name) { if (/^[a-z0-9][a-z0-9_:-]{0,39}$/.test(name || '')) send('event', { name: name }); };
   window.aqVisitorId = visitorId;
+  window.aqConversion = function (name) {
+    window.aqTrack(name);
+    if (window.__gtm) window.dataLayer.push({ event: name, page_path: location.pathname });
+  };
   d.addEventListener('click', function (e) {
     var a = e.target && e.target.closest ? e.target.closest('a[href]') : null; if (!a) return;
     var href = a.getAttribute('href') || '';
+    if (d.querySelector('meta[property="og:type"][content="article"]') && a.closest('.prose')) {
+      var service = /^\/(white-label-gateway|payment-orchestration|merchant-services|high-risk-processing|partner-program)(?:[?#]|$)/.exec(href);
+      if (service) window.aqConversion('article_to_' + service[1].replace(/-/g, '_'));
+    }
     if (/^mailto:/i.test(href)) return window.aqTrack('mail_click');
     if (/^tel:/i.test(href)) return window.aqTrack('phone_click');
     if (/\.(pdf|docx?|xlsx?|pptx?|zip|csv)(\?|#|$)/i.test(href)) return window.aqTrack('file_download');

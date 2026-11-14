@@ -53,6 +53,8 @@ sources, countries, devices, who is on the site now, and which known leads visit
 - What is collected is described in `content/legal/cookies.md` and `content/legal/privacy.md`. Keep them in step with
   `track.js`. After editing them, run `node scripts/build-blog.mjs`. The build versions shared script and style links automatically.
 
+To measure organic enquiries, use Search Console performance data for the www property and filter out AQ Pay brand queries. The site's analytics record article-to-service clicks as `article_to_<service>`. Successful demo requests and applications record `demo_form_submit`, `merchant_application_submit` or `white_label_application_submit`. Use sales-portal lead status to identify qualified enquiries. A form submission alone does not establish qualification.
+
 ## Chat (optional)
 A chat box at the bottom right of every page. An AI assistant in the sales portal answers visitors from text your
 team keeps there, and a visitor who leaves their details becomes a website lead with a summary of the conversation.

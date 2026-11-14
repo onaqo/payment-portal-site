@@ -166,6 +166,20 @@
     const hostEl = doc.createElement("div");
     hostEl.id = "dc-root";
     dc.replaceWith(hostEl);
+    const fallback = doc.getElementById("pre");
+    if (fallback) {
+      const ready = new MutationObserver(() => {
+        if (!hostEl.querySelector("main h1") || !hostEl.querySelector("header") || !hostEl.querySelector("footer")) return;
+        ready.disconnect();
+        fallback.remove();
+        if (location.hash) {
+          let id;
+          try { id = decodeURIComponent(location.hash.slice(1)); } catch { return; }
+          doc.getElementById(id)?.scrollIntoView();
+        }
+      });
+      ready.observe(hostEl, { childList: true, subtree: true });
+    }
     if (!parsed.preview) {
       const s = doc.createElement("style");
       s.textContent = FULL_PAGE_CSS;
@@ -1840,10 +1854,8 @@
     if (w.React && w.ReactDOM) return Promise.resolve();
     const react = cdnScriptFor(REACT_URL, REACT_SRI);
     const reactDom = cdnScriptFor(REACT_DOM_URL, REACT_DOM_SRI);
-    return Promise.all([
-      loadScript(react.src, react.integrity),
-      loadScript(reactDom.src, reactDom.integrity)
-    ]).then(() => void 0);
+    return loadScript(react.src, react.integrity)
+      .then(() => loadScript(reactDom.src, reactDom.integrity));
   }
   function init() {
     const runtime = createRuntime(document);

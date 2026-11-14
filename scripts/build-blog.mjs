@@ -108,23 +108,15 @@ ${extra}<link rel="icon" href="/aq-mark.svg" type="image/svg+xml">
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="${blogCss}">
 <link rel="stylesheet" href="${fxCss}">
+<link rel="stylesheet" href="${assetUrl('site.css')}">
 <script src="${fxScript}" data-fx defer></script>
 ${jsonld.map(ld).join('\n')}
 </head>
 <body>`;
 
-const header = active => `
-<header class="hdr"><div class="wrap">
-  <a class="brand" href="/" aria-label="${BRAND} home"><img src="/aq-mark.svg" alt="" width="36" height="36">${BRAND}</a>
-  <nav class="nav" aria-label="Main">
-    <a href="/white-label-gateway">White-Label Gateway</a><a href="/payment-orchestration">Orchestration</a><a href="/merchant-services">Merchant Services</a><a href="/industries">Industries</a><a href="/developers">Developers</a><a href="/blog"${active ? ' aria-current="page"' : ''}>Blog</a>
-  </nav>
-  <div class="hdr-cta"><a class="login" href="https://portal.aqpay.services/" target="_blank" rel="noopener">Login</a><a class="btn" href="/book-a-demo">Book a Demo</a>
-    <details class="menu"><summary aria-label="Open menu"><svg width="18" height="12" viewBox="0 0 18 12" fill="none" stroke="#F4F7FC" stroke-width="2"><path d="M0 1h18M0 11h18"/></svg></summary>
-      <div class="panel"><a href="/white-label-gateway">White-Label Gateway</a><a href="/payment-orchestration">Payment Orchestration</a><a href="/merchant-services">Merchant Services</a><a href="/high-risk-processing">High-Risk Processing</a><a href="/industries">Industries</a><a href="/developers">Developers</a><a href="/blog">Blog</a><a href="https://portal.aqpay.services/" target="_blank" rel="noopener">Login</a><a href="/book-a-demo" class="btn" style="justify-content:center">Book a Demo</a></div>
-    </details>
-  </div>
-</div></header>`;
+const navComponent = fs.readFileSync(path.join(ROOT, 'SiteNav.dc.html'), 'utf8');
+const navMarkup = navComponent.match(/<x-dc>([\s\S]*?)<\/x-dc>/)[1];
+const header = () => navMarkup;
 
 const footer = () => `
 <footer class="ftr"><div class="wrap">
@@ -133,7 +125,7 @@ const footer = () => `
       <p>White-label gateway, orchestration and merchant services infrastructure for PSPs, platforms and merchants.</p>
       <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn" href="/book-a-demo" style="font-size:14px;padding:10px 18px">Book a Demo</a><a class="btn btn-ghost" href="https://portal.aqpay.services/" target="_blank" rel="noopener" style="font-size:14px">Portal login ↗</a></div></div>
     <nav aria-label="Solutions"><h3>Solutions</h3><ul><li><a href="/white-label-gateway">White-Label Gateway</a></li><li><a href="/merchant-services">Merchant Services</a></li><li><a href="/high-risk-processing">High-Risk Processing</a></li><li><a href="/payment-orchestration">Payment Orchestration</a></li><li><a href="/about#consulting">Payment Consulting</a></li><li><a href="/industries">Industries</a></li></ul></nav>
-    <nav aria-label="Platform"><h3>Platform</h3><ul><li><a href="/payment-orchestration#routing">Intelligent Routing</a></li><li><a href="/payment-orchestration#connectivity">Gateway Connectivity</a></li><li><a href="/#risk">Risk &amp; Fraud</a></li><li><a href="/white-label-gateway#operations">Reconciliation</a></li><li><a href="/#security">Security</a></li></ul></nav>
+    <nav aria-label="Platform"><h3>Platform</h3><ul><li><a href="/payment-orchestration#routing">Intelligent Routing</a></li><li><a href="/payment-orchestration#connectivity">Gateway Connectivity</a></li><li><a href="/high-risk-processing#chargebacks">Risk &amp; Fraud</a></li><li><a href="/white-label-gateway#operations">Reconciliation</a></li><li><a href="/white-label-gateway#infrastructure">Security</a></li></ul></nav>
     <nav aria-label="Developers"><h3>Developers</h3><ul><li><a href="/developers">Overview</a></li><li><a href="/developers#quick-start">Quick Start</a></li><li><a href="/api-reference">API Reference</a></li><li><a href="/api-reference#webhooks">Webhooks</a></li><li><a href="/developers#sandbox">Sandbox</a></li></ul></nav>
     <nav aria-label="Company"><h3>Company</h3><ul><li><a href="/about">About</a></li><li><a href="/blog">Blog</a></li><li><a href="/partner-program">Partner Program</a></li><li><a href="/book-a-demo">Book a Demo</a></li><li><a href="/book-a-demo#contact">Contact</a></li><li><a href="mailto:hello@aqpay.services">hello@aqpay.services</a></li></ul></nav>
   </div>
@@ -145,7 +137,7 @@ const footer = () => `
 `;
 
 const ORG = { '@type': 'Organization', '@id': `${SITE}/#organization`, name: BRAND, url: SITE, logo: { '@type': 'ImageObject', url: `${SITE}/og-image.jpg` }, email: 'hello@aqpay.services' };
-const coverUrl = p => `/blog/covers/${p.slug}.jpg`;
+const coverUrl = p => assetUrl(`blog/covers/${p.slug}.jpg`);
 
 const card = (p, h = 'h3', feature = false) => `<a class="card${feature ? ' feature' : ''}" href="/blog/${p.slug}">
   <img src="${coverUrl(p)}" alt="${esc(p.coverAlt || p.title)}" width="1200" height="630" loading="${feature ? 'eager' : 'lazy'}" decoding="async">
@@ -174,7 +166,7 @@ function postPage(p, all) {
   <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/blog">Blog</a><span>/</span><a href="/blog/category/${slugify(p.category)}">${esc(p.category)}</a></nav>
   <h1>${esc(p.title)}</h1>
   <p class="lede">${esc(p.description)}</p>
-  <div class="byline"><img src="/aq-mark.svg" alt="" width="28" height="28"><span>${BRAND} Payments Team</span><span>·</span><time datetime="${p.date}">${fmtDate(p.date)}</time>${p.updated !== p.date ? `<span>· Updated <time datetime="${p.updated}">${fmtDate(p.updated)}</time></span>` : ''}<span>·</span><span>${p.minutes} min read</span></div>
+  <div class="byline"><img src="/aq-mark.svg" alt="" width="28" height="28"><span>${BRAND} Payments Team</span>${p.reviewer?.name && p.reviewer?.role ? `<span>·</span><span>Reviewed by ${esc(p.reviewer.name)}, ${esc(p.reviewer.role)}</span>` : ''}<span>·</span><time datetime="${p.date}">${fmtDate(p.date)}</time>${p.updated !== p.date ? `<span>· Updated <time datetime="${p.updated}">${fmtDate(p.updated)}</time></span>` : ''}<span>·</span><span>${p.minutes} min read</span></div>
   <div class="cover"><img src="${coverUrl(p)}" alt="${esc(p.coverAlt || p.title)}" width="1200" height="630" fetchpriority="high"></div>
 </div></div>
 <div class="article"><div class="wrap"><div class="layout">

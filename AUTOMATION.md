@@ -86,7 +86,11 @@ Body rules (Markdown; inline HTML allowed):
 - End with a short practical "next step" paragraph pointing to the relevant service page and `/book-a-demo`.
 - Do not repeat a topic or angle already covered by a published post; one post per day means each must add something new.
 
+When an actual reviewer has confirmed the article, record their supplied name and relevant role in the optional `reviewer` object. Leave it absent without that confirmation. Link to the routing worksheet where relevant. When an article introduces another reusable worksheet, keep its downloadable CSV in `blog/resources/` and link to it from the article.
+
 ## 4. Build, check, fix
+
+Compose a new 1200 × 630 cover at `content/blog/covers/<slug>.svg`. Base the illustration on a concrete example from this article. Compare the finished thumbnail with the existing covers, especially others in the same topic cluster. If the central illustration or composition repeats one already published, design a different scene before publishing. Update `coverAlt` to describe the actual art.
 
 ```bash
 node scripts/render-covers.mjs      # branded 1200x630 cover → blog/covers/<slug>.jpg

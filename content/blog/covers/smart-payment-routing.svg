@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <title>Smart payment routing from checkout to refund</title>
+  <defs>
+    <pattern id="dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.1" fill="#a4adbb"/></pattern>
+    <linearGradient id="desk" x2=".88" y2="1"><stop stop-color="#dee3ec"/><stop offset="1" stop-color="#b5c5dc"/></linearGradient>
+    <filter id="shadow" x="-45%" y="-35%" width="210%" height="205%"><feDropShadow dx="9" dy="14" stdDeviation="11" flood-color="#182b49" flood-opacity=".30"/></filter>
+    <pattern id="barcode" width="17" height="33" patternUnits="userSpaceOnUse"><path d="M1 0v33m3-33v33m4-33v33m6-33v33" stroke="#24304a" stroke-width="2"/></pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#desk)"/>
+  <path d="M508 0h692v630H420z" fill="url(#dots)" opacity=".5"/>
+  <g font-family="Arial,sans-serif" fill="#14263e">
+    <text x="63" y="79" font-size="28" font-weight="700">AQ Pay</text>
+    <path d="M64 110h415" stroke="#8c99ab"/>
+    <text x="63" y="190" font-family="monospace" font-size="18" letter-spacing="3">PAYMENTS GUIDE</text>
+    <text x="57" y="284" font-size="89" font-weight="700" letter-spacing="-5">Smart</text>
+    <text x="57" y="368" font-size="89" font-weight="700" letter-spacing="-5">payment</text>
+    <text x="57" y="452" font-size="89" font-weight="700" letter-spacing="-5">routing</text>
+    <text x="63" y="543" font-size="23">From the first rule to the first refund</text>
+  </g>
+  <g transform="translate(617 70) rotate(-9 170 210)" filter="url(#shadow)">
+    <path d="M0 0h354v425l-12-7-12 7-12-7-12 7-12-7-12 7-12-7-12 7-12-7-12 7-12-7-12 7-12-7-12 7-12-7-12 7-12-7-12 7-12-7-12 7-12-7-12 7-12-7-12 7-12-7-12 7-12-7-12 7-18-7z" fill="#fffaf0"/>
+    <g fill="#263143" font-family="monospace">
+      <text x="30" y="51" font-size="15" letter-spacing="2.5">EXAMPLE TRANSACTION</text>
+      <text x="28" y="109" font-size="45" font-weight="bold">ORDER 49</text>
+      <path d="M30 132h292m-292 134h292" stroke="#918c82" stroke-width="2" stroke-dasharray="5 5"/>
+      <text x="30" y="175" font-size="20">PROCESSOR</text><text x="302" y="175" font-size="21">A</text>
+      <text x="30" y="213" font-size="20">AMOUNT</text><text x="235" y="213" font-size="21">£49.00</text>
+      <rect x="31" y="299" width="230" height="43" fill="url(#barcode)"/>
+      <text x="30" y="382" font-size="15">REFERENCE / 000049-A</text>
+    </g>
+  </g>
+  <g transform="translate(850 318) rotate(9 130 100)" filter="url(#shadow)">
+    <rect width="270" height="212" rx="5" fill="#d9ebdb"/>
+    <g fill="#254b39" font-family="monospace"><text x="22" y="39" font-size="15" letter-spacing="2">REFUND RECEIPT</text>
+      <path d="M22 58h226" stroke="#648377" stroke-dasharray="4 4"/>
+      <text x="20" y="108" font-size="34" font-weight="700">−£49.00</text>
+      <text x="22" y="154" font-size="17">ORDER 49</text><text x="22" y="183" font-size="17">VIA PROCESSOR A</text>
+    </g>
+  </g>
+</svg>

@@ -9,7 +9,7 @@
   "market": "Global",
   "primaryKeyword": "smart payment routing",
   "keywords": ["payment routing rules", "payment processor failover", "payment retries", "payment reconciliation"],
-  "coverAlt": "A payment enters a routing diagram with several possible processor paths.",
+  "coverAlt": "A £49 order receipt and its matching refund receipt both identify processor A.",
   "takeaways": ["Write down which merchants, payment methods and currencies each processor can accept before choosing an order of preference.", "When a request times out after submission, resolve the first attempt before considering a second charge.", "Include a refund and a settlement report in the pilot so finance can follow the same order after checkout."],
   "faq": [
     {"q": "Can a merchant route payments with only one processor?", "a": "You can classify transactions and record the route you would choose. A live comparison between processors needs two approved, working connections for the same type of payment."},
@@ -36,6 +36,8 @@ Pick one merchant, one currency, one payment method and one kind of purchase. A 
 | Unknown outcome | Retain the original attempt reference and check status |
 | Rollback owner | Payments operations returns new orders to A |
 | Refund owner | Finance locates the processor that captured the original order |
+
+[Download the routing pilot worksheet (CSV)](/blog/resources/routing-pilot-worksheet.csv) and fill in the blank pilot column with your team.
 
 Ask a colleague outside the project to route three example orders using this sheet. Give them a GBP card order, a euro card order and a GBP renewal. If they send all three into the pilot, the rule is ambiguous. Document the existing treatment of out-of-scope orders so a change to one merchant cannot silently become a change to the whole portfolio.
 

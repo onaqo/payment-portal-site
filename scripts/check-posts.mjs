@@ -12,6 +12,7 @@ const only = process.argv[2];
 const PAGES = new Set(['/', '/white-label-gateway', '/payment-orchestration', '/merchant-services', '/high-risk-processing', '/industries', '/developers', '/api-reference', '/partner-program', '/about', '/book-a-demo', '/apply', '/apply-white-label', '/blog', '/privacy', '/terms', '/cookies', '/acceptable-use', '/licences']);
 const slugs = new Set(fs.readdirSync(DIR).filter(f => f.endsWith('.md')).map(f => f.replace(/\.md$/, '')));
 const BANNED = [/we guarantee (approval|acceptance)/i, /100% approval/i, /\bbest in the world\b/i, /#1 /, /lorem ipsum/i, /\[citation needed\]/i, /as an ai\b/i, /\bTODO\b/];
+const downloads = new Set(fs.readdirSync(path.join(ROOT, 'blog/resources')).filter(f => f.endsWith('.csv')).map(f => '/blog/resources/' + f));
 let failed = 0;
 
 for (const f of fs.readdirSync(DIR).filter(f => f.endsWith('.md'))) {
@@ -45,21 +46,21 @@ for (const f of fs.readdirSync(DIR).filter(f => f.endsWith('.md'))) {
   if (/<figure>[\s\S]*?\n\s*\n[\s\S]*?<\/figure>/.test(body)) errs.push('no blank lines allowed inside <figure> (breaks Markdown)');
   const links = [...body.matchAll(/\]\((\/[^)\s#]*)(#[^)]*)?\)/g)].map(x => x[1] || '/');
   const internal = links.filter(l => PAGES.has(l) || (l.startsWith('/blog/') && slugs.has(l.slice(6))));
-  const broken = links.filter(l => !(PAGES.has(l) || (l.startsWith('/blog/') && slugs.has(l.slice(6)))));
+  const broken = links.filter(l => !(downloads.has(l) || PAGES.has(l) || (l.startsWith('/blog/') && slugs.has(l.slice(6)))));
   if (broken.length) errs.push(`broken internal links: ${broken.join(', ')}`);
   if (new Set(internal).size < 4) errs.push(`only ${new Set(internal).size} distinct internal links (min 4)`);
   const SERVICE = ['/white-label-gateway', '/payment-orchestration', '/merchant-services', '/high-risk-processing', '/industries', '/developers', '/api-reference', '/partner-program'];
   if (!links.some(l => SERVICE.includes(l))) errs.push('link to at least one service page');
   const generic = [...body.matchAll(/\[([^\]]+)\]\(\/[^)]*\)/g)].map(x => x[1].trim().toLowerCase()).filter(a => /^(click here|read more|here|this page|learn more|link)$/.test(a));
   if (generic.length) errs.push(`generic anchor text on internal links: ${[...new Set(generic)].join(', ')}`);
-  if (!links.some(l => l.startsWith('/blog/')) && slugs.size > 1) errs.push('link to at least one other blog post');
+  if (!internal.some(l => l.startsWith('/blog/') && l !== '/blog/' + slug) && slugs.size > 1) errs.push('link to at least one other blog post');
   if (!links.includes('/book-a-demo')) warns.push('no link to /book-a-demo');
   const ext = [...body.matchAll(/\]\((https?:\/\/[^)\s]+)\)/g)].map(x => x[1]);
   if (ext.length < 1) warns.push('no external authoritative source linked');
   if ((fm.faq || []).length < 3) errs.push('FAQ needs 3–5 questions');
   if ((fm.takeaways || []).length < 3) errs.push('needs 3–4 takeaways');
   for (const re of BANNED) if (re.test(raw)) errs.push(`banned phrase: ${re}`);
-  if (!fs.existsSync(path.join(ROOT, 'blog/covers', `${slug}.jpg`))) warns.push('cover image not rendered yet (run node scripts/render-covers.mjs)');
+  if (!fs.existsSync(path.join(ROOT, 'blog/covers', `${slug}.jpg`))) errs.push('cover image not rendered yet (run node scripts/render-covers.mjs)');
   const dens = kw ? (text.toLowerCase().split(kw).length - 1) / Math.max(1, words) * 100 : 0;
   if (dens > 2.5) errs.push(`primary keyword density ${dens.toFixed(1)}% — keyword stuffing`);
   console.log(`${errs.length ? '✗' : '✓'} ${slug} — ${words} words, ${h2} sections, ${new Set(internal).size} internal links, ${ext.length} external`);
