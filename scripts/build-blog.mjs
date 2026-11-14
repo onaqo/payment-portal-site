@@ -128,7 +128,7 @@ const header = '<div class="shared-nav"><div class="nav-fallback">' + fallback.r
 const footer = () => `
 <footer class="ftr"><div class="wrap">
   <div class="ftr-grid">
-    <div><a class="brand" href="/" aria-label="AQ Pay home"><img src="/aq-pay-logo.svg" alt="" width="208" height="48" style="display:block;flex:none;width:208px;height:48px"></a>
+    <div><a class="brand" href="/" aria-label="AQ Pay home"><img src="/aq-pay-logo.svg" alt="" width="156" height="36" style="display:block;flex:none;width:156px;height:36px"></a>
       <p>White-label gateway, orchestration and merchant services infrastructure for PSPs, platforms and merchants.</p>
       <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn" href="/book-a-demo" style="font-size:14px;padding:10px 18px">Book a Demo</a><a class="btn btn-ghost" href="https://portal.aqpay.services/" target="_blank" rel="noopener" style="font-size:14px">Portal login ↗</a></div></div>
     <nav aria-label="Solutions"><h3>Solutions</h3><ul><li><a href="/white-label-gateway">White-Label Gateway</a></li><li><a href="/merchant-services">Merchant Services</a></li><li><a href="/high-risk-processing">High-Risk Processing</a></li><li><a href="/payment-orchestration">Payment Orchestration</a></li><li><a href="/about#consulting">Payment Consulting</a></li><li><a href="/industries">Industries</a></li></ul></nav>
