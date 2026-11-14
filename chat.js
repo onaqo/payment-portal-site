@@ -132,7 +132,7 @@
     var btn = el('button', 'aqc-btn'); btn.type = 'button'; btn.setAttribute('aria-controls', 'aqc-panel'); btn.innerHTML = '<i>' + ICON_CHAT + ICON_X + '</i>';
     var badge = el('span', 'aqc-badge'); badge.hidden = true; badge.setAttribute('aria-hidden', 'true'); btn.appendChild(badge);
     var panel = el('section', 'aqc-panel'); panel.id = 'aqc-panel'; panel.setAttribute('role', 'dialog'); panel.setAttribute('aria-label', 'Chat with AQ Pay'); panel.hidden = true;
-    var head = el('div', 'aqc-head'); var orb = el('span', 'aqc-orb'); var orbIn = el('i', '', 'AQ'); orb.appendChild(orbIn); orb.setAttribute('aria-hidden', 'true');
+    var head = el('div', 'aqc-head'); var orb = el('span', 'aqc-orb'); var orbIn = el('img'); orbIn.src = '/aq-mark.svg'; orbIn.alt = ''; orbIn.width = 34; orbIn.height = 34; orb.appendChild(orbIn); orb.setAttribute('aria-hidden', 'true');
     var whoBox = el('div', 'aqc-who'); whoBox.appendChild(el('h2', '', 'AQ Pay')); var sub = el('p', 'aqc-sub'); var liveDot = el('span', 'aqc-live'); var subText = el('span'); sub.appendChild(liveDot); sub.appendChild(subText); whoBox.appendChild(sub);
     var x = el('button', 'aqc-x', '×'); x.type = 'button'; x.setAttribute('aria-label', 'Close the chat');
     head.appendChild(orb); head.appendChild(whoBox); head.appendChild(x);

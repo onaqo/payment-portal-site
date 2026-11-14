@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="336" height="84" viewBox="0 0 336 84" role="img" aria-label="AQ Pay">
+<title>AQ Pay</title>
+<g transform="translate(4 9)"><style>.token{display:none}@media(prefers-reduced-motion:no-preference){.token{display:block} .rest{display:none}}</style>
+<rect width="64" height="64" rx="16" fill="#101A30"/>
+<g fill="none" stroke-linecap="round" stroke-linejoin="round">
+<path d="M44.14 45.14 A20 20 0 1 1 49.32 36.18" stroke="#78A3FF" stroke-width="5"/>
+<path d="M18 40 L29 19 Q30 17 31 20 L38 35 M22 33 H34" stroke="#F4F7FC" stroke-width="4"/>
+<path d="M41 42 L52 53" stroke="#3DDC97" stroke-width="5"/>
+</g><circle class="rest" cx="52" cy="53" r="3" fill="#BAFFDF"/>
+<circle class="token" r="3.3" fill="#BAFFDF"><animateMotion dur="3s" repeatCount="indefinite" calcMode="linear" keyPoints="0;0;.93;1;1" keyTimes="0;.08;.72;.82;1" path="M49.32 36.18 A20 20 0 1 0 44.14 45.14 L52 53"/><animate attributeName="opacity" values="0;1;1;0;0" keyTimes="0;.08;.84;.96;1" dur="3s" repeatCount="indefinite"/></circle></g>
+<g fill="#F4F7FC" transform="translate(84 15)">
+<path fill-rule="evenodd" d="M0 46 21 2h12l15 44H37l-3-9H15l-4 9Zm19-18h12l-5-16Z"/>
+<path fill-rule="evenodd" d="M75 1c15 0 25 9 24 23S87 47 73 47s-25-9-24-23S60 1 75 1Zm-1 10c-8 0-14 5-15 13s5 13 14 13 15-5 16-13-5-13-15-13Z"/>
+<path fill="#3DDC97" d="M76 30h10l15 20H90Z"/>
+</g>
+<g fill="#B6C8EB" transform="translate(198 61) skewX(-7) scale(.0305 -.0305)"><path transform="translate(0 0)" d="M149 0V1466H624Q894 1466 976 1444Q1102 1411 1187.0 1300.5Q1272 1190 1272 1015Q1272 880 1223.0 788.0Q1174 696 1098.5 643.5Q1023 591 945 574Q839 553 638 553H445V0ZM445 1218V802H607Q782 802 841.0 825.0Q900 848 933.5 897.0Q967 946 967 1011Q967 1091 920.0 1143.0Q873 1195 801 1208Q748 1218 588 1218Z"/><path transform="translate(1316 0)" d="M357 738 102 784Q145 938 250.0 1012.0Q355 1086 562 1086Q750 1086 842.0 1041.5Q934 997 971.5 928.5Q1009 860 1009 677L1006 349Q1006 209 1019.5 142.5Q1033 76 1070 0H792Q781 28 765 83Q758 108 755 116Q683 46 601.0 11.0Q519 -24 426 -24Q262 -24 167.5 65.0Q73 154 73 290Q73 380 116.0 450.5Q159 521 236.5 558.5Q314 596 460 624Q657 661 733 693V721Q733 802 693.0 836.5Q653 871 542 871Q467 871 425.0 841.5Q383 812 357 738ZM733 510Q679 492 562.0 467.0Q445 442 409 418Q354 379 354 319Q354 260 398.0 217.0Q442 174 510 174Q586 174 655 224Q706 262 722 317Q733 353 733 454Z"/><path transform="translate(2405 0)" d="M14 1062H313L567 308L815 1062H1106L731 40L664 -145Q627 -238 593.5 -287.0Q560 -336 516.5 -366.5Q473 -397 409.5 -414.0Q346 -431 266 -431Q185 -431 107 -414L82 -194Q148 -207 201 -207Q299 -207 346.0 -149.5Q393 -92 418 -3Z"/></g></svg>

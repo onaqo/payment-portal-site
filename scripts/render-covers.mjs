@@ -24,7 +24,7 @@ const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '
 const hash = s => { let h = 2166136261; for (const c of s) h = Math.imul(h ^ c.charCodeAt(0), 16777619); return h >>> 0; };
 const rng = seed => () => ((seed = Math.imul(seed ^ (seed >>> 15), 2246822507) ^ Math.imul(seed ^ (seed >>> 13), 3266489909)) >>> 0) / 4294967296;
 
-const MARK = `<svg width="64" height="64" viewBox="0 0 64 64"><defs><linearGradient id="mb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#131D36"/><stop offset="1" stop-color="#060A14"/></linearGradient><linearGradient id="mr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6E9BFF"/><stop offset=".55" stop-color="#6E9BFF"/><stop offset="1" stop-color="#3DDC97"/></linearGradient></defs><rect x="2" y="2" width="60" height="60" rx="16" fill="url(#mb)" stroke="rgba(255,255,255,.09)" stroke-width="1.5"/><circle cx="31" cy="30" r="17" fill="none" stroke="url(#mr)" stroke-width="5.5" stroke-linecap="round"/><path d="M24.5 38.5 L31 21.5 L37.5 38.5" fill="none" stroke="#F1F5FF" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/><path d="M27.4 33 H34.6" stroke="#F1F5FF" stroke-width="3.4" stroke-linecap="round"/><path d="M39.4 37.2 Q46.6 44.4 55.4 44.6 A1.55 1.55 0 0 1 55.3 47.7 Q44.9 48.3 37.2 40.2 Z" fill="#3DDC97"/></svg>`;
+const logo = fs.readFileSync(path.join(ROOT, 'aq-pay-logo.svg')).toString('base64');
 
 // Topic illustrations (420x420), chosen from the post's category/keywords.
 const MOTIFS = {
@@ -67,7 +67,7 @@ h1{margin-top:22px;font-weight:700;font-size:${t}px;line-height:1.06;letter-spac
 .edge{position:absolute;inset:0;border:1px solid rgba(255,255,255,.06)}
 </style></head><body><div class="grid"></div>
 <svg class="art" viewBox="0 0 420 420">${MOTIFS[motifFor(p)](r)}</svg>
-<div class="l"><div class="brand">${MARK}AQ Pay</div><div class="cat"><i></i>${esc(p.category)}</div><h1>${esc(p.title)}</h1>
+<div class="l"><div class="brand"><img src="data:image/svg+xml;base64,${logo}" width="184" height="46" alt="AQ Pay"></div><div class="cat"><i></i>${esc(p.category)}</div><h1>${esc(p.title)}</h1>
 <div class="foot">${p.market ? `<span class="chip">${esc(p.market)}</span>` : ''}<span>aqpay.services${p.slug ? '/blog' : ''}</span></div></div><div class="edge"></div></body></html>`;
 }
 
@@ -106,10 +106,10 @@ for (const p of loadPosts()) {
 }
 if (!jobs.length) { console.log('All covers up to date.'); process.exit(0); }
 const browser = await chromium.launch({ channel: process.env.PLAYWRIGHT_CHANNEL || undefined });
-const page = await browser.newPage({ viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1 });
+const page = await browser.newPage({ reducedMotion: 'reduce', viewport: { width: 1200, height: 630 }, deviceScaleFactor: 1 });
 for (const { out, p, art } of jobs) {
   if (art) {
-    const image = 'data:image/svg+xml;base64,' + Buffer.from(art).toString('base64');
+    const image = 'data:image/svg+xml;base64,' + Buffer.from(art.replaceAll('href="/aq-pay-logo.svg"', `href="data:image/svg+xml;base64,${logo}"`)).toString('base64');
     await page.setContent(`<body style="margin:0"><img width="1200" height="630" src="${image}"></body>`);
     await page.locator('img').evaluate(img => img.decode());
   } else {
