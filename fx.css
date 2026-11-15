@@ -100,3 +100,21 @@ footer.ftr .ftr-base .row > span:last-child { flex-wrap:wrap; }
   footer:is(#legal,.ftr) div:has(> nav) { grid-template-columns:repeat(2,minmax(0,1fr)) !important; gap:28px 18px !important; }
   footer:is(#legal,.ftr) div:has(> nav) > div:first-child { display:flex; flex-direction:column; align-items:flex-start; gap:16px; }
 }
+
+footer:is(#legal,.ftr) nav {
+  border-top:0;
+  padding:16px 0 0;
+  background:linear-gradient(90deg,#85b5f5 28px,#314259 28px) top left / 100% 2px no-repeat;
+}
+footer:is(#legal,.ftr) nav > :first-child {
+  margin:0 0 12px !important; padding-inline:8px; line-height:20px;
+}
+footer:is(#legal,.ftr) nav ul { display:grid; gap:2px !important; padding:0; margin:0; }
+footer:is(#legal,.ftr) nav li a {
+  box-sizing:border-box; display:flex !important; align-items:center;
+  min-height:36px; padding:6px 8px !important; line-height:1.4; border-radius:7px;
+}
+footer:is(#legal,.ftr) nav li a:is(:hover,:focus-visible) {
+  background:#192b42; color:#eff6ff !important; text-decoration:none !important;
+}
+@media(max-width:639px) { footer:is(#legal,.ftr) nav li a { min-height:44px; } }
