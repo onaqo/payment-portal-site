@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://unpkg.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="home.css?v=gateway-faq">
+<link rel="stylesheet" href="home.css?v=faq-columns">
 <style>x-dc{display:none!important}#pre ~ #dc-root{display:none}</style>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://www.aqpay.services/#organization","name":"AQ Pay","url":"https://www.aqpay.services","logo":"https://www.aqpay.services/aq-mark.svg","email":"hello@aqpay.services","description":"White-label payment gateway, payment orchestration and merchant services infrastructure for PSPs, ISOs, platforms and merchants.","contactPoint":[{"@type":"ContactPoint","contactType":"sales","email":"hello@aqpay.services","availableLanguage":["English"]}]}</script>
@@ -358,23 +358,36 @@
         <details data-dc-tpl="409"><summary data-dc-tpl="410">What is a white-label payment gateway?</summary><p data-dc-tpl="411" style="margin: 0px 0px 24px; color: rgb(182, 192, 212); font-size: 16px; line-height: 1.65;">It is payment gateway technology you run under your own brand. AQ Pay provides and maintains the platform — processor connections, routing, risk, ledger, settlement and portals — while you own the merchant relationships, pricing and brand. Your merchants see your name, logo and colours.</p></details>
         <details data-dc-tpl="412"><summary data-dc-tpl="413">Who is AQ Pay for?</summary><p data-dc-tpl="414" style="margin: 0px 0px 24px; color: rgb(182, 192, 212); font-size: 16px; line-height: 1.65;">Partners that want to launch their own branded payment gateway: PSPs, ISOs, payment facilitators and software platforms. Each partner onboards and manages its own merchants, and can work with referral partners who introduce new merchants.</p></details>
         <details data-dc-tpl="415"><summary data-dc-tpl="416">Which payment methods are supported?</summary><p data-dc-tpl="417" style="margin: 0px 0px 24px; color: rgb(182, 192, 212); font-size: 16px; line-height: 1.65;">UPI (Intent and QR) on a branded checkout, and cards through connected processors. Merchants can also share payment links with a return URL. Availability depends on the processors connected to each merchant account.</p></details>
-      </div>
+      <details><summary>Who decides whether a merchant can process payments?</summary><p>The acquiring partner reviews the business and decides eligibility and processing terms. Share the products, countries and fulfilment model you plan to use.</p></details></div>
       <div data-dc-tpl="418" class="fq rv">
         <p data-dc-tpl="419" class="mono" style="margin: 0px 0px 8px; display: flex; align-items: center; gap: 12px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: rgb(159, 179, 217);"><span data-dc-tpl="420" style="color: rgb(110, 155, 255);">02</span>Payments and security</p>
         <details data-dc-tpl="421"><summary data-dc-tpl="422">How does routing between processors work?</summary><p data-dc-tpl="423" style="margin: 0px 0px 24px; color: rgb(182, 192, 212); font-size: 16px; line-height: 1.65;">Each merchant can have several processors. Rules choose a processor by currency, country, card brand, amount, payment method and UPI flow. If a processor soft-declines or is unavailable, the payment falls back to the next one, and the platform is designed so a customer is never charged twice.</p></details>
         <details data-dc-tpl="424"><summary data-dc-tpl="425">How is a payment confirmed?</summary><p data-dc-tpl="426" style="margin: 0px 0px 24px; color: rgb(182, 192, 212); font-size: 16px; line-height: 1.65;">By the payment provider, through a signed webhook or a status check. The result is never taken from the customer's browser.</p></details>
         <details data-dc-tpl="427"><summary data-dc-tpl="428">Does AQ Pay store card numbers?</summary><p data-dc-tpl="429" style="margin: 0px 0px 24px; color: rgb(182, 192, 212); font-size: 16px; line-height: 1.65;">No. Card numbers and CVVs are not stored, and a UPI PIN is never requested. Gateway credentials are encrypted, access is controlled by roles, permissions and MFA, and actions are recorded in an audit trail. We describe our controls rather than claim certifications.</p></details>
-      <details><summary>Who decides whether a merchant can process payments?</summary><p>The acquiring partner reviews the business and decides eligibility and processing terms. Share the products, countries and fulfilment model you plan to use.</p></details><details><summary>How do we match a payment to a payout?</summary><p>Start with the order and payment references, locate the processor transaction in the settlement report, then match the payout to the bank entry. Account for fees, refunds and adjustments separately.</p></details></div>
+      <details><summary>How do we match a payment to a payout?</summary><p>Start with the order and payment references, locate the processor transaction in the settlement report, then match the payout to the bank entry. Account for fees, refunds and adjustments separately.</p></details></div>
     </div>
   <a class="faq-more" href="/faq">Browse all FAQs by topic <span aria-hidden="true">→</span></a></section>
 
   
-  <section id="demo" class="wrap gateway-invite">
-    <div class="gateway-panel"><div><h2>Launch your own payment gateway.</h2>
-      <p>Explore the platform in a <a href="https://portal.aqpay.services/login">live demo</a>, or book a 45-minute session for your business.</p>
-      <a class="gateway-contact" href="mailto:hello@aqpay.services">hello@aqpay.services</a></div>
-      <div class="gateway-actions"><a class="btn btn-s" href="https://portal.aqpay.services/signup">Create an account</a><a class="btn btn-g" href="/book-a-demo">Book a demo</a></div>
-    </div></section></main><div class="sc-host" data-sc-name="SiteFooter" data-dc-tpl="450"><footer data-dc-tpl="0" id="legal" style="position: relative; background: rgb(4, 7, 15); font-family: Geist, system-ui, sans-serif; color: rgb(244, 247, 252); overflow: hidden;">
+  <section data-dc-tpl="430" id="demo" class="wrap" style="position: relative; padding-top: 100px; padding-bottom: 100px;">
+    <div data-dc-tpl="431" class="cta rv">
+      <span data-dc-tpl="432" class="cta-glow" aria-hidden="true"></span>
+      <span data-dc-tpl="433" class="cta-grid" aria-hidden="true"></span>
+      <span data-dc-tpl="434" class="cta-orb o1" aria-hidden="true"></span>
+      <span data-dc-tpl="435" class="cta-orb o2" aria-hidden="true"></span>
+      <span data-dc-tpl="436" class="cta-orb o3" aria-hidden="true"></span>
+      <div data-dc-tpl="437" style="position: relative;">
+        <p data-dc-tpl="438" class="mono" style="margin: 0px 0px 24px; display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px; border-radius: 999px; border: 1px solid rgba(244, 247, 252, 0.16); background: rgba(244, 247, 252, 0.05); font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: rgb(182, 192, 212);"><span data-dc-tpl="439" class="pulse" aria-hidden="true" style="width: 8px; height: 8px; border-radius: 50%; background: rgb(61, 220, 151);"></span>Ready when you are</p>
+        <h2 data-dc-tpl="440" class="cta-h" style="margin: 0px auto; max-width: 900px; font-size: clamp(38px, 6.6vw, 96px); line-height: 1.02; letter-spacing: -0.045em; font-weight: 600; padding-bottom: 0.08em;">Launch your own payment gateway.</h2>
+        <p data-dc-tpl="441" style="margin: 28px auto 40px; max-width: 520px; font-size: 18px; line-height: 1.55; color: rgb(182, 192, 212);">Create your account now, or book a 45-minute working session tailored to your model. Questions? Write to <a data-dc-tpl="442" href="mailto:hello@aqpay.services" style="color: rgb(244, 247, 252); text-decoration: underline;">hello@aqpay.services</a>.</p>
+        <div data-dc-tpl="443" style="display: flex; gap: 24px; justify-content: center; flex-wrap: wrap;">
+          <a data-dc-tpl="444" class="btn btn-s" href="https://portal.aqpay.services/signup" target="_blank" rel="noopener">Sign up <span data-dc-tpl="445" class="arr" aria-hidden="true">→</span></a>
+          <a data-dc-tpl="446" class="btn btn-g" href="/book-a-demo">Book a demo <span data-dc-tpl="447" class="arr" aria-hidden="true">→</span></a>
+        </div>
+        <p data-dc-tpl="448" style="margin: 26px 0px 0px; font-size: 15px; color: rgb(154, 167, 189);">Not ready to sign up? <a data-dc-tpl="449" href="https://portal.aqpay.services/login" target="_blank" rel="noopener" style="color: rgb(255, 180, 138); text-decoration: underline;">Try the live demo</a>, no account needed.</p>
+      </div>
+    </div>
+  </section></main><div class="sc-host" data-sc-name="SiteFooter" data-dc-tpl="450"><footer data-dc-tpl="0" id="legal" style="position: relative; background: rgb(4, 7, 15); font-family: Geist, system-ui, sans-serif; color: rgb(244, 247, 252); overflow: hidden;">
   <div data-dc-tpl="1" aria-hidden="true" style="position: absolute; left: 0px; right: 0px; top: 0px; height: 1px; background: linear-gradient(90deg, transparent, rgba(110, 155, 255, 0.55) 30%, rgba(61, 220, 151, 0.45) 70%, transparent);"></div>
   <div data-dc-tpl="2" aria-hidden="true" style="position: absolute; left: -10%; top: -220px; width: 620px; height: 420px; background: radial-gradient(closest-side, rgba(110, 155, 255, 0.08), transparent); pointer-events: none;"></div>
   <div data-dc-tpl="3" style="position: relative; max-width: 1240px; margin: 0px auto; padding: 72px 24px 32px;">
@@ -416,7 +429,7 @@
         <nav data-dc-tpl="14" aria-label="Company" style="min-width: 0px;">
           <div data-dc-tpl="15" style="font-family: &quot;Geist Mono&quot;, monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: rgb(110, 155, 255); margin-bottom: 18px;"><span class="sc-interp">Company</span></div>
           <ul data-dc-tpl="16" style="list-style: none; padding: 0px; margin: 0px; display: grid; gap: 2px;">
-            <li data-dc-tpl="18"><a data-dc-tpl="19" href="/about" target="_self" rel="" class="scp2" style="display: inline-block; padding: 6px 0px; color: rgb(174, 185, 204); font-size: 14.5px; line-height: 1.4; text-decoration: none; transition: color 0.2s;"><span class="sc-interp">About</span></a></li><li data-dc-tpl="18"><a data-dc-tpl="19" href="/blog" target="_self" rel="" class="scp2" style="display: inline-block; padding: 6px 0px; color: rgb(174, 185, 204); font-size: 14.5px; line-height: 1.4; text-decoration: none; transition: color 0.2s;"><span class="sc-interp">Blog</span></a></li><li data-dc-tpl="18"><a data-dc-tpl="19" href="/partner-program" target="_self" rel="" class="scp2" style="display: inline-block; padding: 6px 0px; color: rgb(174, 185, 204); font-size: 14.5px; line-height: 1.4; text-decoration: none; transition: color 0.2s;"><span class="sc-interp">Partner Program</span></a></li><li data-dc-tpl="18"><a data-dc-tpl="19" href="/book-a-demo" target="_self" rel="" class="scp2" style="display: inline-block; padding: 6px 0px; color: rgb(174, 185, 204); font-size: 14.5px; line-height: 1.4; text-decoration: none; transition: color 0.2s;"><span class="sc-interp">Book a Demo</span></a></li><li data-dc-tpl="18"><a data-dc-tpl="19" href="/book-a-demo#contact" target="_self" rel="" class="scp2" style="display: inline-block; padding: 6px 0px; color: rgb(174, 185, 204); font-size: 14.5px; line-height: 1.4; text-decoration: none; transition: color 0.2s;"><span class="sc-interp">Contact</span></a></li><li data-dc-tpl="18"><a data-dc-tpl="19" href="https://portal.aqpay.services/" target="_blank" rel="noopener" class="scp2" style="display: inline-block; padding: 6px 0px; color: rgb(174, 185, 204); font-size: 14.5px; line-height: 1.4; text-decoration: none; transition: color 0.2s;"><span class="sc-interp">Login</span></a></li>
+            <li data-dc-tpl="18"><a data-dc-tpl="19" href="/about" target="_self" rel="" class="scp2" style="display: inline-block; padding: 6px 0px; color: rgb(174, 185, 204); font-size: 14.5px; line-height: 1.4; text-decoration: none; transition: color 0.2s;"><span class="sc-interp">About</span></a></li><li data-dc-tpl="18"><a data-dc-tpl="19" href="/blog" target="_self" rel="" class="scp2" style="display: inline-block; padding: 6px 0px; color: rgb(174, 185, 204); font-size: 14.5px; line-height: 1.4; text-decoration: none; transition: color 0.2s;"><span class="sc-interp">Blog</span></a></li><li data-dc-tpl="18"><a data-dc-tpl="19" href="/faq" target="_self" rel="" class="scp2" style="display: inline-block; padding: 6px 0px; color: rgb(174, 185, 204); font-size: 14.5px; line-height: 1.4; text-decoration: none; transition: color 0.2s;"><span class="sc-interp">FAQs</span></a></li><li data-dc-tpl="18"><a data-dc-tpl="19" href="/partner-program" target="_self" rel="" class="scp2" style="display: inline-block; padding: 6px 0px; color: rgb(174, 185, 204); font-size: 14.5px; line-height: 1.4; text-decoration: none; transition: color 0.2s;"><span class="sc-interp">Partner Program</span></a></li><li data-dc-tpl="18"><a data-dc-tpl="19" href="/book-a-demo" target="_self" rel="" class="scp2" style="display: inline-block; padding: 6px 0px; color: rgb(174, 185, 204); font-size: 14.5px; line-height: 1.4; text-decoration: none; transition: color 0.2s;"><span class="sc-interp">Book a Demo</span></a></li><li data-dc-tpl="18"><a data-dc-tpl="19" href="/book-a-demo#contact" target="_self" rel="" class="scp2" style="display: inline-block; padding: 6px 0px; color: rgb(174, 185, 204); font-size: 14.5px; line-height: 1.4; text-decoration: none; transition: color 0.2s;"><span class="sc-interp">Contact</span></a></li><li data-dc-tpl="18"><a data-dc-tpl="19" href="https://portal.aqpay.services/" target="_blank" rel="noopener" class="scp2" style="display: inline-block; padding: 6px 0px; color: rgb(174, 185, 204); font-size: 14.5px; line-height: 1.4; text-decoration: none; transition: color 0.2s;"><span class="sc-interp">Login</span></a></li>
           </ul>
         </nav>
       
@@ -437,7 +450,7 @@
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="home.css?v=gateway-faq">
+<link rel="stylesheet" href="home.css?v=faq-columns">
 </helmet>
 <dc-import name="SiteNav" current="" page="/" hint-size="100%,72px"></dc-import>
 <main class="aqh">
@@ -731,23 +744,36 @@
         <details open><summary>What is a white-label payment gateway?</summary><p style="margin: 0 0 24px; color: #B6C0D4; font-size: 16px; line-height: 1.65">It is payment gateway technology you run under your own brand. AQ Pay provides and maintains the platform — processor connections, routing, risk, ledger, settlement and portals — while you own the merchant relationships, pricing and brand. Your merchants see your name, logo and colours.</p></details>
         <details><summary>Who is AQ Pay for?</summary><p style="margin: 0 0 24px; color: #B6C0D4; font-size: 16px; line-height: 1.65">Partners that want to launch their own branded payment gateway: PSPs, ISOs, payment facilitators and software platforms. Each partner onboards and manages its own merchants, and can work with referral partners who introduce new merchants.</p></details>
         <details><summary>Which payment methods are supported?</summary><p style="margin: 0 0 24px; color: #B6C0D4; font-size: 16px; line-height: 1.65">UPI (Intent and QR) on a branded checkout, and cards through connected processors. Merchants can also share payment links with a return URL. Availability depends on the processors connected to each merchant account.</p></details>
-      </div>
+      <details><summary>Who decides whether a merchant can process payments?</summary><p>The acquiring partner reviews the business and decides eligibility and processing terms. Share the products, countries and fulfilment model you plan to use.</p></details></div>
       <div class="fq rv">
         <p class="mono" style="margin: 0 0 8px; display: flex; align-items: center; gap: 12px; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #9FB3D9"><span style="color: #6E9BFF">02</span>Payments and security</p>
         <details open><summary>How does routing between processors work?</summary><p style="margin: 0 0 24px; color: #B6C0D4; font-size: 16px; line-height: 1.65">Each merchant can have several processors. Rules choose a processor by currency, country, card brand, amount, payment method and UPI flow. If a processor soft-declines or is unavailable, the payment falls back to the next one, and the platform is designed so a customer is never charged twice.</p></details>
         <details><summary>How is a payment confirmed?</summary><p style="margin: 0 0 24px; color: #B6C0D4; font-size: 16px; line-height: 1.65">By the payment provider, through a signed webhook or a status check. The result is never taken from the customer's browser.</p></details>
         <details><summary>Does AQ Pay store card numbers?</summary><p style="margin: 0 0 24px; color: #B6C0D4; font-size: 16px; line-height: 1.65">No. Card numbers and CVVs are not stored, and a UPI PIN is never requested. Gateway credentials are encrypted, access is controlled by roles, permissions and MFA, and actions are recorded in an audit trail. We describe our controls rather than claim certifications.</p></details>
-      <details><summary>Who decides whether a merchant can process payments?</summary><p>The acquiring partner reviews the business and decides eligibility and processing terms. Share the products, countries and fulfilment model you plan to use.</p></details><details><summary>How do we match a payment to a payout?</summary><p>Start with the order and payment references, locate the processor transaction in the settlement report, then match the payout to the bank entry. Account for fees, refunds and adjustments separately.</p></details></div>
+      <details><summary>How do we match a payment to a payout?</summary><p>Start with the order and payment references, locate the processor transaction in the settlement report, then match the payout to the bank entry. Account for fees, refunds and adjustments separately.</p></details></div>
     </div>
   <a class="faq-more" href="/faq">Browse all FAQs by topic <span aria-hidden="true">→</span></a></section>
 
   <!-- CTA -->
-  <section id="demo" class="wrap gateway-invite">
-    <div class="gateway-panel"><div><h2>Launch your own payment gateway.</h2>
-      <p>Explore the platform in a <a href="https://portal.aqpay.services/login">live demo</a>, or book a 45-minute session for your business.</p>
-      <a class="gateway-contact" href="mailto:hello@aqpay.services">hello@aqpay.services</a></div>
-      <div class="gateway-actions"><a class="btn btn-s" href="https://portal.aqpay.services/signup">Create an account</a><a class="btn btn-g" href="/book-a-demo">Book a demo</a></div>
-    </div></section>
+  <section id="demo" class="wrap" style="position: relative; padding-top: 100px; padding-bottom: 100px">
+    <div class="cta rv">
+      <span class="cta-glow" aria-hidden="true"></span>
+      <span class="cta-grid" aria-hidden="true"></span>
+      <span class="cta-orb o1" aria-hidden="true"></span>
+      <span class="cta-orb o2" aria-hidden="true"></span>
+      <span class="cta-orb o3" aria-hidden="true"></span>
+      <div style="position: relative">
+        <p class="mono" style="margin: 0 0 24px; display: inline-flex; align-items: center; gap: 10px; padding: 8px 16px; border-radius: 999px; border: 1px solid rgba(244,247,252,.16); background: rgba(244,247,252,.05); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #B6C0D4"><span class="pulse" aria-hidden="true" style="width: 8px; height: 8px; border-radius: 50%; background: #3DDC97"></span>Ready when you are</p>
+        <h2 class="cta-h" style="margin: 0 auto; max-width: 900px; font-size: clamp(38px, 6.6vw, 96px); line-height: 1.02; letter-spacing: -.045em; font-weight: 600; padding-bottom: .08em">Launch your own payment gateway.</h2>
+        <p style="margin: 28px auto 40px; max-width: 520px; font-size: 18px; line-height: 1.55; color: #B6C0D4">Create your account now, or book a 45-minute working session tailored to your model. Questions? Write to <a href="mailto:hello@aqpay.services" style="color: #F4F7FC; text-decoration: underline">hello@aqpay.services</a>.</p>
+        <div style="display: flex; gap: 24px; justify-content: center; flex-wrap: wrap">
+          <a class="btn btn-s" href="https://portal.aqpay.services/signup" target="_blank" rel="noopener">Sign up <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn btn-g" href="/book-a-demo">Book a demo <span class="arr" aria-hidden="true">→</span></a>
+        </div>
+        <p style="margin: 26px 0 0; font-size: 15px; color: #9AA7BD">Not ready to sign up? <a href="https://portal.aqpay.services/login" target="_blank" rel="noopener" style="color: #FFB48A; text-decoration: underline">Try the live demo</a>, no account needed.</p>
+      </div>
+    </div>
+  </section>
 </main>
 <dc-import name="SiteFooter" hint-size="100%,420px"></dc-import>
 </x-dc>

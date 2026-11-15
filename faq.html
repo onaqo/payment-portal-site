@@ -21,7 +21,7 @@
 <meta name="twitter:title" content="Payments FAQs | AQ Pay">
 <meta name="twitter:description" content="Find answers about AQ Pay gateway branding, payment routing, onboarding, integration, security and merchant settlement. Browse questions by topic.">
 <meta name="twitter:image" content="https://www.aqpay.services/og-image.jpg">
-<style>.faq-hub{max-width:900px;margin:auto;padding:54px 24px 80px}.faq-hub h1{font-size:clamp(38px,6vw,66px);line-height:1.08;margin:0 0 20px}.faq-topics{display:flex;flex-wrap:wrap;gap:10px}.faq-topics a{padding:8px 12px;border:1px solid #40506a;border-radius:20px}.faq-hub section{scroll-margin-top:90px}.faq-hub details{margin:10px 0}.faq-hub summary:focus-visible{outline:2px solid #97baff}</style><link rel="icon" href="/aq-mark.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/faq.css?v=ce09ae40"><link rel="icon" href="/aq-mark.svg" type="image/svg+xml">
 <link rel="alternate" type="application/rss+xml" title="AQ Pay Blog" href="https://www.aqpay.services/blog/rss.xml">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -247,12 +247,12 @@ class Component extends DCLogic {
     return { navs, activeMenu: navs.find(n => n.key === s.menu) || navs[0], menuOpen: !!s.menu && !isM, closeMenu: () => set({ menu: null }), mobileOpen: s.mobileOpen, toggleMobile: () => set({ mobileOpen: !s.mobileOpen, menu: null }), desktopDisplay: isM ? 'none' : 'flex', mobileDisplay: isM ? 'flex' : 'none', homeHref: home, loginHref: 'https://portal.aqpay.services/' };
   }
 }
-</script></div><main class="faq-hub"><h1>Payments FAQs</h1>
-  <nav class="faq-topics" aria-label="FAQ topics"><a href="#platform">Platform and branding</a>
+</script></div><main class="faq-hub"><header class="faq-intro"><a href="/">AQ Pay home</a><h1>Payments FAQs</h1></header><div class="faq-body">
+  <nav class="faq-topics" aria-label="FAQ topics"><strong>Browse by topic</strong><a href="#platform">Platform and branding</a>
 <a href="#payments">Payment methods and routing</a>
 <a href="#onboarding">Merchant onboarding and approval</a>
 <a href="#integration">Integration and security</a>
-<a href="#operations">Settlement and reconciliation</a></nav><section class="faq" id="platform"><h2>Platform and branding</h2>
+<a href="#operations">Settlement and reconciliation</a></nav><div><section class="faq" id="platform"><h2>Platform and branding</h2>
   <details><summary>What is a white-label payment gateway?</summary><p>It is payment gateway technology you run under your own brand. AQ Pay provides and maintains the platform — processor connections, routing, risk, ledger, settlement and portals — while you own the merchant relationships, pricing and brand. Your merchants see your name, logo and colours.</p></details>
 <details><summary>Who is AQ Pay for?</summary><p>Partners that want to launch their own branded payment gateway: PSPs, ISOs, payment facilitators and software platforms. Each partner onboards and manages its own merchants, and can work with referral partners who introduce new merchants.</p></details>
 <details><summary>How does a gateway differ from a merchant account?</summary><p>A gateway connects your checkout to payment providers. An acquiring arrangement determines whether and on what terms a merchant can accept card payments.</p></details>
@@ -279,7 +279,7 @@ class Component extends DCLogic {
   <details><summary>How do we match a payment to a payout?</summary><p>Start with the order and payment references, locate the processor transaction in the settlement report, then match the payout to the bank entry. Account for fees, refunds and adjustments separately.</p></details>
 <details><summary>Where do we confirm the payout schedule?</summary><p>Check the settlement agreement with your acquiring partner. Ask which cut-off, currency and business-day calendar apply to your merchant account.</p></details>
 <details><summary>How do we trace a refund?</summary><p>Keep the original payment reference, the refund reference, amount and issue date together. Use them to check the processor status and find the adjustment in the settlement report.</p></details>
-  <a href="/merchant-services">Explore merchant services</a></section></main>
+  <a href="/merchant-services">Explore merchant services</a></section></div></div></main>
 <footer class="ftr"><div class="wrap">
   <div class="ftr-grid">
     <div><a class="brand" href="/" aria-label="AQ Pay home"><img src="/aq-pay-logo.svg" alt="" width="164" height="44" style="display:block;flex:none;width:164px;height:44px"></a>
@@ -288,7 +288,7 @@ class Component extends DCLogic {
     <nav aria-label="Solutions"><h3>Solutions</h3><ul><li><a href="/white-label-gateway">White-Label Gateway</a></li><li><a href="/merchant-services">Merchant Services</a></li><li><a href="/high-risk-processing">High-Risk Processing</a></li><li><a href="/payment-orchestration">Payment Orchestration</a></li><li><a href="/about#consulting">Payment Consulting</a></li><li><a href="/industries">Industries</a></li></ul></nav>
     <nav aria-label="Platform"><h3>Platform</h3><ul><li><a href="/payment-orchestration#routing">Intelligent Routing</a></li><li><a href="/payment-orchestration#connectivity">Gateway Connectivity</a></li><li><a href="/high-risk-processing#chargebacks">Risk &amp; Fraud</a></li><li><a href="/white-label-gateway#operations">Reconciliation</a></li><li><a href="/white-label-gateway#infrastructure">Security</a></li></ul></nav>
     <nav aria-label="Developers"><h3>Developers</h3><ul><li><a href="/developers">Overview</a></li><li><a href="/developers#quick-start">Quick Start</a></li><li><a href="/api-reference">API Reference</a></li><li><a href="/api-reference#webhooks">Webhooks</a></li><li><a href="/developers#sandbox">Sandbox</a></li></ul></nav>
-    <nav aria-label="Company"><h3>Company</h3><ul><li><a href="/about">About</a></li><li><a href="/blog">Blog</a></li><li><a href="/partner-program">Partner Program</a></li><li><a href="/book-a-demo">Book a Demo</a></li><li><a href="/book-a-demo#contact">Contact</a></li><li><a href="mailto:hello@aqpay.services">hello@aqpay.services</a></li></ul></nav>
+    <nav aria-label="Company"><h3>Company</h3><ul><li><a href="/about">About</a></li><li><a href="/blog">Blog</a></li><li><a href="/faq">FAQs</a></li><li><a href="/partner-program">Partner Program</a></li><li><a href="/book-a-demo">Book a Demo</a></li><li><a href="/book-a-demo#contact">Contact</a></li><li><a href="mailto:hello@aqpay.services">hello@aqpay.services</a></li></ul></nav>
   </div>
   <div class="ftr-base"><span>Services are subject to industry eligibility, geographic restrictions, underwriting and partner approval. AQ Pay is a technology provider and does not hold or move client funds unless expressly stated in a service agreement.</span>
     <div class="row"><span>© 2026 AQ Pay. All rights reserved.</span><span style="display:flex;gap:18px"><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/cookies">Cookies</a><a href="/licences">Licences</a><a href="/acceptable-use">Acceptable use</a></span></div></div>

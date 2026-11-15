@@ -135,7 +135,7 @@ const footer = () => `
     <nav aria-label="Solutions"><h3>Solutions</h3><ul><li><a href="/white-label-gateway">White-Label Gateway</a></li><li><a href="/merchant-services">Merchant Services</a></li><li><a href="/high-risk-processing">High-Risk Processing</a></li><li><a href="/payment-orchestration">Payment Orchestration</a></li><li><a href="/about#consulting">Payment Consulting</a></li><li><a href="/industries">Industries</a></li></ul></nav>
     <nav aria-label="Platform"><h3>Platform</h3><ul><li><a href="/payment-orchestration#routing">Intelligent Routing</a></li><li><a href="/payment-orchestration#connectivity">Gateway Connectivity</a></li><li><a href="/high-risk-processing#chargebacks">Risk &amp; Fraud</a></li><li><a href="/white-label-gateway#operations">Reconciliation</a></li><li><a href="/white-label-gateway#infrastructure">Security</a></li></ul></nav>
     <nav aria-label="Developers"><h3>Developers</h3><ul><li><a href="/developers">Overview</a></li><li><a href="/developers#quick-start">Quick Start</a></li><li><a href="/api-reference">API Reference</a></li><li><a href="/api-reference#webhooks">Webhooks</a></li><li><a href="/developers#sandbox">Sandbox</a></li></ul></nav>
-    <nav aria-label="Company"><h3>Company</h3><ul><li><a href="/about">About</a></li><li><a href="/blog">Blog</a></li><li><a href="/partner-program">Partner Program</a></li><li><a href="/book-a-demo">Book a Demo</a></li><li><a href="/book-a-demo#contact">Contact</a></li><li><a href="mailto:hello@aqpay.services">hello@aqpay.services</a></li></ul></nav>
+    <nav aria-label="Company"><h3>Company</h3><ul><li><a href="/about">About</a></li><li><a href="/blog">Blog</a></li><li><a href="/faq">FAQs</a></li><li><a href="/partner-program">Partner Program</a></li><li><a href="/book-a-demo">Book a Demo</a></li><li><a href="/book-a-demo#contact">Contact</a></li><li><a href="mailto:hello@aqpay.services">hello@aqpay.services</a></li></ul></nav>
   </div>
   <div class="ftr-base"><span>Services are subject to industry eligibility, geographic restrictions, underwriting and partner approval. ${BRAND} is a technology provider and does not hold or move client funds unless expressly stated in a service agreement.</span>
     <div class="row"><span>© ${TODAY.slice(0, 4)} ${BRAND}. All rights reserved.</span><span style="display:flex;gap:18px"><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/cookies">Cookies</a><a href="/licences">Licences</a><a href="/acceptable-use">Acceptable use</a></span></div></div>
@@ -213,7 +213,7 @@ const faqGroups = JSON.parse(fs.readFileSync(path.join(ROOT, 'content/faq.json')
 const faqTitle = 'Payments FAQs | AQ Pay';
 const faqHead = head({ title: faqTitle, canonical: SITE + '/faq', image: SITE + '/og-image.jpg',
   description: 'Find answers about AQ Pay gateway branding, payment routing, onboarding, integration, security and merchant settlement. Browse questions by topic.',
-  extra: '<style>.faq-hub{max-width:900px;margin:auto;padding:54px 24px 80px}.faq-hub h1{font-size:clamp(38px,6vw,66px);line-height:1.08;margin:0 0 20px}.faq-topics{display:flex;flex-wrap:wrap;gap:10px}.faq-topics a{padding:8px 12px;border:1px solid #40506a;border-radius:20px}.faq-hub section{scroll-margin-top:90px}.faq-hub details{margin:10px 0}.faq-hub summary:focus-visible{outline:2px solid #97baff}</style>',
+  extra: `<link rel="stylesheet" href="${assetUrl('faq.css')}">`,
   jsonld: [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqGroups.flatMap(g => g.questions.map(({q,a}) => ({
     '@type':'Question', name:q, acceptedAnswer:{'@type':'Answer',text:a}
   }))) }]
@@ -222,8 +222,8 @@ const topicLinks = faqGroups.map(g => `<a href="#${esc(g.id)}">${esc(g.title)}</
 const faqSections = faqGroups.map(g => `<section class="faq" id="${esc(g.id)}"><h2>${esc(g.title)}</h2>
   ${g.questions.map(({q,a}) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('\n')}
   <a href="${esc(g.href)}">${esc(g.link)}</a></section>`).join('\n');
-fs.writeFileSync(path.join(ROOT, 'faq.html'), faqHead + header + `<main class="faq-hub"><h1>Payments FAQs</h1>
-  <nav class="faq-topics" aria-label="FAQ topics">${topicLinks}</nav>${faqSections}</main>` + footer() + '</body></html>');
+fs.writeFileSync(path.join(ROOT, 'faq.html'), faqHead + header + `<main class="faq-hub"><header class="faq-intro"><a href="/">AQ Pay home</a><h1>Payments FAQs</h1></header><div class="faq-body">
+  <nav class="faq-topics" aria-label="FAQ topics"><strong>Browse by topic</strong>${topicLinks}</nav><div>${faqSections}</div></div></main>` + footer() + '</body></html>');
 
 const posts = load();
 const homepageArticles = posts.slice(0, 6).map(p => `<article><a href="/blog/${esc(p.slug)}">
