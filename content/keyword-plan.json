@@ -81,9 +81,9 @@
       "cluster": "high-risk",
       "intent": "commercial",
       "linkTo": "/high-risk-processing",
-      "status": "todo",
-      "slug": null,
-      "date": null
+      "status": "published",
+      "slug": "high-risk-merchant-account-uk",
+      "date": "2026-11-15"
     },
     {
       "primaryKeyword": "PSD2 strong customer authentication",
