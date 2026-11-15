@@ -1,0 +1,114 @@
+[
+  {
+    "id": "platform",
+    "title": "Platform and branding",
+    "href": "/white-label-gateway",
+    "link": "Explore the white-label gateway",
+    "questions": [
+      {
+        "q": "What is a white-label payment gateway?",
+        "a": "It is payment gateway technology you run under your own brand. AQ Pay provides and maintains the platform — processor connections, routing, risk, ledger, settlement and portals — while you own the merchant relationships, pricing and brand. Your merchants see your name, logo and colours."
+      },
+      {
+        "q": "Who is AQ Pay for?",
+        "a": "Partners that want to launch their own branded payment gateway: PSPs, ISOs, payment facilitators and software platforms. Each partner onboards and manages its own merchants, and can work with referral partners who introduce new merchants."
+      },
+      {
+        "q": "How does a gateway differ from a merchant account?",
+        "a": "A gateway connects your checkout to payment providers. An acquiring arrangement determines whether and on what terms a merchant can accept card payments."
+      },
+      {
+        "q": "What should we bring to a gateway demo?",
+        "a": "Bring your target markets, merchant types, payment methods and current processors. Choose one checkout journey you want to see from payment to reporting."
+      }
+    ]
+  },
+  {
+    "id": "payments",
+    "title": "Payment methods and routing",
+    "href": "/payment-orchestration",
+    "link": "Explore payment orchestration",
+    "questions": [
+      {
+        "q": "Which payment methods are supported?",
+        "a": "UPI (Intent and QR) on a branded checkout, and cards through connected processors. Merchants can also share payment links with a return URL. Availability depends on the processors connected to each merchant account."
+      },
+      {
+        "q": "How does routing between processors work?",
+        "a": "Each merchant can have several processors. Rules choose a processor by currency, country, card brand, amount, payment method and UPI flow. If a processor soft-declines or is unavailable, the payment falls back to the next one, and the platform is designed so a customer is never charged twice."
+      },
+      {
+        "q": "What should we do if a payment times out?",
+        "a": "Check the original payment status with the processor before submitting another attempt. A timeout can leave the result unknown even when the processor has already authorised the payment."
+      },
+      {
+        "q": "How do we compare two routing options?",
+        "a": "Choose a group of eligible orders and compare first-attempt approvals, completed orders, costs and refunds. Keep the processor reference so each outcome can be traced."
+      }
+    ]
+  },
+  {
+    "id": "onboarding",
+    "title": "Merchant onboarding and approval",
+    "href": "/high-risk-processing",
+    "link": "Explore high-risk processing",
+    "questions": [
+      {
+        "q": "Who decides whether a merchant can process payments?",
+        "a": "The acquiring partner reviews the business and decides eligibility and processing terms. Share the products, countries and fulfilment model you plan to use."
+      },
+      {
+        "q": "What should a merchant prepare before applying?",
+        "a": "Prepare a description of the business, ownership details, website, delivery and refund policies, and any available processing history. The acquiring partner will confirm its document requirements."
+      },
+      {
+        "q": "Can we apply if customers pay before delivery?",
+        "a": "Describe the amount collected upfront, expected delivery window and value of undelivered orders. The acquirer can then assess the proposed model and any conditions."
+      }
+    ]
+  },
+  {
+    "id": "integration",
+    "title": "Integration and security",
+    "href": "/developers",
+    "link": "Read the developer guide",
+    "questions": [
+      {
+        "q": "How is a payment confirmed?",
+        "a": "By the payment provider, through a signed webhook or a status check. The result is never taken from the customer's browser."
+      },
+      {
+        "q": "Does AQ Pay store card numbers?",
+        "a": "No. Card numbers and CVVs are not stored, and a UPI PIN is never requested. Gateway credentials are encrypted, access is controlled by roles, permissions and MFA, and actions are recorded in an audit trail. We describe our controls rather than claim certifications."
+      },
+      {
+        "q": "What should we test before switching on live payments?",
+        "a": "Test a successful payment, a decline, an interrupted checkout and a refund. Verify the final status in your system and check that finance can trace the payment reference."
+      },
+      {
+        "q": "How should our system handle repeated notifications?",
+        "a": "Record which events your system has handled and make repeated delivery safe. Verify the signature and current payment state before updating an order or triggering fulfilment."
+      }
+    ]
+  },
+  {
+    "id": "operations",
+    "title": "Settlement and reconciliation",
+    "href": "/merchant-services",
+    "link": "Explore merchant services",
+    "questions": [
+      {
+        "q": "How do we match a payment to a payout?",
+        "a": "Start with the order and payment references, locate the processor transaction in the settlement report, then match the payout to the bank entry. Account for fees, refunds and adjustments separately."
+      },
+      {
+        "q": "Where do we confirm the payout schedule?",
+        "a": "Check the settlement agreement with your acquiring partner. Ask which cut-off, currency and business-day calendar apply to your merchant account."
+      },
+      {
+        "q": "How do we trace a refund?",
+        "a": "Keep the original payment reference, the refund reference, amount and issue date together. Use them to check the processor status and find the adjustment in the settlement report."
+      }
+    ]
+  }
+]

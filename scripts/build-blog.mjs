@@ -19,7 +19,7 @@ const CONTENT = path.join(ROOT, 'content/blog');
 const OUT = path.join(ROOT, 'blog');
 const TODAY = new Date().toISOString().slice(0, 10);
 
-const STATIC_PAGES = ['/', '/white-label-gateway', '/payment-orchestration', '/merchant-services', '/high-risk-processing',
+const STATIC_PAGES = ['/', '/faq', '/white-label-gateway', '/payment-orchestration', '/merchant-services', '/high-risk-processing',
   '/industries', '/developers', '/api-reference', '/partner-program', '/about', '/book-a-demo', '/apply', '/apply-white-label'];
 
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -209,6 +209,22 @@ function listPage({ posts, title, h1, lede, canonical, cats, active }) {
 }
 
 // ---------- build ----------
+const faqGroups = JSON.parse(fs.readFileSync(path.join(ROOT, 'content/faq.json'), 'utf8'));
+const faqTitle = 'Payments FAQs | AQ Pay';
+const faqHead = head({ title: faqTitle, canonical: SITE + '/faq', image: SITE + '/og-image.jpg',
+  description: 'Find answers about AQ Pay gateway branding, payment routing, onboarding, integration, security and merchant settlement. Browse questions by topic.',
+  extra: '<style>.faq-hub{max-width:900px;margin:auto;padding:54px 24px 80px}.faq-hub h1{font-size:clamp(38px,6vw,66px);line-height:1.08;margin:0 0 20px}.faq-topics{display:flex;flex-wrap:wrap;gap:10px}.faq-topics a{padding:8px 12px;border:1px solid #40506a;border-radius:20px}.faq-hub section{scroll-margin-top:90px}.faq-hub details{margin:10px 0}.faq-hub summary:focus-visible{outline:2px solid #97baff}</style>',
+  jsonld: [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqGroups.flatMap(g => g.questions.map(({q,a}) => ({
+    '@type':'Question', name:q, acceptedAnswer:{'@type':'Answer',text:a}
+  }))) }]
+});
+const topicLinks = faqGroups.map(g => `<a href="#${esc(g.id)}">${esc(g.title)}</a>`).join('\n');
+const faqSections = faqGroups.map(g => `<section class="faq" id="${esc(g.id)}"><h2>${esc(g.title)}</h2>
+  ${g.questions.map(({q,a}) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('\n')}
+  <a href="${esc(g.href)}">${esc(g.link)}</a></section>`).join('\n');
+fs.writeFileSync(path.join(ROOT, 'faq.html'), faqHead + header + `<main class="faq-hub"><h1>Payments FAQs</h1>
+  <nav class="faq-topics" aria-label="FAQ topics">${topicLinks}</nav>${faqSections}</main>` + footer() + '</body></html>');
+
 const posts = load();
 const homepageArticles = posts.slice(0, 6).map(p => `<article><a href="/blog/${esc(p.slug)}">
   <img src="${coverUrl(p)}" alt="" width="1200" height="630" loading="lazy" decoding="async">

@@ -397,3 +397,5 @@ body { margin: 0; background: #060A14; }
 .gateway-actions { display:flex; gap:12px; flex-wrap:wrap; }
 .gateway-actions .btn { min-height:46px; }
 @media(max-width:600px){ .gateway-actions {width:100%; display:grid;} }
+.aqh .faq-more { display:inline-flex; align-items:center; gap:12px; margin-top:24px; padding:12px 0; color:#b3ccff; font-weight:600; text-decoration:underline; text-underline-offset:5px; }
+.gateway-actions .btn-s { animation:none; }
