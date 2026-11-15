@@ -26,7 +26,7 @@
 <link rel="preconnect" href="https://unpkg.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="home.css?v=reading1">
+<link rel="stylesheet" href="home.css?v=insights2">
 <style>x-dc{display:none!important}#pre ~ #dc-root{display:none}</style>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://www.aqpay.services/#organization","name":"AQ Pay","url":"https://www.aqpay.services","logo":"https://www.aqpay.services/aq-mark.svg","email":"hello@aqpay.services","description":"White-label payment gateway, payment orchestration and merchant services infrastructure for PSPs, ISOs, platforms and merchants.","contactPoint":[{"@type":"ContactPoint","contactType":"sales","email":"hello@aqpay.services","availableLanguage":["English"]}]}</script>
@@ -188,7 +188,14 @@
   </div>
 
   
-  <section data-dc-tpl="249" id="live-demo" class="wrap" style="position: relative; padding-top: 120px; padding-bottom: 20px;">
+  <!-- services --><section id="service-selector" class="wrap home-services">
+<h2>What do you want to build?</h2>
+<div class="service-options">
+<a href="/white-label-gateway"><svg aria-hidden="true" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="7" width="30" height="25" rx="4"/><path d="M5 14h30"/><path class="gateway-pulse" d="M11 24h5l3-5 4 9 3-5h4"/></svg><strong>Launch a branded gateway</strong><span>Explore white-label infrastructure for your payment business.</span></a>
+<a href="/payment-orchestration"><svg aria-hidden="true" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20h9l9-10h9M15 20l9 10h9"/><circle cx="6" cy="20" r="3"/><circle cx="34" cy="10" r="3"/><circle cx="34" cy="30" r="3"/><circle class="route-dot" cx="6" cy="20" r="2"/></svg><strong>Connect multiple processors</strong><span>Explore routing and payment orchestration.</span></a>
+<a href="/merchant-services"><svg aria-hidden="true" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="33" height="24" rx="4"/><path d="M3 15h33M9 25h6"/><path class="paid-check" d="m21 24 4 4 6-8"/></svg><strong>Accept merchant payments</strong><span>Explore merchant services for your business.</span></a>
+</div></section><!-- end services -->
+<section data-dc-tpl="249" id="live-demo" class="wrap" style="position: relative; padding-top: 120px; padding-bottom: 20px;">
     <div data-dc-tpl="250" class="dband rv">
       <span data-dc-tpl="251" class="dband-glow" aria-hidden="true"></span>
       <div data-dc-tpl="252" style="position: relative;">
@@ -312,7 +319,7 @@
   
   <!-- latest articles -->
 <section id="latest-articles" class="wrap home-reading">
-  <div class="reading-heading"><h2>Latest payment guides</h2><a href="/blog">View all articles <span aria-hidden="true">↗</span></a></div>
+  <div class="reading-heading"><h2>Payment insights</h2><a href="/blog">View all articles <span aria-hidden="true">↗</span></a></div>
   <div class="reading-grid"><article><a href="/blog/high-risk-merchant-account-uk">
   <img src="/blog/covers/high-risk-merchant-account-uk.jpg?v=176c03c5" alt="" width="1200" height="630" loading="lazy" decoding="async">
   <div><time datetime="2026-11-15">15 November 2026</time><h3>High-risk merchant account UK guide: how to present pre-orders to an acquirer</h3></div>
@@ -324,7 +331,20 @@
 <article><a href="/blog/payment-facilitator-vs-iso">
   <img src="/blog/covers/payment-facilitator-vs-iso.jpg?v=ea13d5fe" alt="" width="1200" height="630" loading="lazy" decoding="async">
   <div><time datetime="2026-11-11">11 November 2026</time><h3>Payment facilitator vs ISO: which model fits your business?</h3></div>
+</a></article>
+<article><a href="/blog/high-risk-merchant-account-underwriting">
+  <img src="/blog/covers/high-risk-merchant-account-underwriting.jpg?v=c385c23a" alt="" width="1200" height="630" loading="lazy" decoding="async">
+  <div><time datetime="2026-11-05">5 November 2026</time><h3>High-risk merchant accounts: how underwriting actually works</h3></div>
+</a></article>
+<article><a href="/blog/what-is-payment-orchestration">
+  <img src="/blog/covers/what-is-payment-orchestration.jpg?v=9225afec" alt="" width="1200" height="630" loading="lazy" decoding="async">
+  <div><time datetime="2026-11-05">5 November 2026</time><h3>What is payment orchestration — and when do you need it?</h3></div>
+</a></article>
+<article><a href="/blog/white-label-payment-gateway-vs-building-your-own">
+  <img src="/blog/covers/white-label-payment-gateway-vs-building-your-own.jpg?v=1ecaa926" alt="" width="1200" height="630" loading="lazy" decoding="async">
+  <div><time datetime="2026-11-05">5 November 2026</time><h3>White-label payment gateway vs. building your own PSP stack</h3></div>
 </a></article></div>
+  <div class="slide-controls" hidden><button type="button" data-slide="previous" aria-label="Previous article">←</button><button type="button" data-slide="pause">Pause slideshow</button><button type="button" data-slide="next" aria-label="Next article">→</button></div>
 </section>
 <!-- end latest articles -->
   <section data-dc-tpl="400" id="faq" class="wrap" style="position: relative; padding-top: 120px; padding-bottom: 60px;">
@@ -430,7 +450,7 @@
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="home.css?v=reading1">
+<link rel="stylesheet" href="home.css?v=insights2">
 </helmet>
 <dc-import name="SiteNav" current="" page="/" hint-size="100%,72px"></dc-import>
 <main class="aqh">
@@ -554,7 +574,14 @@
   </div>
 
   <!-- LIVE DEMO -->
-  <section id="live-demo" class="wrap" style="position: relative; padding-top: 120px; padding-bottom: 20px">
+  <!-- services --><section id="service-selector" class="wrap home-services">
+<h2>What do you want to build?</h2>
+<div class="service-options">
+<a href="/white-label-gateway"><svg aria-hidden="true" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="7" width="30" height="25" rx="4"/><path d="M5 14h30"/><path class="gateway-pulse" d="M11 24h5l3-5 4 9 3-5h4"/></svg><strong>Launch a branded gateway</strong><span>Explore white-label infrastructure for your payment business.</span></a>
+<a href="/payment-orchestration"><svg aria-hidden="true" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20h9l9-10h9M15 20l9 10h9"/><circle cx="6" cy="20" r="3"/><circle cx="34" cy="10" r="3"/><circle cx="34" cy="30" r="3"/><circle class="route-dot" cx="6" cy="20" r="2"/></svg><strong>Connect multiple processors</strong><span>Explore routing and payment orchestration.</span></a>
+<a href="/merchant-services"><svg aria-hidden="true" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="33" height="24" rx="4"/><path d="M3 15h33M9 25h6"/><path class="paid-check" d="m21 24 4 4 6-8"/></svg><strong>Accept merchant payments</strong><span>Explore merchant services for your business.</span></a>
+</div></section><!-- end services -->
+<section id="live-demo" class="wrap" style="position: relative; padding-top: 120px; padding-bottom: 20px">
     <div class="dband rv">
       <span class="dband-glow" aria-hidden="true"></span>
       <div style="position: relative">
@@ -678,7 +705,7 @@
   <!-- FAQ -->
   <!-- latest articles -->
 <section id="latest-articles" class="wrap home-reading">
-  <div class="reading-heading"><h2>Latest payment guides</h2><a href="/blog">View all articles <span aria-hidden="true">↗</span></a></div>
+  <div class="reading-heading"><h2>Payment insights</h2><a href="/blog">View all articles <span aria-hidden="true">↗</span></a></div>
   <div class="reading-grid"><article><a href="/blog/high-risk-merchant-account-uk">
   <img src="/blog/covers/high-risk-merchant-account-uk.jpg?v=176c03c5" alt="" width="1200" height="630" loading="lazy" decoding="async">
   <div><time datetime="2026-11-15">15 November 2026</time><h3>High-risk merchant account UK guide: how to present pre-orders to an acquirer</h3></div>
@@ -690,7 +717,20 @@
 <article><a href="/blog/payment-facilitator-vs-iso">
   <img src="/blog/covers/payment-facilitator-vs-iso.jpg?v=ea13d5fe" alt="" width="1200" height="630" loading="lazy" decoding="async">
   <div><time datetime="2026-11-11">11 November 2026</time><h3>Payment facilitator vs ISO: which model fits your business?</h3></div>
+</a></article>
+<article><a href="/blog/high-risk-merchant-account-underwriting">
+  <img src="/blog/covers/high-risk-merchant-account-underwriting.jpg?v=c385c23a" alt="" width="1200" height="630" loading="lazy" decoding="async">
+  <div><time datetime="2026-11-05">5 November 2026</time><h3>High-risk merchant accounts: how underwriting actually works</h3></div>
+</a></article>
+<article><a href="/blog/what-is-payment-orchestration">
+  <img src="/blog/covers/what-is-payment-orchestration.jpg?v=9225afec" alt="" width="1200" height="630" loading="lazy" decoding="async">
+  <div><time datetime="2026-11-05">5 November 2026</time><h3>What is payment orchestration — and when do you need it?</h3></div>
+</a></article>
+<article><a href="/blog/white-label-payment-gateway-vs-building-your-own">
+  <img src="/blog/covers/white-label-payment-gateway-vs-building-your-own.jpg?v=1ecaa926" alt="" width="1200" height="630" loading="lazy" decoding="async">
+  <div><time datetime="2026-11-05">5 November 2026</time><h3>White-label payment gateway vs. building your own PSP stack</h3></div>
 </a></article></div>
+  <div class="slide-controls" hidden><button type="button" data-slide="previous" aria-label="Previous article">←</button><button type="button" data-slide="pause">Pause slideshow</button><button type="button" data-slide="next" aria-label="Next article">→</button></div>
 </section>
 <!-- end latest articles -->
   <section id="faq" class="wrap" style="position: relative; padding-top: 120px; padding-bottom: 60px">
@@ -739,7 +779,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  componentDidMount() { import('./home.js?v=21b90f2e').then(m => { this.dispose = m.init(); }).catch(e => console.warn('home.js?v=21b90f2e', e)); }
+  componentDidMount() { import('./home.js?v=insights2').then(m => { this.dispose = m.init(); }).catch(e => console.warn('home.js?v=insights2', e)); }
   componentWillUnmount() { if (this.dispose) this.dispose(); }
   renderVals() { return {}; }
 }

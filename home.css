@@ -362,3 +362,28 @@ body { margin: 0; background: #060A14; }
   .service-options { gap: 12px; }
   .reading-grid article a, .reading-feature article:not(:first-child) a { grid-template-columns: 90px 1fr; }
 }
+
+.service-options svg { width: 44px; height: 44px; color: #8cb2ff; margin-bottom: 8px; }
+.service-options a:nth-child(2) svg { color: #57deb4; }
+.service-options a:nth-child(3) svg { color: #e6c27a; }
+.route-dot { fill: currentColor; stroke: none; }
+.service-options a:is(:hover,:focus-visible) { border-color: #7699d2; background: #14213a; box-shadow: 0 12px 32px #02061080; }
+.service-options a:focus-visible, .home-reading :is(a,button):focus-visible { outline: 2px solid #a7c4ff; outline-offset: 3px; }
+@media (prefers-reduced-motion:no-preference) {
+  .service-options a { transition: transform .22s, background .22s, border-color .22s, box-shadow .22s; }
+  .service-options a:focus-visible { transform: translateY(-4px); }
+  @media (hover:hover) { .service-options a:hover { transform: translateY(-4px); } }
+  .gateway-pulse, .paid-check { stroke-dasharray: 40; animation: serviceDraw 4s ease-in-out infinite; }
+  .paid-check { animation-delay: .8s; }
+  .route-dot { animation: serviceRoute 3s ease-in-out infinite; }
+}
+@keyframes serviceDraw { 0%,100% { stroke-dashoffset: 40; } 40%,85% { stroke-dashoffset: 0; } }
+@keyframes serviceRoute { 0% { transform: translate(0,0); } 28% { transform: translate(9px,0); } 65% { transform: translate(19px,-10px); } 85%,100% { transform: translate(28px,-10px); opacity: 0; } }
+.home-reading:not(.reading-feature) .reading-grid { position: relative; display: flex; overflow-x: auto; gap: 20px; padding: 6px 4px 28px; scroll-snap-type: x mandatory; scrollbar-width: thin; scrollbar-color: #354461 transparent; }
+.home-reading:not(.reading-feature) article { flex: 0 0 min(82%,360px); border: 1px solid #34435e; border-radius: 16px; background: #101a2d; box-shadow: 0 12px 22px #01040bac; scroll-snap-align: start; }
+.home-reading:not(.reading-feature) article a { display: block; padding: 0; border-radius: inherit; }
+.home-reading:not(.reading-feature) article img { display: block; border-radius: 15px 15px 0 0; }
+.home-reading:not(.reading-feature) article a div { padding: 16px 20px 20px; }
+.home-reading:not(.reading-feature) h3 { font-size: 20px; }
+.slide-controls:not([hidden]) { display: flex; justify-content: flex-end; gap: 8px; }
+.slide-controls button { min-height: 44px; min-width: 44px; padding: 0 14px; color: #e8efff; border: 1px solid #405475; border-radius: 24px; background: #101a2d; cursor: pointer; font: inherit; }

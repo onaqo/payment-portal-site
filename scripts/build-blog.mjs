@@ -210,7 +210,7 @@ function listPage({ posts, title, h1, lede, canonical, cats, active }) {
 
 // ---------- build ----------
 const posts = load();
-const homepageArticles = posts.slice(0, 3).map(p => `<article><a href="/blog/${esc(p.slug)}">
+const homepageArticles = posts.slice(0, 6).map(p => `<article><a href="/blog/${esc(p.slug)}">
   <img src="${coverUrl(p)}" alt="" width="1200" height="630" loading="lazy" decoding="async">
   <div><time datetime="${esc(p.date)}">${fmtDate(p.date)}</time><h3>${esc(p.title)}</h3></div>
 </a></article>`).join('\n');
