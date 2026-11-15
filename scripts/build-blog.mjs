@@ -8,6 +8,7 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { marked } from 'marked';
+import { homepageLayouts } from './homepage-layouts.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = 'https://www.aqpay.services';
@@ -209,6 +210,13 @@ function listPage({ posts, title, h1, lede, canonical, cats, active }) {
 
 // ---------- build ----------
 const posts = load();
+const homepageArticles = posts.slice(0, 3).map(p => `<article><a href="/blog/${esc(p.slug)}">
+  <img src="${coverUrl(p)}" alt="" width="1200" height="630" loading="lazy" decoding="async">
+  <div><time datetime="${esc(p.date)}">${fmtDate(p.date)}</time><h3>${esc(p.title)}</h3></div>
+</a></article>`).join('\n');
+for (const [name, html] of Object.entries(homepageLayouts(home, homepageArticles))) {
+  fs.writeFileSync(path.join(ROOT, name), html);
+}
 for (const p of posts) Object.assign(p, render(p.body));
 const missing = posts.filter(p => !fs.existsSync(path.join(OUT, 'covers', `${p.slug}.jpg`)));
 if (missing.length) console.warn(`! missing cover images (run: node scripts/render-covers.mjs): ${missing.map(p => p.slug).join(', ')}`);
