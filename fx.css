@@ -65,7 +65,7 @@ footer:is(#legal,.ftr) div:has(> nav) {
 footer:is(#legal,.ftr) div:has(> nav) > div:first-child {
   position:relative; isolation:isolate; overflow:hidden;
   grid-column:1/-1 !important; max-width:none !important;
-  display:grid; grid-template-columns:auto minmax(200px,420px) auto;
+  display:grid; grid-template-columns:auto minmax(200px,540px);
   align-items:center; justify-content:space-between; gap:24px;
   padding:clamp(20px,3vw,36px); border:1px solid #38516c; border-radius:20px;
   background:linear-gradient(110deg,#14223c,#112136 62%,#103138);
@@ -77,13 +77,6 @@ footer:is(#legal,.ftr) div:has(> nav) > div:first-child::before {
 footer:is(#legal,.ftr) div:has(> nav) > div:first-child p {
   margin:0 !important; color:#c7d4e7 !important; line-height:1.55;
 }
-footer:is(#legal,.ftr) div:has(> nav) > div:first-child > div a {
-  display:inline-flex; align-items:center; min-height:44px; box-sizing:border-box;
-  border-radius:999px; text-decoration:none;
-}
-footer:is(#legal,.ftr) div:has(> nav) > div:first-child > div a:first-child {
-  background:#a0c3ff !important; color:#091325 !important;
-}
 footer:is(#legal,.ftr) nav { border-top:1px solid #354860; padding-top:18px; }
 footer:is(#legal,.ftr) nav > :first-child {
   color:#a8c7fb !important; font-size:12px !important; font-weight:600 !important;
@@ -91,11 +84,7 @@ footer:is(#legal,.ftr) nav > :first-child {
 footer:is(#legal,.ftr) nav a:hover { text-decoration:underline !important; text-underline-offset:4px; }
 footer:is(#legal,.ftr) a:focus-visible { outline:2px solid #78e6c7; outline-offset:3px; border-radius:4px; }
 footer.ftr .ftr-base .row > span:last-child { flex-wrap:wrap; }
-@media(max-width:900px) {
-  footer:is(#legal,.ftr) div:has(> nav) > div:first-child { grid-template-columns:1fr auto; }
-  footer:is(#legal,.ftr) div:has(> nav) > div:first-child p { grid-column:1; }
-  footer:is(#legal,.ftr) div:has(> nav) > div:first-child > div { grid-column:2; grid-row:1/3; }
-}
+
 @media(max-width:639px) {
   footer:is(#legal,.ftr) div:has(> nav) { grid-template-columns:repeat(2,minmax(0,1fr)) !important; gap:28px 18px !important; }
   footer:is(#legal,.ftr) div:has(> nav) > div:first-child { display:flex; flex-direction:column; align-items:flex-start; gap:16px; }
