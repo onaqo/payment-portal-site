@@ -57,9 +57,9 @@
       "cluster": "white-label",
       "intent": "informational",
       "linkTo": "/white-label-gateway",
-      "status": "todo",
-      "slug": null,
-      "date": null
+      "status": "published",
+      "slug": "start-a-payment-service-provider",
+      "date": "2026-11-15"
     },
     {
       "primaryKeyword": "payment facilitator vs ISO",
