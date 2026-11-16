@@ -93,9 +93,9 @@
       "cluster": "risk",
       "intent": "informational",
       "linkTo": "/payment-orchestration",
-      "status": "todo",
-      "slug": null,
-      "date": null
+      "status": "published",
+      "slug": "psd2-strong-customer-authentication",
+      "date": "2026-11-16"
     },
     {
       "primaryKeyword": "RBI payment aggregator guidelines",
