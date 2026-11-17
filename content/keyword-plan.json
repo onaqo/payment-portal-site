@@ -57,9 +57,9 @@
       "cluster": "white-label",
       "intent": "informational",
       "linkTo": "/white-label-gateway",
-      "status": "todo",
-      "slug": null,
-      "date": null
+      "status": "published",
+      "slug": "start-a-payment-service-provider",
+      "date": "2026-11-15"
     },
     {
       "primaryKeyword": "payment facilitator vs ISO",
@@ -93,9 +93,9 @@
       "cluster": "risk",
       "intent": "informational",
       "linkTo": "/payment-orchestration",
-      "status": "todo",
-      "slug": null,
-      "date": null
+      "status": "published",
+      "slug": "psd2-strong-customer-authentication",
+      "date": "2026-11-16"
     },
     {
       "primaryKeyword": "RBI payment aggregator guidelines",
@@ -105,9 +105,9 @@
       "cluster": "regulation",
       "intent": "informational",
       "linkTo": "/merchant-services",
-      "status": "todo",
-      "slug": null,
-      "date": null
+      "status": "published",
+      "slug": "rbi-payment-aggregator-guidelines",
+      "date": "2026-11-17"
     },
     {
       "primaryKeyword": "payment gateway in India",

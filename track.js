@@ -2,10 +2,26 @@
 // Nothing is sent to anyone else. No cookie is set. A visitor who chose "Essential only", or has not chosen, is counted
 // without anything being stored in their browser. Only after "Accept all" does the browser keep a random id, so a
 // return visit is recognised. Browsers that ask not to be tracked (Do Not Track, Global Privacy Control) are not counted.
+// Neither is a browser of our own team that was opened once with ?aq-team=1.
 (function () {
   if (window.__aqTrack) return; window.__aqTrack = true;
-  var d = document, n = navigator, API = '/api/t', VID = 'aq-vid';
-  if (n.webdriver || n.doNotTrack === '1' || window.doNotTrack === '1' || n.globalPrivacyControl === true) { window.aqTrack = function () {}; window.aqVisitorId = function () {}; return; }
+  var d = document, n = navigator, API = '/api/t', VID = 'aq-vid', TEAM = 'aq-team', team = false;
+  // The team's own browsers are left out of the figures. Opening any page once with ?aq-team=1 switches counting off
+  // for that browser, and ?aq-team=0 switches it back on. Only that browser remembers the choice; nothing is sent.
+  function note(text) {
+    function show() { try { var el = d.createElement('div'); el.setAttribute('role', 'status'); el.textContent = text; el.style.cssText = 'position:fixed;left:16px;bottom:16px;z-index:2147483000;max-width:320px;padding:12px 16px;border-radius:12px;background:#0b1220;color:#fff;font:14px/1.4 system-ui,sans-serif;box-shadow:0 8px 30px rgba(0,0,0,.35)'; d.body.appendChild(el); setTimeout(function () { el.remove(); }, 7000); } catch (e) {} }
+    if (d.body) show(); else d.addEventListener('DOMContentLoaded', show);
+  }
+  try {
+    var here = new URL(location.href), choice = here.searchParams.get(TEAM);
+    if (choice === '1' || choice === '0') {
+      if (choice === '1') localStorage.setItem(TEAM, '1'); else localStorage.removeItem(TEAM);
+      here.searchParams.delete(TEAM); history.replaceState(history.state, '', here.pathname + here.search + here.hash);
+      note(choice === '1' ? 'Visits from this browser are no longer counted.' : 'Visits from this browser are counted again.');
+    }
+    team = localStorage.getItem(TEAM) === '1';
+  } catch (e) {}
+  if (team || n.webdriver || n.doNotTrack === '1' || window.doNotTrack === '1' || n.globalPrivacyControl === true) { window.aqTrack = function () {}; window.aqConversion = function () {}; window.aqVisitorId = function () {}; return; }
   function consented() { try { return localStorage.getItem('tpp-cookie-consent') === 'all'; } catch (e) { return false; } }
   // The id exists only with consent; if the choice is not "Accept all", any id left from before is removed.
   function visitorId() {

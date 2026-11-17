@@ -14,10 +14,14 @@
 <url><loc>https://www.aqpay.services/book-a-demo</loc><priority>0.8</priority></url>
 <url><loc>https://www.aqpay.services/apply</loc><priority>0.8</priority></url>
 <url><loc>https://www.aqpay.services/apply-white-label</loc><priority>0.8</priority></url>
-<url><loc>https://www.aqpay.services/blog</loc><lastmod>2026-11-15</lastmod><priority>0.8</priority></url>
+<url><loc>https://www.aqpay.services/blog</loc><lastmod>2026-11-17</lastmod><priority>0.8</priority></url>
+<url><loc>https://www.aqpay.services/blog/category/compliance</loc><lastmod>2026-11-17</lastmod><priority>0.5</priority></url>
 <url><loc>https://www.aqpay.services/blog/category/explainers</loc><lastmod>2026-11-15</lastmod><priority>0.5</priority></url>
-<url><loc>https://www.aqpay.services/blog/category/guides</loc><lastmod>2026-11-14</lastmod><priority>0.5</priority></url>
+<url><loc>https://www.aqpay.services/blog/category/guides</loc><lastmod>2026-11-15</lastmod><priority>0.5</priority></url>
+<url><loc>https://www.aqpay.services/blog/rbi-payment-aggregator-guidelines</loc><lastmod>2026-11-17</lastmod><priority>0.7</priority><image:image><image:loc>https://www.aqpay.services/blog/covers/rbi-payment-aggregator-guidelines.jpg?v=f23a0c7a</image:loc></image:image></url>
+<url><loc>https://www.aqpay.services/blog/psd2-strong-customer-authentication</loc><lastmod>2026-11-16</lastmod><priority>0.7</priority><image:image><image:loc>https://www.aqpay.services/blog/covers/psd2-strong-customer-authentication.jpg?v=8b9661bd</image:loc></image:image></url>
 <url><loc>https://www.aqpay.services/blog/high-risk-merchant-account-uk</loc><lastmod>2026-11-15</lastmod><priority>0.7</priority><image:image><image:loc>https://www.aqpay.services/blog/covers/high-risk-merchant-account-uk.jpg?v=176c03c5</image:loc></image:image></url>
+<url><loc>https://www.aqpay.services/blog/start-a-payment-service-provider</loc><lastmod>2026-11-15</lastmod><priority>0.7</priority><image:image><image:loc>https://www.aqpay.services/blog/covers/start-a-payment-service-provider.jpg?v=733160fd</image:loc></image:image></url>
 <url><loc>https://www.aqpay.services/blog/smart-payment-routing</loc><lastmod>2026-11-14</lastmod><priority>0.7</priority><image:image><image:loc>https://www.aqpay.services/blog/covers/smart-payment-routing.jpg?v=372e3380</image:loc></image:image></url>
 <url><loc>https://www.aqpay.services/blog/payment-facilitator-vs-iso</loc><lastmod>2026-11-11</lastmod><priority>0.7</priority><image:image><image:loc>https://www.aqpay.services/blog/covers/payment-facilitator-vs-iso.jpg?v=ea13d5fe</image:loc></image:image></url>
 <url><loc>https://www.aqpay.services/blog/high-risk-merchant-account-underwriting</loc><lastmod>2026-11-14</lastmod><priority>0.7</priority><image:image><image:loc>https://www.aqpay.services/blog/covers/high-risk-merchant-account-underwriting.jpg?v=c385c23a</image:loc></image:image></url>
