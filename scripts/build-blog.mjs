@@ -8,6 +8,7 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { marked } from 'marked';
+import { homepageLayouts } from './homepage-layouts.mjs';
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const SITE = 'https://www.aqpay.services';
@@ -18,7 +19,7 @@ const CONTENT = path.join(ROOT, 'content/blog');
 const OUT = path.join(ROOT, 'blog');
 const TODAY = new Date().toISOString().slice(0, 10);
 
-const STATIC_PAGES = ['/', '/white-label-gateway', '/payment-orchestration', '/merchant-services', '/high-risk-processing',
+const STATIC_PAGES = ['/', '/faq', '/white-label-gateway', '/payment-orchestration', '/merchant-services', '/high-risk-processing',
   '/industries', '/developers', '/api-reference', '/partner-program', '/about', '/book-a-demo', '/apply', '/apply-white-label'];
 
 const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
@@ -134,10 +135,10 @@ const footer = () => `
     <nav aria-label="Solutions"><h3>Solutions</h3><ul><li><a href="/white-label-gateway">White-Label Gateway</a></li><li><a href="/merchant-services">Merchant Services</a></li><li><a href="/high-risk-processing">High-Risk Processing</a></li><li><a href="/payment-orchestration">Payment Orchestration</a></li><li><a href="/about#consulting">Payment Consulting</a></li><li><a href="/industries">Industries</a></li></ul></nav>
     <nav aria-label="Platform"><h3>Platform</h3><ul><li><a href="/payment-orchestration#routing">Intelligent Routing</a></li><li><a href="/payment-orchestration#connectivity">Gateway Connectivity</a></li><li><a href="/high-risk-processing#chargebacks">Risk &amp; Fraud</a></li><li><a href="/white-label-gateway#operations">Reconciliation</a></li><li><a href="/white-label-gateway#infrastructure">Security</a></li></ul></nav>
     <nav aria-label="Developers"><h3>Developers</h3><ul><li><a href="/developers">Overview</a></li><li><a href="/developers#quick-start">Quick Start</a></li><li><a href="/api-reference">API Reference</a></li><li><a href="/api-reference#webhooks">Webhooks</a></li><li><a href="/developers#sandbox">Sandbox</a></li></ul></nav>
-    <nav aria-label="Company"><h3>Company</h3><ul><li><a href="/about">About</a></li><li><a href="/blog">Blog</a></li><li><a href="/partner-program">Partner Program</a></li><li><a href="/book-a-demo">Book a Demo</a></li><li><a href="/book-a-demo#contact">Contact</a></li><li><a href="mailto:hello@aqpay.services">hello@aqpay.services</a></li></ul></nav>
+    <nav aria-label="Company"><h3>Company</h3><ul><li><a href="/about">About</a></li><li><a href="/blog">Blog</a></li><li><a href="/faq">FAQs</a></li><li><a href="/partner-program">Partner Program</a></li><li><a href="/book-a-demo#contact">Contact</a></li><li><a href="mailto:hello@aqpay.services">hello@aqpay.services</a></li></ul></nav>
   </div>
   <div class="ftr-base"><span>Services are subject to industry eligibility, geographic restrictions, underwriting and partner approval. ${BRAND} is a technology provider and does not hold or move client funds unless expressly stated in a service agreement.</span>
-    <div class="row"><span>© ${TODAY.slice(0, 4)} ${BRAND}. All rights reserved.</span><span style="display:flex;gap:18px"><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/cookies">Cookies</a><a href="/licences">Licences</a><a href="/acceptable-use">Acceptable use</a></span></div></div>
+    <div class="row"><span>© ${TODAY.slice(0, 4)} AQ Pay LLC. Registered in Nevis. All rights reserved.</span><span style="display:flex;gap:18px"><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/cookies">Cookies</a><a href="/licences">Licences</a><a href="/acceptable-use">Acceptable use</a></span></div></div>
 </div></footer>
 </body>
 </html>
@@ -208,7 +209,30 @@ function listPage({ posts, title, h1, lede, canonical, cats, active }) {
 }
 
 // ---------- build ----------
+const faqGroups = JSON.parse(fs.readFileSync(path.join(ROOT, 'content/faq.json'), 'utf8'));
+const faqTitle = 'Payments FAQs | AQ Pay';
+const faqHead = head({ title: faqTitle, canonical: SITE + '/faq', image: SITE + '/og-image.jpg',
+  description: 'Find answers about AQ Pay gateway branding, payment routing, onboarding, integration, security and merchant settlement. Browse questions by topic.',
+  extra: `<link rel="stylesheet" href="${assetUrl('faq.css')}">`,
+  jsonld: [{ '@context': 'https://schema.org', '@type': 'FAQPage', mainEntity: faqGroups.flatMap(g => g.questions.map(({q,a}) => ({
+    '@type':'Question', name:q, acceptedAnswer:{'@type':'Answer',text:a}
+  }))) }]
+});
+const topicLinks = faqGroups.map(g => `<a href="#${esc(g.id)}">${esc(g.title)}</a>`).join('\n');
+const faqSections = faqGroups.map(g => `<section class="faq" id="${esc(g.id)}"><h2>${esc(g.title)}</h2>
+  ${g.questions.map(({q,a}) => `<details><summary>${esc(q)}</summary><p>${esc(a)}</p></details>`).join('\n')}
+  <a href="${esc(g.href)}">${esc(g.link)}</a></section>`).join('\n');
+fs.writeFileSync(path.join(ROOT, 'faq.html'), faqHead + header + `<main class="faq-hub"><header class="faq-intro"><a href="/">AQ Pay home</a><h1>Payments FAQs</h1></header><div class="faq-body">
+  <nav class="faq-topics" aria-label="FAQ topics"><strong>Browse by topic</strong>${topicLinks}</nav><div>${faqSections}</div></div></main>` + footer() + '</body></html>');
+
 const posts = load();
+const homepageArticles = posts.slice(0, 6).map(p => `<article><a href="/blog/${esc(p.slug)}">
+  <img src="${coverUrl(p)}" alt="" width="1200" height="630" loading="lazy" decoding="async">
+  <div><time datetime="${esc(p.date)}">${fmtDate(p.date)}</time><h3>${esc(p.title)}</h3></div>
+</a></article>`).join('\n');
+for (const [name, html] of Object.entries(homepageLayouts(home, homepageArticles))) {
+  fs.writeFileSync(path.join(ROOT, name), html);
+}
 for (const p of posts) Object.assign(p, render(p.body));
 const missing = posts.filter(p => !fs.existsSync(path.join(OUT, 'covers', `${p.slug}.jpg`)));
 if (missing.length) console.warn(`! missing cover images (run: node scripts/render-covers.mjs): ${missing.map(p => p.slug).join(', ')}`);

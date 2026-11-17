@@ -1,0 +1,298 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Payments FAQs | AQ Pay</title>
+<meta name="description" content="Find answers about AQ Pay gateway branding, payment routing, onboarding, integration, security and merchant settlement. Browse questions by topic.">
+<link rel="canonical" href="https://www.aqpay.services/faq">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#060A14">
+<meta property="og:site_name" content="AQ Pay">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Payments FAQs | AQ Pay">
+<meta property="og:description" content="Find answers about AQ Pay gateway branding, payment routing, onboarding, integration, security and merchant settlement. Browse questions by topic.">
+<meta property="og:url" content="https://www.aqpay.services/faq">
+<meta property="og:image" content="https://www.aqpay.services/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Payments FAQs | AQ Pay">
+<meta name="twitter:description" content="Find answers about AQ Pay gateway branding, payment routing, onboarding, integration, security and merchant settlement. Browse questions by topic.">
+<meta name="twitter:image" content="https://www.aqpay.services/og-image.jpg">
+<link rel="stylesheet" href="/faq.css?v=ce09ae40"><link rel="icon" href="/aq-mark.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="AQ Pay Blog" href="https://www.aqpay.services/blog/rss.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/blog/blog.css?v=78e8ed2d">
+<link rel="stylesheet" href="/fx.css?v=28e8a3e9">
+
+<style>.shared-nav{position:sticky;top:0;z-index:60;min-height:72px}.shared-nav x-dc{display:none}.shared-nav:has(#dc-root header) .nav-fallback{display:none}@media(max-width:959px){.nav-fallback nav{display:none!important}}</style>
+<script defer src="/support.js?v=a05343a5"></script>
+<script src="/fx.js?v=2d052c7e" data-fx defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a white-label payment gateway?","acceptedAnswer":{"@type":"Answer","text":"It is payment gateway technology you run under your own brand. AQ Pay provides and maintains the platform — processor connections, routing, risk, ledger, settlement and portals — while you own the merchant relationships, pricing and brand. Your merchants see your name, logo and colours."}},{"@type":"Question","name":"Who is AQ Pay for?","acceptedAnswer":{"@type":"Answer","text":"Partners that want to launch their own branded payment gateway: PSPs, ISOs, payment facilitators and software platforms. Each partner onboards and manages its own merchants, and can work with referral partners who introduce new merchants."}},{"@type":"Question","name":"How does a gateway differ from a merchant account?","acceptedAnswer":{"@type":"Answer","text":"A gateway connects your checkout to payment providers. An acquiring arrangement determines whether and on what terms a merchant can accept card payments."}},{"@type":"Question","name":"What should we bring to a gateway demo?","acceptedAnswer":{"@type":"Answer","text":"Bring your target markets, merchant types, payment methods and current processors. Choose one checkout journey you want to see from payment to reporting."}},{"@type":"Question","name":"Which payment methods are supported?","acceptedAnswer":{"@type":"Answer","text":"UPI (Intent and QR) on a branded checkout, and cards through connected processors. Merchants can also share payment links with a return URL. Availability depends on the processors connected to each merchant account."}},{"@type":"Question","name":"How does routing between processors work?","acceptedAnswer":{"@type":"Answer","text":"Each merchant can have several processors. Rules choose a processor by currency, country, card brand, amount, payment method and UPI flow. If a processor soft-declines or is unavailable, the payment falls back to the next one, and the platform is designed so a customer is never charged twice."}},{"@type":"Question","name":"What should we do if a payment times out?","acceptedAnswer":{"@type":"Answer","text":"Check the original payment status with the processor before submitting another attempt. A timeout can leave the result unknown even when the processor has already authorised the payment."}},{"@type":"Question","name":"How do we compare two routing options?","acceptedAnswer":{"@type":"Answer","text":"Choose a group of eligible orders and compare first-attempt approvals, completed orders, costs and refunds. Keep the processor reference so each outcome can be traced."}},{"@type":"Question","name":"Who decides whether a merchant can process payments?","acceptedAnswer":{"@type":"Answer","text":"The acquiring partner reviews the business and decides eligibility and processing terms. Share the products, countries and fulfilment model you plan to use."}},{"@type":"Question","name":"What should a merchant prepare before applying?","acceptedAnswer":{"@type":"Answer","text":"Prepare a description of the business, ownership details, website, delivery and refund policies, and any available processing history. The acquiring partner will confirm its document requirements."}},{"@type":"Question","name":"Can we apply if customers pay before delivery?","acceptedAnswer":{"@type":"Answer","text":"Describe the amount collected upfront, expected delivery window and value of undelivered orders. The acquirer can then assess the proposed model and any conditions."}},{"@type":"Question","name":"How is a payment confirmed?","acceptedAnswer":{"@type":"Answer","text":"By the payment provider, through a signed webhook or a status check. The result is never taken from the customer's browser."}},{"@type":"Question","name":"Does AQ Pay store card numbers?","acceptedAnswer":{"@type":"Answer","text":"No. Card numbers and CVVs are not stored, and a UPI PIN is never requested. Gateway credentials are encrypted, access is controlled by roles, permissions and MFA, and actions are recorded in an audit trail. We describe our controls rather than claim certifications."}},{"@type":"Question","name":"What should we test before switching on live payments?","acceptedAnswer":{"@type":"Answer","text":"Test a successful payment, a decline, an interrupted checkout and a refund. Verify the final status in your system and check that finance can trace the payment reference."}},{"@type":"Question","name":"How should our system handle repeated notifications?","acceptedAnswer":{"@type":"Answer","text":"Record which events your system has handled and make repeated delivery safe. Verify the signature and current payment state before updating an order or triggering fulfilment."}},{"@type":"Question","name":"How do we match a payment to a payout?","acceptedAnswer":{"@type":"Answer","text":"Start with the order and payment references, locate the processor transaction in the settlement report, then match the payout to the bank entry. Account for fees, refunds and adjustments separately."}},{"@type":"Question","name":"Where do we confirm the payout schedule?","acceptedAnswer":{"@type":"Answer","text":"Check the settlement agreement with your acquiring partner. Ask which cut-off, currency and business-day calendar apply to your merchant account."}},{"@type":"Question","name":"How do we trace a refund?","acceptedAnswer":{"@type":"Answer","text":"Keep the original payment reference, the refund reference, amount and issue date together. Use them to check the processor status and find the adjustment in the settlement report."}}]}</script>
+</head>
+<body><div class="shared-nav"><div class="nav-fallback"><header data-dc-tpl="5" style="position: sticky; top: 0px; z-index: 60; font-family: Geist, system-ui, sans-serif; color: rgb(244, 247, 252);" class="fx-nav">
+  <div data-dc-tpl="6" style="backdrop-filter: blur(20px); background: rgba(6, 10, 20, 0.76); border-bottom: 1px solid rgba(255, 255, 255, 0.07);">
+    <div data-dc-tpl="7" style="max-width: 1360px; margin: 0px auto; padding: 0px 24px; height: 72px; display: flex; align-items: center; gap: 28px;">
+      <a data-dc-tpl="8" href="/" aria-label="AQ Pay home" style="display: flex; align-items: center; gap: 12px; color: rgb(244, 247, 252); flex-shrink: 0; text-decoration: none;">
+        <img src="/aq-pay-logo.svg" alt="" width="164" height="44" style="display:block;flex:none;width:164px;height:44px">
+      </a>
+      <nav data-dc-tpl="11" aria-label="Main" style="display: flex; flex: 1 1 0%; justify-content: center; gap: 2px;">
+
+          <button data-dc-tpl="13" class="tpp-navbtn scp2" aria-expanded="false" style="background: transparent; border: 0px; color: rgb(174, 185, 204); padding: 10px 14px; border-radius: 999px; font-weight: 600; font-size: 15px; display: flex; align-items: center; gap: 6px; transition: color 0.2s, background 0.2s; cursor: pointer; font-family: inherit;"><span class="sc-interp">Solutions</span><span data-dc-tpl="14" style="width: 6px; height: 6px; border-right: 1.5px solid; border-bottom: 1.5px solid; transform: rotate(45deg) translateY(-2px); display: inline-block; opacity: 0.7;"></span></button>
+
+          <button data-dc-tpl="13" class="tpp-navbtn scp2" aria-expanded="false" style="background: transparent; border: 0px; color: rgb(174, 185, 204); padding: 10px 14px; border-radius: 999px; font-weight: 600; font-size: 15px; display: flex; align-items: center; gap: 6px; transition: color 0.2s, background 0.2s; cursor: pointer; font-family: inherit;"><span class="sc-interp">Platform</span><span data-dc-tpl="14" style="width: 6px; height: 6px; border-right: 1.5px solid; border-bottom: 1.5px solid; transform: rotate(45deg) translateY(-2px); display: inline-block; opacity: 0.7;"></span></button>
+
+          <button data-dc-tpl="13" class="tpp-navbtn scp2" aria-expanded="false" style="background: transparent; border: 0px; color: rgb(174, 185, 204); padding: 10px 14px; border-radius: 999px; font-weight: 600; font-size: 15px; display: flex; align-items: center; gap: 6px; transition: color 0.2s, background 0.2s; cursor: pointer; font-family: inherit;"><span class="sc-interp">Industries</span><span data-dc-tpl="14" style="width: 6px; height: 6px; border-right: 1.5px solid; border-bottom: 1.5px solid; transform: rotate(45deg) translateY(-2px); display: inline-block; opacity: 0.7;"></span></button>
+
+          <button data-dc-tpl="13" class="tpp-navbtn scp2" aria-expanded="false" style="background: transparent; border: 0px; color: rgb(174, 185, 204); padding: 10px 14px; border-radius: 999px; font-weight: 600; font-size: 15px; display: flex; align-items: center; gap: 6px; transition: color 0.2s, background 0.2s; cursor: pointer; font-family: inherit;"><span class="sc-interp">Developers</span><span data-dc-tpl="14" style="width: 6px; height: 6px; border-right: 1.5px solid; border-bottom: 1.5px solid; transform: rotate(45deg) translateY(-2px); display: inline-block; opacity: 0.7;"></span></button>
+
+          <button data-dc-tpl="13" class="tpp-navbtn scp2" aria-expanded="false" style="background: transparent; border: 0px; color: rgb(174, 185, 204); padding: 10px 14px; border-radius: 999px; font-weight: 600; font-size: 15px; display: flex; align-items: center; gap: 6px; transition: color 0.2s, background 0.2s; cursor: pointer; font-family: inherit;"><span class="sc-interp">Resources</span><span data-dc-tpl="14" style="width: 6px; height: 6px; border-right: 1.5px solid; border-bottom: 1.5px solid; transform: rotate(45deg) translateY(-2px); display: inline-block; opacity: 0.7;"></span></button>
+
+          <button data-dc-tpl="13" class="tpp-navbtn scp2" aria-expanded="false" style="background: transparent; border: 0px; color: rgb(174, 185, 204); padding: 10px 14px; border-radius: 999px; font-weight: 600; font-size: 15px; display: flex; align-items: center; gap: 6px; transition: color 0.2s, background 0.2s; cursor: pointer; font-family: inherit;"><span class="sc-interp">Company</span><span data-dc-tpl="14" style="width: 6px; height: 6px; border-right: 1.5px solid; border-bottom: 1.5px solid; transform: rotate(45deg) translateY(-2px); display: inline-block; opacity: 0.7;"></span></button>
+
+      </nav>
+      <div data-dc-tpl="15" style="display: flex; align-items: center; gap: 10px; margin-left: auto;">
+        <a data-dc-tpl="16" class="tpp-login scp2" href="https://portal.aqpay.services/" target="_blank" rel="noopener" style="display: flex; color: rgb(174, 185, 204); font-weight: 600; font-size: 15px; padding: 10px 14px; text-decoration: none;">Login</a>
+        <a data-dc-tpl="17" class="tpp-signup" href="https://portal.aqpay.services/signup" target="_blank" rel="noopener" style="display: flex;">Sign up<span data-dc-tpl="18" class="tpp-su-arr" aria-hidden="true">→</span></a>
+        <button data-dc-tpl="19" aria-label="Open menu" aria-expanded="false" style="display: none; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1); color: rgb(244, 247, 252); width: 44px; height: 44px; border-radius: 12px; flex-direction: column; align-items: center; justify-content: center; gap: 5px; cursor: pointer;">
+          <span data-dc-tpl="20" style="width: 18px; height: 2px; background: currentcolor; display: block;"></span><span data-dc-tpl="21" style="width: 18px; height: 2px; background: currentcolor; display: block;"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+  </header></div><x-dc>
+<helmet>
+<link rel="icon" href="/aq-mark.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+@media (max-width:1200px){.tpp-navbtn{padding:10px 9px!important;font-size:14.5px!important}.tpp-login{padding:9px 12px!important}}
+@property --tppa{syntax:"<angle>";inherits:false;initial-value:0deg}
+.tpp-login{position:relative;overflow:hidden;align-items:center;gap:8px;padding:9px 16px 9px 18px!important;border-radius:999px;border:1.5px solid transparent;background:linear-gradient(#0C1424,#0C1424) padding-box,conic-gradient(from var(--tppa),rgba(244,247,252,.18),#6E9BFF,#3DDC97,rgba(244,247,252,.18),rgba(244,247,252,.18)) border-box;color:#F4F7FC!important;font-weight:600;box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 8px 24px -12px rgba(110,155,255,.6);animation:tppSpin 5s linear infinite;transition:transform .45s cubic-bezier(.34,1.56,.64,1),box-shadow .4s}
+.tpp-login::before{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.22),transparent);transform:skewX(-20deg);transition:left .7s cubic-bezier(.16,1,.3,1);pointer-events:none}
+.tpp-login::after{content:"\2197";display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(244,247,252,.12);font-size:12px;transition:transform .45s cubic-bezier(.16,1,.3,1),background .3s}
+.tpp-login:hover{transform:translateY(-2px) scale(1.05);box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 0 0 4px rgba(110,155,255,.14),0 18px 40px -12px rgba(110,155,255,.85)}
+.tpp-login:hover::before{left:130%}
+.tpp-login:hover::after{transform:translate(2px,-2px);background:#6E9BFF;color:#060A14}
+.tpp-login:active{transform:scale(.97)}
+@keyframes tppSpin{to{--tppa:360deg}}
+.tpp-signup{margin-left:8px;position:relative;overflow:hidden;align-items:center;gap:10px;padding:10px 12px 10px 20px;border-radius:999px;font-weight:700;font-size:15px;color:#060A14!important;text-decoration:none;background:linear-gradient(110deg,#6E9BFF,#3DDC97,#6E9BFF);background-size:220% 100%;animation:tppGrow 2.6s cubic-bezier(.45,0,.2,1) infinite,tppFlow 6s linear infinite;transition:transform .45s cubic-bezier(.34,1.56,.64,1)}
+.tpp-signup::before{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.6),transparent);transform:skewX(-20deg);animation:tppShine 3.2s ease-in-out infinite;pointer-events:none}
+.tpp-signup:hover{animation-play-state:paused,running;transform:scale(1.1);box-shadow:0 0 0 6px rgba(110,155,255,.22),0 26px 60px -10px rgba(61,220,151,.9)}
+.tpp-signup:active{transform:scale(.97)}
+.tpp-su-arr{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:#060A14;color:#F4F7FC;font-size:13px;transition:transform .45s cubic-bezier(.16,1,.3,1)}
+.tpp-signup:hover .tpp-su-arr{transform:translateX(3px)}
+@keyframes tppGrow{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(110,155,255,.6),0 10px 28px -10px rgba(110,155,255,.7)}50%{transform:scale(1.06);box-shadow:0 0 0 12px rgba(110,155,255,0),0 22px 50px -10px rgba(61,220,151,.8)}}
+@keyframes tppFlow{to{background-position:-220% 0}}
+@keyframes tppShine{0%,55%{left:-60%}100%{left:130%}}
+@media (prefers-reduced-motion:reduce){.tpp-signup,.tpp-signup::before,.tpp-login{animation:none}}
+.tpp-mlink{transition:background .2s}.tpp-mlink:active{background:rgba(255,255,255,.06)}
+@keyframes tppFade{from{opacity:0}to{opacity:1}}
+@keyframes tppPanel{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+</style>
+</helmet>
+<header style="position:sticky;top:0;z-index:60;font-family:'Geist',system-ui,sans-serif;color:#F4F7FC" onMouseLeave="{{ closeMenu }}">
+  <div style="backdrop-filter:blur(20px);background:rgba(6,10,20,.76);border-bottom:1px solid rgba(255,255,255,.07)">
+    <div style="max-width:1360px;margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;gap:28px">
+      <a href="{{ homeHref }}" aria-label="AQ Pay home" style="display:flex;align-items:center;gap:12px;color:#F4F7FC;flex-shrink:0;text-decoration:none">
+        <img src="/aq-pay-logo.svg" alt="" width="164" height="44" style="display:block;flex:none;width:164px;height:44px">
+      </a>
+      <nav aria-label="Main" style="display:{{ desktopDisplay }};flex:1;justify-content:center;gap:2px">
+        <sc-for list="{{ navs }}" as="n" hint-placeholder-count="6">
+          <button class="tpp-navbtn" onMouseEnter="{{ n.open }}" onClick="{{ n.toggle }}" onFocus="{{ n.open }}" aria-expanded="{{ n.isOpen }}" style="background:{{ n.bg }};border:0;color:{{ n.color }};padding:10px 14px;border-radius:999px;font-weight:600;font-size:15px;display:flex;align-items:center;gap:6px;transition:color .2s,background .2s;cursor:pointer;font-family:inherit" style-hover="color:#F4F7FC">{{ n.label }}<span style="width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);display:inline-block;opacity:.7"></span></button>
+        </sc-for>
+      </nav>
+      <div style="display:flex;align-items:center;gap:10px;margin-left:auto">
+        <a class="tpp-login" href="{{ loginHref }}" target="_blank" rel="noopener" style="display:{{ desktopDisplay }};color:#AEB9CC;font-weight:600;font-size:15px;padding:10px 14px;text-decoration:none" style-hover="color:#F4F7FC">Login</a>
+        <a class="tpp-signup" href="https://portal.aqpay.services/signup" target="_blank" rel="noopener" style="display:{{ desktopDisplay }}">Sign up<span class="tpp-su-arr" aria-hidden="true">→</span></a>
+        <button onClick="{{ toggleMobile }}" aria-label="Open menu" aria-expanded="{{ mobileOpen }}" style="display:{{ mobileDisplay }};background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#F4F7FC;width:44px;height:44px;border-radius:12px;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer">
+          <span style="width:18px;height:2px;background:currentColor;display:block"></span><span style="width:18px;height:2px;background:currentColor;display:block"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;left:0;right:0;top:72px;background:rgba(15,23,41,.97);backdrop-filter:blur(24px);border-bottom:1px solid rgba(255,255,255,.08);box-shadow:0 40px 80px rgba(0,0,0,.5);animation:tppPanel .28s cubic-bezier(.2,.8,.2,1) both">
+      <div style="max-width:1360px;margin:0 auto;padding:36px 24px 40px;display:grid;grid-template-columns:300px 1fr;gap:40px">
+        <div style="border-right:1px solid rgba(255,255,255,.08);padding-right:40px">
+          <div style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#6E9BFF">{{ activeMenu.label }}</div>
+          <div style="font-family:'Geist',system-ui,sans-serif;font-weight:700;font-size:26px;line-height:1.15;letter-spacing:-.02em;margin:12px 0 10px">{{ activeMenu.tagline }}</div>
+          <p style="color:#AEB9CC;line-height:1.55;margin:0 0 22px;font-size:15px">{{ activeMenu.blurb }}</p>
+          <a href="{{ activeMenu.ctaHref }}" style="display:inline-flex;align-items:center;gap:8px;color:#3DDC97;font-weight:700;font-size:15px;text-decoration:none">{{ activeMenu.cta }} <span aria-hidden="true">→</span></a>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:6px 24px">
+          <sc-for list="{{ activeMenu.items }}" as="it" hint-placeholder-count="6">
+            <a href="{{ it.href }}" onClick="{{ closeMenu }}" style="display:flex;gap:14px;padding:12px;border-radius:14px;color:#F4F7FC;transition:background .2s;text-decoration:none;background:{{ it.bg }}" style-hover="background:rgba(255,255,255,.05);color:#F4F7FC">
+              <span style="width:38px;height:38px;border-radius:11px;background:rgba(110,155,255,.08);border:1px solid rgba(110,155,255,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0">{{ it.icon }}</span>
+              <span><span style="display:block;font-weight:700;font-size:15px;margin-bottom:3px">{{ it.t }}</span><span style="display:block;color:#AEB9CC;font-size:13.5px;line-height:1.45">{{ it.d }}</span></span>
+            </a>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+</header>
+<sc-if value="{{ mobileOpen }}" hint-placeholder-val="{{ false }}">
+  <div role="dialog" aria-label="Menu" style="position:fixed;inset:0;z-index:90;background:#0F1729;overflow:auto;animation:tppFade .2s ease both;font-family:'Geist',system-ui,sans-serif;color:#F4F7FC">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 24px;height:72px;border-bottom:1px solid rgba(255,255,255,.08)">
+      <a href="/" aria-label="AQ Pay home"><img src="/aq-pay-logo.svg" alt="" width="164" height="44" style="display:block;flex:none;width:164px;height:44px"></a>
+      <button onClick="{{ toggleMobile }}" aria-label="Close menu" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#F4F7FC;width:44px;height:44px;border-radius:12px;font-size:20px;cursor:pointer">×</button>
+    </div>
+    <div style="padding:12px 24px 40px;display:flex;flex-direction:column;gap:4px">
+      <sc-for list="{{ navs }}" as="n" hint-placeholder-count="6">
+        <div style="border-bottom:1px solid rgba(255,255,255,.07)">
+          <button onClick="{{ n.toggleMobile }}" aria-expanded="{{ n.mobileOpen }}" style="width:100%;background:none;border:0;color:#F4F7FC;display:flex;justify-content:space-between;align-items:center;padding:18px 0;font-family:'Geist',system-ui,sans-serif;font-weight:600;font-size:19px;min-height:44px;cursor:pointer">{{ n.label }}<span style="color:#6E9BFF;font-size:22px;line-height:1">{{ n.mobileSign }}</span></button>
+          <sc-if value="{{ n.mobileOpen }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;gap:2px;padding-bottom:14px">
+              <sc-for list="{{ n.items }}" as="it" hint-placeholder-count="4">
+                <a class="tpp-mlink" href="{{ it.href }}" onClick="{{ toggleMobile }}" style="display:flex;gap:12px;align-items:center;color:#F4F7FC;padding:10px 6px;min-height:48px;border-radius:12px;text-decoration:none"><span style="width:32px;height:32px;border-radius:9px;background:rgba(110,155,255,.08);display:flex;align-items:center;justify-content:center;flex-shrink:0">{{ it.icon }}</span><span style="font-weight:600;font-size:15px">{{ it.t }}</span></a>
+              </sc-for>
+            </div>
+          </sc-if>
+        </div>
+      </sc-for>
+      <a class="tpp-mlink" href="/blog" style="display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.07);color:#F4F7FC;font-weight:600;font-size:19px;text-decoration:none">Blog<span style="color:#6E9BFF;font-size:18px">→</span></a>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:24px">
+        <a class="tpp-signup" href="https://portal.aqpay.services/signup" target="_blank" rel="noopener" style="display:flex;justify-content:center;padding:15px">Sign up<span class="tpp-su-arr" aria-hidden="true">→</span></a>
+        <a href="/book-a-demo" style="border:1px solid rgba(255,255,255,.18);color:#F4F7FC;font-weight:600;text-align:center;padding:15px;border-radius:999px;text-decoration:none">Book a Demo</a>
+        <a href="{{ loginHref }}" target="_blank" rel="noopener" style="border:1px solid rgba(255,255,255,.18);color:#F4F7FC;font-weight:600;text-align:center;padding:15px;border-radius:999px;text-decoration:none">Login</a>
+      </div>
+    </div>
+  </div>
+</sc-if>
+</x-dc><script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:&quot;72px&quot;},&quot;current&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;'' | 'solutions' | 'platform' | 'industries' | 'developers' | 'resources' | 'company'&quot;,&quot;options&quot;:[&quot;&quot;,&quot;solutions&quot;,&quot;platform&quot;,&quot;industries&quot;,&quot;developers&quot;,&quot;resources&quot;,&quot;company&quot;]},&quot;page&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { menu: null, mobileOpen: false, mobileGroup: null, isMobile: typeof window !== 'undefined' && window.matchMedia('(max-width: 959px)').matches };
+  componentDidUpdate() { if (this._mo !== this.state.mobileOpen) { this._mo = this.state.mobileOpen; document.documentElement.style.overflow = this.state.mobileOpen ? 'hidden' : ''; } }
+  componentDidMount() {
+    if (!window.__fx && !document.querySelector('script[data-fx]')) { const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = 'fx.css'; document.head.appendChild(l); const s = document.createElement('script'); s.src = 'fx.js'; s.dataset.fx = '1'; document.head.appendChild(s); }
+    this.mq = window.matchMedia('(max-width: 959px)'); this.onResize = () => this.setState({ isMobile: this.mq.matches }); this.onResize(); window.addEventListener('resize', this.onResize);
+    this.onKey = e => { if (e.key === 'Escape') this.setState({ menu: null, mobileOpen: false }); }; window.addEventListener('keydown', this.onKey);
+  }
+  componentWillUnmount() { window.removeEventListener('resize', this.onResize); window.removeEventListener('keydown', this.onKey); }
+  icon(kind, color = '#6E9BFF') {
+    const h = React.createElement, S = { width: 18, height: 18, viewBox: '0 0 18 18', fill: 'none', stroke: color, strokeWidth: 1.6, strokeLinecap: 'round' };
+    const map = {
+      ring: [h('circle', { cx: 9, cy: 9, r: 6.5 }), h('circle', { cx: 9, cy: 9, r: 2, fill: color, stroke: 'none' })],
+      route: [h('circle', { cx: 3.5, cy: 9, r: 2 }), h('circle', { cx: 14.5, cy: 4, r: 2 }), h('circle', { cx: 14.5, cy: 14, r: 2 }), h('path', { d: 'M5.5 9 L12.5 4.5 M5.5 9 L12.5 13.5' })],
+      layers: [h('path', { d: 'M3 5h12M3 9h12M3 13h12' })],
+      grid: [h('rect', { x: 3, y: 3, width: 5, height: 5, rx: 1.2 }), h('rect', { x: 10, y: 3, width: 5, height: 5, rx: 1.2 }), h('rect', { x: 3, y: 10, width: 5, height: 5, rx: 1.2 }), h('rect', { x: 10, y: 10, width: 5, height: 5, rx: 1.2 })],
+      diamond: [h('rect', { x: 4.5, y: 4.5, width: 9, height: 9, rx: 1.5, transform: 'rotate(45 9 9)' })],
+      node: [h('circle', { cx: 9, cy: 9, r: 3 }), h('path', { d: 'M9 2v3M9 13v3M2 9h3M13 9h3' })],
+      bars: [h('path', { d: 'M4 14V9M9 14V4M14 14V7' })],
+      doc: [h('rect', { x: 4, y: 2.5, width: 10, height: 13, rx: 1.5 }), h('path', { d: 'M7 7h4M7 10h4' })],
+      code: [h('path', { d: 'M6 5L2.5 9 6 13M12 5l3.5 4-3.5 4' })],
+      portal: [h('rect', { x: 2.5, y: 2.5, width: 13, height: 13, rx: 3.5 }), h('circle', { cx: 9, cy: 9, r: 3 })],
+      arrows: [h('path', { d: 'M3 6h10l-3-3M15 12H5l3 3' })],
+      wave: [h('path', { d: 'M2 9c2-4 4-4 6 0s4 4 6 0 2-2 2-2' })],
+      box: [h('rect', { x: 3, y: 3, width: 12, height: 12, rx: 2 }), h('path', { d: 'M3 8h12' })],
+      pin: [h('circle', { cx: 9, cy: 7, r: 3.5 }), h('path', { d: 'M9 10.5V16' })],
+      lock: [h('rect', { x: 4, y: 8, width: 10, height: 8, rx: 2 }), h('path', { d: 'M6 8V6a3 3 0 0 1 6 0v2' })],
+    };
+    return h('svg', S, ...(map[kind] || map.ring));
+  }
+  renderVals() {
+    const s = this.state, set = o => this.setState(o), cur = this.props.current || '', isM = s.isMobile;
+    const home = '/';
+    const defs = [
+      { key: 'solutions', label: 'Solutions', tagline: 'Four ways to work with AQ Pay.', blurb: 'License our portal, process through us, or bring us in to design your payment stack.', cta: 'Compare solutions', ctaHref: home + '#platform', items: [
+        ['White-Label Payment Gateway', 'License the portal and launch your own branded payments business.', '/white-label-gateway', 'portal'],
+        ['Merchant Services', 'Accounts, gateway integration, billing and multi-currency acceptance.', '/merchant-services', 'box'],
+        ['High-Risk Payment Processing', 'Consultation, acquirer introductions, underwriting help and risk mitigation.', '/high-risk-processing', 'lock'],
+        ['Payment Consulting', 'Payment stack architecture, operations and dispute strategy.', '/about#consulting', 'wave'],
+        ['Payment Orchestration', 'One API, many providers, intelligent routing and failover.', '/payment-orchestration', 'route'],
+        ['Embedded Payments', 'Payments built into your software, platform or marketplace.', '/industries#marketplaces', 'code']] },
+      { key: 'platform', label: 'Platform', tagline: 'Every capability in one gateway core.', blurb: 'Explore the modules behind the portal — from routing to reconciliation.', cta: 'See how it fits together', ctaHref: '/white-label-gateway#operations', items: [
+        ['Payment Gateway', 'Authorization, capture, refunds and tokenized payments via one API.', '/api-reference#payments', 'portal'],
+        ['Intelligent Routing', 'Rule-based primary selection with cascading and failover.', '/payment-orchestration#routing', 'route'],
+        ['Gateway Connectivity', 'Maintained connectors to acquirers, PSPs and alternative methods.', '/payment-orchestration#connectivity', 'node'],
+        ['Merchant Management', 'Onboarding, KYB data capture, configuration and lifecycle.', '/white-label-gateway#merchants', 'grid'],
+        ['Transaction Management', 'Search, trace, refund and dispute every transaction.', '/merchant-services#transactions', 'layers'],
+        ['Risk & Fraud', 'Pre-authorization screening, 3-D Secure and review queues.', '/high-risk-processing#chargebacks', 'lock'],
+        ['Reconciliation & Settlements', 'Match provider statements to transactions and payouts.', '/white-label-gateway#operations', 'arrows'],
+        ['Analytics & Intelligence', 'Approval, decline and cost analysis across every route.', '/payment-orchestration#analytics', 'bars'],
+        ['White-Label Infrastructure', 'Multi-tenant branding, partner hierarchy and billing.', '/white-label-gateway#infrastructure', 'diamond']] },
+      { key: 'industries', label: 'Industries', tagline: 'Built for demanding business models.', blurb: 'Patterns and provider mixes tuned to how your sector actually transacts.', cta: 'Browse industries', ctaHref: '/industries', items: [
+        ['E-commerce', 'Checkout conversion, multi-currency and APM coverage.', '/industries#ecommerce', 'box'],
+        ['Subscription Businesses', 'Recurring billing, retries and card lifecycle handling.', '/industries#subscriptions', 'ring'],
+        ['Digital Products & Services', 'Instant delivery, fraud screening and global reach.', '/industries#digital', 'code'],
+        ['Travel & Hospitality', 'High tickets, delayed delivery and multi-currency settlement.', '/industries#travel', 'pin'],
+        ['Marketplaces', 'Sub-merchant onboarding and split settlement.', '/industries#marketplaces', 'grid'],
+        ['Gaming & Regulated Industries', 'Specialist acquiring, eligibility-dependent.', '/industries#regulated', 'lock']] },
+      { key: 'developers', label: 'Developers', tagline: 'Integrate once, route anywhere.', blurb: 'REST API, webhooks, sandbox and planned SDKs — documented for engineers.', cta: 'Developer overview', ctaHref: '/developers', items: [
+        ['API Overview', 'Resources, authentication and idempotency.', '/developers', 'code'],
+        ['Quick Start', 'First sandbox payment in four steps.', '/developers#quick-start', 'arrows'],
+        ['API Reference', 'Every endpoint, parameter and response.', '/api-reference', 'doc'],
+        ['Webhooks', 'Signed event delivery with retries.', '/api-reference#webhooks', 'wave'],
+        ['Sandbox', 'Test cards, simulated providers and declines.', '/developers#sandbox', 'box'],
+        ['Integration Guides', 'Hosted checkout, server-to-server, platforms.', '/developers#guides', 'layers'],
+        ['SDKs', 'Planned server and client libraries.', '/developers#sdks', 'grid']] },
+      { key: 'resources', label: 'Resources', tagline: 'Payments knowledge, plainly written.', blurb: 'Guides and references for teams building or buying payment infrastructure.', cta: 'Read the blog', ctaHref: '/blog', items: [
+        ['Blog', 'Perspectives on orchestration, risk and white-label models.', '/blog', 'doc'],
+        ['Guides', 'In-depth guides to gateways, routing and underwriting.', '/blog/category/guides', 'layers'],
+
+        ['FAQs', 'Straight answers to common questions.', '/faq', 'ring'],
+      ] },
+      { key: 'company', label: 'Company', tagline: 'A technology partner, not just a vendor.', blurb: 'Who we are, how we work with partners, and how we protect your data.', cta: 'Get in touch', ctaHref: '/book-a-demo#contact', items: [
+        ['About', 'Our mission and how we work.', '/about', 'ring'],
+        ['Partner Program', 'Referral, reseller and white-label partnerships.', '/partner-program', 'node'],
+        ['Contact', 'Sales, support and press.', '/book-a-demo#contact', 'wave'],
+        ['Security', 'Platform controls and attestations.', '/white-label-gateway#infrastructure', 'lock'],
+        ['Legal', 'Privacy, terms, cookies and acceptable use.', '/privacy', 'doc']] },
+    ];
+    const navs = defs.map(n => ({ ...n, isOpen: s.menu === n.key, color: s.menu === n.key || cur === n.key ? '#F4F7FC' : '#AEB9CC', bg: cur === n.key ? 'rgba(255,255,255,.06)' : 'transparent', open: () => set({ menu: n.key }), toggle: () => set({ menu: s.menu === n.key ? null : n.key }), mobileOpen: s.mobileGroup === n.key, mobileSign: s.mobileGroup === n.key ? '−' : '+', toggleMobile: () => set({ mobileGroup: s.mobileGroup === n.key ? null : n.key }), items: n.items.map(([t, d, href, g]) => ({ t, d, href, icon: this.icon(g), bg: href.split('#')[0] === (this.props.page || '') ? 'rgba(110,155,255,.07)' : 'transparent' })) }));
+    return { navs, activeMenu: navs.find(n => n.key === s.menu) || navs[0], menuOpen: !!s.menu && !isM, closeMenu: () => set({ menu: null }), mobileOpen: s.mobileOpen, toggleMobile: () => set({ mobileOpen: !s.mobileOpen, menu: null }), desktopDisplay: isM ? 'none' : 'flex', mobileDisplay: isM ? 'flex' : 'none', homeHref: home, loginHref: 'https://portal.aqpay.services/' };
+  }
+}
+</script></div><main class="faq-hub"><header class="faq-intro"><a href="/">AQ Pay home</a><h1>Payments FAQs</h1></header><div class="faq-body">
+  <nav class="faq-topics" aria-label="FAQ topics"><strong>Browse by topic</strong><a href="#platform">Platform and branding</a>
+<a href="#payments">Payment methods and routing</a>
+<a href="#onboarding">Merchant onboarding and approval</a>
+<a href="#integration">Integration and security</a>
+<a href="#operations">Settlement and reconciliation</a></nav><div><section class="faq" id="platform"><h2>Platform and branding</h2>
+  <details><summary>What is a white-label payment gateway?</summary><p>It is payment gateway technology you run under your own brand. AQ Pay provides and maintains the platform — processor connections, routing, risk, ledger, settlement and portals — while you own the merchant relationships, pricing and brand. Your merchants see your name, logo and colours.</p></details>
+<details><summary>Who is AQ Pay for?</summary><p>Partners that want to launch their own branded payment gateway: PSPs, ISOs, payment facilitators and software platforms. Each partner onboards and manages its own merchants, and can work with referral partners who introduce new merchants.</p></details>
+<details><summary>How does a gateway differ from a merchant account?</summary><p>A gateway connects your checkout to payment providers. An acquiring arrangement determines whether and on what terms a merchant can accept card payments.</p></details>
+<details><summary>What should we bring to a gateway demo?</summary><p>Bring your target markets, merchant types, payment methods and current processors. Choose one checkout journey you want to see from payment to reporting.</p></details>
+  <a href="/white-label-gateway">Explore the white-label gateway</a></section>
+<section class="faq" id="payments"><h2>Payment methods and routing</h2>
+  <details><summary>Which payment methods are supported?</summary><p>UPI (Intent and QR) on a branded checkout, and cards through connected processors. Merchants can also share payment links with a return URL. Availability depends on the processors connected to each merchant account.</p></details>
+<details><summary>How does routing between processors work?</summary><p>Each merchant can have several processors. Rules choose a processor by currency, country, card brand, amount, payment method and UPI flow. If a processor soft-declines or is unavailable, the payment falls back to the next one, and the platform is designed so a customer is never charged twice.</p></details>
+<details><summary>What should we do if a payment times out?</summary><p>Check the original payment status with the processor before submitting another attempt. A timeout can leave the result unknown even when the processor has already authorised the payment.</p></details>
+<details><summary>How do we compare two routing options?</summary><p>Choose a group of eligible orders and compare first-attempt approvals, completed orders, costs and refunds. Keep the processor reference so each outcome can be traced.</p></details>
+  <a href="/payment-orchestration">Explore payment orchestration</a></section>
+<section class="faq" id="onboarding"><h2>Merchant onboarding and approval</h2>
+  <details><summary>Who decides whether a merchant can process payments?</summary><p>The acquiring partner reviews the business and decides eligibility and processing terms. Share the products, countries and fulfilment model you plan to use.</p></details>
+<details><summary>What should a merchant prepare before applying?</summary><p>Prepare a description of the business, ownership details, website, delivery and refund policies, and any available processing history. The acquiring partner will confirm its document requirements.</p></details>
+<details><summary>Can we apply if customers pay before delivery?</summary><p>Describe the amount collected upfront, expected delivery window and value of undelivered orders. The acquirer can then assess the proposed model and any conditions.</p></details>
+  <a href="/high-risk-processing">Explore high-risk processing</a></section>
+<section class="faq" id="integration"><h2>Integration and security</h2>
+  <details><summary>How is a payment confirmed?</summary><p>By the payment provider, through a signed webhook or a status check. The result is never taken from the customer&#39;s browser.</p></details>
+<details><summary>Does AQ Pay store card numbers?</summary><p>No. Card numbers and CVVs are not stored, and a UPI PIN is never requested. Gateway credentials are encrypted, access is controlled by roles, permissions and MFA, and actions are recorded in an audit trail. We describe our controls rather than claim certifications.</p></details>
+<details><summary>What should we test before switching on live payments?</summary><p>Test a successful payment, a decline, an interrupted checkout and a refund. Verify the final status in your system and check that finance can trace the payment reference.</p></details>
+<details><summary>How should our system handle repeated notifications?</summary><p>Record which events your system has handled and make repeated delivery safe. Verify the signature and current payment state before updating an order or triggering fulfilment.</p></details>
+  <a href="/developers">Read the developer guide</a></section>
+<section class="faq" id="operations"><h2>Settlement and reconciliation</h2>
+  <details><summary>How do we match a payment to a payout?</summary><p>Start with the order and payment references, locate the processor transaction in the settlement report, then match the payout to the bank entry. Account for fees, refunds and adjustments separately.</p></details>
+<details><summary>Where do we confirm the payout schedule?</summary><p>Check the settlement agreement with your acquiring partner. Ask which cut-off, currency and business-day calendar apply to your merchant account.</p></details>
+<details><summary>How do we trace a refund?</summary><p>Keep the original payment reference, the refund reference, amount and issue date together. Use them to check the processor status and find the adjustment in the settlement report.</p></details>
+  <a href="/merchant-services">Explore merchant services</a></section></div></div></main>
+<footer class="ftr"><div class="wrap">
+  <div class="ftr-grid">
+    <div><a class="brand" href="/" aria-label="AQ Pay home"><img src="/aq-pay-logo.svg" alt="" width="164" height="44" style="display:block;flex:none;width:164px;height:44px"></a>
+      <p>White-label gateway, orchestration and merchant services infrastructure for PSPs, platforms and merchants.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn" href="/book-a-demo" style="font-size:14px;padding:10px 18px">Book a Demo</a><a class="btn btn-ghost" href="https://portal.aqpay.services/" target="_blank" rel="noopener" style="font-size:14px">Portal login ↗</a></div></div>
+    <nav aria-label="Solutions"><h3>Solutions</h3><ul><li><a href="/white-label-gateway">White-Label Gateway</a></li><li><a href="/merchant-services">Merchant Services</a></li><li><a href="/high-risk-processing">High-Risk Processing</a></li><li><a href="/payment-orchestration">Payment Orchestration</a></li><li><a href="/about#consulting">Payment Consulting</a></li><li><a href="/industries">Industries</a></li></ul></nav>
+    <nav aria-label="Platform"><h3>Platform</h3><ul><li><a href="/payment-orchestration#routing">Intelligent Routing</a></li><li><a href="/payment-orchestration#connectivity">Gateway Connectivity</a></li><li><a href="/high-risk-processing#chargebacks">Risk &amp; Fraud</a></li><li><a href="/white-label-gateway#operations">Reconciliation</a></li><li><a href="/white-label-gateway#infrastructure">Security</a></li></ul></nav>
+    <nav aria-label="Developers"><h3>Developers</h3><ul><li><a href="/developers">Overview</a></li><li><a href="/developers#quick-start">Quick Start</a></li><li><a href="/api-reference">API Reference</a></li><li><a href="/api-reference#webhooks">Webhooks</a></li><li><a href="/developers#sandbox">Sandbox</a></li></ul></nav>
+    <nav aria-label="Company"><h3>Company</h3><ul><li><a href="/about">About</a></li><li><a href="/blog">Blog</a></li><li><a href="/faq">FAQs</a></li><li><a href="/partner-program">Partner Program</a></li><li><a href="/book-a-demo#contact">Contact</a></li><li><a href="mailto:hello@aqpay.services">hello@aqpay.services</a></li></ul></nav>
+  </div>
+  <div class="ftr-base"><span>Services are subject to industry eligibility, geographic restrictions, underwriting and partner approval. AQ Pay is a technology provider and does not hold or move client funds unless expressly stated in a service agreement.</span>
+    <div class="row"><span>© 2026 AQ Pay LLC. Registered in Nevis. All rights reserved.</span><span style="display:flex;gap:18px"><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/cookies">Cookies</a><a href="/licences">Licences</a><a href="/acceptable-use">Acceptable use</a></span></div></div>
+</div></footer>
+</body>
+</html>
+</body></html>

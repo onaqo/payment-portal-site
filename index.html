@@ -26,12 +26,12 @@
 <link rel="preconnect" href="https://unpkg.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="home.css?v=a8673e8a">
+<link rel="stylesheet" href="home.css?v=faq-columns">
 <style>x-dc{display:none!important}#pre ~ #dc-root{display:none}</style>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","@id":"https://www.aqpay.services/#organization","name":"AQ Pay","url":"https://www.aqpay.services","logo":"https://www.aqpay.services/aq-mark.svg","email":"hello@aqpay.services","description":"White-label payment gateway, payment orchestration and merchant services infrastructure for PSPs, ISOs, platforms and merchants.","contactPoint":[{"@type":"ContactPoint","contactType":"sales","email":"hello@aqpay.services","availableLanguage":["English"]}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","@id":"https://www.aqpay.services/#website","name":"AQ Pay","url":"https://www.aqpay.services","publisher":{"@id":"https://www.aqpay.services/#organization"}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a white-label payment gateway?","acceptedAnswer":{"@type":"Answer","text":"It is payment gateway technology you run under your own brand. AQ Pay provides and maintains the platform — processor connections, routing, risk, ledger, settlement and portals — while you own the merchant relationships, pricing and brand. Your merchants see your name, logo and colours."}},{"@type":"Question","name":"Who is AQ Pay for?","acceptedAnswer":{"@type":"Answer","text":"Partners that want to launch their own branded payment gateway: PSPs, ISOs, payment facilitators and software platforms. Each partner onboards and manages its own merchants, and can work with referral partners who introduce new merchants."}},{"@type":"Question","name":"Which payment methods are supported?","acceptedAnswer":{"@type":"Answer","text":"UPI (Intent and QR) on a branded checkout, and cards through connected processors. Merchants can also share payment links with a return URL. Availability depends on the processors connected to each merchant account."}},{"@type":"Question","name":"How does routing between processors work?","acceptedAnswer":{"@type":"Answer","text":"Each merchant can have several processors. Rules choose a processor by currency, country, card brand, amount, payment method and UPI flow. If a processor soft-declines or is unavailable, the payment falls back to the next one, and the platform is designed so a customer is never charged twice."}},{"@type":"Question","name":"How is a payment confirmed?","acceptedAnswer":{"@type":"Answer","text":"By the payment provider, through a signed webhook or a status check. The result is never taken from the customer's browser."}},{"@type":"Question","name":"Does AQ Pay store card numbers?","acceptedAnswer":{"@type":"Answer","text":"No. Card numbers and CVVs are not stored, and a UPI PIN is never requested. Gateway credentials are encrypted, access is controlled by roles, permissions and MFA, and actions are recorded in an audit trail. We describe our controls rather than claim certifications."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a white-label payment gateway?","acceptedAnswer":{"@type":"Answer","text":"It is payment gateway technology you run under your own brand. AQ Pay provides and maintains the platform — processor connections, routing, risk, ledger, settlement and portals — while you own the merchant relationships, pricing and brand. Your merchants see your name, logo and colours."}},{"@type":"Question","name":"Who is AQ Pay for?","acceptedAnswer":{"@type":"Answer","text":"Partners that want to launch their own branded payment gateway: PSPs, ISOs, payment facilitators and software platforms. Each partner onboards and manages its own merchants, and can work with referral partners who introduce new merchants."}},{"@type":"Question","name":"Which payment methods are supported?","acceptedAnswer":{"@type":"Answer","text":"UPI (Intent and QR) on a branded checkout, and cards through connected processors. Merchants can also share payment links with a return URL. Availability depends on the processors connected to each merchant account."}},{"@type":"Question","name":"How does routing between processors work?","acceptedAnswer":{"@type":"Answer","text":"Each merchant can have several processors. Rules choose a processor by currency, country, card brand, amount, payment method and UPI flow. If a processor soft-declines or is unavailable, the payment falls back to the next one, and the platform is designed so a customer is never charged twice."}},{"@type":"Question","name":"How is a payment confirmed?","acceptedAnswer":{"@type":"Answer","text":"By the payment provider, through a signed webhook or a status check. The result is never taken from the customer's browser."}},{"@type":"Question","name":"Does AQ Pay store card numbers?","acceptedAnswer":{"@type":"Answer","text":"No. Card numbers and CVVs are not stored, and a UPI PIN is never requested. Gateway credentials are encrypted, access is controlled by roles, permissions and MFA, and actions are recorded in an audit trail. We describe our controls rather than claim certifications."}},{"@type":"Question","name":"Who decides whether a merchant can process payments?","acceptedAnswer":{"@type":"Answer","text":"The acquiring partner reviews the business and decides eligibility and processing terms. Share the products, countries and fulfilment model you plan to use."}},{"@type":"Question","name":"How do we match a payment to a payout?","acceptedAnswer":{"@type":"Answer","text":"Start with the order and payment references, locate the processor transaction in the settlement report, then match the payout to the bank entry. Account for fees, refunds and adjustments separately."}}]}</script>
 <link rel="stylesheet" href="/fx.css?v=28e8a3e9">
 <script src="/fx.js?v=2d052c7e" data-fx defer></script>
 <script src="/support.js?v=a05343a5"></script>
@@ -188,7 +188,14 @@
   </div>
 
   
-  <section data-dc-tpl="249" id="live-demo" class="wrap" style="position: relative; padding-top: 120px; padding-bottom: 20px;">
+  <!-- services --><section id="service-selector" class="wrap home-services">
+<h2>What do you want to build?</h2>
+<div class="service-options">
+<a href="/white-label-gateway"><svg aria-hidden="true" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="7" width="30" height="25" rx="4"/><path d="M5 14h30"/><path class="gateway-pulse" d="M11 24h5l3-5 4 9 3-5h4"/></svg><strong>Launch a branded gateway</strong><span>Explore white-label infrastructure for your payment business.</span></a>
+<a href="/payment-orchestration"><svg aria-hidden="true" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20h9l9-10h9M15 20l9 10h9"/><circle cx="6" cy="20" r="3"/><circle cx="34" cy="10" r="3"/><circle cx="34" cy="30" r="3"/><circle class="route-dot" cx="6" cy="20" r="2"/></svg><strong>Connect multiple processors</strong><span>Explore routing and payment orchestration.</span></a>
+<a href="/merchant-services"><svg aria-hidden="true" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="33" height="24" rx="4"/><path d="M3 15h33M9 25h6"/><path class="paid-check" d="m21 24 4 4 6-8"/></svg><strong>Accept merchant payments</strong><span>Explore merchant services for your business.</span></a>
+</div></section><!-- end services -->
+<section data-dc-tpl="249" id="live-demo" class="wrap" style="position: relative; padding-top: 120px; padding-bottom: 20px;">
     <div data-dc-tpl="250" class="dband rv">
       <span data-dc-tpl="251" class="dband-glow" aria-hidden="true"></span>
       <div data-dc-tpl="252" style="position: relative;">
@@ -310,6 +317,36 @@
   </section>
 
   
+  <!-- latest articles -->
+<section id="latest-articles" class="wrap home-reading">
+  <div class="reading-heading"><h2>Payment insights</h2><a href="/blog">View all articles <span aria-hidden="true">↗</span></a></div>
+  <div class="reading-grid"><article><a href="/blog/high-risk-merchant-account-uk">
+  <img src="/blog/covers/high-risk-merchant-account-uk.jpg?v=176c03c5" alt="" width="1200" height="630" loading="lazy" decoding="async">
+  <div><time datetime="2026-11-15">15 November 2026</time><h3>High-risk merchant account UK guide: how to present pre-orders to an acquirer</h3></div>
+</a></article>
+<article><a href="/blog/smart-payment-routing">
+  <img src="/blog/covers/smart-payment-routing.jpg?v=372e3380" alt="" width="1200" height="630" loading="lazy" decoding="async">
+  <div><time datetime="2026-11-14">14 November 2026</time><h3>Smart payment routing from the first rule to the first refund</h3></div>
+</a></article>
+<article><a href="/blog/payment-facilitator-vs-iso">
+  <img src="/blog/covers/payment-facilitator-vs-iso.jpg?v=ea13d5fe" alt="" width="1200" height="630" loading="lazy" decoding="async">
+  <div><time datetime="2026-11-11">11 November 2026</time><h3>Payment facilitator vs ISO: which model fits your business?</h3></div>
+</a></article>
+<article><a href="/blog/high-risk-merchant-account-underwriting">
+  <img src="/blog/covers/high-risk-merchant-account-underwriting.jpg?v=c385c23a" alt="" width="1200" height="630" loading="lazy" decoding="async">
+  <div><time datetime="2026-11-05">5 November 2026</time><h3>High-risk merchant accounts: how underwriting actually works</h3></div>
+</a></article>
+<article><a href="/blog/what-is-payment-orchestration">
+  <img src="/blog/covers/what-is-payment-orchestration.jpg?v=9225afec" alt="" width="1200" height="630" loading="lazy" decoding="async">
+  <div><time datetime="2026-11-05">5 November 2026</time><h3>What is payment orchestration — and when do you need it?</h3></div>
+</a></article>
+<article><a href="/blog/white-label-payment-gateway-vs-building-your-own">
+  <img src="/blog/covers/white-label-payment-gateway-vs-building-your-own.jpg?v=1ecaa926" alt="" width="1200" height="630" loading="lazy" decoding="async">
+  <div><time datetime="2026-11-05">5 November 2026</time><h3>White-label payment gateway vs. building your own PSP stack</h3></div>
+</a></article></div>
+  <div class="slide-controls" hidden><button type="button" data-slide="previous" aria-label="Previous article">←</button><button type="button" data-slide="pause">Pause slideshow</button><button type="button" data-slide="next" aria-label="Next article">→</button></div>
+</section>
+<!-- end latest articles -->
   <section data-dc-tpl="400" id="faq" class="wrap" style="position: relative; padding-top: 120px; padding-bottom: 60px;">
     <div data-dc-tpl="401" class="rv" style="max-width: 760px; margin-bottom: 48px;">
       <p data-dc-tpl="402" class="mono" style="margin: 0px 0px 20px; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: rgb(159, 179, 217);">FAQ</p>
@@ -321,15 +358,15 @@
         <details data-dc-tpl="409"><summary data-dc-tpl="410">What is a white-label payment gateway?</summary><p data-dc-tpl="411" style="margin: 0px 0px 24px; color: rgb(182, 192, 212); font-size: 16px; line-height: 1.65;">It is payment gateway technology you run under your own brand. AQ Pay provides and maintains the platform — processor connections, routing, risk, ledger, settlement and portals — while you own the merchant relationships, pricing and brand. Your merchants see your name, logo and colours.</p></details>
         <details data-dc-tpl="412"><summary data-dc-tpl="413">Who is AQ Pay for?</summary><p data-dc-tpl="414" style="margin: 0px 0px 24px; color: rgb(182, 192, 212); font-size: 16px; line-height: 1.65;">Partners that want to launch their own branded payment gateway: PSPs, ISOs, payment facilitators and software platforms. Each partner onboards and manages its own merchants, and can work with referral partners who introduce new merchants.</p></details>
         <details data-dc-tpl="415"><summary data-dc-tpl="416">Which payment methods are supported?</summary><p data-dc-tpl="417" style="margin: 0px 0px 24px; color: rgb(182, 192, 212); font-size: 16px; line-height: 1.65;">UPI (Intent and QR) on a branded checkout, and cards through connected processors. Merchants can also share payment links with a return URL. Availability depends on the processors connected to each merchant account.</p></details>
-      </div>
+      <details><summary>Who decides whether a merchant can process payments?</summary><p>The acquiring partner reviews the business and decides eligibility and processing terms. Share the products, countries and fulfilment model you plan to use.</p></details></div>
       <div data-dc-tpl="418" class="fq rv">
         <p data-dc-tpl="419" class="mono" style="margin: 0px 0px 8px; display: flex; align-items: center; gap: 12px; font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase; color: rgb(159, 179, 217);"><span data-dc-tpl="420" style="color: rgb(110, 155, 255);">02</span>Payments and security</p>
         <details data-dc-tpl="421"><summary data-dc-tpl="422">How does routing between processors work?</summary><p data-dc-tpl="423" style="margin: 0px 0px 24px; color: rgb(182, 192, 212); font-size: 16px; line-height: 1.65;">Each merchant can have several processors. Rules choose a processor by currency, country, card brand, amount, payment method and UPI flow. If a processor soft-declines or is unavailable, the payment falls back to the next one, and the platform is designed so a customer is never charged twice.</p></details>
         <details data-dc-tpl="424"><summary data-dc-tpl="425">How is a payment confirmed?</summary><p data-dc-tpl="426" style="margin: 0px 0px 24px; color: rgb(182, 192, 212); font-size: 16px; line-height: 1.65;">By the payment provider, through a signed webhook or a status check. The result is never taken from the customer's browser.</p></details>
         <details data-dc-tpl="427"><summary data-dc-tpl="428">Does AQ Pay store card numbers?</summary><p data-dc-tpl="429" style="margin: 0px 0px 24px; color: rgb(182, 192, 212); font-size: 16px; line-height: 1.65;">No. Card numbers and CVVs are not stored, and a UPI PIN is never requested. Gateway credentials are encrypted, access is controlled by roles, permissions and MFA, and actions are recorded in an audit trail. We describe our controls rather than claim certifications.</p></details>
-      </div>
+      <details><summary>How do we match a payment to a payout?</summary><p>Start with the order and payment references, locate the processor transaction in the settlement report, then match the payout to the bank entry. Account for fees, refunds and adjustments separately.</p></details></div>
     </div>
-  </section>
+  <a class="faq-more" href="/faq">Browse all FAQs by topic <span aria-hidden="true">→</span></a></section>
 
   
   <section data-dc-tpl="430" id="demo" class="wrap" style="position: relative; padding-top: 100px; padding-bottom: 100px;">
@@ -392,7 +429,7 @@
         <nav data-dc-tpl="14" aria-label="Company" style="min-width: 0px;">
           <div data-dc-tpl="15" style="font-family: &quot;Geist Mono&quot;, monospace; font-size: 11px; font-weight: 500; letter-spacing: 0.16em; text-transform: uppercase; color: rgb(110, 155, 255); margin-bottom: 18px;"><span class="sc-interp">Company</span></div>
           <ul data-dc-tpl="16" style="list-style: none; padding: 0px; margin: 0px; display: grid; gap: 2px;">
-            <li data-dc-tpl="18"><a data-dc-tpl="19" href="/about" target="_self" rel="" class="scp2" style="display: inline-block; padding: 6px 0px; color: rgb(174, 185, 204); font-size: 14.5px; line-height: 1.4; text-decoration: none; transition: color 0.2s;"><span class="sc-interp">About</span></a></li><li data-dc-tpl="18"><a data-dc-tpl="19" href="/blog" target="_self" rel="" class="scp2" style="display: inline-block; padding: 6px 0px; color: rgb(174, 185, 204); font-size: 14.5px; line-height: 1.4; text-decoration: none; transition: color 0.2s;"><span class="sc-interp">Blog</span></a></li><li data-dc-tpl="18"><a data-dc-tpl="19" href="/partner-program" target="_self" rel="" class="scp2" style="display: inline-block; padding: 6px 0px; color: rgb(174, 185, 204); font-size: 14.5px; line-height: 1.4; text-decoration: none; transition: color 0.2s;"><span class="sc-interp">Partner Program</span></a></li><li data-dc-tpl="18"><a data-dc-tpl="19" href="/book-a-demo" target="_self" rel="" class="scp2" style="display: inline-block; padding: 6px 0px; color: rgb(174, 185, 204); font-size: 14.5px; line-height: 1.4; text-decoration: none; transition: color 0.2s;"><span class="sc-interp">Book a Demo</span></a></li><li data-dc-tpl="18"><a data-dc-tpl="19" href="/book-a-demo#contact" target="_self" rel="" class="scp2" style="display: inline-block; padding: 6px 0px; color: rgb(174, 185, 204); font-size: 14.5px; line-height: 1.4; text-decoration: none; transition: color 0.2s;"><span class="sc-interp">Contact</span></a></li><li data-dc-tpl="18"><a data-dc-tpl="19" href="https://portal.aqpay.services/" target="_blank" rel="noopener" class="scp2" style="display: inline-block; padding: 6px 0px; color: rgb(174, 185, 204); font-size: 14.5px; line-height: 1.4; text-decoration: none; transition: color 0.2s;"><span class="sc-interp">Login</span></a></li>
+            <li data-dc-tpl="18"><a data-dc-tpl="19" href="/about" target="_self" rel="" class="scp2" style="display: inline-block; padding: 6px 0px; color: rgb(174, 185, 204); font-size: 14.5px; line-height: 1.4; text-decoration: none; transition: color 0.2s;"><span class="sc-interp">About</span></a></li><li data-dc-tpl="18"><a data-dc-tpl="19" href="/blog" target="_self" rel="" class="scp2" style="display: inline-block; padding: 6px 0px; color: rgb(174, 185, 204); font-size: 14.5px; line-height: 1.4; text-decoration: none; transition: color 0.2s;"><span class="sc-interp">Blog</span></a></li><li data-dc-tpl="18"><a data-dc-tpl="19" href="/faq" target="_self" rel="" class="scp2" style="display: inline-block; padding: 6px 0px; color: rgb(174, 185, 204); font-size: 14.5px; line-height: 1.4; text-decoration: none; transition: color 0.2s;"><span class="sc-interp">FAQs</span></a></li><li data-dc-tpl="18"><a data-dc-tpl="19" href="/partner-program" target="_self" rel="" class="scp2" style="display: inline-block; padding: 6px 0px; color: rgb(174, 185, 204); font-size: 14.5px; line-height: 1.4; text-decoration: none; transition: color 0.2s;"><span class="sc-interp">Partner Program</span></a></li><li data-dc-tpl="18"><a data-dc-tpl="19" href="/book-a-demo#contact" target="_self" rel="" class="scp2" style="display: inline-block; padding: 6px 0px; color: rgb(174, 185, 204); font-size: 14.5px; line-height: 1.4; text-decoration: none; transition: color 0.2s;"><span class="sc-interp">Contact</span></a></li>
           </ul>
         </nav>
       
@@ -401,7 +438,7 @@
     <div data-dc-tpl="20" style="margin-top: 64px; padding-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.08); display: grid; gap: 18px;">
       <p data-dc-tpl="21" style="color: rgb(111, 125, 147); line-height: 1.6; font-size: 12.5px; margin: 0px; max-width: 880px;">Services are subject to industry eligibility, geographic restrictions, underwriting and partner approval. AQ Pay is a technology provider and does not hold or move client funds unless expressly stated in a service agreement.</p>
       <div data-dc-tpl="22" style="display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 14px; font-size: 13px; color: rgb(111, 125, 147);">
-        <span data-dc-tpl="23">© 2026 AQ Pay. All rights reserved.</span>
+        <span data-dc-tpl="23">© 2026 AQ Pay LLC. Registered in Nevis. All rights reserved.</span>
         <span data-dc-tpl="24" style="display: flex; gap: 20px; flex-wrap: wrap;">
           <a data-dc-tpl="26" href="/privacy" class="scp2" style="display: inline-block; padding: 8px 0px; color: rgb(174, 185, 204); text-decoration: none;"><span class="sc-interp">Privacy</span></a><a data-dc-tpl="26" href="/terms" class="scp2" style="display: inline-block; padding: 8px 0px; color: rgb(174, 185, 204); text-decoration: none;"><span class="sc-interp">Terms</span></a><a data-dc-tpl="26" href="/cookies" class="scp2" style="display: inline-block; padding: 8px 0px; color: rgb(174, 185, 204); text-decoration: none;"><span class="sc-interp">Cookies</span></a><a data-dc-tpl="26" href="/acceptable-use" class="scp2" style="display: inline-block; padding: 8px 0px; color: rgb(174, 185, 204); text-decoration: none;"><span class="sc-interp">Acceptable use</span></a><a data-dc-tpl="26" href="/licences" class="scp2" style="display: inline-block; padding: 8px 0px; color: rgb(174, 185, 204); text-decoration: none;"><span class="sc-interp">Licences</span></a>
         </span>
@@ -413,7 +450,7 @@
 <helmet>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="home.css?v=a8673e8a">
+<link rel="stylesheet" href="home.css?v=faq-columns">
 </helmet>
 <dc-import name="SiteNav" current="" page="/" hint-size="100%,72px"></dc-import>
 <main class="aqh">
@@ -537,7 +574,14 @@
   </div>
 
   <!-- LIVE DEMO -->
-  <section id="live-demo" class="wrap" style="position: relative; padding-top: 120px; padding-bottom: 20px">
+  <!-- services --><section id="service-selector" class="wrap home-services">
+<h2>What do you want to build?</h2>
+<div class="service-options">
+<a href="/white-label-gateway"><svg aria-hidden="true" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="7" width="30" height="25" rx="4"/><path d="M5 14h30"/><path class="gateway-pulse" d="M11 24h5l3-5 4 9 3-5h4"/></svg><strong>Launch a branded gateway</strong><span>Explore white-label infrastructure for your payment business.</span></a>
+<a href="/payment-orchestration"><svg aria-hidden="true" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 20h9l9-10h9M15 20l9 10h9"/><circle cx="6" cy="20" r="3"/><circle cx="34" cy="10" r="3"/><circle cx="34" cy="30" r="3"/><circle class="route-dot" cx="6" cy="20" r="2"/></svg><strong>Connect multiple processors</strong><span>Explore routing and payment orchestration.</span></a>
+<a href="/merchant-services"><svg aria-hidden="true" viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="8" width="33" height="24" rx="4"/><path d="M3 15h33M9 25h6"/><path class="paid-check" d="m21 24 4 4 6-8"/></svg><strong>Accept merchant payments</strong><span>Explore merchant services for your business.</span></a>
+</div></section><!-- end services -->
+<section id="live-demo" class="wrap" style="position: relative; padding-top: 120px; padding-bottom: 20px">
     <div class="dband rv">
       <span class="dband-glow" aria-hidden="true"></span>
       <div style="position: relative">
@@ -659,6 +703,36 @@
   </section>
 
   <!-- FAQ -->
+  <!-- latest articles -->
+<section id="latest-articles" class="wrap home-reading">
+  <div class="reading-heading"><h2>Payment insights</h2><a href="/blog">View all articles <span aria-hidden="true">↗</span></a></div>
+  <div class="reading-grid"><article><a href="/blog/high-risk-merchant-account-uk">
+  <img src="/blog/covers/high-risk-merchant-account-uk.jpg?v=176c03c5" alt="" width="1200" height="630" loading="lazy" decoding="async">
+  <div><time datetime="2026-11-15">15 November 2026</time><h3>High-risk merchant account UK guide: how to present pre-orders to an acquirer</h3></div>
+</a></article>
+<article><a href="/blog/smart-payment-routing">
+  <img src="/blog/covers/smart-payment-routing.jpg?v=372e3380" alt="" width="1200" height="630" loading="lazy" decoding="async">
+  <div><time datetime="2026-11-14">14 November 2026</time><h3>Smart payment routing from the first rule to the first refund</h3></div>
+</a></article>
+<article><a href="/blog/payment-facilitator-vs-iso">
+  <img src="/blog/covers/payment-facilitator-vs-iso.jpg?v=ea13d5fe" alt="" width="1200" height="630" loading="lazy" decoding="async">
+  <div><time datetime="2026-11-11">11 November 2026</time><h3>Payment facilitator vs ISO: which model fits your business?</h3></div>
+</a></article>
+<article><a href="/blog/high-risk-merchant-account-underwriting">
+  <img src="/blog/covers/high-risk-merchant-account-underwriting.jpg?v=c385c23a" alt="" width="1200" height="630" loading="lazy" decoding="async">
+  <div><time datetime="2026-11-05">5 November 2026</time><h3>High-risk merchant accounts: how underwriting actually works</h3></div>
+</a></article>
+<article><a href="/blog/what-is-payment-orchestration">
+  <img src="/blog/covers/what-is-payment-orchestration.jpg?v=9225afec" alt="" width="1200" height="630" loading="lazy" decoding="async">
+  <div><time datetime="2026-11-05">5 November 2026</time><h3>What is payment orchestration — and when do you need it?</h3></div>
+</a></article>
+<article><a href="/blog/white-label-payment-gateway-vs-building-your-own">
+  <img src="/blog/covers/white-label-payment-gateway-vs-building-your-own.jpg?v=1ecaa926" alt="" width="1200" height="630" loading="lazy" decoding="async">
+  <div><time datetime="2026-11-05">5 November 2026</time><h3>White-label payment gateway vs. building your own PSP stack</h3></div>
+</a></article></div>
+  <div class="slide-controls" hidden><button type="button" data-slide="previous" aria-label="Previous article">←</button><button type="button" data-slide="pause">Pause slideshow</button><button type="button" data-slide="next" aria-label="Next article">→</button></div>
+</section>
+<!-- end latest articles -->
   <section id="faq" class="wrap" style="position: relative; padding-top: 120px; padding-bottom: 60px">
     <div class="rv" style="max-width: 760px; margin-bottom: 48px">
       <p class="mono" style="margin: 0 0 20px; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: #9FB3D9">FAQ</p>
@@ -670,15 +744,15 @@
         <details open><summary>What is a white-label payment gateway?</summary><p style="margin: 0 0 24px; color: #B6C0D4; font-size: 16px; line-height: 1.65">It is payment gateway technology you run under your own brand. AQ Pay provides and maintains the platform — processor connections, routing, risk, ledger, settlement and portals — while you own the merchant relationships, pricing and brand. Your merchants see your name, logo and colours.</p></details>
         <details><summary>Who is AQ Pay for?</summary><p style="margin: 0 0 24px; color: #B6C0D4; font-size: 16px; line-height: 1.65">Partners that want to launch their own branded payment gateway: PSPs, ISOs, payment facilitators and software platforms. Each partner onboards and manages its own merchants, and can work with referral partners who introduce new merchants.</p></details>
         <details><summary>Which payment methods are supported?</summary><p style="margin: 0 0 24px; color: #B6C0D4; font-size: 16px; line-height: 1.65">UPI (Intent and QR) on a branded checkout, and cards through connected processors. Merchants can also share payment links with a return URL. Availability depends on the processors connected to each merchant account.</p></details>
-      </div>
+      <details><summary>Who decides whether a merchant can process payments?</summary><p>The acquiring partner reviews the business and decides eligibility and processing terms. Share the products, countries and fulfilment model you plan to use.</p></details></div>
       <div class="fq rv">
         <p class="mono" style="margin: 0 0 8px; display: flex; align-items: center; gap: 12px; font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: #9FB3D9"><span style="color: #6E9BFF">02</span>Payments and security</p>
         <details open><summary>How does routing between processors work?</summary><p style="margin: 0 0 24px; color: #B6C0D4; font-size: 16px; line-height: 1.65">Each merchant can have several processors. Rules choose a processor by currency, country, card brand, amount, payment method and UPI flow. If a processor soft-declines or is unavailable, the payment falls back to the next one, and the platform is designed so a customer is never charged twice.</p></details>
         <details><summary>How is a payment confirmed?</summary><p style="margin: 0 0 24px; color: #B6C0D4; font-size: 16px; line-height: 1.65">By the payment provider, through a signed webhook or a status check. The result is never taken from the customer's browser.</p></details>
         <details><summary>Does AQ Pay store card numbers?</summary><p style="margin: 0 0 24px; color: #B6C0D4; font-size: 16px; line-height: 1.65">No. Card numbers and CVVs are not stored, and a UPI PIN is never requested. Gateway credentials are encrypted, access is controlled by roles, permissions and MFA, and actions are recorded in an audit trail. We describe our controls rather than claim certifications.</p></details>
-      </div>
+      <details><summary>How do we match a payment to a payout?</summary><p>Start with the order and payment references, locate the processor transaction in the settlement report, then match the payout to the bank entry. Account for fees, refunds and adjustments separately.</p></details></div>
     </div>
-  </section>
+  <a class="faq-more" href="/faq">Browse all FAQs by topic <span aria-hidden="true">→</span></a></section>
 
   <!-- CTA -->
   <section id="demo" class="wrap" style="position: relative; padding-top: 100px; padding-bottom: 100px">
@@ -705,7 +779,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script>
 class Component extends DCLogic {
-  componentDidMount() { import('./home.js?v=21b90f2e').then(m => { this.dispose = m.init(); }).catch(e => console.warn('home.js?v=21b90f2e', e)); }
+  componentDidMount() { import('./home.js?v=insights2').then(m => { this.dispose = m.init(); }).catch(e => console.warn('home.js?v=insights2', e)); }
   componentWillUnmount() { if (this.dispose) this.dispose(); }
   renderVals() { return {}; }
 }

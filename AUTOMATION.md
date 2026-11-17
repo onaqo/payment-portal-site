@@ -107,7 +107,7 @@ Then look at the cover image (Read `blog/covers/<slug>.jpg`) to confirm the titl
 2. Commit and push:
 
 ```bash
-git add -- content/blog content/keyword-plan.json blog sitemap.xml
+git add -- content/blog content/keyword-plan.json blog sitemap.xml index.html home-services-preview.html home-journal-preview.html
 git -c user.name="AQ Pay Blog Bot" -c user.email="hello@aqpay.services" commit -m "Blog: <title>"
 git push origin main
 ```
