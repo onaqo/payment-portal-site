@@ -3,7 +3,7 @@
   "topics": [
     {
       "primaryKeyword": "payment orchestration",
-      "workingTitle": "What is payment orchestration \u2014 and when do you need it?",
+      "workingTitle": "What is payment orchestration — and when do you need it?",
       "market": "Global",
       "category": "Guides",
       "cluster": "orchestration",
@@ -129,9 +129,9 @@
       "cluster": "risk",
       "intent": "informational",
       "linkTo": "/high-risk-processing",
-      "status": "todo",
-      "slug": null,
-      "date": null
+      "status": "published",
+      "slug": "chargeback-ratio",
+      "date": "2026-11-17"
     },
     {
       "primaryKeyword": "payment cascading",

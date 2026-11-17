@@ -1,0 +1,408 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chargeback ratio: how to calculate and lower it | AQ Pay</title>
+<meta name="description" content="See how Visa and Mastercard calculate a chargeback ratio, why your dashboard and acquirer disagree, and practical steps to bring the ratio down.">
+<link rel="canonical" href="https://www.aqpay.services/blog/chargeback-ratio">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<meta name="theme-color" content="#060A14">
+<meta property="og:site_name" content="AQ Pay">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Chargeback ratio: how to calculate and lower it | AQ Pay">
+<meta property="og:description" content="See how Visa and Mastercard calculate a chargeback ratio, why your dashboard and acquirer disagree, and practical steps to bring the ratio down.">
+<meta property="og:url" content="https://www.aqpay.services/blog/chargeback-ratio">
+<meta property="og:image" content="https://www.aqpay.services/blog/covers/chargeback-ratio.jpg?v=518516da">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Chargeback ratio: how to calculate and lower it | AQ Pay">
+<meta name="twitter:description" content="See how Visa and Mastercard calculate a chargeback ratio, why your dashboard and acquirer disagree, and practical steps to bring the ratio down.">
+<meta name="twitter:image" content="https://www.aqpay.services/blog/covers/chargeback-ratio.jpg?v=518516da">
+<meta property="article:published_time" content="2026-11-17T00:00:00Z">
+<meta property="article:modified_time" content="2026-11-17T00:00:00Z">
+<meta property="article:section" content="Guides">
+<meta property="article:tag" content="dispute rate">
+<meta property="article:tag" content="VAMP ratio">
+<meta property="article:tag" content="Mastercard Excessive Chargeback Program">
+<meta property="article:tag" content="card monitoring programs">
+<meta property="article:tag" content="reduce chargebacks">
+<link rel="icon" href="/aq-mark.svg" type="image/svg+xml">
+<link rel="alternate" type="application/rss+xml" title="AQ Pay Blog" href="https://www.aqpay.services/blog/rss.xml">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/blog/blog.css?v=78e8ed2d">
+<link rel="stylesheet" href="/fx.css?v=28e8a3e9">
+<link rel="stylesheet" href="/site.css?v=82339017">
+<style>.shared-nav{position:sticky;top:0;z-index:60;min-height:72px}.shared-nav x-dc{display:none}.shared-nav:has(#dc-root header) .nav-fallback{display:none}@media(max-width:959px){.nav-fallback nav{display:none!important}}</style>
+<script defer src="/support.js?v=a05343a5"></script>
+<script src="/fx.js?v=2d052c7e" data-fx defer></script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Chargeback ratio: why your acquirer’s number differs from yours","description":"See how Visa and Mastercard calculate a chargeback ratio, why your dashboard and acquirer disagree, and practical steps to bring the ratio down.","image":["https://www.aqpay.services/blog/covers/chargeback-ratio.jpg?v=518516da"],"datePublished":"2026-11-17","dateModified":"2026-11-17","author":{"@type":"Organization","name":"AQ Pay Payments Team","url":"https://www.aqpay.services/about"},"publisher":{"@type":"Organization","@id":"https://www.aqpay.services/#organization","name":"AQ Pay","url":"https://www.aqpay.services","logo":{"@type":"ImageObject","url":"https://www.aqpay.services/aq-mark.svg"},"email":"hello@aqpay.services"},"mainEntityOfPage":{"@type":"WebPage","@id":"https://www.aqpay.services/blog/chargeback-ratio"},"articleSection":"Guides","keywords":"chargeback ratio, dispute rate, VAMP ratio, Mastercard Excessive Chargeback Program, card monitoring programs, reduce chargebacks","wordCount":1634,"inLanguage":"en"}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.aqpay.services/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.aqpay.services/blog"},{"@type":"ListItem","position":3,"name":"Guides","item":"https://www.aqpay.services/blog/category/guides"},{"@type":"ListItem","position":4,"name":"Chargeback ratio: why your acquirer’s number differs from yours","item":"https://www.aqpay.services/blog/chargeback-ratio"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is a good chargeback ratio?","acceptedAnswer":{"@type":"Answer","text":"There is no single safe number. The card scheme thresholds are a ceiling, and your acquiring agreement may set its own lower limits, so ask your acquirer which figures apply to you. The trend and the reasons behind the disputes matter as much as one month’s ratio."}},{"@type":"Question","name":"Why does my chargeback ratio differ from the one my acquirer reports?","acceptedAnswer":{"@type":"Answer","text":"Usually because the inputs differ: which month the denominator comes from, whether fraud reports are included, which card brands and channels are counted, and whether disputes are dated by sale or by receipt. Ask the acquirer for the exact formula and the raw counts behind it."}},{"@type":"Question","name":"Do Visa fraud reports count towards the VAMP ratio without a dispute?","acceptedAnswer":{"@type":"Answer","text":"Yes. Visa’s VAMP ratio counts issuer fraud reports (TC40) as well as disputes (TC15), subject to its published exclusions, such as fraud qualified for Compelling Evidence 3.0. That is why a merchant with modest dispute numbers can still see a higher VAMP ratio."}},{"@type":"Question","name":"Does refunding a customer reduce my chargeback ratio?","acceptedAnswer":{"@type":"Answer","text":"A refund made before the cardholder disputes the payment can prevent a chargeback. Once a dispute has been raised, a refund may not remove it from the count and can lead to paying twice, so check the correct process with your acquirer."}}]}</script>
+</head>
+<body><div class="shared-nav"><div class="nav-fallback"><header data-dc-tpl="5" style="position: sticky; top: 0px; z-index: 60; font-family: Geist, system-ui, sans-serif; color: rgb(244, 247, 252);" class="fx-nav">
+  <div data-dc-tpl="6" style="backdrop-filter: blur(20px); background: rgba(6, 10, 20, 0.76); border-bottom: 1px solid rgba(255, 255, 255, 0.07);">
+    <div data-dc-tpl="7" style="max-width: 1360px; margin: 0px auto; padding: 0px 24px; height: 72px; display: flex; align-items: center; gap: 28px;">
+      <a data-dc-tpl="8" href="/" aria-label="AQ Pay home" style="display: flex; align-items: center; gap: 12px; color: rgb(244, 247, 252); flex-shrink: 0; text-decoration: none;">
+        <img src="/aq-pay-logo.svg" alt="" width="164" height="44" style="display:block;flex:none;width:164px;height:44px">
+      </a>
+      <nav data-dc-tpl="11" aria-label="Main" style="display: flex; flex: 1 1 0%; justify-content: center; gap: 2px;">
+
+          <button data-dc-tpl="13" class="tpp-navbtn scp2" aria-expanded="false" style="background: transparent; border: 0px; color: rgb(174, 185, 204); padding: 10px 14px; border-radius: 999px; font-weight: 600; font-size: 15px; display: flex; align-items: center; gap: 6px; transition: color 0.2s, background 0.2s; cursor: pointer; font-family: inherit;"><span class="sc-interp">Solutions</span><span data-dc-tpl="14" style="width: 6px; height: 6px; border-right: 1.5px solid; border-bottom: 1.5px solid; transform: rotate(45deg) translateY(-2px); display: inline-block; opacity: 0.7;"></span></button>
+
+          <button data-dc-tpl="13" class="tpp-navbtn scp2" aria-expanded="false" style="background: transparent; border: 0px; color: rgb(174, 185, 204); padding: 10px 14px; border-radius: 999px; font-weight: 600; font-size: 15px; display: flex; align-items: center; gap: 6px; transition: color 0.2s, background 0.2s; cursor: pointer; font-family: inherit;"><span class="sc-interp">Platform</span><span data-dc-tpl="14" style="width: 6px; height: 6px; border-right: 1.5px solid; border-bottom: 1.5px solid; transform: rotate(45deg) translateY(-2px); display: inline-block; opacity: 0.7;"></span></button>
+
+          <button data-dc-tpl="13" class="tpp-navbtn scp2" aria-expanded="false" style="background: transparent; border: 0px; color: rgb(174, 185, 204); padding: 10px 14px; border-radius: 999px; font-weight: 600; font-size: 15px; display: flex; align-items: center; gap: 6px; transition: color 0.2s, background 0.2s; cursor: pointer; font-family: inherit;"><span class="sc-interp">Industries</span><span data-dc-tpl="14" style="width: 6px; height: 6px; border-right: 1.5px solid; border-bottom: 1.5px solid; transform: rotate(45deg) translateY(-2px); display: inline-block; opacity: 0.7;"></span></button>
+
+          <button data-dc-tpl="13" class="tpp-navbtn scp2" aria-expanded="false" style="background: transparent; border: 0px; color: rgb(174, 185, 204); padding: 10px 14px; border-radius: 999px; font-weight: 600; font-size: 15px; display: flex; align-items: center; gap: 6px; transition: color 0.2s, background 0.2s; cursor: pointer; font-family: inherit;"><span class="sc-interp">Developers</span><span data-dc-tpl="14" style="width: 6px; height: 6px; border-right: 1.5px solid; border-bottom: 1.5px solid; transform: rotate(45deg) translateY(-2px); display: inline-block; opacity: 0.7;"></span></button>
+
+          <button data-dc-tpl="13" class="tpp-navbtn scp2" aria-expanded="false" style="background: transparent; border: 0px; color: rgb(174, 185, 204); padding: 10px 14px; border-radius: 999px; font-weight: 600; font-size: 15px; display: flex; align-items: center; gap: 6px; transition: color 0.2s, background 0.2s; cursor: pointer; font-family: inherit;"><span class="sc-interp">Resources</span><span data-dc-tpl="14" style="width: 6px; height: 6px; border-right: 1.5px solid; border-bottom: 1.5px solid; transform: rotate(45deg) translateY(-2px); display: inline-block; opacity: 0.7;"></span></button>
+
+          <button data-dc-tpl="13" class="tpp-navbtn scp2" aria-expanded="false" style="background: transparent; border: 0px; color: rgb(174, 185, 204); padding: 10px 14px; border-radius: 999px; font-weight: 600; font-size: 15px; display: flex; align-items: center; gap: 6px; transition: color 0.2s, background 0.2s; cursor: pointer; font-family: inherit;"><span class="sc-interp">Company</span><span data-dc-tpl="14" style="width: 6px; height: 6px; border-right: 1.5px solid; border-bottom: 1.5px solid; transform: rotate(45deg) translateY(-2px); display: inline-block; opacity: 0.7;"></span></button>
+
+      </nav>
+      <div data-dc-tpl="15" style="display: flex; align-items: center; gap: 10px; margin-left: auto;">
+        <a data-dc-tpl="16" class="tpp-login scp2" href="https://portal.aqpay.services/" target="_blank" rel="noopener" style="display: flex; color: rgb(174, 185, 204); font-weight: 600; font-size: 15px; padding: 10px 14px; text-decoration: none;">Login</a>
+        <a data-dc-tpl="17" class="tpp-signup" href="https://portal.aqpay.services/signup" target="_blank" rel="noopener" style="display: flex;">Sign up<span data-dc-tpl="18" class="tpp-su-arr" aria-hidden="true">→</span></a>
+        <button data-dc-tpl="19" aria-label="Open menu" aria-expanded="false" style="display: none; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1); color: rgb(244, 247, 252); width: 44px; height: 44px; border-radius: 12px; flex-direction: column; align-items: center; justify-content: center; gap: 5px; cursor: pointer;">
+          <span data-dc-tpl="20" style="width: 18px; height: 2px; background: currentcolor; display: block;"></span><span data-dc-tpl="21" style="width: 18px; height: 2px; background: currentcolor; display: block;"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+  </header></div><x-dc>
+<helmet>
+<link rel="icon" href="/aq-mark.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+@media (max-width:1200px){.tpp-navbtn{padding:10px 9px!important;font-size:14.5px!important}.tpp-login{padding:9px 12px!important}}
+@property --tppa{syntax:"<angle>";inherits:false;initial-value:0deg}
+.tpp-login{position:relative;overflow:hidden;align-items:center;gap:8px;padding:9px 16px 9px 18px!important;border-radius:999px;border:1.5px solid transparent;background:linear-gradient(#0C1424,#0C1424) padding-box,conic-gradient(from var(--tppa),rgba(244,247,252,.18),#6E9BFF,#3DDC97,rgba(244,247,252,.18),rgba(244,247,252,.18)) border-box;color:#F4F7FC!important;font-weight:600;box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 8px 24px -12px rgba(110,155,255,.6);animation:tppSpin 5s linear infinite;transition:transform .45s cubic-bezier(.34,1.56,.64,1),box-shadow .4s}
+.tpp-login::before{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.22),transparent);transform:skewX(-20deg);transition:left .7s cubic-bezier(.16,1,.3,1);pointer-events:none}
+.tpp-login::after{content:"\2197";display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border-radius:50%;background:rgba(244,247,252,.12);font-size:12px;transition:transform .45s cubic-bezier(.16,1,.3,1),background .3s}
+.tpp-login:hover{transform:translateY(-2px) scale(1.05);box-shadow:inset 0 1px 0 rgba(255,255,255,.14),0 0 0 4px rgba(110,155,255,.14),0 18px 40px -12px rgba(110,155,255,.85)}
+.tpp-login:hover::before{left:130%}
+.tpp-login:hover::after{transform:translate(2px,-2px);background:#6E9BFF;color:#060A14}
+.tpp-login:active{transform:scale(.97)}
+@keyframes tppSpin{to{--tppa:360deg}}
+.tpp-signup{margin-left:8px;position:relative;overflow:hidden;align-items:center;gap:10px;padding:10px 12px 10px 20px;border-radius:999px;font-weight:700;font-size:15px;color:#060A14!important;text-decoration:none;background:linear-gradient(110deg,#6E9BFF,#3DDC97,#6E9BFF);background-size:220% 100%;animation:tppGrow 2.6s cubic-bezier(.45,0,.2,1) infinite,tppFlow 6s linear infinite;transition:transform .45s cubic-bezier(.34,1.56,.64,1)}
+.tpp-signup::before{content:"";position:absolute;top:0;bottom:0;left:-60%;width:40%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.6),transparent);transform:skewX(-20deg);animation:tppShine 3.2s ease-in-out infinite;pointer-events:none}
+.tpp-signup:hover{animation-play-state:paused,running;transform:scale(1.1);box-shadow:0 0 0 6px rgba(110,155,255,.22),0 26px 60px -10px rgba(61,220,151,.9)}
+.tpp-signup:active{transform:scale(.97)}
+.tpp-su-arr{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;background:#060A14;color:#F4F7FC;font-size:13px;transition:transform .45s cubic-bezier(.16,1,.3,1)}
+.tpp-signup:hover .tpp-su-arr{transform:translateX(3px)}
+@keyframes tppGrow{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(110,155,255,.6),0 10px 28px -10px rgba(110,155,255,.7)}50%{transform:scale(1.06);box-shadow:0 0 0 12px rgba(110,155,255,0),0 22px 50px -10px rgba(61,220,151,.8)}}
+@keyframes tppFlow{to{background-position:-220% 0}}
+@keyframes tppShine{0%,55%{left:-60%}100%{left:130%}}
+@media (prefers-reduced-motion:reduce){.tpp-signup,.tpp-signup::before,.tpp-login{animation:none}}
+.tpp-mlink{transition:background .2s}.tpp-mlink:active{background:rgba(255,255,255,.06)}
+@keyframes tppFade{from{opacity:0}to{opacity:1}}
+@keyframes tppPanel{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:none}}
+</style>
+</helmet>
+<header style="position:sticky;top:0;z-index:60;font-family:'Geist',system-ui,sans-serif;color:#F4F7FC" onMouseLeave="{{ closeMenu }}">
+  <div style="backdrop-filter:blur(20px);background:rgba(6,10,20,.76);border-bottom:1px solid rgba(255,255,255,.07)">
+    <div style="max-width:1360px;margin:0 auto;padding:0 24px;height:72px;display:flex;align-items:center;gap:28px">
+      <a href="{{ homeHref }}" aria-label="AQ Pay home" style="display:flex;align-items:center;gap:12px;color:#F4F7FC;flex-shrink:0;text-decoration:none">
+        <img src="/aq-pay-logo.svg" alt="" width="164" height="44" style="display:block;flex:none;width:164px;height:44px">
+      </a>
+      <nav aria-label="Main" style="display:{{ desktopDisplay }};flex:1;justify-content:center;gap:2px">
+        <sc-for list="{{ navs }}" as="n" hint-placeholder-count="6">
+          <button class="tpp-navbtn" onMouseEnter="{{ n.open }}" onClick="{{ n.toggle }}" onFocus="{{ n.open }}" aria-expanded="{{ n.isOpen }}" style="background:{{ n.bg }};border:0;color:{{ n.color }};padding:10px 14px;border-radius:999px;font-weight:600;font-size:15px;display:flex;align-items:center;gap:6px;transition:color .2s,background .2s;cursor:pointer;font-family:inherit" style-hover="color:#F4F7FC">{{ n.label }}<span style="width:6px;height:6px;border-right:1.5px solid currentColor;border-bottom:1.5px solid currentColor;transform:rotate(45deg) translateY(-2px);display:inline-block;opacity:.7"></span></button>
+        </sc-for>
+      </nav>
+      <div style="display:flex;align-items:center;gap:10px;margin-left:auto">
+        <a class="tpp-login" href="{{ loginHref }}" target="_blank" rel="noopener" style="display:{{ desktopDisplay }};color:#AEB9CC;font-weight:600;font-size:15px;padding:10px 14px;text-decoration:none" style-hover="color:#F4F7FC">Login</a>
+        <a class="tpp-signup" href="https://portal.aqpay.services/signup" target="_blank" rel="noopener" style="display:{{ desktopDisplay }}">Sign up<span class="tpp-su-arr" aria-hidden="true">→</span></a>
+        <button onClick="{{ toggleMobile }}" aria-label="Open menu" aria-expanded="{{ mobileOpen }}" style="display:{{ mobileDisplay }};background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#F4F7FC;width:44px;height:44px;border-radius:12px;flex-direction:column;align-items:center;justify-content:center;gap:5px;cursor:pointer">
+          <span style="width:18px;height:2px;background:currentColor;display:block"></span><span style="width:18px;height:2px;background:currentColor;display:block"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;left:0;right:0;top:72px;background:rgba(15,23,41,.97);backdrop-filter:blur(24px);border-bottom:1px solid rgba(255,255,255,.08);box-shadow:0 40px 80px rgba(0,0,0,.5);animation:tppPanel .28s cubic-bezier(.2,.8,.2,1) both">
+      <div style="max-width:1360px;margin:0 auto;padding:36px 24px 40px;display:grid;grid-template-columns:300px 1fr;gap:40px">
+        <div style="border-right:1px solid rgba(255,255,255,.08);padding-right:40px">
+          <div style="font-family:'Geist Mono',monospace;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:#6E9BFF">{{ activeMenu.label }}</div>
+          <div style="font-family:'Geist',system-ui,sans-serif;font-weight:700;font-size:26px;line-height:1.15;letter-spacing:-.02em;margin:12px 0 10px">{{ activeMenu.tagline }}</div>
+          <p style="color:#AEB9CC;line-height:1.55;margin:0 0 22px;font-size:15px">{{ activeMenu.blurb }}</p>
+          <a href="{{ activeMenu.ctaHref }}" style="display:inline-flex;align-items:center;gap:8px;color:#3DDC97;font-weight:700;font-size:15px;text-decoration:none">{{ activeMenu.cta }} <span aria-hidden="true">→</span></a>
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:6px 24px">
+          <sc-for list="{{ activeMenu.items }}" as="it" hint-placeholder-count="6">
+            <a href="{{ it.href }}" onClick="{{ closeMenu }}" style="display:flex;gap:14px;padding:12px;border-radius:14px;color:#F4F7FC;transition:background .2s;text-decoration:none;background:{{ it.bg }}" style-hover="background:rgba(255,255,255,.05);color:#F4F7FC">
+              <span style="width:38px;height:38px;border-radius:11px;background:rgba(110,155,255,.08);border:1px solid rgba(110,155,255,.18);display:flex;align-items:center;justify-content:center;flex-shrink:0">{{ it.icon }}</span>
+              <span><span style="display:block;font-weight:700;font-size:15px;margin-bottom:3px">{{ it.t }}</span><span style="display:block;color:#AEB9CC;font-size:13.5px;line-height:1.45">{{ it.d }}</span></span>
+            </a>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </sc-if>
+</header>
+<sc-if value="{{ mobileOpen }}" hint-placeholder-val="{{ false }}">
+  <div role="dialog" aria-label="Menu" style="position:fixed;inset:0;z-index:90;background:#0F1729;overflow:auto;animation:tppFade .2s ease both;font-family:'Geist',system-ui,sans-serif;color:#F4F7FC">
+    <div style="display:flex;align-items:center;justify-content:space-between;padding:14px 24px;height:72px;border-bottom:1px solid rgba(255,255,255,.08)">
+      <a href="/" aria-label="AQ Pay home"><img src="/aq-pay-logo.svg" alt="" width="164" height="44" style="display:block;flex:none;width:164px;height:44px"></a>
+      <button onClick="{{ toggleMobile }}" aria-label="Close menu" style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#F4F7FC;width:44px;height:44px;border-radius:12px;font-size:20px;cursor:pointer">×</button>
+    </div>
+    <div style="padding:12px 24px 40px;display:flex;flex-direction:column;gap:4px">
+      <sc-for list="{{ navs }}" as="n" hint-placeholder-count="6">
+        <div style="border-bottom:1px solid rgba(255,255,255,.07)">
+          <button onClick="{{ n.toggleMobile }}" aria-expanded="{{ n.mobileOpen }}" style="width:100%;background:none;border:0;color:#F4F7FC;display:flex;justify-content:space-between;align-items:center;padding:18px 0;font-family:'Geist',system-ui,sans-serif;font-weight:600;font-size:19px;min-height:44px;cursor:pointer">{{ n.label }}<span style="color:#6E9BFF;font-size:22px;line-height:1">{{ n.mobileSign }}</span></button>
+          <sc-if value="{{ n.mobileOpen }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;flex-direction:column;gap:2px;padding-bottom:14px">
+              <sc-for list="{{ n.items }}" as="it" hint-placeholder-count="4">
+                <a class="tpp-mlink" href="{{ it.href }}" onClick="{{ toggleMobile }}" style="display:flex;gap:12px;align-items:center;color:#F4F7FC;padding:10px 6px;min-height:48px;border-radius:12px;text-decoration:none"><span style="width:32px;height:32px;border-radius:9px;background:rgba(110,155,255,.08);display:flex;align-items:center;justify-content:center;flex-shrink:0">{{ it.icon }}</span><span style="font-weight:600;font-size:15px">{{ it.t }}</span></a>
+              </sc-for>
+            </div>
+          </sc-if>
+        </div>
+      </sc-for>
+      <a class="tpp-mlink" href="/blog" style="display:flex;justify-content:space-between;align-items:center;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.07);color:#F4F7FC;font-weight:600;font-size:19px;text-decoration:none">Blog<span style="color:#6E9BFF;font-size:18px">→</span></a>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-top:24px">
+        <a class="tpp-signup" href="https://portal.aqpay.services/signup" target="_blank" rel="noopener" style="display:flex;justify-content:center;padding:15px">Sign up<span class="tpp-su-arr" aria-hidden="true">→</span></a>
+        <a href="/book-a-demo" style="border:1px solid rgba(255,255,255,.18);color:#F4F7FC;font-weight:600;text-align:center;padding:15px;border-radius:999px;text-decoration:none">Book a Demo</a>
+        <a href="{{ loginHref }}" target="_blank" rel="noopener" style="border:1px solid rgba(255,255,255,.18);color:#F4F7FC;font-weight:600;text-align:center;padding:15px;border-radius:999px;text-decoration:none">Login</a>
+      </div>
+    </div>
+  </div>
+</sc-if>
+</x-dc><script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:&quot;72px&quot;},&quot;current&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;'' | 'solutions' | 'platform' | 'industries' | 'developers' | 'resources' | 'company'&quot;,&quot;options&quot;:[&quot;&quot;,&quot;solutions&quot;,&quot;platform&quot;,&quot;industries&quot;,&quot;developers&quot;,&quot;resources&quot;,&quot;company&quot;]},&quot;page&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { menu: null, mobileOpen: false, mobileGroup: null, isMobile: typeof window !== 'undefined' && window.matchMedia('(max-width: 959px)').matches };
+  componentDidUpdate() { if (this._mo !== this.state.mobileOpen) { this._mo = this.state.mobileOpen; document.documentElement.style.overflow = this.state.mobileOpen ? 'hidden' : ''; } }
+  componentDidMount() {
+    if (!window.__fx && !document.querySelector('script[data-fx]')) { const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = 'fx.css'; document.head.appendChild(l); const s = document.createElement('script'); s.src = 'fx.js'; s.dataset.fx = '1'; document.head.appendChild(s); }
+    this.mq = window.matchMedia('(max-width: 959px)'); this.onResize = () => this.setState({ isMobile: this.mq.matches }); this.onResize(); window.addEventListener('resize', this.onResize);
+    this.onKey = e => { if (e.key === 'Escape') this.setState({ menu: null, mobileOpen: false }); }; window.addEventListener('keydown', this.onKey);
+  }
+  componentWillUnmount() { window.removeEventListener('resize', this.onResize); window.removeEventListener('keydown', this.onKey); }
+  icon(kind, color = '#6E9BFF') {
+    const h = React.createElement, S = { width: 18, height: 18, viewBox: '0 0 18 18', fill: 'none', stroke: color, strokeWidth: 1.6, strokeLinecap: 'round' };
+    const map = {
+      ring: [h('circle', { cx: 9, cy: 9, r: 6.5 }), h('circle', { cx: 9, cy: 9, r: 2, fill: color, stroke: 'none' })],
+      route: [h('circle', { cx: 3.5, cy: 9, r: 2 }), h('circle', { cx: 14.5, cy: 4, r: 2 }), h('circle', { cx: 14.5, cy: 14, r: 2 }), h('path', { d: 'M5.5 9 L12.5 4.5 M5.5 9 L12.5 13.5' })],
+      layers: [h('path', { d: 'M3 5h12M3 9h12M3 13h12' })],
+      grid: [h('rect', { x: 3, y: 3, width: 5, height: 5, rx: 1.2 }), h('rect', { x: 10, y: 3, width: 5, height: 5, rx: 1.2 }), h('rect', { x: 3, y: 10, width: 5, height: 5, rx: 1.2 }), h('rect', { x: 10, y: 10, width: 5, height: 5, rx: 1.2 })],
+      diamond: [h('rect', { x: 4.5, y: 4.5, width: 9, height: 9, rx: 1.5, transform: 'rotate(45 9 9)' })],
+      node: [h('circle', { cx: 9, cy: 9, r: 3 }), h('path', { d: 'M9 2v3M9 13v3M2 9h3M13 9h3' })],
+      bars: [h('path', { d: 'M4 14V9M9 14V4M14 14V7' })],
+      doc: [h('rect', { x: 4, y: 2.5, width: 10, height: 13, rx: 1.5 }), h('path', { d: 'M7 7h4M7 10h4' })],
+      code: [h('path', { d: 'M6 5L2.5 9 6 13M12 5l3.5 4-3.5 4' })],
+      portal: [h('rect', { x: 2.5, y: 2.5, width: 13, height: 13, rx: 3.5 }), h('circle', { cx: 9, cy: 9, r: 3 })],
+      arrows: [h('path', { d: 'M3 6h10l-3-3M15 12H5l3 3' })],
+      wave: [h('path', { d: 'M2 9c2-4 4-4 6 0s4 4 6 0 2-2 2-2' })],
+      box: [h('rect', { x: 3, y: 3, width: 12, height: 12, rx: 2 }), h('path', { d: 'M3 8h12' })],
+      pin: [h('circle', { cx: 9, cy: 7, r: 3.5 }), h('path', { d: 'M9 10.5V16' })],
+      lock: [h('rect', { x: 4, y: 8, width: 10, height: 8, rx: 2 }), h('path', { d: 'M6 8V6a3 3 0 0 1 6 0v2' })],
+    };
+    return h('svg', S, ...(map[kind] || map.ring));
+  }
+  renderVals() {
+    const s = this.state, set = o => this.setState(o), cur = this.props.current || '', isM = s.isMobile;
+    const home = '/';
+    const defs = [
+      { key: 'solutions', label: 'Solutions', tagline: 'Four ways to work with AQ Pay.', blurb: 'License our portal, process through us, or bring us in to design your payment stack.', cta: 'Compare solutions', ctaHref: home + '#platform', items: [
+        ['White-Label Payment Gateway', 'License the portal and launch your own branded payments business.', '/white-label-gateway', 'portal'],
+        ['Merchant Services', 'Accounts, gateway integration, billing and multi-currency acceptance.', '/merchant-services', 'box'],
+        ['High-Risk Payment Processing', 'Consultation, acquirer introductions, underwriting help and risk mitigation.', '/high-risk-processing', 'lock'],
+        ['Payment Consulting', 'Payment stack architecture, operations and dispute strategy.', '/about#consulting', 'wave'],
+        ['Payment Orchestration', 'One API, many providers, intelligent routing and failover.', '/payment-orchestration', 'route'],
+        ['Embedded Payments', 'Payments built into your software, platform or marketplace.', '/industries#marketplaces', 'code']] },
+      { key: 'platform', label: 'Platform', tagline: 'Every capability in one gateway core.', blurb: 'Explore the modules behind the portal — from routing to reconciliation.', cta: 'See how it fits together', ctaHref: '/white-label-gateway#operations', items: [
+        ['Payment Gateway', 'Authorization, capture, refunds and tokenized payments via one API.', '/api-reference#payments', 'portal'],
+        ['Intelligent Routing', 'Rule-based primary selection with cascading and failover.', '/payment-orchestration#routing', 'route'],
+        ['Gateway Connectivity', 'Maintained connectors to acquirers, PSPs and alternative methods.', '/payment-orchestration#connectivity', 'node'],
+        ['Merchant Management', 'Onboarding, KYB data capture, configuration and lifecycle.', '/white-label-gateway#merchants', 'grid'],
+        ['Transaction Management', 'Search, trace, refund and dispute every transaction.', '/merchant-services#transactions', 'layers'],
+        ['Risk & Fraud', 'Pre-authorization screening, 3-D Secure and review queues.', '/high-risk-processing#chargebacks', 'lock'],
+        ['Reconciliation & Settlements', 'Match provider statements to transactions and payouts.', '/white-label-gateway#operations', 'arrows'],
+        ['Analytics & Intelligence', 'Approval, decline and cost analysis across every route.', '/payment-orchestration#analytics', 'bars'],
+        ['White-Label Infrastructure', 'Multi-tenant branding, partner hierarchy and billing.', '/white-label-gateway#infrastructure', 'diamond']] },
+      { key: 'industries', label: 'Industries', tagline: 'Built for demanding business models.', blurb: 'Patterns and provider mixes tuned to how your sector actually transacts.', cta: 'Browse industries', ctaHref: '/industries', items: [
+        ['E-commerce', 'Checkout conversion, multi-currency and APM coverage.', '/industries#ecommerce', 'box'],
+        ['Subscription Businesses', 'Recurring billing, retries and card lifecycle handling.', '/industries#subscriptions', 'ring'],
+        ['Digital Products & Services', 'Instant delivery, fraud screening and global reach.', '/industries#digital', 'code'],
+        ['Travel & Hospitality', 'High tickets, delayed delivery and multi-currency settlement.', '/industries#travel', 'pin'],
+        ['Marketplaces', 'Sub-merchant onboarding and split settlement.', '/industries#marketplaces', 'grid'],
+        ['Gaming & Regulated Industries', 'Specialist acquiring, eligibility-dependent.', '/industries#regulated', 'lock']] },
+      { key: 'developers', label: 'Developers', tagline: 'Integrate once, route anywhere.', blurb: 'REST API, webhooks, sandbox and planned SDKs — documented for engineers.', cta: 'Developer overview', ctaHref: '/developers', items: [
+        ['API Overview', 'Resources, authentication and idempotency.', '/developers', 'code'],
+        ['Quick Start', 'First sandbox payment in four steps.', '/developers#quick-start', 'arrows'],
+        ['API Reference', 'Every endpoint, parameter and response.', '/api-reference', 'doc'],
+        ['Webhooks', 'Signed event delivery with retries.', '/api-reference#webhooks', 'wave'],
+        ['Sandbox', 'Test cards, simulated providers and declines.', '/developers#sandbox', 'box'],
+        ['Integration Guides', 'Hosted checkout, server-to-server, platforms.', '/developers#guides', 'layers'],
+        ['SDKs', 'Planned server and client libraries.', '/developers#sdks', 'grid']] },
+      { key: 'resources', label: 'Resources', tagline: 'Payments knowledge, plainly written.', blurb: 'Guides and references for teams building or buying payment infrastructure.', cta: 'Read the blog', ctaHref: '/blog', items: [
+        ['Blog', 'Perspectives on orchestration, risk and white-label models.', '/blog', 'doc'],
+        ['Guides', 'In-depth guides to gateways, routing and underwriting.', '/blog/category/guides', 'layers'],
+
+        ['FAQs', 'Straight answers to common questions.', '/faq', 'ring'],
+      ] },
+      { key: 'company', label: 'Company', tagline: 'A technology partner, not just a vendor.', blurb: 'Who we are, how we work with partners, and how we protect your data.', cta: 'Get in touch', ctaHref: '/book-a-demo#contact', items: [
+        ['About', 'Our mission and how we work.', '/about', 'ring'],
+        ['Partner Program', 'Referral, reseller and white-label partnerships.', '/partner-program', 'node'],
+        ['Contact', 'Sales, support and press.', '/book-a-demo#contact', 'wave'],
+        ['Security', 'Platform controls and attestations.', '/white-label-gateway#infrastructure', 'lock'],
+        ['Legal', 'Privacy, terms, cookies and acceptable use.', '/privacy', 'doc']] },
+    ];
+    const navs = defs.map(n => ({ ...n, isOpen: s.menu === n.key, color: s.menu === n.key || cur === n.key ? '#F4F7FC' : '#AEB9CC', bg: cur === n.key ? 'rgba(255,255,255,.06)' : 'transparent', open: () => set({ menu: n.key }), toggle: () => set({ menu: s.menu === n.key ? null : n.key }), mobileOpen: s.mobileGroup === n.key, mobileSign: s.mobileGroup === n.key ? '−' : '+', toggleMobile: () => set({ mobileGroup: s.mobileGroup === n.key ? null : n.key }), items: n.items.map(([t, d, href, g]) => ({ t, d, href, icon: this.icon(g), bg: href.split('#')[0] === (this.props.page || '') ? 'rgba(110,155,255,.07)' : 'transparent' })) }));
+    return { navs, activeMenu: navs.find(n => n.key === s.menu) || navs[0], menuOpen: !!s.menu && !isM, closeMenu: () => set({ menu: null }), mobileOpen: s.mobileOpen, toggleMobile: () => set({ mobileOpen: !s.mobileOpen, menu: null }), desktopDisplay: isM ? 'none' : 'flex', mobileDisplay: isM ? 'flex' : 'none', homeHref: home, loginHref: 'https://portal.aqpay.services/' };
+  }
+}
+</script></div>
+<main>
+<article>
+<div class="article-hero"><div class="wrap">
+  <nav class="crumbs" aria-label="Breadcrumb"><a href="/">Home</a><span>/</span><a href="/blog">Blog</a><span>/</span><a href="/blog/category/guides">Guides</a></nav>
+  <h1>Chargeback ratio: why your acquirer’s number differs from yours</h1>
+  <p class="lede">See how Visa and Mastercard calculate a chargeback ratio, why your dashboard and acquirer disagree, and practical steps to bring the ratio down.</p>
+  <div class="byline"><img src="/aq-mark.svg" alt="" width="28" height="28"><span>AQ Pay Payments Team</span><span>·</span><time datetime="2026-11-17">17 November 2026</time><span>·</span><span>7 min read</span></div>
+  <div class="cover"><img src="/blog/covers/chargeback-ratio.jpg?v=518516da" alt="A fraction places April’s 230 Mastercard chargebacks over March’s 18,400 sales, giving 125 basis points." width="1200" height="630" fetchpriority="high"></div>
+</div></div>
+<div class="article"><div class="wrap"><div class="layout">
+  <div class="prose">
+    <aside class="takeaways"><h2>Key takeaways</h2><ul><li>Visa’s VAMP ratio adds fraud reports to disputes and divides by settled transactions, so it can be higher than a disputes-only figure.</li><li>Mastercard divides one month’s chargebacks by the previous month’s transactions, so a sales dip or spike moves the ratio even when disputes stay flat.</li><li>Track the scheme calculations, the raw counts and a cohort view by original sale month; each answers a different question.</li><li>Lower the ratio by fixing the reasons behind disputes first, then by resolving genuine complaints before they become chargebacks.</li></ul></aside>
+    <p>Your finance team says the chargeback ratio was 0.8% last month. Your acquirer’s monitoring email says something closer to 1.4%. Nobody made an arithmetic mistake. The two figures simply use different numerators, different denominators and, often, different months.</p>
+<p>That gap matters. Card scheme monitoring programmes, reserve reviews and pricing conversations all start from the acquirer’s figure, not yours. Merchants in disputes-heavy sectors such as subscriptions, travel and digital goods feel this most, which is why it is one of the first things discussed when setting up a <a href="/high-risk-processing">high-risk merchant account</a>. This guide shows how the major schemes calculate the ratio, works through an example, and sets out practical ways to bring the number down. Scheme rules change, so confirm the current thresholds for your region with your acquirer.</p>
+<h2 id="what-a-chargeback-ratio-measures">What a chargeback ratio measures</h2>
+<p>At its simplest, a chargeback ratio is the number of chargebacks divided by the number of transactions over a period. A chargeback is a payment reversed by the cardholder’s issuing bank after the cardholder disputes it, for reasons ranging from suspected fraud to goods that never arrived.</p>
+<p>The definition hides three choices:</p>
+<ul>
+<li><strong>What counts in the numerator.</strong> Disputes only, or disputes plus issuer fraud reports?</li>
+<li><strong>What counts in the denominator.</strong> All transactions, settled transactions only, or card-not-present transactions only?</li>
+<li><strong>Which months.</strong> Disputes and sales from the same month, or this month’s disputes over last month’s sales?</li>
+</ul>
+<p>Each scheme makes these choices differently, and your internal “dispute rate” probably makes them differently again. Count transactions, not money: the programmes described below are based on counts, although some regions add a value condition.</p>
+<h2 id="how-visa-calculates-the-vamp-ratio">How Visa calculates the VAMP ratio</h2>
+<p>Visa’s Acquirer Monitoring Program (VAMP) replaced its separate fraud and dispute monitoring programmes. According to Visa’s published <a href="https://corporate.visa.com/content/dam/VCOM/corporate/visa-perspectives/security-and-trust/documents/visa-acquirer-monitoring-program-fact-sheet-2025.pdf" rel="noopener" target="_blank">VAMP fact sheet</a>, the ratio is:</p>
+<p><strong>VAMP ratio = count of fraud reports (TC40) + count of disputes (TC15) ÷ count of settled transactions (TC05)</strong></p>
+<p>Visa describes the programme as covering card-not-present transactions, both domestic and cross-border. Two points catch merchants out:</p>
+<ol>
+<li><strong>Fraud reports count, even without a dispute.</strong> When an issuer reports a transaction as fraudulent, it adds to the numerator. A merchant with few formal disputes can still have a high VAMP ratio.</li>
+<li><strong>Some items are excluded.</strong> The fact sheet excludes disputes resolved through pre-dispute solutions and fraud reports that qualify for Compelling Evidence 3.0. Ask your acquirer which of these tools are available to you and how they show up in your reporting.</li>
+</ol>
+<p>For merchants in Asia Pacific, Canada, Europe and the United States, the fact sheet lists the “excessive” merchant threshold as a VAMP ratio of 220 basis points, falling to <strong>150 basis points (1.5%) from 1 April 2026</strong>, combined with a minimum monthly count of 1,500 fraud reports and disputes. Latin America and the Caribbean is listed at 150 basis points with the same count. Central and Eastern Europe, the Middle East and Africa is listed at 220 basis points with a count of at least 150 and an amount of at least USD 75,000. Acquirers are measured across their whole portfolio at much lower levels, which is one reason an acquirer may raise concerns well before a merchant reaches its own threshold.</p>
+<h2 id="how-mastercard-calculates-its-chargeback-ratio">How Mastercard calculates its chargeback ratio</h2>
+<p>Mastercard’s <a href="https://www.mastercard.com/content/dam/mccom/shared/business/support/rules-pdfs/SPME-Manual.pdf" rel="noopener" target="_blank">Security Rules and Procedures, Merchant Edition</a> defines the Excessive Chargeback Program measurement in basis points: the chargebacks an acquirer receives for a merchant in a calendar month, divided by the Mastercard transactions acquired for that merchant in the <strong>preceding</strong> month, multiplied by 10,000.</p>
+<p>That one-month lag is the detail that most often explains a surprising figure. The numerical thresholds for the excessive chargeback categories are set out in Mastercard documentation that your acquirer works from, so ask your acquirer for the current figures rather than relying on numbers copied from older articles.</p>
+<figure><svg viewBox="0 0 760 300" role="img" aria-label="Visa divides fraud reports and disputes by settled transactions in the same month; Mastercard divides this month’s chargebacks by last month’s transactions" font-family="Inter, sans-serif"><rect width="760" height="300" rx="16" fill="#0F1729"/><text x="30" y="44" fill="#F4F7FC" font-size="17" font-weight="700">Which month feeds each part of the ratio?</text><g font-size="13" fill="#AEB9CC" text-anchor="middle"><text x="355" y="80">March</text><text x="565" y="80">April</text></g><path d="M260 92 H710" stroke="rgba(255,255,255,.18)" stroke-width="2"/><text x="30" y="140" fill="#6E9BFF" font-size="16" font-weight="700">Visa VAMP</text><text x="30" y="162" fill="#AEB9CC" font-size="12">card-not-present</text><rect x="470" y="112" width="190" height="34" rx="8" fill="none" stroke="#6E9BFF" stroke-width="2"/><text x="565" y="134" fill="#F4F7FC" font-size="13" text-anchor="middle">Fraud reports + disputes</text><path d="M480 154 H650" stroke="#6E9BFF" stroke-width="2"/><rect x="470" y="162" width="190" height="34" rx="8" fill="none" stroke="#6E9BFF" stroke-width="2"/><text x="565" y="184" fill="#F4F7FC" font-size="13" text-anchor="middle">Settled transactions</text><text x="30" y="236" fill="#E6C27A" font-size="16" font-weight="700">Mastercard</text><text x="30" y="258" fill="#AEB9CC" font-size="12">Excessive Chargeback Program</text><rect x="470" y="212" width="190" height="34" rx="8" fill="none" stroke="#E6C27A" stroke-width="2"/><text x="565" y="234" fill="#F4F7FC" font-size="13" text-anchor="middle">Chargebacks received</text><rect x="260" y="250" width="190" height="34" rx="8" fill="none" stroke="#3DDC97" stroke-width="2"/><text x="355" y="272" fill="#F4F7FC" font-size="13" text-anchor="middle">Transactions acquired</text><path d="M452 262 L470 236" stroke="#E6C27A" stroke-width="2"/><text x="478" y="272" fill="#E6C27A" font-size="13">÷ previous month</text></svg><figcaption>Visa compares counts from the same reporting month; Mastercard compares this month’s chargebacks with the previous month’s transactions. Simplified from the scheme documents linked in this guide.</figcaption></figure>
+
+<h2 id="a-worked-chargeback-ratio-example">A worked chargeback ratio example</h2>
+<p><strong>Illustrative example.</strong> An online subscription merchant reviews April. The figures are invented to show the mechanics, not drawn from any real business.</p>
+<table>
+<thead>
+<tr>
+<th>Measure</th>
+<th>Inputs</th>
+<th>Result</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Visa VAMP ratio</td>
+<td>(410 fraud reports + 300 disputes) ÷ 52,000 settled card-not-present transactions</td>
+<td>710 ÷ 52,000 = 1.37% (137 bps)</td>
+</tr>
+<tr>
+<td>Visa disputes only</td>
+<td>300 disputes ÷ 52,000 transactions</td>
+<td>0.58%</td>
+</tr>
+<tr>
+<td>Mastercard measurement</td>
+<td>230 April chargebacks ÷ 18,400 March transactions</td>
+<td>1.25% (125 bps)</td>
+</tr>
+<tr>
+<td>Mastercard, if March had been a promotion month</td>
+<td>230 ÷ 26,000</td>
+<td>0.88% (88 bps)</td>
+</tr>
+<tr>
+<td>Mastercard, if March had been a quiet month</td>
+<td>230 ÷ 11,500</td>
+<td>2.00% (200 bps)</td>
+</tr>
+</tbody></table>
+<p>Three lessons come out of this table.</p>
+<p>First, the Visa figure more than doubles once fraud reports are added. If the internal dashboard counts only disputes, it will look healthier than the scheme view.</p>
+<p>Second, the Visa count here is 710, below the 1,500 minimum listed for excessive merchant identification in the regions mentioned above. A small merchant can have a high ratio without meeting the count condition, while a large merchant can meet the count with a modest ratio. Track both.</p>
+<p>Third, the Mastercard figure moves with last month’s sales, even though April’s chargebacks did not change. A merchant that is shrinking, or that pauses marketing, can watch the ratio rise with no change in customer behaviour. Plan for this before a seasonal dip, not after the monitoring email arrives.</p>
+<h2 id="build-a-reporting-view-that-matches-the-acquirer">Build a reporting view that matches the acquirer</h2>
+<p>Ask your acquirer for three things: the exact formula used for each card brand, the raw numerator and denominator counts each month, and the date field used to assign a dispute to a month. Then keep three views side by side:</p>
+<ol>
+<li><strong>Scheme views.</strong> Recreate the Visa and Mastercard calculations as closely as the data allows, by card brand and, where relevant, by channel.</li>
+<li><strong>Raw counts.</strong> Fraud reports, disputes and transactions, so you can see when a count condition matters more than a ratio.</li>
+<li><strong>Cohort view.</strong> Disputes grouped by the month of the original sale. Disputes often arrive weeks after the purchase, so this is the view that links a spike to a product launch, a billing change or a fraud attack.</li>
+</ol>
+<p>If you process through more than one acquirer, each one sees only its own share. A <a href="/payment-orchestration">payment orchestration platform</a> can bring dispute and transaction data from several providers into one place, which makes the merchant-wide picture easier to keep, though each acquirer will still monitor its own portfolio.</p>
+<h2 id="how-to-bring-a-chargeback-ratio-down">How to bring a chargeback ratio down</h2>
+<p>Start with the reason codes. Fraud disputes and consumer disputes need different fixes, and treating them as one number hides both.</p>
+<h3 id="reduce-disputes-from-genuine-customers">Reduce disputes from genuine customers</h3>
+<ul>
+<li><strong>Make the charge recognisable.</strong> Check that the billing descriptor matches the brand name the customer knows and includes a way to reach you. Unrecognised charges often become disputes.</li>
+<li><strong>Make cancelling easy.</strong> For subscriptions, a clear cancellation route and a confirmation email reduce “I cancelled but was still charged” disputes. Check the scheme rules on trials and recurring billing with your acquirer.</li>
+<li><strong>Refund before the bank gets involved.</strong> A customer who gets a quick answer from support has less reason to call their bank. Once a dispute has started, follow your acquirer’s process rather than issuing a separate refund, which can mean paying twice.</li>
+<li><strong>Evidence fulfilment.</strong> Keep delivery confirmation, access logs for digital goods and clear terms at checkout, so you can respond when a dispute is unfounded.</li>
+</ul>
+<h3 id="reduce-fraud-reports-and-fraud-disputes">Reduce fraud reports and fraud disputes</h3>
+<ul>
+<li><strong>Authenticate where it helps.</strong> EMV 3-D Secure lets the issuer verify the cardholder. Our guide to <a href="/blog/psd2-strong-customer-authentication">PSD2 strong customer authentication</a> shows how to track the shopper’s path from challenge to authorisation so authentication does not simply move losses elsewhere.</li>
+<li><strong>Watch for card testing.</strong> Bursts of small or declined authorisations can signal enumeration attacks. Visa monitors enumeration separately within VAMP, so velocity limits and bot controls protect both your ratios and your authorisation reputation.</li>
+<li><strong>Use pre-dispute tools where available.</strong> Visa’s fact sheet excludes disputes resolved through pre-dispute solutions from the VAMP count. Ask your acquirer which services they support and what they cost.</li>
+</ul>
+<h3 id="keep-the-conversation-open-with-your-acquirer">Keep the conversation open with your acquirer</h3>
+<p>If a ratio is rising, tell your acquirer early, with the cause and the remediation plan. Acquirers make their own decisions about reserves, limits and continuation, and nobody can promise a particular outcome, but a documented plan is easier to discuss than a surprise. Our guide to <a href="/blog/high-risk-merchant-account-underwriting">high-risk merchant account underwriting</a> explains what acquirers usually want to see when they assess dispute history.</p>
+<h2 id="a-monthly-chargeback-checklist">A monthly chargeback checklist</h2>
+<ol>
+<li>Pull the acquirer’s figures by card brand and reconcile them with your own calculation.</li>
+<li>Check both the ratio and the count against the thresholds your acquirer confirms for your region.</li>
+<li>Split disputes by reason code and by original sale month.</li>
+<li>Review the five largest reasons and assign each an owner and a fix.</li>
+<li>Look ahead: will next month’s Mastercard denominator fall because of a seasonal dip or a paused campaign?</li>
+<li>Record what changed, so next month’s review can test whether it worked.</li>
+</ol>
+<p>None of this is legal advice. For the rules that apply to your business, check with your acquirer and, where appropriate, your adviser.</p>
+<h2 id="next-step">Next step</h2>
+<p>If chargebacks are shaping your processing options, start with how AQ Pay supports <a href="/high-risk-processing">high-risk payment processing</a> and the <a href="/merchant-services">merchant services</a> available alongside it. AQ Pay is a technology provider and acquirers make the approval decisions, but we can help you organise the data they ask for. <a href="/book-a-demo">Book a demo</a> and bring a month of anonymised dispute data to walk through the calculation together.</p>
+
+    <section class="faq" aria-labelledby="faq"><h2 id="faq">Frequently asked questions</h2><details><summary>What is a good chargeback ratio?</summary><p>There is no single safe number. The card scheme thresholds are a ceiling, and your acquiring agreement may set its own lower limits, so ask your acquirer which figures apply to you. The trend and the reasons behind the disputes matter as much as one month’s ratio.</p></details><details><summary>Why does my chargeback ratio differ from the one my acquirer reports?</summary><p>Usually because the inputs differ: which month the denominator comes from, whether fraud reports are included, which card brands and channels are counted, and whether disputes are dated by sale or by receipt. Ask the acquirer for the exact formula and the raw counts behind it.</p></details><details><summary>Do Visa fraud reports count towards the VAMP ratio without a dispute?</summary><p>Yes. Visa’s VAMP ratio counts issuer fraud reports (TC40) as well as disputes (TC15), subject to its published exclusions, such as fraud qualified for Compelling Evidence 3.0. That is why a merchant with modest dispute numbers can still see a higher VAMP ratio.</p></details><details><summary>Does refunding a customer reduce my chargeback ratio?</summary><p>A refund made before the cardholder disputes the payment can prevent a chargeback. Once a dispute has been raised, a refund may not remove it from the count and can lead to paying twice, so check the correct process with your acquirer.</p></details></section>
+    <section class="cta"><div><h2>See it on your own use case</h2><p>A 45-minute working session with the team that runs AQ Pay — no scripted pitch.</p></div><a class="btn" href="/book-a-demo">Book a Demo</a></section>
+    <div class="author"><img src="/aq-mark.svg" alt="" width="44" height="44"><div><strong>AQ Pay Payments Team</strong>The engineers and payment specialists who build and operate AQ Pay's gateway and orchestration platform.</div></div>
+  </div>
+  <aside class="toc" aria-label="On this page"><span class="mono" style="color:var(--faint)">On this page</span><ol><li><a href="#what-a-chargeback-ratio-measures">What a chargeback ratio measures</a></li><li><a href="#how-visa-calculates-the-vamp-ratio">How Visa calculates the VAMP ratio</a></li><li><a href="#how-mastercard-calculates-its-chargeback-ratio">How Mastercard calculates its chargeback ratio</a></li><li><a href="#a-worked-chargeback-ratio-example">A worked chargeback ratio example</a></li><li><a href="#build-a-reporting-view-that-matches-the-acquirer">Build a reporting view that matches the acquirer</a></li><li><a href="#how-to-bring-a-chargeback-ratio-down">How to bring a chargeback ratio down</a></li><li><a href="#a-monthly-chargeback-checklist">A monthly chargeback checklist</a></li><li><a href="#next-step">Next step</a></li><li><a href="#faq">FAQ</a></li></ol><a class="btn" href="/book-a-demo">Book a Demo</a></aside>
+</div></div></div>
+</article>
+<section class="related"><div class="wrap"><h2>Keep reading</h2><div class="grid"><a class="card" href="/blog/start-a-payment-service-provider">
+  <img src="/blog/covers/start-a-payment-service-provider.jpg?v=733160fd" alt="A ticket for a pilot payout shows ten sales, one refund and the resulting £438 payout." width="1200" height="630" loading="lazy" decoding="async">
+  <span class="body"><span class="mono cat">Guides</span><h3>How to start a payment service provider with a one-merchant pilot</h3><p>See how to start a payment service provider with a one-merchant pilot. Map responsibilities, test a refund and reconcile the first payout before expansion.</p>
+  <span class="meta"><time datetime="2026-11-15">15 November 2026</time><span>5 min read</span></span></span></a><a class="card" href="/blog/smart-payment-routing">
+  <img src="/blog/covers/smart-payment-routing.jpg?v=372e3380" alt="A £49 order receipt and its matching refund receipt both identify processor A." width="1200" height="630" loading="lazy" decoding="async">
+  <span class="body"><span class="mono cat">Guides</span><h3>Smart payment routing from the first rule to the first refund</h3><p>Design a smart payment routing pilot with two processors. Use a route worksheet, timeout decision table and refund test before switching live traffic.</p>
+  <span class="meta"><time datetime="2026-11-14">14 November 2026</time><span>5 min read</span></span></span></a><a class="card" href="/blog/what-is-payment-orchestration">
+  <img src="/blog/covers/what-is-payment-orchestration.jpg?v=9225afec" alt="Payment orchestration diagram: one integration routing payments to several providers" width="1200" height="630" loading="lazy" decoding="async">
+  <span class="body"><span class="mono cat">Guides</span><h3>What is payment orchestration — and when do you need it?</h3><p>Payment orchestration explained: how one integration routes payments across multiple PSPs and acquirers, when it pays off, and what to look for.</p>
+  <span class="meta"><time datetime="2026-11-05">5 November 2026</time><span>4 min read</span></span></span></a></div></div></section>
+</main>
+<footer class="ftr"><div class="wrap">
+  <div class="ftr-grid">
+    <div><a class="brand" href="/" aria-label="AQ Pay home"><img src="/aq-pay-logo.svg" alt="" width="164" height="44" style="display:block;flex:none;width:164px;height:44px"></a>
+      <p>White-label gateway, orchestration and merchant services infrastructure for PSPs, platforms and merchants.</p>
+      <div style="display:flex;gap:10px;flex-wrap:wrap"><a class="btn" href="/book-a-demo" style="font-size:14px;padding:10px 18px">Book a Demo</a><a class="btn btn-ghost" href="https://portal.aqpay.services/" target="_blank" rel="noopener" style="font-size:14px">Portal login ↗</a></div></div>
+    <nav aria-label="Solutions"><h3>Solutions</h3><ul><li><a href="/white-label-gateway">White-Label Gateway</a></li><li><a href="/merchant-services">Merchant Services</a></li><li><a href="/high-risk-processing">High-Risk Processing</a></li><li><a href="/payment-orchestration">Payment Orchestration</a></li><li><a href="/about#consulting">Payment Consulting</a></li><li><a href="/industries">Industries</a></li></ul></nav>
+    <nav aria-label="Platform"><h3>Platform</h3><ul><li><a href="/payment-orchestration#routing">Intelligent Routing</a></li><li><a href="/payment-orchestration#connectivity">Gateway Connectivity</a></li><li><a href="/high-risk-processing#chargebacks">Risk &amp; Fraud</a></li><li><a href="/white-label-gateway#operations">Reconciliation</a></li><li><a href="/white-label-gateway#infrastructure">Security</a></li></ul></nav>
+    <nav aria-label="Developers"><h3>Developers</h3><ul><li><a href="/developers">Overview</a></li><li><a href="/developers#quick-start">Quick Start</a></li><li><a href="/api-reference">API Reference</a></li><li><a href="/api-reference#webhooks">Webhooks</a></li><li><a href="/developers#sandbox">Sandbox</a></li></ul></nav>
+    <nav aria-label="Company"><h3>Company</h3><ul><li><a href="/about">About</a></li><li><a href="/blog">Blog</a></li><li><a href="/faq">FAQs</a></li><li><a href="/partner-program">Partner Program</a></li><li><a href="/book-a-demo#contact">Contact</a></li><li><a href="mailto:hello@aqpay.services">hello@aqpay.services</a></li></ul></nav>
+  </div>
+  <div class="ftr-base"><span>Services are subject to industry eligibility, geographic restrictions, underwriting and partner approval. AQ Pay is a technology provider and does not hold or move client funds unless expressly stated in a service agreement.</span>
+    <div class="row"><span>© 2026 AQ Pay LLC. Registered in Nevis. All rights reserved.</span><span style="display:flex;gap:18px"><a href="/privacy">Privacy</a><a href="/terms">Terms</a><a href="/cookies">Cookies</a><a href="/licences">Licences</a><a href="/acceptable-use">Acceptable use</a></span></div></div>
+</div></footer>
+</body>
+</html>
