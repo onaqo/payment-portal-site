@@ -105,9 +105,9 @@
       "cluster": "regulation",
       "intent": "informational",
       "linkTo": "/merchant-services",
-      "status": "todo",
-      "slug": null,
-      "date": null
+      "status": "published",
+      "slug": "rbi-payment-aggregator-guidelines",
+      "date": "2026-11-17"
     },
     {
       "primaryKeyword": "payment gateway in India",
