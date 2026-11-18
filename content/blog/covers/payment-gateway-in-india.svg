@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" font-family="Inter, sans-serif">
+<rect width="1200" height="630" fill="#0F1729"/>
+<image href="/aq-pay-logo.svg" x="54" y="38" width="208" height="48"/>
+<text x="60" y="180" fill="#6E9BFF" font-size="20" letter-spacing="3">INDIA / CHECKOUT FIELD GUIDE</text>
+<g fill="#F4F7FC" font-size="62" font-weight="700"><text x="56" y="265">Put your</text><text x="56" y="338">checkout</text><text x="56" y="411">to the test.</text></g>
+<text x="60" y="475" fill="#AEB9CC" font-size="24">UPI. Cards. The moments in between.</text>
+<path d="M60 545H550" stroke="#6E9BFF" stroke-opacity=".35"/>
+<text x="60" y="578" fill="#AEB9CC" font-size="16" letter-spacing="2">A PRACTICAL MERCHANT ACCEPTANCE CHECKLIST</text>
+<g transform="translate(735 93) rotate(7 160 220)"><rect width="300" height="456" rx="40" fill="#0F1729" stroke="#6E9BFF" stroke-width="3"/><rect x="94" y="17" width="112" height="9" rx="5" fill="#6E9BFF"/><text x="32" y="84" fill="#AEB9CC" font-size="16" letter-spacing="2">TEST ORDER 018</text><text x="32" y="136" fill="#F4F7FC" font-size="40" font-weight="700">₹1,800</text><path d="M30 165H270" stroke="#AEB9CC" stroke-opacity=".3"/><text x="32" y="204" fill="#AEB9CC" font-size="16">PAYMENT STATUS</text><circle cx="47" cy="248" r="11" fill="#E6C27A"/><text x="70" y="255" fill="#E6C27A" font-size="22">Checking…</text><path d="M32 292H232M32 316H192" stroke="#AEB9CC" stroke-opacity=".3" stroke-width="7" stroke-linecap="round"/><rect x="30" y="353" width="240" height="58" rx="12" fill="#6E9BFF"/><text x="150" y="390" text-anchor="middle" fill="#0F1729" font-size="20" font-weight="700">Check existing order</text></g>
+<g transform="translate(635 350)"><rect width="220" height="146" rx="18" fill="#0F1729" stroke="#3DDC97" stroke-width="2"/><text x="24" y="38" fill="#AEB9CC" font-size="15" letter-spacing="1">REHEARSAL LOG</text><g fill="#F4F7FC" font-size="21"><text x="24" y="79">UPI hand-off</text><text x="24" y="117">Card return</text></g><path d="M177 70l7 7 13-16M177 108l7 7 13-16" fill="none" stroke="#3DDC97" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></g>
+</svg>

@@ -117,9 +117,9 @@
       "cluster": "merchant-services",
       "intent": "commercial",
       "linkTo": "/merchant-services",
-      "status": "todo",
-      "slug": null,
-      "date": null
+      "status": "published",
+      "slug": "payment-gateway-in-india",
+      "date": "2026-11-18"
     },
     {
       "primaryKeyword": "chargeback ratio",
