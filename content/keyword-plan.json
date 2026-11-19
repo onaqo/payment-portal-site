@@ -141,9 +141,9 @@
       "cluster": "orchestration",
       "intent": "informational",
       "linkTo": "/payment-orchestration",
-      "status": "todo",
-      "slug": null,
-      "date": null
+      "status": "published",
+      "slug": "payment-cascading",
+      "date": "2026-11-19"
     },
     {
       "primaryKeyword": "high-risk merchant account USA",
