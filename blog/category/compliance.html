@@ -30,7 +30,7 @@
 <link rel="stylesheet" href="/site.css?v=82339017">
 <style>.shared-nav{position:sticky;top:0;z-index:60;min-height:72px}.shared-nav x-dc{display:none}.shared-nav:has(#dc-root header) .nav-fallback{display:none}@media(max-width:959px){.nav-fallback nav{display:none!important}}</style>
 <script defer src="/support.js?v=a05343a5"></script>
-<script src="/fx.js?v=9fbf7df0" data-fx defer></script>
+<script src="/fx.js?v=a26fa99b" data-fx defer></script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Blog","name":"AQ Pay Blog","url":"https://www.aqpay.services/blog","publisher":{"@type":"Organization","@id":"https://www.aqpay.services/#organization","name":"AQ Pay","url":"https://www.aqpay.services","logo":{"@type":"ImageObject","url":"https://www.aqpay.services/aq-mark.svg"},"email":"hello@aqpay.services"},"blogPost":[{"@type":"BlogPosting","headline":"RBI payment aggregator guidelines for choosing an Indian checkout partner","url":"https://www.aqpay.services/blog/rbi-payment-aggregator-guidelines","datePublished":"2026-11-17","image":"https://www.aqpay.services/blog/covers/rbi-payment-aggregator-guidelines.jpg?v=f23a0c7a"},{"@type":"BlogPosting","headline":"PSD2 strong customer authentication: where did the checkout lose the order?","url":"https://www.aqpay.services/blog/psd2-strong-customer-authentication","datePublished":"2026-11-16","image":"https://www.aqpay.services/blog/covers/psd2-strong-customer-authentication.jpg?v=8b9661bd"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.aqpay.services/"},{"@type":"ListItem","position":2,"name":"Blog","item":"https://www.aqpay.services/blog"},{"@type":"ListItem","position":3,"name":"Compliance","item":"https://www.aqpay.services/blog/category/compliance"}]}</script>
 </head>
@@ -169,7 +169,7 @@ class Component extends DCLogic {
   state = { menu: null, mobileOpen: false, mobileGroup: null, isMobile: typeof window !== 'undefined' && window.matchMedia('(max-width: 959px)').matches };
   componentDidUpdate() { if (this._mo !== this.state.mobileOpen) { this._mo = this.state.mobileOpen; document.documentElement.style.overflow = this.state.mobileOpen ? 'hidden' : ''; } }
   componentDidMount() {
-    if (!window.__fx && !document.querySelector('script[data-fx]')) { const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = 'fx.css?v=28e8a3e9'; document.head.appendChild(l); const s = document.createElement('script'); s.src = 'fx.js?v=9fbf7df0'; s.dataset.fx = '1'; document.head.appendChild(s); }
+    if (!window.__fx && !document.querySelector('script[data-fx]')) { const l = document.createElement('link'); l.rel = 'stylesheet'; l.href = 'fx.css?v=28e8a3e9'; document.head.appendChild(l); const s = document.createElement('script'); s.src = 'fx.js?v=a26fa99b'; s.dataset.fx = '1'; document.head.appendChild(s); }
     this.mq = window.matchMedia('(max-width: 959px)'); this.onResize = () => this.setState({ isMobile: this.mq.matches }); this.onResize(); window.addEventListener('resize', this.onResize);
     this.onKey = e => { if (e.key === 'Escape') this.setState({ menu: null, mobileOpen: false }); }; window.addEventListener('keydown', this.onKey);
   }

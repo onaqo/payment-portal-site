@@ -55,7 +55,7 @@
   function needTok() { if (!ftReq && d.querySelector('input[name="hp"]')) getTok(); }
   window.fetch = function (u, o) {
     var url = typeof u === 'string' ? u : (u && u.url) || '';
-    if (!o || String(o.method || 'GET').toUpperCase() !== 'POST' || url.indexOf('/api/contact') < 0) return nativeFetch.apply(window, arguments);
+    if (!o || String(o.method || 'GET').toUpperCase() !== 'POST' || (url.indexOf('/api/contact') < 0 && url.indexOf('/api/chat') < 0)) return nativeFetch.apply(window, arguments);
     var fresh = ftok && Date.now() - ftAt < 5 * 3600e3;
     if (!fresh) ftReq = null;
     var p = fresh ? Promise.resolve(ftok) : getTok().then(function (k) { return new Promise(function (r) { setTimeout(function () { r(k); }, 2700); }); });
