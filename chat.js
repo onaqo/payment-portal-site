@@ -9,7 +9,12 @@
   var state = { sessionId: '', messages: [], captured: false, named: false, form: false, open: false, status: 'AI', agent: '', cursor: '', seen: [], teased: false };
   function load() { try { var s = JSON.parse(sessionStorage.getItem(KEY) || 'null'); if (s && typeof s.sessionId === 'string' && Array.isArray(s.messages)) { for (var k in state) if (s[k] !== undefined) state[k] = s[k]; state.messages = state.messages.slice(-80); state.seen = (state.seen || []).slice(-120); } } catch (e) {} }
   function save() { try { sessionStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
-  function newId() { try { if (crypto.randomUUID) return crypto.randomUUID().replace(/-/g, ''); var a = new Uint8Array(16); crypto.getRandomValues(a); return Array.prototype.map.call(a, function (b) { return ('0' + b.toString(16)).slice(-2); }).join(''); } catch (e) { return 'v' + Date.now().toString(36) + Math.random().toString(36).slice(2) + Math.random().toString(36).slice(2); } }
+  // A conversation id: 32 letters and digits (the portal accepts 32 to 80), however old the browser.
+  var ID_RE = /^[A-Za-z0-9_-]{32,80}$/;
+  function newId() {
+    try { if (crypto.randomUUID) return crypto.randomUUID().replace(/-/g, ''); var a = new Uint8Array(16); crypto.getRandomValues(a); return Array.prototype.map.call(a, function (b) { return ('0' + b.toString(16)).slice(-2); }).join(''); }
+    catch (e) { var s = 'v' + Date.now().toString(36); while (s.length < 32) s += Math.random().toString(36).slice(2); return s.slice(0, 32); }
+  }
   function el(tag, cls, text) { var e = d.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; }
   function json(r) { return r.json().catch(function () { return {}; }).then(function (j) { return { ok: r.ok, body: j }; }); }
   function post(body) { return fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) }).then(json); }
@@ -121,7 +126,8 @@
   var STARTERS = ['What does AQ Pay offer?', 'How do I get started?', 'Is my business eligible?'];
 
   function start(cfg) {
-    load(); if (!state.sessionId) { state.sessionId = newId(); save(); }
+    // An id kept from before ids had to be 32 characters long starts a new conversation.
+    load(); if (!ID_RE.test(state.sessionId)) { state.sessionId = newId(); state.status = 'AI'; state.cursor = ''; save(); }
     // The form has two shapes: 'intro' (name and email, then a person is asked to join) and 'leave' (details for an answer by email).
     if (state.form === true) state.form = 'leave';
     if (state.status === 'WAITING') state.form = false;

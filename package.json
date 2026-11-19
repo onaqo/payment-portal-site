@@ -7,7 +7,8 @@
   },
   "scripts": {
     "covers": "node scripts/render-covers.mjs",
-    "blog": "node scripts/render-covers.mjs && node scripts/build-blog.mjs"
+    "blog": "node scripts/render-covers.mjs && node scripts/build-blog.mjs",
+    "test": "node --test tests/"
   },
   "devDependencies": {
     "@fontsource/inter": "5.0.18",
