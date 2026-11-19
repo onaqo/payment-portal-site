@@ -48,7 +48,21 @@
   try { if (!localStorage.getItem('tpp-cookie-consent')) { var ck = el('div', 'fx-ck'); if (location.pathname.startsWith('/blog')) d.body.prepend(ck); ck.setAttribute('role', 'region'); ck.setAttribute('aria-label', 'Cookie preferences');
     ck.innerHTML = '<p>We count visits without cookies. If you accept, your browser also keeps an id so we recognise a return visit, and Google Analytics loads. Read the <a href="/cookies">Cookie Policy</a>.</p><div><button data-v="all">Accept all</button><button data-v="essential">Essential only</button></div>';
     ck.addEventListener('click', function (e) { var v = e.target.getAttribute && e.target.getAttribute('data-v'); if (!v) return; try { localStorage.setItem('tpp-cookie-consent', v); } catch (x) {} if (v === 'all') loadGTM(); ck.remove(); }); } } catch (x) {}
-  var t; new MutationObserver(function () { clearTimeout(t); t = setTimeout(decorate, 120); }).observe(d.documentElement, { childList: true, subtree: true }); decorate();
+  // Spam protection for the website forms: a short-lived signed token from /api/contact goes with each submission
+  // in the X-AQ-Form header. It is fetched once a form is on the page, and refreshed if the page has been open for hours.
+  var ftok = '', ftAt = 0, ftReq = null, nativeFetch = window.fetch;
+  function getTok() { if (ftReq) return ftReq; ftReq = nativeFetch.call(window, '/api/contact', { cache: 'no-store' }).then(function (r) { return r.json(); }).then(function (j) { ftok = (j && j.t) || ''; ftAt = Date.now(); return ftok; }).catch(function () { ftReq = null; return ''; }); return ftReq; }
+  function needTok() { if (!ftReq && d.querySelector('input[name="hp"]')) getTok(); }
+  window.fetch = function (u, o) {
+    var url = typeof u === 'string' ? u : (u && u.url) || '';
+    if (!o || String(o.method || 'GET').toUpperCase() !== 'POST' || url.indexOf('/api/contact') < 0) return nativeFetch.apply(window, arguments);
+    var fresh = ftok && Date.now() - ftAt < 5 * 3600e3;
+    if (!fresh) ftReq = null;
+    var p = fresh ? Promise.resolve(ftok) : getTok().then(function (k) { return new Promise(function (r) { setTimeout(function () { r(k); }, 2700); }); });
+    return p.then(function (k) { var o2 = Object.assign({}, o), h = new Headers(o.headers || {}); h.set('X-AQ-Form', k || ''); o2.headers = h; return nativeFetch.call(window, u, o2); });
+  };
+  d.addEventListener('focusin', needTok);
+  var t; new MutationObserver(function () { clearTimeout(t); t = setTimeout(function () { decorate(); needTok(); }, 120); }).observe(d.documentElement, { childList: true, subtree: true }); decorate();
   // The chat box (chat.js) shows itself only while the chat is switched on in the sales portal.
   var cs = d.createElement('script'); cs.src = '/chat.js'; cs.defer = true; d.head.appendChild(cs);
   // Visitor analytics (track.js): counts page views through the site's own server. No cookie; see the Cookie Policy.
