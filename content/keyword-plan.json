@@ -165,9 +165,9 @@
       "cluster": "risk",
       "intent": "informational",
       "linkTo": "/payment-orchestration",
-      "status": "todo",
-      "slug": null,
-      "date": null
+      "status": "published",
+      "slug": "3d-secure-2",
+      "date": "2026-11-21"
     },
     {
       "primaryKeyword": "multi-acquirer strategy",
